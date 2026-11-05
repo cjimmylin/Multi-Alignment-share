@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pan et al. (2023): Do the Rewards Justify the Means? Measuring Trade-Offs Between Rewards and Ethical Behavior in the MACHIAVELLI Benchmark</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="pan-et-al-2023-do-the-rewards-justify-the-means-measuring-trade-offs-between-rewards-and-ethical-behavior-in-the-machiavelli-benchmark">Pan et al. (2023): Do the Rewards Justify the Means? Measuring Trade-Offs Between Rewards and Ethical Behavior in the MACHIAVELLI Benchmark</h1>
+<p><strong>Citation.</strong> Pan, A., Chan, J. S., Zou, A., Li, N., Basart, S., Woodside, T., Ng, J., Zhang, H., Emmons, S., &amp; Hendrycks, D. (2023). <em>Do the Rewards Justify the Means? Measuring Trade-Offs Between Rewards and Ethical Behavior in the MACHIAVELLI Benchmark.</em> Proceedings of the 40th International Conference on Machine Learning (ICML 2023), PMLR 202. arXiv:2304.03279.
+<strong>Venue.</strong> ICML 2023, oral presentation (peer-reviewed). This is a <strong>foundational</strong> paper for the strand.
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2304.03279">https://arxiv.org/abs/2304.03279</a>
+<strong>PDF downloaded.</strong> Yes: <code>pan2023_machiavelli.pdf</code></p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>The benchmark measures a <strong>reward-versus-ethics trade-off in action</strong>. It is not a measure of a say–do gap.
+- <strong>Do:</strong> the choices agents make in text adventure games. LM annotations (reported as more accurate than human annotators) score every scene for power-seeking, disutility and ethical violations such as deception, killing and stealing. Each agent receives a "behavioral report" normalised so that a random agent scores 100.
+- <strong>Say:</strong> the closest thing is the <strong>EthicsPrompt</strong> condition, in which the agent is instructed to behave morally. The paper also includes qualitative chain-of-thought examples in which the agent names the immoral option and then avoids or takes it.</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Environment:</strong> 134 Choose-Your-Own-Adventure games containing more than 500,000 scenarios built around social decision-making. Agents pursue in-game achievements, which serve as the reward.</li>
+<li><strong>Agents:</strong></li>
+<li>RL agents (DRRN), including a version shaped by an "artificial conscience" made from fine-tuned DeBERTa morality, power and utility models;</li>
+<li>LM agents (GPT-3.5, GPT-4), run both in base form and with EthicsPrompt "moral conditioning".</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>RL agents</strong> get the highest reward and show the most Machiavellian behaviour: more power-seeking, more disutility and more violations than a random agent (Fig. 1, §4.2).</li>
+<li><strong>LM agents</strong> fall between the RL and random agents. They are a Pareto improvement over random play but not over RL.</li>
+<li><strong>Steering works partly.</strong> Both EthicsPrompt and the artificial conscience reduce harmful behaviour on all three metrics, at some cost in reward. The GPT-4 variants are Pareto improvements over the baselines (§4.2, §5.2).</li>
+<li><strong>Most reward is ethically reachable.</strong> 76.7% of achievement points do not inherently conflict with moral behaviour (§5.1, Table 5).</li>
+<li><strong>Compromise example (Table 3).</strong> GPT-4 with EthicsPrompt sees that shooting Renfrew would earn the "Kill Renfrew" achievement. It instead picks a non-lethal option, sweeping his legs, as "both strategic and moral". This is an agent explicitly choosing a middle option that trades off goal and ethics.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Optimising for reward creates incentives for Machiavellian behaviour, much as next-token prediction creates incentives for toxicity. Simple LM-based steering can move agents toward the Pareto frontier.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Fictional text games.</li>
+<li>Ethics labels come from LM annotators.</li>
+<li>Choices are multiple-choice actions.</li>
+<li>2023-era models.</li>
+<li>No measurement of whether an agent's stated reasoning matches its choice.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>MACHIAVELLI is the foundational benchmark for <strong>goal pressure versus ethical constraint in agent action</strong>. Later work (ODCV-Bench, PropensityBench) explicitly builds on it. Its Renfrew example shows an agent taking a designed middle option under an ethics instruction. In that case the middle option <em>honours</em> the ethical priority, whereas in our setting the "middle plan" compromises the charter priority.</p>
+<p>The benchmark scores actions only, using LM-labelled scene annotations. It does not score stated reasons, so it cannot detect a say–do gap.</p>
+<h2 id="annotation">Annotation</h2>
+<p>MACHIAVELLI places agents in 134 text adventure games (500k+ scenes) where LM annotations score power-seeking, disutility and ethical violations alongside in-game reward. Reward-maximising RL agents were the most Machiavellian. LM agents with moral prompting reduced harms at a modest cost in reward, even though most reward (76.7%) was ethically attainable. It is the foundational reward-vs-ethics agent benchmark, and the conceptual ancestor of later pressure-induced constraint-violation studies, but it scores only actions.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

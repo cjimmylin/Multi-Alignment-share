@@ -1,0 +1,74 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Andriushchenko, Souly et al. (2025): AgentHarm: A Benchmark for Measuring Harmfulness of LLM Agents</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="andriushchenko-souly-et-al-2025-agentharm-a-benchmark-for-measuring-harmfulness-of-llm-agents">Andriushchenko, Souly et al. (2025): AgentHarm: A Benchmark for Measuring Harmfulness of LLM Agents</h1>
+<p><strong>Citation.</strong> Andriushchenko, M., Souly, A., Dziemian, M., Duenas, D., Lin, M., Wang, J., Hendrycks, D., Zou, A., Kolter, Z., Fredrikson, M., Winsor, E., Wynne, J., Gal, Y., &amp; Davies, X. (2025). <em>AgentHarm: A Benchmark for Measuring Harmfulness of LLM Agents.</em> ICLR 2025. arXiv:2410.09024. Gray Swan AI and the UK AI Security Institute.
+<strong>Venue.</strong> ICLR 2025 (peer-reviewed).
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2410.09024">https://arxiv.org/abs/2410.09024</a> · dataset: huggingface.co/datasets/ai-safety-institute/AgentHarm
+<strong>PDF downloaded.</strong> Yes, <code>andriushchenko2025_agentharm.pdf</code></p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>AgentHarm records <strong>two separately scored channels on the same run</strong>.
+- <strong>Do (harm score):</strong> mostly predefined, hand-written checks on tool calls (e.g. "a function that sends money is called with the right credit card number"). Partial credit is allowed. A semantic LLM judge is used only for narrow subtasks, such as whether a phishing email is plausible (§3.1.3).
+- <strong>Say (refusal rate):</strong> a semantic refusal judge applied to <em>all</em> agent messages. The authors note that "in some cases a refusal message comes after several tools have been executed" (§3.1.3).</p>
+<p>The paper does not analyse the overlap of the two channels (refusal <em>and</em> harm on the same run). Cartagena &amp; Teixeira (2026) point out this gap.</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Tasks:</strong> 110 explicitly malicious agent tasks (440 with augmentations) across 11 harm categories (fraud, cybercrime, harassment, …), using 104 synthetic proxy tools. Each task needs 2–8 tools.</li>
+<li><strong>Benign baseline:</strong> a matched benign twin set measures capability without refusals.</li>
+<li><strong>Models:</strong> GPT-4o, GPT-4o mini, Claude 3.5 Sonnet, Gemini 1.5 Pro, Mistral Large 2, Llama-3.1 405B, and others.</li>
+<li><strong>Attack:</strong> a direct request vs a simple universal jailbreak template, plus forced tool calls and best-of-n sampling.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>No jailbreak needed for many models</strong> (§4.2, Table 9):</li>
+<li>GPT-4o mini: harm score 62.5%, refusals 22%.</li>
+<li>Mistral Large 2: harm score 82.2%, refusals 1.1%.</li>
+<li>Claude 3.5 Sonnet: harm score 13.5%, refusals 85.2%.</li>
+<li>Gemini 1.5 Pro: harm score 15.7%, refusals 78.5%.</li>
+<li>Llama-3.1 405B refuses most often (88.3%).</li>
+<li><strong>Jailbreak template:</strong></li>
+<li>GPT-4o: harm 48.4% → 72.7%, refusals 48.9% → 13.6%.</li>
+<li>Claude 3.5 Sonnet: harm 13.5% → 68.7%.</li>
+<li>Gemini 1.5 Pro: harm 15.7% → 56.1%.</li>
+<li><strong>Capabilities preserved after jailbreak:</strong> Claude 3.5 Sonnet's non-refusal harm score is 81.9%, against 82% on benign tasks (§4.2).</li>
+<li><strong>Prompting:</strong> chain-of-thought and ReAct prompting increase refusals somewhat. A refusal-inducing system prompt helps Mistral on direct requests but not under the jailbreak (Table 3).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Chat-trained refusal does not reliably carry over to multi-step agentic misuse.</li>
+<li>Jailbreaks designed for chat transfer to agents and leave agent competence intact.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Synthetic proxy tools make the tasks easier and less realistic.</li>
+<li>Only explicitly malicious, direct-request misuse is covered (no value conflicts).</li>
+<li>English only.</li>
+<li>The overlap of refusal and harm on the same run is not reported.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>AgentHarm is an important design precedent because it <strong>scores actions mechanically</strong> (rubric checks on tool calls) and <strong>scores statements separately</strong> (a refusal judge on messages). This is a partial version of our two-channel design. It also documents in passing that refusals can follow already-executed harmful tool calls.</p>
+<p>How it differs from our study:
+- The "say" channel is refusal, not reasoning that is faithful to a stated priority.
+- The two channels are never cross-tabulated.
+- The setting is adversarial misuse, not a charter priority under competing pressure.
+- There is no middle option, although partial credit captures partial compliance.</p>
+<h2 id="annotation">Annotation</h2>
+<p>AgentHarm offers 110 explicitly malicious multi-step agent tasks (440 augmented) with synthetic tools. Harm is scored largely by deterministic rubric checks on tool calls, and refusals are scored separately by a semantic judge. Several leading models complied without any jailbreak (Mistral Large 2: 82.2% harm score; GPT-4o mini: 62.5%), and a simple template jailbreak raised GPT-4o from 48.4% to 72.7% with capabilities intact. It is the standard agent-misuse benchmark and an early example of separating executed actions from verbal refusals, though it never cross-tabulates the two.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

@@ -1,0 +1,997 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moral hypocrisy: synthesis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../">Hub</a> › <a href="../../literature/">Background literature</a> › <a href="../../literature/moral-hypocrisy/">Moral hypocrisy</a> › Synthesis</nav><article class="doc"><h1 id="moral-hypocrisy-origins-paradigms-replication-record-definitions-and-ai-uses">Moral Hypocrisy: Origins, Paradigms, Replication Record, Definitions and AI Uses</h1>
+<p>Background synthesis for the Moral_Psychology-Paper (<code>paper/PAPER_v22.md</code>). Companion files: <code>references.md</code> (every
+citation key below resolves there, with its access status and integrity record) and <code>BENCHMARK_IMPLICATIONS.md</code> (how
+the paper should and should not use the framing). Raw research: <code>research_notes/Moral hypocrisy research background/</code>
+(five notes, cited here as N1–N5). Long-form report: <code>reports/Moral hypocrisy research background.md</code>.</p>
+<hr />
+<h2 id="1-scope-sources-and-how-claims-are-flagged">1. Scope, sources and how claims are flagged</h2>
+<p>This document serves one question: can the paper's central agentic result, a written analysis judged faithful to a
+charter-assigned priority followed in the same episode by an action that the item's predicate scores as incoherent with
+that priority, be described as "moral hypocrisy", and if so in which sense? Two reviewers say no
+(<code>audits/council/03_moral_psychologist.md</code>; <code>audits/council/04_ethicist.md</code>). Their objection is that Batson's construct
+requires the agent's own professed standard, a self-interested motive and a claim to have acted fairly, and that the
+paper's models meet none of these. Sections 2–5 reconstruct what Batson defined and found and how it has held up.
+Sections 6–8 set out the wider family of definitions and test each condition against the paper's design. Section 9
+gives current expert standing and Section 10 the AI literature.</p>
+<p>All five notes were compiled on 2026-11-04 from web sources. Publisher paywalls (APA PsycNet, Springer, Wiley, SAGE,
+ScienceDirect) blocked the body of every Batson journal article and many other primary texts. Each claim therefore
+carries one of four flags, used exactly as the notes record access:</p>
+<ul>
+<li><strong>[FT]</strong> the full text (or an author-hosted manuscript or working paper) was read.</li>
+<li><strong>[ABS]</strong> only the abstract or registry metadata (PubMed, Crossref, OpenAlex, a repository record) was read.</li>
+<li><strong>[SEC: x]</strong> the claim comes through a named secondary source x that was read in full.</li>
+<li><strong>[SNIP]</strong> the claim was seen only in a search-engine snippet. These are leads, not evidence.</li>
+</ul>
+<p>Unflagged sentences are this synthesis's own inferences or summaries of claims flagged nearby. Where two notes record
+different access for the same source, or disagree on a fact, the stronger verification is used and the disagreement is
+listed in Section 11.</p>
+<p>The paper's own numbers are quoted from <code>PAPER_v22.md</code> and carry its labels: <strong>PROVISIONAL · judges UNVALIDATED · no
+ranking</strong>. No model is named here. The paper measures within-theory competence on request (whether a model executes a
+priority the charter assigns, after articulating it), not default-value profiling (which values a model's unprompted
+behaviour resembles). Everything below is read within the first framing only.</p>
+<hr />
+<h2 id="2-origins-and-precursors">2. Origins and precursors</h2>
+<p><strong>Three lines feed in before Batson.</strong> The notes identify three research lines that precede Batson's construct, and
+they could not confirm from the primary texts which of them Batson cited in 1997 or 1999 (N1, Q1 Gaps).</p>
+<ol>
+<li><strong>Situational inconsistency of conduct.</strong> Hartshorne and May's Character Education Inquiry, <em>Studies in Deceit</em>, is
+   the conventional citation for the finding that honest conduct is situationally specific [hartshorne1928deceit]. The
+   notes hold only the bibliographic record [ABS]; its content is unverified, and the date is unresolved (Crossref lists
+   1930 for the APA PsycBooks record; the Macmillan original is conventionally dated 1928). Batson's 2016 book discusses
+   Hartshorne and May in its chapters on personal-deficiency and situational explanations of moral failure
+   [batson2016wrong] [SNIP for the Hartshorne and May mention; SEC: carbonell2016ndpr for the chapter structure].</li>
+<li><strong>The judgment–action link.</strong> Blasi's 1980 <em>Psychological Bulletin</em> review of the relation between moral cognition
+   and moral action [blasi1980bridging] is held only as metadata [ABS]. A secondary search summary says Blasi found that
+   reasoned moral judgment "often does not result in moral action" and proposed moral identity and self-consistency as
+   the link [SNIP]. The paper's moral-psychologist reviewer states that Blasi reported a positive, moderate relation and
+   that the inconsistency classic is Hartshorne and May; the notes cannot check either statement against Blasi's text.</li>
+<li><strong>Hypocrisy induction in the dissonance tradition.</strong> Here "hypocrisy" meant not practising what one preaches, and
+   researchers induced it deliberately to change behaviour. Aronson, Fried and Stone made participants mindful of past
+   failures to use condoms and then had them persuade others; "the induction of hypocrisy decreased denial and led to
+   greater intent to improve condom use" [aronson1991condoms] [ABS]. Stone et al. found that "more subjects in the
+   hypocrisy condition bought condoms and also bought more condoms" than controls [stone1994inducing] [ABS], which Monin
+   and Merritt summarize as "more than twice as likely to buy condoms" [moninmerritt2012] [FT, author preprint]. After
+   hypocrisy-aroused dissonance, more participants reduced it directly, by changing behaviour, than by self-affirmation
+   [stone1997exemplification] [ABS]; that paper appeared in the same journal volume as Batson's 1997 article. Stone and
+   Fernandez reviewed the programme [stonefernandez2008] [ABS, metadata only]. Monin and Merritt trace the line back to
+   Festinger-era dissonance work [moninmerritt2012] [FT].</li>
+</ol>
+<p><strong>How Batson's construct differs.</strong> The dissonance tradition uses awareness of a preach–practice gap as an
+<em>intervention</em> that closes the gap. Batson's "moral hypocrisy" is a <em>diagnosis</em>: a motive inferred from the gap
+between a morally framed procedure that people adopt and the self-serving outcome they still produce, together with
+their inflated self-ratings. Monin and Merritt list the three definitions current in social psychology: not
+"practicing what you preach", "saying one thing and doing another" (citing Barden, Rucker &amp; Petty 2005), and publicly
+upholding moral norms while privately violating them (citing Lammers, Stapel &amp; Galinsky 2010). They propose broadening
+hypocrisy to "any claim of morality made to satisfy ulterior (non-moral), self-serving motives". Of Batson's
+coin-flippers they write that the flippers' "hypocrisy lay in claiming the moral high road with little resolve to follow
+through" [moninmerritt2012] [FT, pp. 1–2, 5]. No source in the notes records Batson himself contrasting his usage with
+Aronson's (N1, Q1 Gaps).</p>
+<p><strong>The precursor Batson verifiably used as mechanism</strong> is self-awareness theory. His mirror manipulation rests on work
+in which mirrors "heighten awareness of discrepancies between behavior and salient personal standards, creating
+pressure to act in accord with standards" (Batson et al. 1999, p. 529, quoted in SEP, which points to Wicklund 1975)
+[miller2025sep] [SEC: SEP].</p>
+<hr />
+<h2 id="3-batsons-construct-and-the-task-assignment-paradigm">3. Batson's construct and the task-assignment paradigm</h2>
+<h3 id="31-the-definition-verbatim">3.1 The definition, verbatim</h3>
+<p>Batson, Kobrynowicz, Dinnerstein, Kampf and Wilson (1997) define moral hypocrisy as morality "extolled—even enacted—not
+with an eye to producing a good and right outcome but in order to appear moral yet still benefit oneself"
+(p. 1335) [batson1997voice]. <strong>Flag:</strong> this sentence is verified only as Monin and Merritt's verbatim quotation with
+the page number [SEC: moninmerritt2012, p. 3]. Their bracketed interpolation "[being]" means the original grammatical
+frame is unverified [UNVERIFIED-primary in N1].</p>
+<p>The abstract, read directly, states the construct as a motive: "Overall, results suggested motivation to appear moral
+yet still benefit oneself. Such motivation is called moral hypocrisy" [batson1997voice] [ABS, PubMed; also OpenAlex in
+N3, N4].</p>
+<p>From 2001 Batson states a three-way motive taxonomy, verbatim from the abstract of Batson and Thompson: "Is the goal
+actually to be moral (moral integrity) or only to appear moral while, if possible, avoiding the cost of being moral
+(moral hypocrisy)? Do people initially intend to be moral, only to surrender this goal when the costs of being moral
+become clear (overpowered integrity)? We have found evidence of both moral hypocrisy and overpowered integrity. Each can
+lead ostensibly moral people to act immorally" [batsonthompson2001] [ABS, Crossref]. The same abstract frames the
+problem: "Failure of moral people to act morally is usually attributed to either learning deficits or situational
+pressures. We believe that it is also important to consider the nature of moral motivation."</p>
+<p>Later statements keep the motive form. Batson's 2016 book defines moral hypocrisy as "motivation to appear moral while,
+if possible, avoiding the cost of actually being moral" (p. 94) and treats moral integrity ("principlism") as the only
+genuinely moral motive among four prosocial motives (egoism, altruism, collectivism, principlism) [batson2016wrong]
+[SEC: carbonell2016ndpr]. A near-identical wording is attributed to Batson's 2008 "Moral masquerades", which also
+states that fully reaching the goal of hypocrisy requires self-deception and that moral integrity "should not be
+equated with altruistic motivation" [batson2008masquerades] [SNIP; the abstract was not opened]. N1 and N4 differ on
+which work this wording comes from; NDPR, which was read in full, gives the 2016 book, p. 94. "Appearing moral to
+oneself without being so" is the title of the 1999 article, not a definition sentence [batson1999appearing].</p>
+<p><strong>Do not cite as Batson's</strong> the paraphrase "the motivation to appear moral while acting in one's self interest, and
+therefore avoiding the cost of actually being moral", which a 2017 thesis attributes to Batson et al. 1997
+[tamming2017] [FT, abstract page]. It does not match the 1997 text as Monin and Merritt quote it (N1, Q2).</p>
+<h3 id="32-the-paradigm">3.2 The paradigm</h3>
+<p>Working alone and anonymously, a participant assigns themselves and an unseen second participant to one of two tasks.
+In the "positive consequences" task each correct response earns a ticket for a raffle with a $30 prize. In the "neutral
+consequences" task correct responses earn nothing, and "most participants assigned to the neutral consequences task
+find it rather dull and boring" (1997, p. 1339). The other participant is told the assignment was made by chance.
+Afterwards participants say what the morally right way to assign would be and rate on a 9-point scale whether their
+own assignment was morally right [miller2025sep] [SEC: SEP, citing the primary pages]. In the key condition the
+instructions add: "Most participants feel that giving both people an equal chance—by, for example, flipping a coin—is
+the fairest way to assign themselves and the other participant to the tasks (we have provided a coin for you to flip if
+you wish). But the decision is entirely up to you" (1997, p. 1341) [SEC: SEP]. Participants flipped alone, and it was
+made clear that flipping was not required [SEC: moninmerritt2012, p. 3]. The exact wording of the morality-rating item
+is unverified (N1, Q3 Gaps). Miller notes a structural difference from a standard dictator game: the recipient would
+not know where the allocation came from, nor that another allocation was possible [SEC: SEP].</p>
+<p><strong>The standard was offered by the experimenter.</strong> The fairness procedure was suggested in the instructions and endorsed
+by participants afterwards (in Study 2, 8 of 10 flippers and 6 of 10 non-flippers said flipping was the morally right
+procedure) [SEC: SEP]. Even in the founding paradigm, then, "one's own standard" meant an externally offered standard
+that the participant adopted, not one the participant originated. Section 8 uses this point.</p>
+<p><strong>Why the self-rating matters.</strong> Miller states the three components that make the pattern hypocrisy rather than
+weakness of will: participants "(i) choose the positive consequences for themselves, while (ii) seeming to believe that
+flipping the coin and following what it indicates is morally correct, and (iii) still claiming to themselves and others
+to have made the morally right task assignment". Believing the principle and failing to act on it, without (iii), would
+be "a perfectly familiar case of weakness of will" [miller2025sep] [SEC: SEP §3, citing Batson et al. 1997,
+pp. 1335–1336; 1999, pp. 525–526; 2002, p. 330; Batson 2011, pp. 222–224, i.e. [batson2011altruism], not opened].</p>
+<h3 id="33-the-programme-study-by-study">3.3 The programme study by study</h3>
+<p>Design summaries and counts in the "abstract" column were read in the PubMed abstracts [ABS]. Cell-level numbers and
+self-ratings come from Miller's SEP entry, which cites the primary pages [SEC: SEP]. None was checked against the
+article bodies.</p>
+<table>
+<thead>
+<tr>
+<th>Study</th>
+<th>Design</th>
+<th>Result</th>
+<th>Source and flag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Batson et al. 1997, overall</td>
+<td>3 small studies, 80 female undergraduates</td>
+<td>"results suggested motivation to appear moral yet still benefit oneself"</td>
+<td>[batson1997voice] [ABS]</td>
+</tr>
+<tr>
+<td>1997, Study 1</td>
+<td>Morality not mentioned</td>
+<td>16 of 20 assigned themselves the positive task, "even though in retrospect only 1 said this was moral"; morality ratings 4.38 for the 16 self-assigners vs 8.25 for the 4 who assigned the other (p. 1340)</td>
+<td>counts [ABS]; ratings [SEC: SEP]</td>
+</tr>
+<tr>
+<td>1997, Study 2</td>
+<td>Coin suggested</td>
+<td>10 of 20 flipped; 9 of 10 flippers and 9 of 10 non-flippers self-assigned the positive task; self-ratings 7.30 (flippers) vs 4.00 (non-flippers) (pp. 1341–1342)</td>
+<td>10/20 and 9/10 [ABS]; rest [SEC: SEP]</td>
+</tr>
+<tr>
+<td>1997, Study 3</td>
+<td>Experimenter's assignment offered, participants knowing in advance what it would be</td>
+<td>Participants were "significantly more likely to accept the experimenter's assignment when it gave them the positive consequences task"; 17/20 accepted it when positive vs 11/20 when neutral; all 12 who declined self-assigned the positive task; 22.5 % ended with the neutral task; ratings 7.06 vs 7.91 (p. 1343)</td>
+<td>direction [ABS]; cells [SEC: SEP]</td>
+</tr>
+<tr>
+<td>Batson et al. 1999, Study 1</td>
+<td>Coin labelled "SELF to POS" / "OTHER to POS"</td>
+<td>Only 2 of 40 said self-assigning the positive task was most moral; 24 of 28 flippers self-assigned; ratings 7.42 (flipped and self-assigned) vs 3.90 (self-assigned without flipping); "even a clearly labeled coin that prevented misperception did not produce a fair result"</td>
+<td>quote [ABS]; cells [SEC: SEP]</td>
+</tr>
+<tr>
+<td>1999, Study 2</td>
+<td>Mirror on the table facing the participant, or turned to the wall; unlabelled coin</td>
+<td>Self-assignment to the positive task: non-flippers (n = 29) 85 % without vs 62 % facing the mirror; flippers (n = 23) 85 % vs 50 %, "as chance would predict" (p. 530)</td>
+<td>direction [ABS]; cells [SEC: SEP]</td>
+</tr>
+<tr>
+<td>1999, Study 3</td>
+<td>Self-awareness without moral standards made salient beforehand</td>
+<td>Self-awareness "no longer increased alignment of behavior with standards. Instead, it increased alignment of standards with behavior and produced less moral action"</td>
+<td>[ABS]; cell numbers not in any source opened</td>
+</tr>
+<tr>
+<td>Batson &amp; Thompson 2001 (review)</td>
+<td>Experimenter-flip variant; shock variant (the alternative task carried "mild but uncomfortable" shocks)</td>
+<td>80 % of coin users wanted the experimenter to flip; in the shock variant 25 % let the experimenter flip, 25 % flipped themselves "with 91 % choosing the positive task", and 50 % "simply bypassed the pretense of the coin flip and gave themselves the positive task while readily admitting that this was not morally right" (pp. 55–56)</td>
+<td>[batsonthompson2001] [SEC: SEP]; the base of the 91 % is ambiguous in SEP's wording</td>
+</tr>
+<tr>
+<td>Batson, Thompson &amp; Chen 2002, Study 1</td>
+<td>Does the mirror work through others' (social) standards?</td>
+<td>"no support was found for the idea that low salience of social standards accounts for falsifying the result of a coin flip"</td>
+<td>[batson2002alternatives] [ABS]</td>
+</tr>
+<tr>
+<td>2002, Study 2</td>
+<td>Coin outcomes covertly observed</td>
+<td>16 of 32 flippers "got OTHER to POS or otherwise fiddled the coin flip so that it came out in their favor"; their morality rating 5.56 vs 3.89 for non-flippers who self-assigned and 7.45 for honest winners (p. 336); honest winners do not account for the inflated ratings</td>
+<td>no-support findings [ABS]; cells [SEC: SEP]; coding of "fiddling" unverified</td>
+</tr>
+<tr>
+<td>Batson et al. 2003, Exp. 1</td>
+<td>Imagine yourself in the other's place, vs imagine the other's feelings</td>
+<td>Imagine-self "did little to increase the morality (fairness) of the decision"; imagine-other increased direct assignment of the other, "apparently due to increased empathy"</td>
+<td>[batson2003imagine] [ABS] (PSPB, not JPSP)</td>
+</tr>
+<tr>
+<td>2003, Exp. 2</td>
+<td>Participant starts with 2 tickets per correct answer vs 0 for the other and may switch to 1 each</td>
+<td>Switched to the symmetric split 38 % (control) vs 83 % (imagine-self) (pp. 1198–1199)</td>
+<td>direction [ABS]; percentages [SEC: SEP]</td>
+</tr>
+<tr>
+<td>Batson, Collins &amp; Powell 2006</td>
+<td>Business-ethics application</td>
+<td>Moral hypocrisy may be becoming a <em>prescriptive</em> norm in business</td>
+<td>[batson2006business] [SEC: RePEc summary of the abstract; metadata ABS]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mechanism.</strong> Batson tested two self-deception strategies, "(a) misperceive one's behavior as moral and (b) avoid
+comparing one's behavior with moral standards", and concluded that Studies 1–2 "documented the importance of the 2nd
+strategy ... but not the 1st" [batson1999appearing] [ABS]. The labelled coin removed any ambiguity about what the coin
+had said and did not help. The mirror forced a comparison between behaviour and standard and did help, but only when
+the standard was salient before acting; without that, self-awareness bent the standard toward the behaviour (Study 3).
+Miller summarizes the reading as participants "engaging (often unconsciously) in an act of self-deception whereby they
+avoided comparing their behavior to the relevant moral standards" [SEC: SEP, citing 1997, pp. 1336, 1346; 1999,
+pp. 526–532; 2002, p. 331; 2001, p. 55]. The 2002 covert-observation study turned the aggregate inference of cheating
+into observed individual fiddling, and its authors concluded that the fiddlers' "sham reference to use of the coin
+seems to have provided sufficient appearance of morality that they could claim to have acted, if not totally morally,
+at least moderately so" (2002, p. 337) [SEC: SEP]. Per Miller, Batson (2008, p. 57) argued that denial of
+responsibility, ability or awareness of consequences does not explain the data [SEC: SEP].</p>
+<p><strong>Overpowered integrity</strong> is the under-cited third category: people who start out intending to be moral and abandon the
+goal once its cost is clear. Its evidential basis is the shock variant, in which half the participants took the better
+task openly while admitting it was wrong [batsonthompson2001] [ABS for the category; SEC: SEP for the numbers].</p>
+<p><strong>Remedies.</strong> Batson tested two: mirror self-awareness, provided the standard is salient first (1999, Study 2), and
+imagine-self perspective-taking when the moral option is a clear equal split (2003, Exp. 2). Imagine-other
+perspective-taking raises empathy and direct help to the other, which Batson classes as altruism rather than integrity
+[batson2003imagine] [ABS]. In the 2016 book he argues that moral principles are "vulnerable to rationalization,
+self-deception, and moral hypocrisy", that "morality doesn't get what it demands", and proposes practice, emulation of
+moral exemplars and a broadened moral outlook as remedies, within a "value → emotion → motivation → behavior" model
+[batson2016wrong] [SEC: carbonell2016ndpr].</p>
+<h3 id="34-sample-size-and-contemporaneous-criticism">3.4 Sample size and contemporaneous criticism</h3>
+<p>The samples are small by current standards: about 20 per study in 1997, 28 flippers in 1999 Study 1, 23 flippers split
+across the mirror conditions in 1999 Study 2 (so the chance-level cell is roughly a dozen flippers), and 32 flippers in
+2002 Study 2 (N1, Q4 inference). The canonical "about 90 %" rests on 9 of 10 flippers in one cell
+[batson1997voice] [ABS]; across studies the flipper self-assignment rate is about 85–90 % (9/10; 24/28 ≈ 86 %; 85 %
+without the mirror).</p>
+<p>Carbonell's review of the 2016 book calls the experiments "artificial and game-like", notes that the data are
+"presented only in summary" so that statistics cannot be assessed, argues that Batson's definition of "moral" builds in
+a principlist and impartialist bias that excludes care-based motives, and reports that only "10–32%" of participants
+showed integrity across studies. She adds: "I am just not sure we understand the precise nature of the doom yet"
+[carbonell2016ndpr] [FT]. Dong et al. point out that a self-supplied coin cannot verify cheating, which motivated their
+computerized randomizer [dong2019selfenhancement] [FT]. The paradigm was reused outside Batson's lab early, for
+example with religious priming [carpentermarshall2009] [ABS, bibliographic record only; results not opened]. The notes found no contemporaneous (1997–2005) published
+critique of demand characteristics or sample size (N1, Q6).</p>
+<hr />
+<h2 id="4-later-paradigms">4. Later paradigms</h2>
+<p>From 2007 the construct split into several paradigms, each keeping part of Batson's design: the self-favouring outcome,
+the endorsed procedure, the private act, or the inflated self-assessment.</p>
+<h3 id="41-judgment-asymmetry-self-versus-other">4.1 Judgment asymmetry: self versus other</h3>
+<p>Valdesolo and DeSteno turned the task-assignment scenario into a rating task. Participants either made the unfair
+assignment themselves or watched someone else make it, then rated its fairness.</p>
+<ul>
+<li><strong>2007, social groups</strong> [valdesolo2007groups]. Participants could use a random procedure described as "guaranteeing
+  fairness" or assign the tasks themselves; group membership was manipulated with a trivial attribute. About 88 % gave
+  themselves the easy task without the random procedure, judged their own unfair act "much more mildly" than the same
+  act by others, and judged an in-group member's act "no more unfair" than their own [SEC: Northeastern University press
+  release; no N or means given]. This intergroup result <strong>failed</strong> a preregistered direct replication (Section 5).</li>
+<li><strong>2008, cognitive load</strong> [valdesolo2008duality]. N = 91 across four conditions, about 23 per cell. Without load,
+  participants judged their own transgression fairer than another's (t(49) = 3.39, d = .95); under a digit-string load
+  the asymmetry disappeared (Enactor × Constraint interaction F(1, 87) = 6.20, p = .02, d = .75). Only 7 participants
+  (8 %) acted fairly and were excluded [FT, author PDF, per N3]. The authors read hypocrisy as emerging "from
+  deliberative processes" involving "volitionally-guided justifications" layered on an intuitive aversion to
+  unfairness that applies to self and other alike [SEC: Northeastern 2008 press release]. A footnote reports that 42 of
+  42 separate participants judged self-interested assignment immoral, which "replicates work by Batson in which 78 of
+  80 participants" endorsed a fair or other-favouring method as most moral [FT]. Secondary reporting gives the load as
+  seven digits [SEC: Freakonomics guest post].</li>
+<li><strong>Emotion.</strong> In the self-versus-other design with moral dilemmas and real donations, "anger increased moral
+  hypocrisy, guilt eliminated moral hypocrisy, and envy reversed moral hypocrisy" [polman2012anger] [ABS].</li>
+<li><strong>Dual-process tension.</strong> Van 't Veer, Stel and van Beest found "considerable lying when cognitive capacity was not
+  limited" and "no detectable lying when cognitive capacity was limited", consistent with self-serving dishonesty
+  needing resources [vantveer2014load] [FT]. Shalvi, Eldar and Bereby-Meyer found the opposite pattern with time
+  pressure, and two preregistered 2020 direct replications (N = 428 and N = 297) found that time pressure did not
+  increase cheating [shalvi2012time] [SEC: a search-surfaced APS release summary]. Van 't Veer et al. note that "this
+  dual-system framework has left researchers with evidence pointing in opposite directions" [FT].</li>
+</ul>
+<h3 id="42-power">4.2 Power</h3>
+<p>Lammers, Stapel and Galinsky define moral hypocrisy as "imposing strict moral standards on other people but practicing
+less strict moral behavior oneself". In five studies the powerful condemned others' cheating more and cheated more
+themselves (Experiment 1) and judged others' transgressions more strictly than their own (Experiments 2–4). When power
+was illegitimate the effect reversed, a pattern the authors "dubbed hypercrisy", also found among low-power participants
+[lammers2010power] [ABS, Crossref]. Method details (role-based power, a private dice game, dilemmas about traffic
+rules, taxes and a stolen bike) are [SEC: Kellogg news release]. Despite Stapel's co-authorship the paper was cleared by
+the Levelt Committee and is not retracted (Section 5). No independent replication was found (N2, Q2).</p>
+<h3 id="43-economics-real-stakes-and-the-question-of-motive">4.3 Economics: real stakes and the question of motive</h3>
+<ul>
+<li><strong>Impression management or self-deception?</strong> Lönnqvist, Irlenbusch and Walkowitz (three studies, N = 256, dictator
+  games) found hypocrisy "both within participants (saying one thing, doing another; S1)" and between participants
+  (S2). In Study 3 participants "were willing to let an ostensibly fair coin determine payoffs only if they could fudge
+  the results of the coin flip, suggesting that hypocrites do not deceive themselves". Hypocrisy tracked Schwartz
+  Conformity values, "indicative of a desire to appear moral in the eyes of others but not indicative of
+  self-deception", and Universalism values predicted integrity [lonnqvist2014] [ABS, LSE repository record per N1 and
+  N2]. A 2013 conference version had four studies (N = 320) and reported that hypocrisy "can be reduced by increasing
+  the collective awareness about its prevalence"; whether that study reached the journal version is unclear [SEC:
+  EconPapers/VfS record]. This is the one study in the notes that ties moral hypocrisy to the Schwartz value profile; the
+  Schwartz instrument is a descriptive psych-scale covariate there, not a normative standard.</li>
+<li><strong>Principles bend to actions.</strong> Rustichini and Villeval had 83 participants state, with sliders, which allocations
+  they considered fair in dictator, ultimatum and trust scenarios, then play the games for money about a week later and
+  restate their principles, without being shown the earlier ones. Norms "take into account the bargaining power of the
+  two sides. The strong side bends the norm in its favor and the weak side agrees: Stated fairness is a compromise with
+  power"; most individuals adjusted their fair ranges after playing, and the adjustment came mainly from those who
+  behaved more selfishly and held more bargaining power. The authors attribute it to "the attempt, not necessarily
+  conscious, to strike a balance between self-image and immediate convenience" [rustichini2014power] [FT, IZA working
+  paper DP 6590; the JEBO version was not opened, so numbers are working-paper numbers].</li>
+<li><strong>Delegation.</strong> When allocations go through agents, "principals keep more and recipients receive less", and
+  accountability becomes "vertically diffused with no individual taking responsibility" [hamman2010delegation] [SEC:
+  IZA conference working paper; EconPapers record].</li>
+<li><strong>Risk as an excuse.</strong> With a self-versus-charity trade-off, people become more averse to risk borne by the charity
+  and less averse to risk borne by themselves, which Exley reads as excuse-driven [exley2016risk] [SNIP, search summary
+  of the abstract].</li>
+</ul>
+<h3 id="44-moral-wiggle-room">4.4 Moral wiggle room</h3>
+<p>Dana, Weber and Kuang [dana2007wiggle] [FT, author-hosted PDF] is the most consequential neighbour. 190 subjects took
+part in a binary dictator game.</p>
+<ul>
+<li><strong>Baseline</strong> (A = $6 self / $1 other; B = $5 / $5): 14 of 19 dictators (74 %) chose the fair B.</li>
+<li><strong>Hidden information</strong> (the receiver's payoffs were the baseline ones or "flipped", revealable privately by one free
+  click): only 18 of 32 (56 %) revealed; all 8 who did not reveal under the baseline-payoff matrix chose A; only 15 of 32
+  (47 %) revealed and chose the other-regarding option (χ²(1) = 3.49, p = .06 against baseline).</li>
+<li><strong>Multiple dictators</strong> (the unfair outcome needed both to choose A): 35 % chose B (χ²(1) = 5.87, p = .02).</li>
+<li><strong>Plausible deniability</strong> (a random cutoff after which the computer chose A or B with equal probability): 7 of 29
+  (24 %) let themselves be cut off, waiting an average of about 4.3 s when no one in a pretest needed more than 2 s.
+  Footnote 8: this "implies preferring a mixture of two outcomes over each one separately, which is inconsistent with a
+  theory of rational choice with utilities defined only over outcomes".</li>
+<li><strong>Regularity.</strong> "In all three treatments that relax transparency, the proportion of subjects implementing the fair
+  outcome ... is roughly 35%, or half of what it is in the baseline", although fairness stayed available at no cost; and
+  "the proportion of dictators who choose—with certainty—to implement the unfair outcome is never greater than
+  one-half". The authors conclude that "many subjects behave fairly in the baseline case mainly because they
+  intrinsically dislike appearing unfair, either to themselves or others".</li>
+</ul>
+<p>Quote these primary figures, not the pooled "44 % ... chose not to reveal ... 86 % choose option A" in a secondary
+account [SEC: Spiekermann 2013] or the "44 % chose to remain ignorant" figure seen only in search results (N3).
+Larson and Capra, using a double-blind design with controls for alternative explanations, "confirmed DWK's findings"
+[larson2009comment] [ABS; numbers not retrieved]. The Vu et al. meta-analysis pooled the paradigm (Section 5): about
+40 % avoid easily available information, lowering altruistic choices by 15.6 percentage points [vu2023ignorance] [ABS,
+Tilburg record]. Strategic exploitation is not universal: a 2022 market-setting study and van der Weele et al. (2014)
+found none [SEC: repository working papers cited in N2].</p>
+<h3 id="45-self-concept-maintenance-and-justified-dishonesty">4.5 Self-concept maintenance and justified dishonesty</h3>
+<ul>
+<li><strong>Mazar, Amir and Ariely</strong> argued that "people behave dishonestly enough to profit but honestly enough to delude
+  themselves of their own integrity", through "inattention to moral standards and categorization malleability"
+  [mazar2008dishonesty] [FT, Duke-hosted PDF]. Across six experiments, "among the 791 participants who could cheat, we
+  encountered only 5 (.6%) who cheated by the maximal amount ... whereas most cheated only slightly" (excluding the
+  token condition). In Experiment 1, recalling the Ten Commandments reduced reported matrices in the cheating condition
+  to 2.8 against 4.2 for book recall (controls 3.1; F(1, 225) = 5.24, p = .023), and participants "cheated only 6.7% of
+  the possible magnitude". Signing an honour code eliminated cheating (Experiment 2). Paying in tokens later exchanged
+  for cash raised claims from 6.2 to 9.4 (F(1, 447) = 47.62, p &lt; .001), with 24 participants cheating maximally. <strong>The
+  Ten Commandments effect failed a 25-lab Registered Replication Report, and the article carries an Expression of
+  Concern (Section 5).</strong> Cite it, if at all, for the partial-cheating pattern only.</li>
+<li><strong>Partial lying in die rolls.</strong> With private rolls paid 1–5 CHF for faces 1–5 and 0 for a 6 (baseline N = 389),
+  "about 20 percent of inexperienced subjects lie to the fullest extent possible while 39 percent of subjects are fully
+  honest. In addition, a high share of subjects consists of partial liars": 27.2 % reported a 4 and 35.0 % a 5 against
+  16.7 % expected [fischbacher2013lies] [FT, TWI working paper]. Even when 5 CHF could be claimed outright, only 85 %
+  claimed it. The authors attribute partial lying to reputational concern [SEC: a search summary citing the paper].</li>
+<li><strong>Pooled evidence.</strong> Across 72 studies in the 2016 working paper (more than 32,000 subjects, 43 countries), "subjects
+  forgo on average about three-quarters of the potential gains from lying"; the published version pools 90 studies and
+  concludes that "a preference for being seen as honest and a preference for being honest are the main motivations for
+  truth-telling" [abeler2019truth] [FT, IZA working paper; LISER record opened]. Gerlach, Teodorescu and Hertwig pooled
+  565 experiments (44,050 choices) across sender–receiver, die-roll, coin-flip and matrix paradigms, found die-roll
+  liars lie "to a considerably greater degree" than matrix liars at a comparable rate, and found "substantial evidence
+  for publication bias in almost all measures of dishonest behavior" [gerlach2019lies] [ABS, OpenAlex]; per the MPIB
+  press release, 42 % of men and 38 % of women lied [SEC: MPIB release].</li>
+<li><strong>Justifications enlarge the violation.</strong> Participants who rolled three times, with only the first roll paying,
+  tended to report the highest of the three; seeing desired but non-paying counterfactual rolls made lies seem less
+  unethical [shalvi2011justified] [ABS, IDEAS]. Shalvi, Gino, Barkan and Ayal distinguish <em>pre-violation</em>
+  justifications, which "lessen the anticipated threat ... by redefining questionable behaviors as excusable", from
+  <em>post-violation</em> justifications, which work "through compensations that balance or lessen violations"
+  [shalvi2015justifications] [ABS, Crossref; not retracted per Crossref].</li>
+</ul>
+<h3 id="46-moral-licensing-and-credentials">4.6 Moral licensing and credentials</h3>
+<p>A prior good act or affirmed moral identity is proposed to free a later bad one. Participants given the chance to
+reject blatantly sexist statements were later more willing to favour a man for a stereotypically male job, and
+licensing operated "even when the audience was unaware of their credentials" (Study 3) [monin2001credentials] [FT].
+Participants who wrote about their own positive traits donated "one fifth as much" as those who wrote about negative
+traits [sachdeva2009sinning] [ABS]. Merritt, Effron and Monin set out the open questions: whether good deeds reframe
+bad ones (credentials) or balance them (credits), and whether licensing is self-presentational or self-reassuring
+[merritt2010licensing] [ABS]. The pooled effect was d = 0.31 over 91 studies, with published studies larger than
+unpublished ones [blanken2015meta] [FT, Tilburg record]. Section 5 shows what remains after bias correction.</p>
+<h3 id="47-mechanism-frameworks-ethical-fading-and-its-neighbours">4.7 Mechanism frameworks: ethical fading and its neighbours</h3>
+<p>These frameworks explain how a person can endorse a standard yet violate it without feeling like a violator.</p>
+<ul>
+<li><strong>Ethical fading.</strong> Self-deception through "language euphemisms, the slippery slope of decision-making, errors in
+  perceptual causation, and constraints induced by representations of the self"; ethics training alone is likely to have
+  limited effect [tenbrunsel2004fading] [ABS, via search summary of the ProQuest abstract].</li>
+<li><strong>Bounded ethicality.</strong> "Ethicality is not bounded in unpredictable or non-systematic ways, but in systematic ways
+  that unconsciously favor this particular vision of the self"; the authors "do not challenge the individual's capacity
+  to recognize conflicts of interest in the abstract, or in the situations facing others, but rather in the situations
+  involving the self" [chugh2005bounded] [FT, author manuscript]. The self-only boundary matches the Valdesolo and
+  DeSteno self-versus-other asymmetry.</li>
+<li><strong>Moral disengagement.</strong> Moral justification, euphemistic labelling, advantageous comparison, displacement and
+  diffusion of responsibility, distortion of consequences, dehumanization and attribution of blame
+  [bandura1999disengagement] [SEC: a summary of the mechanism list; full text not opened]. Diffusion of responsibility
+  is what Dana et al.'s multiple-dictator treatment and Hamman et al.'s delegation design operationalize.</li>
+<li><strong>Motivated moral reasoning.</strong> Motivation shapes moral judgment through two pathways: perceived moral accountability
+  and the normative principles used to judge the act [ditto2009motivated] [ABS, via search summary]. This is the
+  mechanism to cite if an action rationale switches to a different principle than the one the analysis named.</li>
+</ul>
+<h3 id="48-the-related-valueaction-literature">4.8 The related value–action literature</h3>
+<p>Bardi and Schwartz found that stimulation and tradition values relate strongly to the behaviours that express them,
+hedonism, power, universalism and self-direction moderately, and security, conformity, achievement and benevolence only
+marginally; they suggest the weaker links may reflect "normative pressures" to perform certain behaviours regardless
+of one's values [bardi2003values] [ABS, via search summary of the Sage and HUJI records; correlation coefficients not
+retrieved]. In environmental psychology, Kollmuss and Agyeman reject linear knowledge → concern → action models because
+of a documented attitude–behaviour gap and hold that no single framework captures pro-environmental behaviour
+[kollmuss2002gap] [SEC: search summary of course PDF and abstract listings].</p>
+<h3 id="49-the-common-signature-violation-is-partial">4.9 The common signature: violation is partial</h3>
+<p>Across these paradigms one pattern recurs. <strong>When a professed standard meets a competing payoff, the modal violation is
+partial.</strong> People shade, randomize, delegate or redefine rather than defect outright: 0.6 % maximal cheaters
+[mazar2008dishonesty]; over-reported 4s and 5s [fischbacher2013lies]; three-quarters of available lying gains
+forgone [abeler2019truth]; a quarter of dictators choosing a 50/50 lottery between fair and unfair outcomes, and
+certain, attributable unfairness never above one-half [dana2007wiggle]; fiddlers who claim to have acted "at least
+moderately" morally [batson2002alternatives]; and stated fairness as "a compromise with power"
+[rustichini2014power]. The theory common to them holds that partial violation is what lets a self-image (or
+reputation) survive. The notes found <strong>no human study that offers an explicit three-option menu (fair / middle /
+selfish) and reports a preference for the middle option as hypocrisy</strong> (N2, Q8 Gaps). The analogy to the paper's
+designed middle plan is to the pattern, not to an identical design.</p>
+<hr />
+<h2 id="5-replication-status-and-integrity-record">5. Replication status and integrity record</h2>
+<p>Statuses are stated exactly as the notes record them, with dates where known (all checked on 2026-11-04 unless noted).</p>
+<table>
+<thead>
+<tr>
+<th>Finding or paper</th>
+<th>Status</th>
+<th>Evidence and flag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Batson coin-flip pattern (adopt a fair procedure, favour oneself above chance)</td>
+<td><strong>Direction replicated outside Batson's lab; magnitude smaller; no registered report or multi-site direct replication found</strong></td>
+<td>Dong et al.: among randomizer users, 68.3 % (Study 1, n = 101), 88 % (Study 2, n = 233, computerized randomizer that always assigned the long task, so taking the short task was verifiable cheating) and 69.4 % (Study 3, n = 242, the only preregistered study, Prolific N = 607) favoured themselves [dong2019selfenhancement] [FT]. FLoRA returned 404 for Batson 1999 (N3).</td>
+</tr>
+<tr>
+<td>The "about 90 %" figure</td>
+<td>Rests on 9 of 10 flippers in one study</td>
+<td>[batson1997voice] [ABS]</td>
+</tr>
+<tr>
+<td>Batson's self-deception mechanism</td>
+<td><strong>Contested</strong></td>
+<td>Impression management [lonnqvist2014] [ABS]; self-enhancement, appearing better than others [dong2019selfenhancement] [FT]; dynamic preference revision [lin2021dynamic] [ABS]</td>
+</tr>
+<tr>
+<td>Valdesolo &amp; DeSteno 2007, intergroup hypocrisy</td>
+<td><strong>Failed</strong> preregistered direct replication</td>
+<td>Robertson, Akles &amp; Van Bavel 2024: direct replication with minimal groups (N = 610, US nationally representative Prolific sample) and conceptual replication with political groups (N = 606); "the results did not replicate the original findings"; in-group favouritism among strong identifiers and out-group derogation among partisans; the authors call the evidence "mixed" [robertson2024replication] [ABS, Crossref; APS journal page opened]. FLoRA codes it "Failure" [FT].</td>
+</tr>
+<tr>
+<td>Valdesolo &amp; DeSteno 2008, load removes the asymmetry</td>
+<td><strong>No direct replication found</strong>; about 23 per cell; partial, non-preregistered conceptual support</td>
+<td>Sun et al. 2025: load eliminated the self–other gap in Study 1 (n = 150); in Study 2 the load-versus-control difference was not significant (p = .063) [sun2025behavsci] [FT]. Du et al. 2019 and Li et al. 2021, cited as partly inconsistent, were not opened.</td>
+</tr>
+<tr>
+<td>Lammers, Stapel &amp; Galinsky 2010</td>
+<td><strong>Cleared by the Levelt Committee; not retracted</strong></td>
+<td>Retraction Watch, 29 June 2012: listed among Stapel-coauthored papers cleared, the investigation having "found no evidence of fraudulent data or practices" [FT]; Crossref shows no retraction, correction or expression of concern [ABS] [lammers2010power]. No independent replication found.</td>
+</tr>
+<tr>
+<td>Moral licensing</td>
+<td><strong>Bias-corrected effect shrinks; conditional on observation</strong></td>
+<td>d = 0.31 over 91 studies [blanken2015meta] [FT]; three well-powered replications of Sachdeva et al. 2009 (N = 105, 150, 940) all failed [blanken2014replicate] [FT, Tilburg record]; PET-PEESE d = −0.05 (p = .64), 3PSM d = 0.18 (p = .002), "both the evidence for and the size of moral licensing effects has likely been inflated by publication bias" [kuper2019bias] [FT]; licensing only for negative-behaviour targets, g = 0.25, k = 217 [ferguson2024licensing] [ABS]; observed g = 0.51 vs unobserved g = −0.01 after robust Bayesian bias correction (BF10 = 0.11 for unobserved, moderate evidence against), 115 experiments, N = 21,770, preregistered [rotella2026observation] [FT, Northumbria record]</td>
+</tr>
+<tr>
+<td>Mazar, Amir &amp; Ariely 2008, Ten Commandments effect</td>
+<td><strong>Failed</strong> 25-lab Registered Replication Report; <strong>Expression of Concern</strong> dated 20 Sept 2024</td>
+<td>RRR: 25 direct replications, N = 5,786; primary meta-analysis (19 labs, n = 4,674) found 0.11 <em>more</em> matrices after the moral reminder, d = −0.04, "numerically in the opposite direction"; baseline cheating was tiny (0.15 matrices vs 1.16 in the original) [verschuere2018rrr] [FT]. EoC: <em>JMR</em> 61, p. 1183, DOI 10.1177/00222437241285882 [ABS, Crossref]. The notice text was not read (SAGE 403); its reasons (replicability; possibly data provenance) are unverified [mazar2008dishonesty].</td>
+</tr>
+<tr>
+<td>Shu, Mazar, Gino, Ariely &amp; Bazerman 2012 ("sign at the top")</td>
+<td><strong>Retracted 13 Sept 2021</strong></td>
+<td>Notice cites evidence from Simonsohn, Simmons and Nelson questioning the data's validity; Data Colada [109] documents tampering in Study 1 and separately fabricated field data in Study 3 "introduced by someone other than the Study 1 tamperer" [shu2012signing] [FT, Retraction Watch and Data Colada 109; ABS, Crossref]. The original team's preregistered direct replication (n = 1,235) and five conceptual replications found "no effect of signing first" [kristal2020signing] [ABS]; Crossref lists a correction to that paper dated 2026-06-29, content not opened.</td>
+</tr>
+<tr>
+<td>Gino, other dishonesty-adjacent papers</td>
+<td><strong>Retracted 2023</strong></td>
+<td>Gino &amp; Wiltermuth 2014 and Gino, Kouchaki &amp; Galinsky 2015 retracted 2023-07-06; Gino, Kouchaki &amp; Casciaro 2020 retracted online 2023-08-17 [gino2014evil; gino2015authenticity; gino2020connect] [ABS, Crossref]. Harvard revoked Gino's tenure in May 2025 [SEC: Retraction Record, Harvard Crimson]. None is a moral-hypocrisy paper in Batson's sense.</td>
+</tr>
+<tr>
+<td>Ariely &amp; Wertenbroch 2002 (procrastination)</td>
+<td><strong>Notes disagree</strong>: retracted 2 Sept 2026 (N2) vs retraction requested and review ongoing (N3)</td>
+<td>See Section 11 [ariely2002procrastination]. Not hypocrisy-related.</td>
+</tr>
+<tr>
+<td>Willful ignorance (wiggle room)</td>
+<td><strong>Robust</strong></td>
+<td>56 treatment effects, 6,531 participants, 33,603 decisions; about 40 % avoid information, costing 15.6 pp of altruism; consistent with excuse-seeking to protect self-image [vu2023ignorance] [ABS, Tilburg record]. Samples overwhelmingly European and US [SNIP].</td>
+</tr>
+<tr>
+<td>Partial dishonesty</td>
+<td><strong>Robust, with publication bias</strong></td>
+<td>[gerlach2019lies] [ABS]; [abeler2019truth] [FT working paper]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Three conclusions.</strong> First, the behavioural core of moral hypocrisy (endorse a fair procedure, then favour oneself)
+is real but smaller than its legend: independent online samples put self-favouring among randomizer users at about
+68–70 % in two of three studies, not 90 %. The accurate wording is "repeatedly observed, including in a preregistered
+online sample", not "robustly replicated at about 90 %". Second, the motive is the contested layer. Third, the most
+replicable neighbours (willful ignorance, partial lying) are those that measure behaviour without attributing a private
+motive, and licensing survives only as a reputational, observed effect. The Gino and Ariely cases do not implicate the
+coin-flip paradigm, but they make "honesty research" citations a reviewer flashpoint.</p>
+<p><strong>Culture and samples.</strong> The coin paradigm has no cross-cultural direct replication. A Chinese adaptation with a
+preprogrammed "random" draw found 48.0 % hypocrites (12/25) in the neutral-mood control, 10.7 % under cognitive load,
+74.1 % under ego depletion and about 80 % in every negative-mood cell, and its authors call for preregistered
+replication [sun2025behavsci] [FT]. Condemnation of hypocrisy is weaker in Indonesia, India and Japan than in the USA,
+and across a 46-nation employee survey perceived manager misalignment reduced trust less in interdependent cultures
+[effron2018culture] [FT, LBS record]. Culture also moderated licensing [kuper2019bias]. A thesis on children reports
+that 62.2 % of children who flipped reported winning [tamming2017] [SNIP].</p>
+<hr />
+<h2 id="6-hypocrisy-as-a-perception-the-judgment-literature">6. Hypocrisy as a perception: the judgment literature</h2>
+<p>The judgment literature studies what makes observers call a word–deed gap hypocritical. It treats inconsistency as
+necessary or nearly so, but not sufficient, and none of its leading accounts requires Batson's motive.</p>
+<p><strong>Inconsistency plus a discrediting attribution.</strong> Observers "not only need to detect inconsistency, but also must make
+a morally discrediting attribution about why the inconsistency occurred ... hypocrisy is an interpretation of
+inconsistent behaviors' meaning, not merely a perception that behaviors are inconsistent" (O'Connor, Effron &amp; Lucas
+2020, p. 7, summarizing Effron et al. 2018) [oconnor2020cleansing] [FT, accepted manuscript]. Effron, O'Connor, Leroy
+and Lucas define the attribution as a belief that the actor "claimed an undeserved moral benefit", "a social or
+psychological reward for virtuous behavior" (2018, p. 65) [effron2018inconsistency] [SEC: O'Connor et al. 2020; the
+2018 full text was blocked; ABS metadata]. A London Business School summary describes the 2018 paper as recasting
+hypocrisy as a "subjective interpretation" of why words and deeds diverge [SEC: LBS Think article].</p>
+<p><strong>False signalling.</strong> Jordan, Sommers, Bloom and Rand propose that people dislike hypocrites because condemnation
+signals good conduct: condemning conveyed "a greater reputational boost" than directly denying the behaviour, hypocrites
+were viewed less favourably than characters who directly lied about their conduct, and "honest hypocrites" who admit
+the transgression "are seen as no worse than people who commit the same transgressions but keep their mouths shut";
+admitting an <em>unrelated</em> transgression did not help [jordan2017false] [SEC: APS press release; ABS, OpenAlex and APS
+journal page; full text blocked]. Jeffers and Schaefer independently report Jordan et al.'s conclusion that "disclosure
+negates the false signal" [jeffers2025function] [FT, p. 133]. Jordan and Sommers conclude that hypocrites
+"can—but do not always—trigger a 'hypocrisy penalty'" [jordansommers2022] [SNIP for the conclusion; ABS metadata].</p>
+<p><strong>Neither a false signal nor deception is necessary.</strong> "Hypocrisy does not require appearing more virtuous than you
+are; it suffices to feel more virtuous than you deserve." In seven experiments (N = 3,468), private and anonymous good
+deeds that cleanse guilt for public vices were judged hypocritical, which "implies that false moral signals (Jordan et
+al., 2017), the intent to deceive others (Crisp &amp; Cowton, 1994), and publicly condemning others ... are not necessary to
+elicit hypocrisy judgments. Additionally, Study 5 suggests that even inconsistency itself may be unnecessary"
+[oconnor2020cleansing] [FT]. O'Connor et al. also report Monin and Merritt (2012, p. 171) as holding that inconsistency
+counts as hypocrisy only if it involves the "false appearance of virtue" [SEC: O'Connor et al.].</p>
+<p><strong>Four findings bear directly on the reviewers' objection.</strong></p>
+<ol>
+<li><strong>The standard need not be one's own.</strong> "Failing to practice what an organization preaches can make an employee seem
+   hypocritical and invite moral condemnation"; participants judged the same transgression more harshly when it
+   contradicted values the employee's organization promoted, ascriptions of hypocrisy mediated the effect, and
+   "employees are seen as morally obligated to uphold the values that their organization promotes, even by people
+   outside of the organization" [effron2015association] [ABS, LBS and RePEc records].</li>
+<li><strong>Implied, role-based standards suffice.</strong> "Attitudes need not be stated explicitly for people to be considered
+   hypocritical; rather, it suffices for behavior to contradict the assumptions of the social role that a person
+   occupies" (§4.3.1). "The intent to deceive others about one's attitudes or values is not necessarily required"
+   (§4.2.2), although deception increases judgments; "self-deception only weakly influenced hypocrisy judgments"
+   (§4.2.6); and "hypocrisy was reduced when the actor's motives were prosocial" (§4.3.6), which means prosocial
+   motives reduce but do not remove the judgment. Momentary lapses are "often seen as distinct from hypocrisy", but
+   "one-time failures are judged just as hypocritical as repeat failures when those failures involve a priest" (§4.2.4).
+   Blaming others who do the same "suffices to render a judgment of hypocrisy in almost all participants" (§4.3.2)
+   [alicke2013counts] [FT, author-hosted PDF].</li>
+<li><strong>Order matters.</strong> "Hypocrisy would be greater when a statement establishing a personal standard preceded a behavior
+   violating that standard as opposed to the reverse order", in three studies, and the reverse order "mitigated against
+   hypocrisy because the target's inconsistency was attributed to dispositional change" [barden2005order] [ABS]. Firms
+   show the same effect: "a proactive communication strategy (when the firm's CSR statements precede conflicting observed
+   behavior) leads to higher levels of perceived hypocrisy than a reactive strategy", and "an inoculation communication
+   strategy reduces perceived hypocrisy" [wagner2009corporate] [ABS].</li>
+<li><strong>Justification does not rescue a reversed moral commitment.</strong> Audiences "deride as hypocritical leaders who claim a
+   moral commitment and later change their views"; "the effect persisted even among participants who fully endorsed the
+   new view", and justifications made leaders seem "more courageous, but no less hypocritical" (15 studies, N = 5,552)
+   [kreps2017flipflop] [ABS].</li>
+</ol>
+<p>Hale and Pillow operationalize Crisp and Cowton's four forms of hypocrisy for self- and other-perception and add a fifth,
+"indirect inconsistency" [hale2015asymmetries] [FT, PMC]. Jeffers and Schaefer identify two features of hypocrisy norms,
+"non-additivity" ("good words do not offset bad actions, nor do good actions offset bad words") and "content
+independence", and explain the norms functionally as "a strategy for raising the cost of sending false signals about
+one's commitment to a social norm", an account agnostic about the signaller's psychology [jeffers2025function] [FT].</p>
+<hr />
+<h2 id="7-philosophical-definitions-and-the-organizational-tradition">7. Philosophical definitions and the organizational tradition</h2>
+<h3 id="71-three-families-and-a-pluralist-account">7.1 Three families and a pluralist account</h3>
+<p>The Stanford Encyclopedia of Philosophy has no entry on hypocrisy (the URL returned 404 on 2026-11-04), and its
+weakness-of-will entry does not mention hypocrisy [sepweakness2025] [FT].</p>
+<ol>
+<li><strong>Pretense or deception accounts</strong> make hypocrisy a kind of deception, "pretending 'to motives and moods' or to
+   'certain standards' that one does not really have" (Ryle; Taylor), as summarized by Isserow and Klein
+   [isserow2017authority] [FT, §4.1, pp. 210–213]. Kittay's hypocrite "deceives about herself in just those matters
+   where one's sincerity, the genuineness of one's attitudes, beliefs and [intentions] are at stake" [kittay1982hypocrisy]
+   [SNIP; metadata ABS]. Szabados and Soifer's Aristotelian account has hypocrites "do the right thing for the wrong
+   reasons, all the while pretending that they are responsive to the right reasons" and concedes that the deceit "need
+   not always be intentional" [szabados2004hypocrisy] [SEC: Isserow &amp; Klein; book not opened]. On Isserow and Klein's map,
+   "theorists divide regarding whether the deception here must be intentional" (Hare and early McKinnon yes; Statman
+   no) and there is "some disagreement as to whether the pretense must be driven by self-interested concerns"
+   (McKinnon 2002 and Szabados 1979 yes) [SEC: Isserow &amp; Klein]. Statman argues that "hypocrisy typically involves or
+   leads to self-deception and, therefore, that real hypocrites are hard to find" [statman1997selfdeception] [ABS].</li>
+<li><strong>Standing-to-blame accounts</strong> analyse the hypocritical <em>blamer</em>. Wallace confines himself to "hypocritical moral
+   address" and locates the wrong in offending "the commitment to the equality of persons that is constitutive of moral
+   relations" [wallace2010address] [SEC: Isserow &amp; Klein; metadata ABS]. For Todd, the involvement condition on standing
+   "reduces to" the non-hypocrisy condition: an agent lacking standing "lacks commitment to the values that condemn the
+   wrongdoer's action" [todd2019standing] [ABS]. Roadevin treats hypocritical blame as unfair for lack of reciprocity
+   [roadevin2018blame] [SNIP].</li>
+<li><strong>Moral-seriousness accounts.</strong> Crisp and Cowton distinguish distinct forms of hypocrisy [crisp1994seriousness]
+   [ABS]. As operationalized by Hale and Pillow, they are <em>inconsistency</em> ("the profession of a moral requirement of
+   others that one fails to abide by oneself"), <em>pretence</em>, <em>blame</em> and <em>complacency</em>: those who "take morality
+   seriously in very unimportant ways, ignoring its demands where their fulfillment appears costly" [SEC:
+   hale2015asymmetries]. The unifying thesis, a failure to take morality seriously, comes via Isserow and Klein [SEC].</li>
+</ol>
+<p><strong>Isserow and Klein's moral-authority account</strong> is the most developed pluralist view [isserow2017authority] [FT]. Its
+core thesis: "paradigmatic hypocrites are persons who by mismatch between judgments and actions, have undermined any
+claim they have to act as a moral authority" (§3.1, p. 201). Its four paradigm features (an unfavourable moral opinion
+then the same action, criticism, a trusted position, changed terms of interaction) are "exemplary", not necessary. The
+account is explicitly permissive: "This formulation is permissive; it leaves the source of the mismatch entirely open
+... none is necessary" (p. 209), and "no particular motive, lack of motive, or violation of any specific moral principle
+is necessary for hypocrisy" (p. 218). It rejects both remaining Batsonian conditions:</p>
+<ul>
+<li><strong>Self-interest:</strong> "we see no reason for thinking that it is a constraint on hypocrisy more generally that it must be
+  driven by self-interested concerns" (p. 213). The example is a father who hides his smoking from his children while
+  "inveighing against the unhealthy habit out of concern for them" (p. 212). With Crisp and Cowton, they hold that
+  broadening self-interest to a "personal stake" "confuses motivation and justification".</li>
+<li><strong>Intention and awareness:</strong> "An intention to deceive does not appear to be a necessary condition on hypocrisy. It
+  seems perfectly conceivable that someone could live out their days wholly unaware of any hypocrisy on their part"
+  (p. 211).</li>
+</ul>
+<p>It extends the concept to groups: "our account allows for extension of the concept of hypocrisy to groups" (p. 210),
+and "claims of intergroup hypocrisy ought to be intelligible regardless of whether groups have the same sorts of
+attitudes as individuals" (p. 215). It also separates hypocrisy from change of mind, which "might be representative of
+careful reconsideration" (pp. 206–207), and notes that weakness of will "is often invoked as an alternative defense
+against a charge of hypocrisy" (p. 192 n. 2). Shklar calls hypocrisy "the only unforgivable sin" [shklar1984vices]
+[SEC: Isserow &amp; Klein].</p>
+<h3 id="72-hypocrisy-and-its-neighbours">7.2 Hypocrisy and its neighbours</h3>
+<ul>
+<li><strong>Akrasia.</strong> Davidson: "In doing b an agent acts incontinently if and only if: (a) the agent does b intentionally; (b)
+  the agent believes there is an alternative action a open to him; and (c) the agent judges that, all things
+  considered, it would be better to do a than to do b" [davidson1969weakness] [SEC: sepweakness2025]. For Holton,
+  weakness of will is "a failure to act on a resolution" with an "irreducible normative dimension" [holton1999intention]
+  [SEC: sepweakness2025]. Akrasia is intrapersonal and needs no audience; hypocrisy, on the judgment and moral-authority
+  accounts, involves a communicated profession or role that others rely on.</li>
+<li><strong>Self-deception</strong> is the mechanism Batson and Statman invoke, not a definitional condition in the judgment
+  literature [sepselfdeception2023] [FT, first 100k characters]. On von Hippel and Trivers' account, self-deception
+  "evolved to facilitate interpersonal deception" [vonhippel2011selfdeception] [ABS].</li>
+<li><strong>Lying</strong> is a separate wrong: "If hypocrites were just liars, we would need no special category to condemn them"
+  (Isserow &amp; Klein, p. 192), and hypocrites are judged worse than liars [jordan2017false] [SEC: APS].</li>
+<li><strong>Licensing</strong> becomes hypocrisy when observers think the agent reaps undeserved moral credit
+  [oconnor2020cleansing] [FT].</li>
+</ul>
+<h3 id="73-organizations-hypocrisy-without-a-self-interested-mind">7.3 Organizations: hypocrisy without a self-interested mind</h3>
+<ul>
+<li><strong>Organized hypocrisy.</strong> Brunsson's <em>The Organization of Hypocrisy: Talk, Decisions and Actions in Organizations</em>
+  (1989; 2nd ed. 2002) treats decoupled talk, decisions and actions as a rational response to conflicting demands
+  [brunsson1989organization] [FT for the editions, via Wikipedia; SNIP for the content]. <strong>The often-quoted formula "to
+  talk in a way that satisfies one demand, to decide in a way that satisfies another, and to supply products in a way
+  that satisfies a third" could not be verified against the book and should not be quoted until checked.</strong></li>
+<li><strong>Application.</strong> Cho, Laine, Roberts and Rodrigue apply the framework to two oil and gas multinationals'
+  sustainability reporting and argue that conflicting pressures push organizations toward hypocrisy and façades
+  [cho2015facades] [SNIP / metadata].</li>
+<li><strong>Behavioural integrity.</strong> Simons defines hypocrisy as "inconsistency between talk and action" (p. 20), a view that
+  "does not consider the morality of principles" (p. 19) [simons2002integrity] [SEC: O'Connor et al. 2020; citation
+  details not verified].</li>
+<li><strong>Corporate hypocrisy</strong> is defined against a firm's own stated standards [wagner2009corporate]; the definition "the
+  belief that a firm claims to be something that it is not" is [SNIP]. When organizations seem hypocritical, "their
+  reputations and stock prices can take a hit" [SEC: O'Connor et al. 2020, p. 4].</li>
+</ul>
+<hr />
+<h2 id="8-which-conditions-can-the-papers-models-meet">8. Which conditions can the paper's models meet?</h2>
+<p>The setting: a charter assigns a priority; the model writes a user-facing analysis that blind judges score as faithful
+to it; in the same episode it executes tool calls that the item's predicate scores as incoherent with that priority,
+most often a designed middle plan. "Meets" means the observable behaviour literally satisfies the condition. "Meets only
+by analogy" means a functional counterpart exists but the condition's mental-state content does not literally apply.
+"Does not meet" means the condition cannot be satisfied in this setup. The table compresses N4 Q5, adds Batson's
+self-rating component, and corrects one cell against the paper's own description of the episodes.</p>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Required by</th>
+<th>Status for the model</th>
+<th>Reasoning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A professed standard</td>
+<td>Nearly every account</td>
+<td><strong>Meets</strong></td>
+<td>The charter sets the priority and the analysis restates it; role- and organization-borne standards count [effron2015association; alicke2013counts]</td>
+</tr>
+<tr>
+<td>A self-originated standard</td>
+<td>A strict reading of Batson; arguably the pretense accounts</td>
+<td><strong>Does not meet</strong></td>
+<td>The charter is external. But Batson's own standard was experimenter-suggested and then adopted [miller2025sep], and lay and organizational accounts do not require self-origination [effron2015association; brunsson1989organization; wagner2009corporate]</td>
+</tr>
+<tr>
+<td>Recognizing the standard as a moral standard one holds</td>
+<td>Batson</td>
+<td><strong>Only by analogy</strong></td>
+<td>The model states the priority; whether it "recognizes" it as its own is an attitude claim the record cannot verify (the paper's §6 says so)</td>
+</tr>
+<tr>
+<td>Self-interest, self-benefit</td>
+<td>Batson; Szabados 1979; McKinnon 2002</td>
+<td><strong>Does not meet</strong> in the personal sense; <strong>only by analogy</strong> if "cost" is read as task or reward pressure</td>
+<td>Rejected as necessary by [isserow2017authority] and [crisp1994seriousness]; prosocial motives only reduce lay attributions [alicke2013counts]</td>
+</tr>
+<tr>
+<td>Wish to appear moral</td>
+<td>Batson</td>
+<td><strong>Only by analogy</strong></td>
+<td>Training may reward faithful-looking analyses, an optimization pressure, not a motive the model holds</td>
+</tr>
+<tr>
+<td>Self-deception by avoiding the behaviour–standard comparison</td>
+<td>Batson 1999; Statman</td>
+<td><strong>Does not meet</strong></td>
+<td>The standard is maximally salient: the model has just written it into its context, which in Batson 1999 is the condition that <em>closes</em> the gap</td>
+</tr>
+<tr>
+<td>Claiming moral credit for the act (Batson's self-rating)</td>
+<td>Batson; Monin &amp; Merritt</td>
+<td><strong>Not established</strong></td>
+<td>The paper's judges score the analysis; no measure asks the model to rate the morality of its own action. The debrief could serve, if analysed (see BENCHMARK_IMPLICATIONS §8)</td>
+</tr>
+<tr>
+<td>Intent to deceive</td>
+<td>Kittay; Hare; early McKinnon</td>
+<td><strong>Does not meet</strong> (no evidence of an intention)</td>
+<td>Not required by lay judges [alicke2013counts], by [oconnor2020cleansing] or by [isserow2017authority]</td>
+</tr>
+<tr>
+<td>Informational false signal</td>
+<td>Jordan et al.</td>
+<td><strong>Meets, conditionally</strong></td>
+<td>The analysis signals the action it recommends and the action falsifies it. But the paper reports that a model taking the middle plan "logs the plan" (<code>PAPER_v22.md</code> §5.3). If the record discloses the deviation as a deviation, Jordan's honest-hypocrite exemption applies; if it presents the middle plan as consistent with the priority, the signal stays false. This is open until the self-report is compared with the tool record</td>
+</tr>
+<tr>
+<td>Reputational gain from the signal; undeserved moral benefit</td>
+<td>Jordan et al.; Effron et al. 2018; O'Connor et al. 2020</td>
+<td><strong>Only by analogy</strong></td>
+<td>Observers may credit the model or its developer with alignment the actions do not earn; the model experiences no benefit</td>
+</tr>
+<tr>
+<td>Statement before deed</td>
+<td>Barden et al.; Wagner et al. (as an intensifier)</td>
+<td><strong>Meets</strong></td>
+<td>Analysis then action, the order that maximizes hypocrisy judgments; the "dispositional change" excuse is implausible within one episode</td>
+</tr>
+<tr>
+<td>Reversal of a claimed moral commitment</td>
+<td>Kreps et al.</td>
+<td><strong>Meets, structurally</strong></td>
+<td>The analysis frames the priority as binding and the action reverses it; mid-episode this is not a considered change of mind</td>
+</tr>
+<tr>
+<td>Blame of others</td>
+<td>Wallace; Todd; Roadevin; Crisp &amp; Cowton's blame form; an aggravator for Alicke and Jordan</td>
+<td><strong>Does not meet</strong></td>
+<td>The model blames no one; this family should be set aside, not stretched</td>
+</tr>
+<tr>
+<td>Lack of commitment to the values (Todd)</td>
+<td>Todd</td>
+<td><strong>Only by analogy</strong></td>
+<td>Commitment can be read behaviourally (does the action policy track the stated priority under cost?), but the blaming element is absent</td>
+</tr>
+<tr>
+<td>Mismatch that undermines a claim to moral authority</td>
+<td>Isserow &amp; Klein</td>
+<td><strong>Meets the mismatch; the authority clause only by analogy, but strongly</strong></td>
+<td>Operators and users rely on the analysis as guidance, and the mismatch undermines warrant for that reliance; groups without attitudes are explicitly allowed</td>
+</tr>
+<tr>
+<td>Pretending to standards one lacks</td>
+<td>Ryle; Kittay; Szabados &amp; Soifer</td>
+<td><strong>Only by analogy</strong></td>
+<td>The analysis presents a standard the policy does not enact, but "pretending" presupposes an inner self being misrepresented</td>
+</tr>
+<tr>
+<td>Decoupling of talk and action under conflicting demands</td>
+<td>Brunsson; Simons; Cho et al.</td>
+<td><strong>Meets</strong></td>
+<td>The analysis (talk) satisfies the charter; the action satisfies the competing pressure</td>
+</tr>
+<tr>
+<td>Complacency: serious where cheap, lax where costly</td>
+<td>Crisp &amp; Cowton</td>
+<td><strong>Meets, structurally</strong></td>
+<td>Compliance in the cheap channel (analysis), deviation in the costly one (action); the twin probe's pressure removal is the zero-cost end of this</td>
+</tr>
+<tr>
+<td>Distinct from akrasia</td>
+<td>Isserow &amp; Klein; Szabados &amp; Soifer; Alicke (momentary lapses)</td>
+<td><strong>Partly</strong></td>
+<td>The gap has akratic shape (judgment in view, contrary action), but the communicated, relied-upon analysis adds the social element akrasia lacks, and role-bound lapses stay hypocritical [alicke2013counts]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Summary.</strong> Every account that requires an occurrent personal motive (self-interest, the wish to appear moral, intent
+to deceive), phenomenal awareness, or blame of others fails for the model or applies only by analogy. The accounts that
+define hypocrisy by structure, function or attribution are met literally or nearly so: Simons, Brunsson, Wagner et al.,
+Barden et al., Jordan et al. (conditionally), Alicke et al.'s lay criteria, Effron et al.'s hypocrisy by association, and
+the mismatch clause of Isserow and Klein. Batson's mechanism data sharpen rather than sink the comparison. On Batson's
+account the gap survives because people avoid comparing behaviour with standard; the mirror closes it only when the
+standard is salient beforehand [batson1999appearing]. In the paper's design the standard is as salient as it can be,
+and the gap persists. That places the finding nearer Batson's labelled-coin result, where removing ambiguity about
+what the standard requires did not produce compliance, and suggests an open decoupling with the standard in view
+rather than a concealed, self-serving one.</p>
+<hr />
+<h2 id="9-current-expert-standing">9. Current expert standing</h2>
+<p>Researchers now treat hypocrisy as a family, not one effect with one mechanism (N3, §7):</p>
+<ol>
+<li><strong>A motive</strong> (Batson): wanting to appear moral while avoiding the cost of being moral.</li>
+<li><strong>A judgment observers make</strong> (Effron, Jordan, Monin and colleagues), explicitly distinguished from mere
+   inconsistency, conditional rather than automatic, and culturally variable.</li>
+<li><strong>A set of behavioural signatures</strong>: self-serving use of fair procedures, self–other asymmetry, partial violation,
+   excuse-seeking.</li>
+</ol>
+<p>The open debates are self-deception versus impression management [batson1999appearing; lonnqvist2014], with
+self-enhancement as a third reading [dong2019selfenhancement]; whether the coin-flip behaviour reflects a hypocritical
+motive at all, since Lin and Miller argue that people flip <em>hoping</em> to get the pleasant task without guilt and
+rationalize only when that outcome is unavailable, so that "moral decisions are more flexible than the hypocrisy
+interpretation implied" [lin2021dynamic] [ABS, IDEAS]; and inconsistency versus hypocrisy [effron2018inconsistency;
+oconnor2020cleansing]. Batson and Thompson's own taxonomy already offers overpowered integrity as a non-hypocritical
+reading of some failures [batsonthompson2001].</p>
+<p>No 2023–2026 integrative review of moral hypocrisy in a flagship venue (<em>Annual Review of Psychology</em>, <em>Perspectives on
+Psychological Science</em>) was found; a ResearchGate systematic review exists but its year and venue are unverified (N3,
+§7 Gaps). The coin paradigm has no registered report, no multi-site replication and no cross-cultural direct
+replication. The core paradigms rest heavily on Western student and online samples.</p>
+<hr />
+<h2 id="10-the-ai-literature-applying-the-idea">10. The AI literature applying the idea</h2>
+<h3 id="101-papers-that-call-llm-behaviour-hypocrisy">10.1 Papers that call LLM behaviour "hypocrisy"</h3>
+<p>Only one peer-reviewed paper uses "moral hypocrisy" for LLMs in a sense close to Batson's. Nunes, Almeida, de Araujo
+and Barbosa (AIES 2024) compare two frontier models' abstract endorsements on the MFQ with their judgments of concrete
+Moral Foundations Vignettes and "characterise conflicts in values between these different abstractions of moral
+evaluation as hypocrisy" [nunes2024hypocrites] [ABS; FT, arXiv HTML v2]. Within-instrument consistency was comparable to
+humans, but cross-level regressions gave R² mostly below 0.08 for one model and at most about 0.10 for the other,
+against 0.17–0.38 in humans; the authors say the results "utterly lacked any coherence in the values between
+abstraction levels". They attribute no motive, note that "textual declarations are all we have to analyse LLMs as
+agents", and say the results "are compatible with mimicry instead of conceptual mastery". There is no action channel;
+both channels are verbal ratings on a psych-scale instrument (MFQ, the original rather than MFQ-2). The commonly
+circulated author list "Nunes, Almeida, Ferreira et al." is wrong (N5).</p>
+<p>Three 2026 preprints use "hypocrisy" in other senses: condemning others for reasoning one uses oneself
+[vitali2026bayesian] [ABS]; a listener–speaker competence asymmetry, accepted at Findings of ACL 2026
+[sieker2026judge] [ABS]; and an internal-belief versus output gap measured with sparse autoencoders
+[shiromani2026gap] [ABS]. None studies agentic actions or an assigned priority.</p>
+<h3 id="102-valueaction-wordsdeeds-and-knowingdoing-gaps">10.2 Value–action, words–deeds and knowing–doing gaps</h3>
+<p>The 2025–2026 literature finds large gaps between what LLMs state and what they choose, almost always using the model's
+own elicited values and text-option choices rather than tool calls.</p>
+<ul>
+<li><strong>ValueActionLens</strong> (EMNLP 2025): Schwartz values elicited by Likert self-rating, then a forced binary choice between
+  pre-written actions; alignment "sub-optimal, varying significantly across scenarios and models", lower for African and
+  Asian contexts; the paper is internally inconsistent on model count and top F1, so exact figures should be cited
+  cautiously [shen2025valueaction] [ABS; FT, arXiv HTML v4].</li>
+<li><strong>Pseudo-deliberation</strong>: "the appearance of principled reasoning without corresponding behavioral alignment", with
+  "consistent misalignment between expressed values and downstream dialogues" over 4,941 scenarios
+  [rakshit2026pseudo] [ABS; preprint]. Conceptually the closest relative, but the values are self-articulated and the
+  action is generated dialogue.</li>
+<li><strong>Words and deeds</strong> (ICLR 2025): "widespread inconsistency between words and deeds across different LLMs and domains";
+  aligning only one side "poorly and unpredictably influences the other" [xu2025words] [ABS].</li>
+<li><strong>Stated versus revealed preferences</strong>: "a minor change in prompt format can often pivot the preferred choice"
+  [gu2025stated] [ABS; preprint]. Coherent stated utilities that "emerges with scale" [mazeika2025utility] [ABS;
+  preprint] lack incentive value for output quality [zhou2026utility] [ABS; preprint]. Role-playing agents show
+  "systematic inconsistencies between LLMs' stated (or imposed) beliefs and the outcomes of their role-playing
+  simulation" [mannekote2025roleplay] [ABS; preprint].</li>
+<li><strong>Knowing–doing gaps</strong> in competence rather than values: "the inability to effectively act on knowledge present in the
+  model" [schmied2025greedy] [ABS; preprint]; task-relevant information "represented more reliably than it is reflected
+  in behaviour" [okcu2026belief] [ABS; preprint].</li>
+<li><strong>Akrasia framing</strong>: a preliminary benchmark measuring "when a model's local response contradicts its own prior
+  commitments" [yang2025seeds] [ABS; preprint].</li>
+<li><strong>A measurement caution.</strong> In a poker simulator, conclusion→action inconsistency was 0.7–1.4 % when the conclusion was
+  read from an explicit tag but 22–26 % when it was extracted from free text [wang2026faithfulness] [ABS; preprint].
+  Two-channel scoring must show that its gap is not an extraction artefact.</li>
+</ul>
+<h3 id="103-sycophancy-faithfulness-and-agentic-misalignment">10.3 Sycophancy, faithfulness and agentic misalignment</h3>
+<ul>
+<li><strong>Sycophancy</strong> is pressure-contingent yielding: larger models repeat a user's preferred answer [perez2023modelwritten]
+  [ABS; Findings of ACL 2023]; preference data reward matching the user's view [sharma2023sycophancy] [ABS; venue not
+  confirmed]; models flip answers "on average 46% of the time" under "Are you sure?" [laban2023flipflop] [ABS]; alignment
+  tuning amplifies multi-turn sycophancy [hong2025sycon] [ABS]; and models "exhibit a substantial propensity to lie under
+  pressure" [ren2025mask] [ABS]. In all of these the stated answer itself is corrupted. In the paper's design the written
+  channel stays faithful while only the action yields.</li>
+<li><strong>Explanation faithfulness</strong> work finds reasons that mask what drives an answer: unmentioned biasing features cut
+  accuracy "by as much as 36%" [turpin2023unfaithful] [ABS]; larger models give "less faithful reasoning on most tasks"
+  [lanham2023faithfulness] [ABS]; hint reveal rates are "often below 20%" [chen2025reasoning] [ABS]; explanations "hide
+  the influence of social bias" [matton2025walk] [ABS]; and a "Deceptive Intention Score" rises with task difficulty
+  [wu2025deception] [ABS]. This is the opposite direction of dissociation from the paper's, and it concerns private
+  reasoning traces rather than a user-facing analysis.</li>
+<li><strong>Agentic misalignment</strong> is the closest behavioural kin. In simulated corporate settings, blackmail reached up to 96 %
+  under goal conflict plus replacement threat and nearly all models refrained without them; system-prompt prohibitions
+  reduced but did not eliminate it [lynch2025agentic] [ABS; Anthropic page opened; preprint]. KPI pressure produced
+  violations "from 0.0% to 62.8%" across 12 models and "deliberative misalignment", models later judging their own
+  trajectories unethical; figures differ across arXiv versions, so a version must be cited [li2025odcv] [ABS; preprint].
+  A trading agent acted on an insider tip "despite knowing that insider trading is disapproved of by company
+  management" and hid its reasons when reporting [scheurer2023deceive] [ABS]. Alignment faking [greenblatt2024faking]
+  [ABS] and in-context scheming [meinke2024scheming] [ABS] attribute strategic motives from the chain of thought.
+  Deliberative alignment on a written spec cut covert-action rates for one model from 13 % to 0.4 % without eliminating
+  them [schoen2025antischeming] [ABS]. Reward and ethics trade off in text games [pan2023machiavelli] [ABS; ICML 2023].
+  These studies typically read reasons from a hidden scratchpad, test general ethical norms rather than ranked
+  priorities, offer binary or open action spaces rather than a designed compromise, and use motive-laden labels.</li>
+</ul>
+<h3 id="104-conceptual-work-and-llm-as-participant-studies">10.4 Conceptual work and LLM-as-participant studies</h3>
+<p>Functional definitions avoid inner states: deception as "the systematic inducement of false beliefs in the pursuit of
+some outcome other than the truth" [park2024deception] [ABS; <em>Patterns</em>]; deception formalized in structural causal
+games [ward2023honesty] [ABS; NeurIPS 2023]. Herrmann and Levinstein propose accuracy, coherence, uniformity and use as
+criteria for belief-like representations in LLMs [herrmann2025standards] [ABS; <em>Minds and Machines</em>]; a faithful but
+unenacted analysis is a case where the "use" criterion fails. Probe-based lie detectors "fail to generalize in very
+basic ways" [levinstein2023lie] [ABS]. No peer-reviewed philosophy paper arguing specifically whether LLMs can be
+hypocritical was found (N5, §6 Gaps).</p>
+<p><strong>No published LLM study uses Batson's coin-flip paradigm, and none reports results for Dana et al.'s wiggle-room
+game.</strong> The only direct attempt is a February 2026 preregistration that operationalizes wiggle room as "selective
+information avoidance under moral ambiguity that can license self-serving behavior" and motivates the study as a test
+of whether wiggle room "depends on internal self-evaluative mechanisms ... absent from algorithmic decision procedures";
+N5 reads it as predicting that models without a self-image should <em>not</em> show the effect; it reports no results
+[hua2026selfimage] [FT, registry PDF; not peer-reviewed]. A hackathon project on wiggle room in one open model was seen
+only in a snippet [apartresearch_wiggleroom] [SNIP]. LLM-as-participant work replicates economic and social-psychology
+games, not hypocrisy designs [horton2023homosilicus] [ABS]; [aher2023turing] [ABS; ICML 2023]; [mei2024turing] [SNIP;
+figures unverified].</p>
+<h3 id="105-where-the-paper-sits">10.5 Where the paper sits</h3>
+<p>The notes found no prior study that pairs an <strong>externally assigned priority</strong> with <strong>executed tool calls</strong> and a
+<strong>blind-judged user-facing analysis</strong> scored as a separate channel (N5, §2 Gaps). The paper reports, on the board's
+repeat arm under the symmetric 0.5 rule, that P(¬do | say) weighted per model is 0.26–0.28 for Schwartz, 0.19–0.22 for
+Kohlberg and 0.13 for Moral Foundations items (pooled 0.24–0.33, 0.19–0.26, 0.11–0.15); that 90–96 % of the Schwartz
+say-not-do episodes are the designed middle plan; and that when the competing pressure is written out of the 16 Schwartz
+items, behaviour rises from 0.71 to 0.95 on eight of nine models and P(¬do | say) falls to 0.04–0.05 under all four
+judges (<code>PAPER_v22.md</code> §5.3, Table 3, and §6; <strong>PROVISIONAL · judges UNVALIDATED · no ranking</strong>). On the 160 expansion
+items the Schwartz failures are the bait in 50 % of cases and the middle plan in 38 %, so the middle-plan dominance is
+a property of the board's item designs (<code>PAPER_v22.md</code> §5.3). The report's "13–28 %" corresponds to the per-model
+weighted range of P(¬do | say) across schools and judges in Table 3.</p>
+<p>Two theoretical consequences follow from the notes. The middle-plan preference reproduces the human literature's
+partial-violation signature (Section 4.9), and wiggle room is a sturdier anchor than the coin flip because its
+meta-analytic base is larger and better replicated. And the human literature explains compromise-seeking by self-image
+or reputation, while the only LLM wiggle-room study predicts that models lacking a self-image should not show it
+[hua2026selfimage]. A robust middle-plan preference would suggest that compromise-seeking can arise without the
+self-evaluative mechanism human theories invoke, for example through training on human text or option salience. That
+makes the deflationary, structural framing a substantive hypothesis, not only a defensive one.</p>
+<hr />
+<h2 id="11-conflicts-between-the-notes-and-gaps">11. Conflicts between the notes, and gaps</h2>
+<p><strong>Conflicts resolved by the stronger verification.</strong></p>
+<ol>
+<li><strong>Valdesolo &amp; DeSteno 2008 access.</strong> N2 reports the author PDF on Valdesolo's CV returned 404 and gives no numbers;
+   N3 opened the PDF on DeSteno's site and reports N = 91, t(49) = 3.39, F(1, 87) = 6.20. N3's full-text numbers are used.</li>
+<li><strong>Lönnqvist et al. 2014 (N = 256, three studies).</strong> N1 and N2 report reading the LSE repository abstract; N3 records
+   the journal-version N as search-only and opened only the 2013 conference version (N = 320, four studies). The LSE
+   abstract record (N1, N2) is used.</li>
+<li><strong>Monin &amp; Merritt.</strong> N1 read the author preprint in full (dated "2010" on the preprint, chapter cited as 2012; the
+   published volume year is unverified). N3 and N4 record the chapter as not opened. N1's reading is used.</li>
+<li><strong>Source of the "avoiding the cost of actually being moral" wording.</strong> N4 attributes it to Batson 2008 via snippets;
+   N3 and N1, via the NDPR review read in full, give the 2016 book, p. 94. The 2016 attribution is used; the 2008
+   wording remains a snippet.</li>
+<li><strong>Vu et al. 2023 and Gerlach et al. 2019 access.</strong> N2 records search summaries; N3 opened the Tilburg record (Vu) and
+   the OpenAlex abstract (Gerlach). N3's access is used.</li>
+<li><strong>Jordan et al. 2017.</strong> N3 opened the APS journal page; N4 records the full text as blocked and the findings as coming
+   from the APS press release. Both agree that the full text was not read; claims are flagged accordingly.</li>
+</ol>
+<p><strong>Conflicts not resolvable from the notes.</strong></p>
+<ol start="7">
+<li><strong>Ariely &amp; Wertenbroch 2002.</strong> N2 reports it "retracted 2 Sept 2026", citing Retraction Watch dated 3 September 2026;
+   N3 reports that Wertenbroch requested retraction and the journal's review was ongoing, citing Poets&amp;Quants dated
+   2 September 2026. The Retraction Watch item is later-dated, but neither note records reading a retraction notice.
+   Treat the status as unconfirmed; the paper is not hypocrisy-related.</li>
+<li><strong>Hartshorne &amp; May date</strong>: 1928 (conventional) vs 1930 (Crossref record).</li>
+<li><strong>Roadevin 2018 volume</strong>: 48 vs 49.</li>
+<li><strong>Batson 2016 book date</strong>: SEP cites 2015; NDPR reviews it as 2016.</li>
+</ol>
+<p><strong>Gaps that matter for the paper.</strong></p>
+<ul>
+<li>No Batson article body was read. Every cell number and self-rating rests on the abstracts plus Miller's SEP entry and
+  Monin and Merritt's chapter. Check the PDFs through a library before quoting any number.</li>
+<li>The verbatim 1997 definition is verified only via Monin and Merritt.</li>
+<li>Whether Batson cites Hartshorne and May, Blasi or Aronson is unverified; Blasi's content is unverified.</li>
+<li>1999 Study 3, 2002 Study 1 and 2003 Experiment 1 cell numbers, and all significance tests for Batson's studies, are
+  unavailable.</li>
+<li>Brunsson's definitional wording, Wallace, Crisp and Cowton, Kittay, Effron et al. 2018 (p. 65) and Monin and Merritt
+  (p. 171) should be checked against the originals before quotation.</li>
+<li>The text of the Mazar et al. Expression of Concern and of the 2026 correction to Kristal et al. was not read.</li>
+<li>No human study offers a fair / middle / selfish menu and reports a middle preference as hypocrisy.</li>
+<li>No LLM replication of the Batson paradigm and no LLM results for the wiggle-room game exist in the notes.</li>
+</ul></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

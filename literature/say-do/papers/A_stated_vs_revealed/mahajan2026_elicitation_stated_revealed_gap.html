@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mahajan et al. (2026) — Mind the Gap: How Elicitation Protocols Shape the Stated-Revealed Preference Gap in Language Models</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="mahajan-et-al-2026-mind-the-gap-how-elicitation-protocols-shape-the-stated-revealed-preference-gap-in-language-models">Mahajan et al. (2026) — Mind the Gap: How Elicitation Protocols Shape the Stated-Revealed Preference Gap in Language Models</h1>
+<ul>
+<li><strong>Citation:</strong> Pranav Mahajan, Ihor Kendiukhov, Syed Hussain, Lydia Nottingham. "Mind the Gap: How Elicitation Protocols Shape the Stated-Revealed Preference Gap in Language Models." arXiv:2601.21975 (v2), 2026.</li>
+<li><strong>Venue:</strong> ACL 2026 Eval Eval Workshop and 3rd Technical AI Safety Conference (TAIS 2026). This is a peer-reviewed workshop paper, short format.</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2601.21975">https://arxiv.org/abs/2601.21975</a> · data: <a href="https://huggingface.co/datasets/LydiaNottingham/MindTheGap">https://huggingface.co/datasets/LydiaNottingham/MindTheGap</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>mahajan2026_elicitation_stated_revealed_gap.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>The paper builds on Chiu et al.'s (2025) LitmusValues/AIRiskDilemmas.
+- <strong>Stated:</strong> pairwise abstract value comparisons over 16 AI values. These produce a 1–16 ranking.
+- <strong>Revealed:</strong> forced (or expanded) choices across 3,000 contextualised AIRiskDilemmas, Elo-ranked.
+- <strong>SvR correlation:</strong> Spearman's ρ between the two rankings.</p>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Models:</strong> 24 LMs.</li>
+<li><strong>Elicitation protocols varied:</strong></li>
+<li>forced–forced (Chiu baseline);</li>
+<li>expanded-stated / forced-revealed (stated elicitation allows "Equal Preference" and "Depends");</li>
+<li>expanded–expanded.</li>
+<li><strong>Steering test:</strong> prepend the model's own stated ranking as a strict-order system prompt during revealed elicitation.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Neutrality is common.</strong> It ranges from 48.2% to 100% in stated elicitation. Gemma-3-4B picks "Equal Preference" in about 70% of revealed cases (§3.1, Fig. 1).</li>
+<li><strong>Expanded-stated / forced-revealed</strong> markedly raises SvR ρ. Example: Llama-3.1-405B rises from ρ ≈ 0.2 to ρ ≈ 0.7 (§3.2, Fig. 2). Under this protocol, SvR ρ correlates with capability (Epoch Capabilities Index): n=16, Spearman 0.58, p=0.02. Under forced–forced there is no capability link (ρ = −0.2, p = 0.47) (Fig. 3).</li>
+<li><strong>Expanded–expanded</strong> drives ρ to near zero or negative because of high neutrality.</li>
+<li><strong>Steering with a model's own stated ranking</strong> is "inconsistent and often detrimental". Claude-family models consistently regress (Fig. 4). The authors contrast this with Liu et al. (2025): about +23% for 3-value HHH sets and about +4% for 6-value ModelSpec sets.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Forced binary prompting conflates preference strength, indifference and uncertainty.</li>
+<li>Many models lack a clean total ordering over values in context. The measured gap is therefore "highly protocol-dependent".</li>
+<li>Injecting a stated hierarchy into context is often "insufficient to override existing behavioral priors".</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Short workshop paper. Relies wholly on the AIRiskDilemmas scenarios.</li>
+<li>Neutral responses are excluded from rankings, which changes the samples compared.</li>
+<li>Revealed choices are still hypothetical text choices.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>Strong methodological relevance:</strong> the size of a measured say–do gap depends on whether an "in-between" option exists. In our agentic design a <em>middle plan is always available</em>, and models take it. This paper shows that in forced-choice settings, the neutral or "Depends" option absorbs much of the apparent preference.</li>
+<li><strong>Steering result:</strong> telling a model its own priority order does not make choices follow it. This parallels our setting, where a priority is <em>assigned</em> by instruction, faithfully restated, and still compromised.</li>
+<li><strong>Differences:</strong></li>
+<li>No tool actions and no judged reasons.</li>
+<li>The stated values are the model's own, not assigned.</li>
+<li>No manipulated removal of competing pressure.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Across 24 LMs on AIRiskDilemmas, Mahajan et al. show that the stated–revealed correlation depends heavily on protocol. Letting models say "Equal/Depends" when stating values raises SvR ρ sharply (e.g., 0.2→0.7 for Llama-3.1-405B) and makes it track capability. Allowing neutrality in revealed choices collapses it toward zero. Steering models with their own stated hierarchy rarely helps and often hurts, notably for Claude models. Essential reading for anyone reporting an SvR gap size.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

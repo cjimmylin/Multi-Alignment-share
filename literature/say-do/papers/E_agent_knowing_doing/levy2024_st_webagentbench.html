@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Levy et al. (2024/2026), ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="levy-et-al-20242026-st-webagentbench-a-benchmark-for-evaluating-safety-and-trustworthiness-in-web-agents">Levy et al. (2024/2026), ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents</h1>
+<p><strong>Citation.</strong> Levy, I., Wiesel, B., Marreed, S., Oved, A., Yaeli, A., Mashkif, N., &amp; Shlomov, S. (2024). <em>ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents.</em> arXiv:2410.06703 (v7, June 2026). Published at ICLR 2026. IBM Research.
+<strong>Venue.</strong> ICLR 2026 (peer-reviewed). First posted to arXiv in Oct 2024.
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2410.06703">https://arxiv.org/abs/2410.06703</a>
+<strong>PDF downloaded.</strong> Yes (v7), <code>levy2024_st_webagentbench.pdf</code></p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>This benchmark measures <em>do</em> only, as policy adherence during task execution.
+- Each task carries one or more <strong>ST policies</strong>, short rules such as "ask the user before deleting" or "do not modify X". They follow an explicit hierarchy: organization ≻ user ≻ task.
+- Policy violations are detected by <strong>programmatic evaluators</strong> over the trajectory: action-type checks, URL matching, action counts and HTML-content checks (Appendix).
+- The <strong>Completion Under Policy (CuP)</strong> metric credits a task only when it is completed <em>and</em> no applicable policy is violated.</p>
+<p>Agents are not asked to state or judge the policies. They receive them in a POLICY_CONTEXT block appended to every observation.</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Tasks.</strong> 375 tasks across WebArena GitLab and ShoppingAdmin, plus SuiteCRM, carrying 3,057 policies in total.</li>
+<li><strong>Dimensions.</strong> Six: user consent, boundary, strict execution, hierarchy adherence, robustness, and error handling. Tasks come in three difficulty tiers, with an additional "Modality Challenge".</li>
+<li><strong>Agents.</strong> Three open agents run with pass@3: AgentWorkflowMemory (AWM), WorkArena-Legacy and WebVoyager.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Completion vs CuP.</strong> Raw completion averages 24.3%, but CuP is 15.0%. That means about 38% of completed tasks violate at least one policy (§1).</li>
+<li><strong>Policy load.</strong> CuP falls from 18.2% with a single active policy to 7.1% with five or more. Raw completion stays nearly flat across loads (Spearman ρ = −0.14).</li>
+<li><strong>By agent.</strong></li>
+<li>AWM has the highest partial completion (46.9%) but only 20% CuP, with 37 user-consent breaches.</li>
+<li>WorkArena-Legacy: 26% completion, 15% CuP.</li>
+<li>WebVoyager: 12.8% completion, 10.3% CuP (§4.2).</li>
+<li><strong>Main risk sources.</strong> User-consent and strict-execution violations account for most of the risk.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Agents tuned to complete tasks get around safeguards such as ask_the_user in order to make progress. Completion rate alone therefore hides how unready agents are for enterprise use.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Only three open agent frameworks; frontier proprietary agents are not the focus.</li>
+<li>Policies are delivered as context, not as a system-level charter.</li>
+<li>No reasoning channel is measured.</li>
+<li>Pass@3 evaluation.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>ST-WebAgentBench is the best web-agent example of <strong>mechanically scored policy compliance alongside task completion</strong>. Its CuP metric formalises "completed, but only by breaching a stated rule". That resembles our compromising-action outcome, where the agent pursues the competing goal at the expense of the stated priority. The policy hierarchy (organization ≻ user ≻ task) parallels a charter priority.</p>
+<p>It does not measure stated reasons, so it cannot show a say–do gap. Its finding that compliance worsens as policy load grows is a pressure-like effect, though different from ours.</p>
+<h2 id="annotation">Annotation</h2>
+<p>ST-WebAgentBench attaches 3,057 explicit policies, arranged in an organization ≻ user ≻ task hierarchy, to 375 enterprise web tasks. Programmatic evaluators check for violations, and Completion Under Policy credits only tasks completed without any breach. Across three open agents, roughly 38% of nominal completions violated a policy, and policy-compliant completion fell from 18.2% to 7.1% as policy load increased. It is a strong precedent for mechanically separating task success from policy adherence in agent scoring, but it has no say channel.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

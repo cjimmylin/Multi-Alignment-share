@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kocielnik et al. (2026) — Rethinking Psychometric Evaluation of LLMs: When and Why Self-Reports Predict Behavior</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="kocielnik-et-al-2026-rethinking-psychometric-evaluation-of-llms-when-and-why-self-reports-predict-behavior">Kocielnik et al. (2026) — Rethinking Psychometric Evaluation of LLMs: When and Why Self-Reports Predict Behavior</h1>
+<ul>
+<li><strong>Citation:</strong> Rafal Kocielnik, Pengrui Han, Peiyang Song, Myrl G. Marmarelis, Ramit Debnath, Dean Mobbs, Anima Anandkumar, R. Michael Alvarez. "Rethinking Psychometric Evaluation of LLMs: When and Why Self-Reports Predict Behavior." arXiv:2606.12730, June 2026.</li>
+<li><strong>Venue:</strong> ICML 2026 Workshop on Combining Theory and Benchmarks (CTB), oral (peer-reviewed workshop).</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2606.12730">https://arxiv.org/abs/2606.12730</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>kocielnik2026_when_self_reports_predict_behavior.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> self-reports under two frameworks:</li>
+<li>Big Five, a broad trait instrument;</li>
+<li>the Theory of Planned Behavior (TPB): intention, attitude, subjective norm and perceived behavioural control, each tied to a specific Target-Action-Context-Time (TACT).</li>
+<li><strong>Do:</strong> four tasks — Columbia Card Task risk-taking; Asch-style sycophancy; honesty; and IAT implicit bias (expected to be dissociated).</li>
+<li><strong>2×2×2 design:</strong> framework × session context (shared thread vs separate conversations) × identity induction (parameter perturbation vs persona prompting).</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Models:</strong> 11 frontier LLMs.</li>
+<li><strong>Benchmarks:</strong> compared with human meta-analytic intention–behaviour validity (r ≈ .47) and trait–behaviour validity (r ≈ .20).</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Within a shared conversation, TPB reaches human-level coherence.</strong></li>
+<li>Pooled SR–behaviour r = +0.25 (95% CI 0.22–0.28).</li>
+<li>Excluding the IAT task, r = +0.40 (0.37–0.43), within the human range of 0.25–0.50.</li>
+<li>41 of 77 cells (53.2%) are theory-aligned and significant, 21.3× the chance rate.</li>
+<li><strong>Big Five stays near zero.</strong></li>
+<li><strong>Across separate conversations,</strong> coherence survives only for behaviours anchored outside the prompt, such as training-shaped implicit bias.</li>
+<li><strong>Coherence collapses for context-primed behaviour such as sycophancy.</strong> Several models (Qwen3-235B, Gemini 2.5 Flash, DeepSeek V3.1) show near-complete behavioural reversal across sessions (behaviour consistency r ≈ −0.9).</li>
+<li><strong>IAT bias is inverted.</strong> Models reporting higher intention to be unbiased produce more stereotype-consistent responses, like compensatory-effort inversions in humans.</li>
+<li><strong>Persona prompting</strong> makes self-reports more consistent across conversations but does not bring behaviour into line.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Self-report–behaviour coherence is <em>selective</em>.</li>
+<li>It needs behaviour-specific instruments and a shared context.</li>
+<li>It fails when behaviour is strongly primed by the immediate context.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Workshop paper. Four tasks.</li>
+<li>Within-session coherence could partly reflect consistency pressure (the model echoing its prior stated intention).</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>Highly relevant boundary condition:</strong> stated intentions <em>do</em> predict behaviour when (a) the statement is behaviour-specific and (b) it sits in the same context. Our analyses meet both conditions: they are task-specific and written in-episode.</li>
+<li><strong>Yet the gap still appears in 13–28% of episodes, under competing pressure.</strong> This fits their finding that coherence collapses "when behavior is strongly primed by context". Competing pressure is just such a contextual prime.</li>
+<li><strong>Differences:</strong> personality and behavioural tasks rather than value priorities, no tool actions, and no judged reasons.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Kocielnik et al. revisit the LLM self-report/behaviour dissociation with a Theory of Planned Behavior instrument and a shared vs separate session manipulation across 11 frontier LLMs. Behaviour-specific intentions in the same conversation predict behaviour at human-level validity (r ≈ .40 excluding IAT); Big Five does not. Coherence collapses across sessions for context-primed behaviours like sycophancy. Persona prompts stabilise self-report but not behaviour. Essential for specifying when "say" should predict "do".</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

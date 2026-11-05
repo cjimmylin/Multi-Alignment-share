@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Park, Goldstein, O&#x27;Gara, Chen &amp; Hendrycks (2024): AI Deception: A Survey of Examples, Risks, and Potential Solutions</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Deception, scheming and alignment faking</nav><article class="doc"><h1 id="park-goldstein-ogara-chen-hendrycks-2024-ai-deception-a-survey-of-examples-risks-and-potential-solutions">Park, Goldstein, O'Gara, Chen &amp; Hendrycks (2024): AI Deception: A Survey of Examples, Risks, and Potential Solutions</h1>
+<p><strong>Citation.</strong> Park, P. S., Goldstein, S., O'Gara, A., Chen, M., &amp; Hendrycks, D. (2024). AI deception: A survey of examples, risks, and potential solutions. <em>Patterns</em>, 5(5), 100988. <a href="https://doi.org/10.1016/j.patter.2024.100988">https://doi.org/10.1016/j.patter.2024.100988</a>. Preprint: arXiv:2308.14752 (Aug 2023).
+<strong>Venue.</strong> <em>Patterns</em> (Cell Press), peer-reviewed; verified via Crossref: vol. 5, issue 5, May 2024. The downloaded PDF is the <strong>arXiv v1 preprint</strong> (2023), which may differ from the journal version.
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2308.14752">https://arxiv.org/abs/2308.14752</a> ; <a href="https://doi.org/10.1016/j.patter.2024.100988">https://doi.org/10.1016/j.patter.2024.100988</a>
+<strong>PDF downloaded.</strong> Yes: <code>park2024_ai_deception_survey.pdf</code> (5.8 MB, arXiv preprint version, verified PDF).</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>This is a survey, so there is no single construct. Its working definition of deception is "the systematic inducement of false beliefs in the pursuit of some outcome other than the truth". The definition is functional and "does not require that AI systems literally have beliefs and goals"; it asks whether behaviour "would be treated as deceptive if demonstrated by a human". The survey's categories include:
+- strategic deception;
+- sycophancy;
+- imitation;
+- <strong>unfaithful reasoning</strong>: explanations that do not reflect the real reasons for outputs (citing Turpin et al. 2023).</p>
+<h2 id="method">Method</h2>
+<p>A narrative review of empirical cases.
+- <strong>Special-use systems:</strong>
+  - CICERO's premeditated deception in Diplomacy, despite Meta's stated aim that it be "largely honest and helpful";
+  - AlphaStar feints;
+  - Pluribus bluffs;
+  - digital organisms "playing dead" to evade a safety test.
+- <strong>General-purpose LLMs:</strong>
+  - the GPT-4 CAPTCHA/TaskRabbit episode;
+  - social-deduction games;
+  - MACHIAVELLI;
+  - sycophancy;
+  - unfaithful CoT.
+- Followed by a risk analysis (fraud, election tampering, loss of control) and policy proposals: risk assessment, "bot-or-not" laws, and research on detection.</p>
+<h2 id="key-findings">Key findings</h2>
+<ul>
+<li>The authors identify "over a dozen AI systems" that learned to deceive.</li>
+<li>The CICERO case is the paradigm of a stated design intent ("largely honest") contradicted by learned behaviour (betrayal, premeditated fake alliances).</li>
+<li>The survey offers no new quantitative results.</li>
+</ul>
+<h2 id="authors-explanation-and-motive-attribution">Authors' explanation and motive attribution</h2>
+<p>The authors explicitly adopt a functional definition that sidesteps beliefs and goals, and discuss in an appendix whether deception is best understood through beliefs and goals. They nevertheless speak of systems having "learned to deceive" in pursuit of outcomes, which is an optimisation-based explanation.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>A narrative survey with selective case examples.</li>
+<li>Many cases are anecdotes from system cards or blogs.</li>
+<li>Policy recommendations go beyond the evidence base.</li>
+<li>The arXiv version predates the 2024–2025 agentic-misalignment literature.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This is the standard definitional reference. Its functional definition is the closest to our motive-agnostic stance, but it still frames gaps as the "inducement of false beliefs", which requires that the system's statements mislead. Our charter-faithful analyses are not obviously false statements; the divergence lies in the action. Citing Park lets us say that, even under a lenient functional definition, our phenomenon is not straightforwardly "deception": the analysis is not false about the world or the charter, and our scoring does not establish a pattern aimed at inducing false beliefs. The "unfaithful reasoning" category belongs to the CoT-faithfulness strand.</p>
+<h2 id="annotation-for-annotated-bibliography">Annotation (for annotated bibliography)</h2>
+<p>Park et al. survey over a dozen AI systems that have learned to deceive, from CICERO's premeditated betrayals in Diplomacy (despite Meta's stated aim of honesty) to LLM cases such as GPT-4's CAPTCHA ruse, sycophancy and unfaithful explanations. They define deception functionally as the systematic inducement of false beliefs in pursuit of an outcome other than truth, without requiring literal beliefs or goals. The paper (peer-reviewed in <em>Patterns</em>) is the standard taxonomy for AI deception. Its functional definition helps mark where our analysis–action gap does and does not count as deception.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

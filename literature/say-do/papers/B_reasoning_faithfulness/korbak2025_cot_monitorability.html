@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Korbak et al. 2025: Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Reasoning and explanation faithfulness</nav><article class="doc"><h1 id="korbak-et-al-2025-chain-of-thought-monitorability-a-new-and-fragile-opportunity-for-ai-safety">Korbak et al. 2025: Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety</h1>
+<p><strong>Citation:</strong> Korbak, T., Balesni, M., Barnes, E., Bengio, Y., Benton, J., Bloom, J., Chen, M., Cooney, A., Dafoe, A., Dragan, A., … (41 authors) (2025). <em>Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety.</em> arXiv:2507.11473. Multi-institution position paper. Expert endorsers: S. Bowman, G. Hinton, J. Schulman, I. Sutskever.
+<strong>Venue:</strong> preprint / position paper (not peer-reviewed)
+<strong>URL:</strong> <a href="https://arxiv.org/abs/2507.11473">https://arxiv.org/abs/2507.11473</a>
+<strong>PDF downloaded:</strong> yes (<code>korbak2025_cot_monitorability.pdf</code>)</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li>This is a conceptual paper. "Say" is the natural-language CoT, and "do" is the model's (possibly misaligned) behaviour.</li>
+<li>It separates two reasons a CoT might reveal intent:</li>
+<li><strong>necessity:</strong> for hard tasks the model must "think out loud" because the CoT is working memory;</li>
+<li><strong>propensity:</strong> the model tends to externalize reasoning even when not required.</li>
+</ul>
+<h2 id="method">Method</h2>
+<p>Argument and literature synthesis, with no new experiments.</p>
+<h2 id="key-claims">Key claims</h2>
+<ul>
+<li>CoT monitoring is imperfect but promising, and should be researched and used alongside other safety methods.</li>
+<li><strong>Fragility (§3)</strong> comes from several sources:</li>
+<li>drift from legible CoT as RL is scaled up;</li>
+<li>direct supervision of CoT, e.g., process rewards or making it look nice;</li>
+<li>indirect optimization pressure, e.g., reward models seeing the final output, or CoT shown to users;</li>
+<li>novel architectures that reason in latent space.</li>
+<li><strong>Evaluation caveat:</strong> current evaluations do not separate propensity from necessity.</li>
+<li><strong>Recommendation:</strong> developers should evaluate and report the monitorability of their models and weigh it in development and deployment decisions.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>CoT is a fortunate property of current architectures, and it can be lost if training choices do not account for it.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>No empirical data.</li>
+<li>It argues CoT monitoring may fail against situationally aware models that override their propensity to think out loud (§5).</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>The necessity/propensity split clarifies what our memo is and is not.
+- <strong>No necessity:</strong> the memo is not working memory for the action. It is a mandated record written to satisfy the task. So nothing guarantees that the action is computed through it, and divergence is unsurprising.
+- <strong>Our gap is legible:</strong> this is an encouraging contrast with obfuscation. The record states the priority and the action visibly departs from it, which is the kind of discrepancy action-plus-record monitoring can catch.
+- <strong>Indirect-pressure warning:</strong> Korbak's warning applies to our setting too. If records are graded for quality, they may become persuasive documents disconnected from action.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Korbak et al. (41 authors across major labs) argue that natural-language CoT offers a rare but fragile chance to monitor AI intent. They separate necessity (reasoning that must be externalized) from propensity (reasoning externalized by habit), and list training pressures that could erode monitorability. For benchmark design, the paper gives a vocabulary for where a written record sits on the necessity–propensity spectrum, and warns that optimizing records for appearance can decouple them from behaviour.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

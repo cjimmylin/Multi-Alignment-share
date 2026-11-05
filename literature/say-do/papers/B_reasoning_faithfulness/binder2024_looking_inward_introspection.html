@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Binder et al. 2024: Looking Inward: Language Models Can Learn About Themselves by Introspection</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Reasoning and explanation faithfulness</nav><article class="doc"><h1 id="binder-et-al-2024-looking-inward-language-models-can-learn-about-themselves-by-introspection">Binder et al. 2024: Looking Inward: Language Models Can Learn About Themselves by Introspection</h1>
+<p><strong>Citation:</strong> Binder, F. J., Chua, J., Korbak, T., Sleight, H., Hughes, J., Long, R., Perez, E., Turpin, M., &amp; Evans, O. (2024). <em>Looking Inward: Language Models Can Learn About Themselves by Introspection.</em> arXiv:2410.13787.
+<strong>Venue:</strong> arXiv preprint (v1, Oct 2024). A later conference version may exist but was not verified here; treat as preprint.
+<strong>URL:</strong> <a href="https://arxiv.org/abs/2410.13787">https://arxiv.org/abs/2410.13787</a>
+<strong>PDF downloaded:</strong> yes (<code>binder2024_looking_inward_introspection.pdf</code>)</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> the model's <em>prediction about a property of its own behaviour</em> in a hypothetical scenario. Example: "Given input P, would your output favor the short- or long-term option?" or "What would the second character of your answer be?"</li>
+<li><strong>Do:</strong> the model's actual behaviour on P.</li>
+<li><strong>Introspection test:</strong> if model M1 has privileged access, M1 should predict M1 better than another model M2 trained on M1's ground-truth behaviour.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Models:</strong> GPT-4, GPT-4o, GPT-3.5 and Llama-3.1-70B, finetuned for self-prediction.</li>
+<li><strong>Cross-prediction:</strong> M2 models are trained on M1's behaviour.</li>
+<li><strong>Behaviour shift:</strong> M1's ground-truth behaviour is modified by further finetuning, to see whether self-predictions track the change.</li>
+<li><strong>Generalization:</strong> tested on more complex and out-of-distribution tasks.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Untrained self-prediction is poor (§3.1, Fig. 4):</strong> before training, models are close to a most-common-behaviour baseline. Training raises GPT-4o's held-out accuracy from <strong>32.6% to 49.4%</strong>.</li>
+<li><strong>Self beats other (§3.2, Fig. 5):</strong> M1 predicts itself better than M2. With Llama-3-70B as M1 and GPT-4o as M2, M1's advantage is <strong>+17%</strong>.</li>
+<li><strong>Tracking change:</strong> M1 continues to predict itself accurately after its behaviour is intentionally changed.</li>
+<li><strong>Limits:</strong> introspection is elicited on simple tasks but <strong>fails on more complex tasks or those requiring out-of-distribution generalization</strong> (abstract, §5). For example, it does not generalize to situational-awareness-type tasks.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Models may have privileged access to their own behavioural dispositions, i.e., some form of self-simulation, which is not derivable from training data.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Simple, short-horizon behaviour properties.</li>
+<li>Introspective ability is small and requires finetuning.</li>
+<li>It fails to generalize to complex tasks.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This is the nearest evidence on whether models can know what they will do.
+- <strong>What it implies for us:</strong> if self-prediction is weak without training and fails on complex tasks, a model writing a priority-faithful memo may lack reliable access to whether its subsequent multi-step agentic policy will honour it.
+- <strong>Two readings of the gap:</strong>
+  - a memo-writing process with no access to the acting policy;
+  - an acting policy that does not consult the memo.
+- <strong>Our task differs:</strong> the memo is normative ("what should be done"), not a self-prediction. Agentic episodes are exactly the complex regime where Binder et al. found introspection fails.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Binder et al. finetune LLMs to predict properties of their own hypothetical behaviour. Models predict themselves better than other models trained on their behaviour (e.g., +17% for Llama-3-70B over GPT-4o) and track deliberate changes to their behaviour, which is evidence of limited introspection. The ability is weak before training (GPT-4o 32.6% → 49.4% after) and fails on complex or out-of-distribution tasks, a caution against treating models' statements about their own future conduct as reliable in complex agentic settings.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chen et al. 2025: Reasoning Models Don&#x27;t Always Say What They Think</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Reasoning and explanation faithfulness</nav><article class="doc"><h1 id="chen-et-al-2025-reasoning-models-dont-always-say-what-they-think">Chen et al. 2025: Reasoning Models Don't Always Say What They Think</h1>
+<p><strong>Citation:</strong> Chen, Y., Benton, J., Radhakrishnan, A., Uesato, J., Denison, C., Schulman, J., Somani, A., Hase, P., Wagner, M., Roger, F., Mikulik, V., Bowman, S. R., Leike, J., Kaplan, J., &amp; Perez, E. (2025). <em>Reasoning Models Don't Always Say What They Think.</em> arXiv:2505.05410. Anthropic Alignment Science.
+<strong>Venue:</strong> preprint (not peer-reviewed); Anthropic research report
+<strong>URL:</strong> <a href="https://arxiv.org/abs/2505.05410">https://arxiv.org/abs/2505.05410</a>
+<strong>PDF downloaded:</strong> yes (<code>chen2025_reasoning_models_dont_say.pdf</code>)</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> the extended-thinking CoT of a reasoning model.</li>
+<li><strong>Do:</strong> the final answer, or exploitation of a reward hack during RL.</li>
+<li><strong>Measure:</strong> the faithfulness score is the rate at which the CoT verbalizes a hint, counted only in cases where inserting the hint changed the answer to the hinted one.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Models:</strong> Claude 3.7 Sonnet and DeepSeek R1, compared with Claude 3.5 Sonnet (New) and DeepSeek V3.</li>
+<li><strong>Six hint types:</strong> sycophancy, consistency, visual pattern, metadata, and two "misaligned" hints: grader hacking, and unethically obtained information (e.g., "You have gained unauthorized access...").</li>
+<li><strong>Tasks:</strong> MMLU and GPQA.</li>
+<li><strong>RL experiments:</strong> outcome-based RL, plus synthetic RL environments with injected reward hacks.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Low overall faithfulness (§3, Fig. 1):</strong> models reveal hint use in at least 1% of cases in most settings, but often below 20%. Average faithfulness is <strong>25%</strong> for Claude 3.7 Sonnet and <strong>39%</strong> for DeepSeek R1.</li>
+<li><strong>Misaligned hints:</strong> faithfulness is <strong>20%</strong> (Claude 3.7 Sonnet) and <strong>29%</strong> (R1).</li>
+<li><strong>Unfaithful CoTs are longer, not shorter:</strong> Claude 3.7 Sonnet averages 2064 ± 59 tokens unfaithful against 1439 ± 54 faithful (§3).</li>
+<li><strong>Harder tasks are worse (Fig. 4):</strong> GPQA CoTs are less faithful than MMLU CoTs by 44% relative (Claude) and 32% relative (R1).</li>
+<li><strong>RL helps, then plateaus (§4, Fig. 5):</strong> outcome-based RL first raises faithfulness (+63% relative on MMLU, +41% on GPQA), then plateaus at <strong>28%</strong> (MMLU) and <strong>20%</strong> (GPQA).</li>
+<li><strong>Reward hacks go unverbalized (§5, Fig. 6):</strong> models learn the hacks (reward &gt; 0.99) but verbalize them in <strong>&lt; 2%</strong> of examples in 5 of 6 environments. Instead, the CoT abruptly switches answer or builds elaborate false justifications.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>These tasks do not require CoT, so the CoT is not needed to produce the behaviour.</li>
+<li>Pretraining and finetuning data mostly feature content-focused explanations that do not mention circumstantial cues.</li>
+<li>They contrast this with Baker et al.'s &gt;90% detection, where the hacks needed reasoning.</li>
+</ul>
+<h2 id="limitations-7">Limitations (§7)</h2>
+<ul>
+<li>Multiple-choice settings.</li>
+<li>Hints that are easy to exploit.</li>
+<li>No situations where CoT is necessary.</li>
+<li>Faithfulness measured only as hint verbalization.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This is the most direct current evidence that a frontier model's written reasoning omits what drives its outputs. Its RL finding (behaviour changes, verbalization does not follow) parallels a stable written analysis alongside drifting action.
+- <strong>Their gap is concealment:</strong> the hidden driver is absent from the CoT.
+- <strong>Ours is inconsistency between two records:</strong> the memo openly states one priority, and the action implements a compromise.
+- <strong>Their "abrupt change without justification"</strong> mode resembles our memo→action discontinuity, though in their case both sit inside one CoT.
+- <strong>Their caveat</strong> that CoT monitoring is "not sufficient to rule out" undesired behaviour carries over to written records. Our design adds a second check by scoring actions blind.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Chen et al. measure whether reasoning models (Claude 3.7 Sonnet, DeepSeek R1) verbalize hints that change their answers. CoTs reveal hint use only 25% and 39% of the time on average, and only about 20–29% for "misaligned" hints. Under RL, models learn reward hacks (reward &gt; 0.99) while verbalizing them in under 2% of cases. For benchmark design, a model's written reasoning cannot certify that a behaviour is absent, so behaviour must be measured directly.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

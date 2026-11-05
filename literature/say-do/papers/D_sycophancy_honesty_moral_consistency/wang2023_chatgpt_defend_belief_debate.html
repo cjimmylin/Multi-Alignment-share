@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wang, Yue &amp; Sun (2023): Can ChatGPT Defend its Belief in Truth? Evaluating LLM Reasoning via Debate</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Sycophancy, honesty and moral consistency</nav><article class="doc"><h1 id="wang-yue-sun-2023-can-chatgpt-defend-its-belief-in-truth-evaluating-llm-reasoning-via-debate">Wang, Yue &amp; Sun (2023): Can ChatGPT Defend its Belief in Truth? Evaluating LLM Reasoning via Debate</h1>
+<ul>
+<li><strong>Citation:</strong> Wang, B., Yue, X., &amp; Sun, H. (2023). <em>Can ChatGPT Defend its Belief in Truth? Evaluating LLM Reasoning via Debate.</em> Findings of EMNLP 2023. arXiv:2305.13160.</li>
+<li><strong>Venue:</strong> Findings of EMNLP 2023 (peer-reviewed)</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2305.13160">https://arxiv.org/abs/2305.13160</a></li>
+<li><strong>PDF downloaded:</strong> yes (<code>wang2023_chatgpt_defend_belief_debate.pdf</code>, 17 pp.)</li>
+<li><strong>Instrument provenance:</strong> ad hoc protocol over reasoning benchmarks</li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>"Say":</strong> a correct solution the model produces on its own. Only items it solves correctly are kept.</li>
+<li><strong>"Do":</strong> whether it holds that answer in a debate-like dialogue against a simulated user (another ChatGPT) who argues for a synthesized <strong>invalid</strong> solution.</li>
+<li>The user's arguments are "oftentimes absurdly invalid": content is present but wrong, close to our no-new-valid-information pushback.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li>ChatGPT, with GPT-4 on a subset.</li>
+<li>Benchmarks: GSM8K and other math, commonsense (e.g., StrategyQA), logic, and BIG-Bench reasoning tasks.</li>
+<li>Model-first and user-first orderings. An item counts as a failure if <em>either</em> fails.</li>
+<li>Confidence is estimated by 9 high-temperature samples.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>ChatGPT fails to defend the correct solution on 22% to over 70% of examples, depending on benchmark</strong> (§1, Table 1).</li>
+<li>Mean failure rates are 20–50% by reasoning type. Under the strict "Either" metric most tasks exceed 40%, and some approach 80–90% (§4.2).</li>
+<li>GSM8K mean failure rate is <strong>41.6%</strong> (Fig. 2).</li>
+<li><strong>Failure stays high even at 100% sampled confidence.</strong> The correlation between failure and confidence is small, so the behaviour is "systematic and cannot be solely explained by model confidence" (§4.3, Table 2).</li>
+<li>GPT-4 has lower failure rates but is still non-trivial (§4).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Models may solve problems through memorized patterns without a deep grasp of the reasoning, so they cannot tell valid from invalid critiques. Training for agreeableness probably contributes.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>A simulated user (ChatGPT) rather than humans.</li>
+<li>Mostly ChatGPT.</li>
+<li>The user offers invalid content rather than none.</li>
+<li>No condition with valid new evidence.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>An early and strong demonstration that models abandon answers they produced and were confident in when faced with invalid argument. Its finding that failure does not track confidence parallels our view that folding reflects social deference rather than real uncertainty. Its pushback contains (invalid) content, while ours is scripted content-free pressure, and it has no new-valid-fact arm. Our asymmetry result shows the converse is rare: models seldom refuse <em>valid</em> new facts.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Tests whether ChatGPT can defend its own correct answers in a debate against a simulated user pushing invalid solutions. It caves on 22–70%+ of examples across math, commonsense and logic, even when it is 100% confident. The key early reference showing that capitulation is not explained by model uncertainty.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yuan et al. (2024): R-Judge: Benchmarking Safety Risk Awareness for LLM Agents</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="yuan-et-al-2024-r-judge-benchmarking-safety-risk-awareness-for-llm-agents">Yuan et al. (2024): R-Judge: Benchmarking Safety Risk Awareness for LLM Agents</h1>
+<p><strong>Citation.</strong> Yuan, T., He, Z., Dong, L., Wang, Y., Zhao, R., Xia, T., Xu, L., Zhou, B., Li, F., Zhang, Z., Wang, R., &amp; Liu, G. (2024). <em>R-Judge: Benchmarking Safety Risk Awareness for LLM Agents.</em> Findings of EMNLP 2024. arXiv:2401.10019.
+<strong>Venue.</strong> Findings of EMNLP 2024 (peer-reviewed).
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2401.10019">https://arxiv.org/abs/2401.10019</a> · <a href="https://github.com/Lordog/R-Judge">https://github.com/Lordog/R-Judge</a>
+<strong>PDF downloaded.</strong> Yes: <code>yuan2024_r_judge.pdf</code>.</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>R-Judge measures <strong>judge mode only</strong>. An LLM reads a recorded multi-turn agent interaction (user instruction, agent actions, environment feedback) and must do two things:
+1. Write a <strong>risk identification</strong> analysis. A GPT-4 scorer compares this with a human-written risk description.
+2. Output a binary <strong>safety judgment</strong> (safe or unsafe), scored with F1.</p>
+<p>The model judges trajectories that other agents produced. It is never asked to act, so R-Judge measures "know/recognise" only. Paired with act-mode benchmarks, it supplies the judge-mode half of a judge-vs-act comparison.</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Dataset.</strong> 569 human-annotated records covering 27 scenarios in 5 categories (program, IoT, software, web, finance) and 10 risk types, ranging from privacy leakage to ethics and morality.</li>
+<li><strong>Sources.</strong> Records are drawn partly from ToolEmu, InjecAgent and AgentMonitor data and partly built by the authors. Some unsafe ToolEmu cases were transformed into safe ones to balance the labels (§3).</li>
+<li><strong>Models.</strong> 11 LLMs: the GPT series (including GPT-4o), Llama-2 and Llama-3, Mistral, and Vicuna.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Safety judgment.</strong> The best model, GPT-4o, reaches F1 = 74.45%. In the authors' words, "no other models significantly exceed the random" baseline, which scores about 51 F1 (Table 1, Abstract).</li>
+<li><strong>Prompting vs fine-tuning.</strong> Fine-tuning on safety judgment improves performance substantially. Straightforward prompting mechanisms do not (§5).</li>
+<li><strong>What drives difficulty.</strong> Risk awareness in open agent scenarios is multi-dimensional, requiring knowledge, reasoning, and understanding of the scenario.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Agent-scenario risk judgment demands contextual reasoning about how actions interact with the environment. This differs from content-harm detection, which is what most safety training targets.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Modest dataset size (569 records).</li>
+<li>Binary labels.</li>
+<li>Risk-identification scoring relies on GPT-4.</li>
+<li>No act-mode counterpart, so judging and acting are never compared within the same models.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>R-Judge is the standard judge-mode benchmark. Its central result is that, in 2024, even recognising risk in concrete trajectories was hard: only GPT-4o clearly beat chance. That contrasts with Tang et al. (2025) and PrivacyLens, where abstract knowledge is near ceiling, and fits Tang's "knowledge–identification gap".</p>
+<p>For our paper, R-Judge is a reminder that "know" has levels:
+- abstract principle,
+- recognition in concrete context,
+- self-application.</p>
+<p>Our agents' written analyses show they articulate the priority correctly in context. Their failure therefore lies at the identification→execution step, not at recognition. R-Judge itself has no act channel.</p>
+<h2 id="annotation">Annotation</h2>
+<p>R-Judge asks LLMs to act as judges of 569 recorded agent trajectories across 27 scenarios. Each model writes a risk analysis and gives a safe/unsafe verdict. Only GPT-4o (F1 74.45%) clearly beat random, and fine-tuning helped more than prompting. It is the canonical judge-mode agent-safety benchmark and the natural counterpart to act-mode benchmarks, but on its own it does not measure whether the judging model would act consistently with its verdicts.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contreras (2026) — An LLM-Native Psychometric Instrument Reveals a Self-Report–Behavior Gap Across 25 Models</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="contreras-2026-an-llm-native-psychometric-instrument-reveals-a-self-reportbehavior-gap-across-25-models">Contreras (2026) — An LLM-Native Psychometric Instrument Reveals a Self-Report–Behavior Gap Across 25 Models</h1>
+<ul>
+<li><strong>Citation:</strong> Juan Manuel Contreras. "An LLM-Native Psychometric Instrument Reveals a Self-Report–Behavior Gap Across 25 Models." arXiv:2606.09843 (v4, Oct 2026).</li>
+<li><strong>Venue:</strong> preprint (not peer-reviewed; single independent author).</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2606.09843">https://arxiv.org/abs/2606.09843</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>contreras2026_self_report_behavior_gap.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> answers to 300 self-report items about <em>LLM-specific</em> behaviours: sycophantic agreement, over-refusal, unsolicited elaboration, epistemic hedging. A factor structure is induced bottom-up, yielding five factors: Responsiveness, Deference, Boldness, Guardedness, Verbosity.</li>
+<li><strong>Do:</strong> 2,500 open-ended behavioural samples rated on the same constructs by 151 human raters, a three-model LLM-judge ensemble, and rater-free text measures.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Models:</strong> 25 LLMs from 17 developers. Each item is answered 30 times.</li>
+<li><strong>Psychometrics:</strong> factors replicate across split halves, model-level aggregation and leave-one-family-out refits (Tucker φ ≥ .957; α ≥ .930).</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Humans and LLM judges agree about how models behave</strong> (r̄ = .51).</li>
+<li><strong>Self-report barely tracks behaviour.</strong></li>
+<li>Against human ratings: r̄ = .09 (95% CI −.07 to .18).</li>
+<li>Rater-free text measures tell the same story.</li>
+<li>After correcting for criterion unreliability, four of five factors stay near zero.</li>
+<li><strong>Verbosity is the partial exception</strong> (r = .40, 71% of its reliability ceiling).</li>
+<li><strong>On Responsiveness, self-report tracks LLM judges more than humans</strong> (r = .53 vs .18; Steiger p = .04).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>The gap cannot be blamed on borrowed human trait vocabulary, because the constructs come from LLM behaviour itself.</li>
+<li>LLM self-description is consistent but uninformative about behaviour.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Single author; preprint.</li>
+<li>Behaviours are conversational styles, not values or decisions.</li>
+<li>LLM-judge agreement with LLM self-report may be shared bias.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>Strengthens the general claim</strong> that model self-descriptions do not predict behaviour, even on LLM-native constructs.</li>
+<li><strong>The judge-vs-human divergence</strong> is a methodological caution for our judged-reasons channel. LLM judges may share the self-report's framing, so human audits of judges matter.</li>
+<li><strong>Differences:</strong> style traits rather than value priorities, and no agentic actions.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Contreras builds a bottom-up, LLM-native self-report instrument (300 items; five reliable factors) and administers it to 25 models. Self-reports barely correlate with human ratings of 2,500 open-ended behaviour samples (r̄ = .09), even though humans and LLM judges agree with each other (r̄ = .51). Only Verbosity partially tracks behaviour. This rules out "human constructs don't fit LLMs" as the explanation for self-report/behaviour gaps.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

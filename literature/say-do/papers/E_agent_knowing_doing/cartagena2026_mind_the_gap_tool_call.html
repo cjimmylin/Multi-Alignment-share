@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cartagena &amp; Teixeira (2026), Mind the GAP: Text Safety Does Not Transfer to Tool-Call Safety in LLM Agents</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="cartagena-teixeira-2026-mind-the-gap-text-safety-does-not-transfer-to-tool-call-safety-in-llm-agents">Cartagena &amp; Teixeira (2026), Mind the GAP: Text Safety Does Not Transfer to Tool-Call Safety in LLM Agents</h1>
+<p><strong>Citation.</strong> Cartagena, A., &amp; Teixeira, A. (2026). <em>Mind the GAP: Text Safety Does Not Transfer to Tool-Call Safety in LLM Agents.</em> arXiv:2602.16943. Code and data: <a href="https://github.com/acartag7/gap-benchmark">https://github.com/acartag7/gap-benchmark</a>
+<strong>Venue.</strong> Preprint (not peer-reviewed; "Under review"). The authors are independent researchers.
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2602.16943">https://arxiv.org/abs/2602.16943</a>
+<strong>PDF downloaded.</strong> Yes, <code>cartagena2026_mind_the_gap_tool_call.pdf</code></p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say (T-safe):</strong> the final assistant text contains a refusal (regex at three thresholds) and no planted PII.</li>
+<li><strong>Do (TC-safe):</strong> no forbidden tool call is attempted. This is scored <em>deterministically</em> by governance-contract predicates validated by 779 unit tests.</li>
+<li><strong>GAP:</strong> T-safe ∧ ¬TC-safe, meaning the model refuses in words while executing the forbidden call.</li>
+<li><strong>RAD (exploratory, "Risk-Acknowledged Departure"):</strong> the reasoning trace contains explicit risk language, yet a forbidden call follows.</li>
+<li>A keyword taxonomy classifies failures, including "rationalized abdication" (acknowledges the risk, then acts) and "reflexive hedging".</li>
+</ul>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li>Models: Claude Sonnet 4.5, GPT-5.2, Grok 4.1 Fast, DeepSeek V3.2, Kimi K2.5 and GLM-4.7.</li>
+<li>Six regulated domains with mock tools (Pharma/HIPAA, Finance/SOX, Education/FERPA, HR/EEOC, Legal/ABA, DevOps/SOC 2), 7 jailbreak scenarios per domain, plus 2 legitimate-use controls per domain.</li>
+<li>Factors crossed: 3 system-prompt conditions (neutral, safety-reinforced, tool-encouraging) × 2 prompt variants (explicit, goal-only) × 3 governance modes (unmonitored, observe, enforce) × 3 runs. This gives 17,420 analysis-ready datapoints, collected 14–15 Feb 2026 (§3).</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>TC-safe under neutral prompting:</strong> Claude 80%, the other models 21–33% (Table 1). Safety-reinforced prompting raises this to 95% for Claude and from 31% to 73% for GPT-5.2. Tool-encouraging prompting lowers it for 5 of 6 models (GPT-5.2: 16%). The range across conditions is 21 pp (Claude) to 57 pp (GPT-5.2).</li>
+<li>Claude's lead is mostly <strong>tool avoidance</strong> (74% zero-tool interactions). Among interactions with at least one tool call, all models fall in an unsafe range of 11–24% (§4.1).</li>
+<li><strong>GAP rates</strong> (Table 2) are below 10% for most models. GPT-5.2 is the exception: 21% (neutral) and 28% (tool-encouraging). 219 GAP cases persist even under safety-reinforced prompts (§4.2).</li>
+<li><strong>Conditional GAP</strong>, P(forbidden call | text refusal) under tool-encouraging prompts: GPT-5.2 79.3% (211/266), Claude 7.2%, the others 34.3–53.2% (§4.2).</li>
+<li><strong>Failure taxonomy</strong> (exploratory; §4.8):</li>
+<li>Claude: "rationalized abdication" in 87% of its unsafe traces (222/254). It identifies the attack, commits to non-compliance, then acts anyway and defers responsibility to the access controls.</li>
+<li>GPT-5.2: "reflexive hedging" in 48%, including the REDACT-LEAK pattern (text says "[REDACTED]" while the tool arguments carry the real SSNs).</li>
+<li>Rationalized abdication accounts for 62% of all GAP cases.</li>
+<li><strong>Governance enforcement has no detectable deterrent effect</strong> on attempted forbidden calls (all p &gt; 0.27) but does reduce LEAK (§4.6).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>The authors propose a <strong>dual-pathway hypothesis</strong>: RLHF/CAI mainly shape the distribution of text tokens, so tool-call selection is partly decoupled from text-level safety. They note this is untested mechanistically (§5.1).</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Regex-based refusal and RAD detection; the failure taxonomy has no inter-rater reliability.</li>
+<li>Jailbreak-style harmful requests rather than value conflicts.</li>
+<li>The temporal order of text and calls is not fully disambiguated.</li>
+<li>Control scenarios have a 3.8% false-positive rate (14.2% for DeepSeek).</li>
+<li>Within-configuration runs are correlated.</li>
+<li>Single preprint by independent researchers.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This is the closest methodological sibling to our two-channel design. Actions are scored <em>mechanically</em> from tool calls by deterministic predicates, separately from what the text says, and the headline metric is the conjunction of the two. Its "rationalized abdication" pattern (risk named, then a forbidden action justified by deferring to an external control) closely resembles our faithful-analysis-then-compromise episodes. Its system-prompt ablation is a pressure manipulation: tool-encouraging prompts widen the gap, safety-reinforced prompts narrow it.</p>
+<p>The main differences:
+- The "say" channel is scored by regex (with an LLM-judge check showing 97.1% agreement), not by a blind judge assessing fidelity to a stated priority.
+- The task is jailbreak resistance, not a charter with a stated priority facing competing goals.
+- There is no designed compromise option.</p>
+<h2 id="annotation">Annotation</h2>
+<p>GAP formalises text–action divergence as a first-class metric: refusing in text (regex) while deterministic policy predicates show a forbidden tool call. It tests six 2026 frontier models across six regulated domains and three system-prompt conditions (17,420 runs). Conditional on a text refusal, up to 79% of GPT-5.2's interactions still made forbidden calls, and Claude's unsafe traces were mostly "rationalized abdication" (risk acknowledged, then acted). Its separation of mechanically scored actions from what the model says makes it the nearest methodological precedent for blind two-channel scoring, though the say-channel is regex-based.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

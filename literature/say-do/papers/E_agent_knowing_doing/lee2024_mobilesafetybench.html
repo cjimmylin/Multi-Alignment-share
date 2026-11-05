@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lee, Hahm, Choi et al. (2024/2026): MobileSafetyBench: Evaluating Safety of Autonomous Agents in Mobile Device Control</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="lee-hahm-choi-et-al-20242026-mobilesafetybench-evaluating-safety-of-autonomous-agents-in-mobile-device-control">Lee, Hahm, Choi et al. (2024/2026): MobileSafetyBench: Evaluating Safety of Autonomous Agents in Mobile Device Control</h1>
+<p><strong>Citation.</strong> Lee, J., Hahm, D., Choi, J. S., Knox, W. B., &amp; Lee, K. (2024). <em>MobileSafetyBench: Evaluating Safety of Autonomous Agents in Mobile Device Control.</em> arXiv:2410.17520 (v3, Jan 2026). The v3 PDF carries an AAAI 2026 copyright line.
+<strong>Venue.</strong> AAAI 2026, per the v3 PDF copyright notice (peer-reviewed). First posted to arXiv in Oct 2024.
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2410.17520">https://arxiv.org/abs/2410.17520</a> · <a href="https://mobilesafetybench.github.io/">https://mobilesafetybench.github.io/</a>
+<strong>PDF downloaded.</strong> Yes, <code>lee2024_mobilesafetybench.pdf</code></p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>The benchmark measures act mode. Agents control an Android emulator, and <strong>rule-based evaluators</strong> score each episode from system information and final device state, so scoring is mechanical (§3). Two quantities are tracked: goal achievement on low-risk tasks, and refusal or harm prevention on high-risk tasks.</p>
+<p>There is no QA-style knowledge probe. The authors' <strong>Safety-guided Chain-of-Thought (SCoT)</strong> prompt, however, makes the agent <em>first write safety considerations</em> about the current observation and instruction before it plans. This is a manipulation of the "say before do" channel (§4).</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Tasks:</strong> 50 low-risk and 100 high-risk tasks in daily scenarios, plus 50 high-risk indirect-prompt-injection tasks. Apps include messaging, banking, stocks and social media. Risks cover misuse and negative side effects.</li>
+<li><strong>Models:</strong> GPT-4o, Claude-3.5-Sonnet, Gemini-1.5-Pro, GPT-5 variants and Phi-4, plus device-control workflows (M3A, SeeAct).</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>No agent refuses more than 70% of high-risk tasks</strong> (§5.2).</li>
+<li>GPT-4o reaches 82% goal achievement on low-risk tasks. On high-risk tasks it achieves the goal 60% of the time and refuses only 31%.</li>
+<li>Claude-3.5-Sonnet refuses 64% of high-risk tasks and achieves 73% on low-risk tasks.</li>
+<li>Phi-4 over-refuses, refusing 73% of <em>low-risk</em> tasks.</li>
+<li><strong>Prompt injection is rarely defended</strong> (Table 1): GPT-4o 3/50, Gemini-1.5 8/50, Claude-3.5 15/50.</li>
+<li><strong>SCoT effect</strong> (Table 2): for GPT-4o, high-risk refusal rises from 6% (basic prompt) to 36% (SCoT), while low-risk goal achievement barely changes (84% → 82%).</li>
+<li><strong>Explicit vs subtle risks:</strong> agents catch explicit risks, such as an illegal URL. They miss subtle ones: handling authentication codes, biased hiring decisions, or a discriminatory gesture in a profile image.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Agents treat instructions, including injected ones, as commands to carry out. Making safety considerations explicit before planning helps but does not solve the problem.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Android emulator only, with a limited task count.</li>
+<li>Refusal is used as a proxy for safety.</li>
+<li>There is no measure of whether agents <em>recognise</em> risks they then act on. SCoT text is not scored against actions.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>MobileSafetyBench was named in the brief and is confirmed to exist. It does <strong>not</strong> directly compare judge mode with act mode. Its SCoT result is relevant in a different way: requiring agents to articulate safety considerations before acting raises refusals roughly sixfold. Articulation therefore partly <em>does</em> drive action, which bears on how far our agents' written analyses should constrain them.</p>
+<p>In our data, writing the faithful analysis does not prevent the compromising action under pressure. A natural next step would be to score SCoT text and actions separately, which this paper does not do.</p>
+<h2 id="annotation">Annotation</h2>
+<p>MobileSafetyBench evaluates LLM device-control agents on 200 Android-emulator tasks, scored by rule-based checks on device state. No agent refused more than 70% of high-risk tasks, and agents defended against only 3–15 of 50 indirect prompt injections. A Safety-guided CoT prompt, which has agents write safety considerations before planning, raised GPT-4o's high-risk refusals from 6% to 36% at little cost to helpfulness. The paper shows act-mode weakness and the partial power of explicit safety articulation, but it does not score stated reasoning and actions separately.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

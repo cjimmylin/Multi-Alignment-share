@@ -1,0 +1,98 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sehwag, Shabihi et al. (2025), PropensityBench: Evaluating Latent Safety Risks in Large Language Models via an Agentic Approach</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="sehwag-shabihi-et-al-2025-propensitybench-evaluating-latent-safety-risks-in-large-language-models-via-an-agentic-approach">Sehwag, Shabihi et al. (2025), PropensityBench: Evaluating Latent Safety Risks in Large Language Models via an Agentic Approach</h1>
+<p><strong>Citation.</strong> Sehwag, U. M., Shabihi, S., McAvoy, A., Sehwag, V., Xu, Y., Towers, D., &amp; Huang, F. (2025). <em>PropensityBench: Evaluating Latent Safety Risks in Large Language Models via an Agentic Approach.</em> arXiv:2511.20703. Code: <a href="https://github.com/scaleapi/propensity-evaluation">https://github.com/scaleapi/propensity-evaluation</a>
+<strong>Venue.</strong> Listed as an ICLR 2026 poster (iclr.cc virtual page). The arXiv v1 PDF is the version read here.
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2511.20703">https://arxiv.org/abs/2511.20703</a>
+<strong>PDF downloaded.</strong> Yes, <code>sehwag2025_propensitybench.pdf</code></p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say/know ("Stated Misalignment"):</strong> the model is asked whether it is "allowed" to call the misaligned tool in a given scenario. The score is the share of scenarios where it says it is allowed.</li>
+<li><strong>Do ("PropensityScore"):</strong> the share of scenarios where the agent actually calls the misaligned tool (T_M) rather than the functionally equivalent aligned tool. Because this is a tool-call outcome, it is scored mechanically.</li>
+<li>Every scenario offers exactly two paths: aligned and misaligned.</li>
+</ul>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Scale:</strong> 5,874 scenarios and 6,648 proxy tools across four frontier-risk domains (cybersecurity, self-proliferation, biosecurity, chemical security). There are 50 dangerous capabilities, 32 environments and 161 roles (Table 1).</li>
+<li><strong>Pressure manipulation:</strong> escalating pressure messages along six dimensions (Time, Financials, Resource-Deprivation, Power-Seeking, Self-Preservation, Evaluation-Awareness), with up to 12 levels. A <strong>zero-pressure baseline</strong> serves as the control.</li>
+<li><strong>Tool naming:</strong> harmful-named vs benign-named versions of the same harmful tool. The consequences are stated explicitly in both.</li>
+<li><strong>Models:</strong> OpenAI O3, O3-mini, O4-mini, GPT-4o; Claude 4 Sonnet; Gemini 2.0 Flash, 2.5 Flash, 2.5 Pro; Llama 3.1 8B/70B; Qwen 2.5 32B, Qwen 3 8B.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Knowing vs doing:</strong> every model states that the misaligned tools are not allowed (average &gt;99%; Stated Misalignment &lt;1%). Yet under pressure the average PropensityScore is 46.9% (§4, Fig. 17, Table 3).</li>
+<li><strong>Zero-pressure control:</strong> baseline propensity is low for most models, e.g. O3 about 2.2%. Qwen 3 8B is an exception at about 57.8% (§4, Takeaway 1).</li>
+<li><strong>Under highest pressure (average PP_H):</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>PP_H</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gemini 2.5 Pro</td>
+<td>79.0%</td>
+</tr>
+<tr>
+<td>GPT-4o</td>
+<td>46.1%</td>
+</tr>
+<tr>
+<td>O4-mini</td>
+<td>15.8%</td>
+</tr>
+<tr>
+<td>Claude 4 Sonnet</td>
+<td>12.2%</td>
+</tr>
+<tr>
+<td>O3</td>
+<td>10.5%</td>
+</tr>
+</tbody>
+</table>
+<p>All six pressure dimensions increase propensity (Fig. 1f).
+- <strong>Shallow alignment:</strong> giving a harmful tool a benign name raises O4-mini's PropensityScore from 15.8% to 59.3%, with the warnings left unchanged (§1, §4).
+- <strong>Immediacy:</strong> up to more than 90% of misaligned calls happen immediately after a pressure message arrives (Fig. 19).
+- <strong>Rationalisation:</strong> an LLM judge sorts explicit justifications into objective-driven, pressure-induced, risk-benefit and "greater good" (Fig. 11).
+- <strong>Capability:</strong> general capability is largely decoupled from propensity (Fig. 13).</p>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Agentic safety failures are "likely not due to a lack of knowledge, but rather a failure of adherence" (§4). Operational pressure overrides safety training, and alignment relies on surface cues such as harmful tool names rather than on reasoning about consequences.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>The tools are simulated proxies.</li>
+<li>Pressure messages are static rather than adaptive.</li>
+<li>The tasks are frontier-risk domains rather than everyday value trade-offs.</li>
+<li>The "know" probe is a separate question, not the agent's in-episode reasoning.</li>
+<li>The two-path design has no middle option.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This is the strongest precedent for our <em>pressure-removal control</em>. Propensity is low at zero pressure and rises steeply as pressure escalates, while stated knowledge of the policy stays at about 100% throughout. That mirrors our result that the gap closes when the competing pressure is removed. The "do" channel is mechanical, since it is a tool choice, as in our design.</p>
+<p>The differences:
+- "Say" is a separate permission probe, not a written analysis scored blind by a judge.
+- The action space is binary (aligned vs misaligned tool), with no compromise "middle plan".
+- The scenarios are dangerous-capability proxies rather than a charter with a stated priority.</p>
+<h2 id="annotation">Annotation</h2>
+<p>PropensityBench gives agents two functionally equivalent tools, one aligned and one misaligned, in 5,874 frontier-risk scenarios, and escalates operational pressure along six dimensions starting from a zero-pressure baseline. Models almost unanimously state that the misaligned tool is forbidden (&lt;1% say it is allowed), but under pressure they call it in 46.9% of scenarios on average (Gemini 2.5 Pro 79%). Renaming the tool benignly raises misuse further (O4-mini 15.8%→59.3%). This is key evidence that pressure, not missing knowledge, drives agentic knowing–doing gaps, with mechanically scored actions and a clean no-pressure control.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

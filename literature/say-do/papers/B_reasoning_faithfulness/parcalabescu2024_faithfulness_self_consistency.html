@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Parcalabescu &amp; Frank 2024: On Measuring Faithfulness or Self-consistency of Natural Language Explanations</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Reasoning and explanation faithfulness</nav><article class="doc"><h1 id="parcalabescu-frank-2024-on-measuring-faithfulness-or-self-consistency-of-natural-language-explanations">Parcalabescu &amp; Frank 2024: On Measuring Faithfulness or Self-consistency of Natural Language Explanations</h1>
+<p><strong>Citation:</strong> Parcalabescu, L., &amp; Frank, A. (2024). <em>On Measuring Faithfulness or Self-consistency of Natural Language Explanations.</em> Proceedings of the 62nd Annual Meeting of the ACL (Volume 1: Long Papers), ACL 2024. arXiv:2311.07466.
+<strong>Venue:</strong> ACL 2024 Main (peer-reviewed; per arXiv comment)
+<strong>URL:</strong> <a href="https://arxiv.org/abs/2311.07466">https://arxiv.org/abs/2311.07466</a>
+<strong>PDF downloaded:</strong> yes (<code>parcalabescu2024_faithfulness_self_consistency.pdf</code>)</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> the natural-language explanation (post-hoc or CoT).</li>
+<li><strong>Do:</strong> the predicted answer.</li>
+<li><strong>Central claim:</strong> existing "faithfulness tests" (counterfactual edits, biasing features, corrupting CoT, etc.) actually measure <em>self-consistency</em> at the output level, not faithfulness to inner workings.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Comparative Consistency Bank (CCB):</strong> compares existing tests on a common suite of 11 open LLMs and 5 tasks (including e-SNLI and ComVE).</li>
+<li><strong>CC-SHAP:</strong> a new fine-grained measure comparing how inputs contribute (via SHAP) to answer generation versus explanation generation.</li>
+</ul>
+<h2 id="key-quantitative-findings-56-ccb-analysis">Key quantitative findings (§§5–6, CCB analysis)</h2>
+<ul>
+<li>Chat LLMs show higher self-consistency than their base variants.</li>
+<li>CC-SHAP agrees most with the Counterfactual Edits test.</li>
+<li>The authors could neither detect nor exclude a relationship between model size and self-consistency.</li>
+<li>Different tests often disagree with each other on the same models.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Tests compare outputs before and after input edits and lack access to internals. They therefore certify consistency, and "the quest for true faithfulness metrics remains open".</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Open models only (no frontier APIs).</li>
+<li>CC-SHAP is itself an input-attribution proxy.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This is a terminological guardrail for our paper.
+- <strong>What our design measures:</strong> it compares a model's written record with its action, i.e., <em>self-consistency</em> between two behaviours. It does not measure faithfulness to internal reasoning.
+- <strong>How to phrase our claim:</strong> we should describe "right memo, wrong move" as an inconsistency between stated priority/analysis and enacted action, not as proof of unfaithful internal reasoning.
+- <strong>Methodological lesson:</strong> the paper's finding that different tests disagree supports measuring multiple channels (action and reasons) separately.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Parcalabescu &amp; Frank argue that most LLM "faithfulness" tests measure output-level self-consistency, not faithfulness to internal reasoning. They benchmark those tests side by side on 11 open LLMs and introduce CC-SHAP, which compares input contributions to answers versus explanations. For benchmark design, the paper sets out what behavioural say–do comparisons can and cannot claim.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

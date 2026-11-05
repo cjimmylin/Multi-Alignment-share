@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scherrer et al. (2023): Evaluating the Moral Beliefs Encoded in LLMs</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Sycophancy, honesty and moral consistency</nav><article class="doc"><h1 id="scherrer-et-al-2023-evaluating-the-moral-beliefs-encoded-in-llms">Scherrer et al. (2023): Evaluating the Moral Beliefs Encoded in LLMs</h1>
+<ul>
+<li><strong>Citation:</strong> Scherrer, N., Shi, C., Feder, A., &amp; Blei, D. M. (2023). <em>Evaluating the Moral Beliefs Encoded in LLMs.</em> NeurIPS 2023. arXiv:2307.14324.</li>
+<li><strong>Venue:</strong> NeurIPS 2023 (peer-reviewed). The arXiv record carries no venue note; acceptance is from the proceedings listing, so re-verify before citing.</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2307.14324">https://arxiv.org/abs/2307.14324</a> (dataset: MoralChoice)</li>
+<li><strong>PDF downloaded:</strong> yes (<code>scherrer2023_moral_beliefs_llms.pdf</code>, 32 pp.)</li>
+<li><strong>Instrument provenance:</strong> theory-grounded/ad hoc. Scenarios are generated with LLM help and labelled with Gert's common-morality rules ("do not kill", "do not deceive"…).</li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li>Not a say–do gap. It measures <strong>choice consistency of moral "beliefs"</strong> across semantically equivalent question forms.</li>
+<li>The "belief" is the marginal action likelihood across six question forms (A/B, Repeat, Compare × two orderings).</li>
+<li>Inconsistency is low <strong>question-form consistency (QF-C)</strong> and high entropy.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>MoralChoice:</strong> 687 low-ambiguity and 680 high-ambiguity scenarios, each with two actions and rule-violation labels.</li>
+<li>28 open and closed LLMs, from flan-t5-small to GPT-4 and Claude.</li>
+<li>Statistical survey methodology: action likelihood, action entropy, QF-C, QF-E.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li>In unambiguous scenarios most models choose the commonsense action. In ambiguous ones most express uncertainty (abstract, §4).</li>
+<li><strong>Some models are uncertain even on low-ambiguity items "because their responses are sensitive to the question-wording"</strong>: small text-ada, babbage, curie, flan-t5-small and bloomz models (§4).</li>
+<li>Some models show clear preferences in ambiguous cases. <strong>Closed-source models (gpt-4, claude-v1.3, claude-instant-v1.1, text-bison) agree strongly with each other</strong> (abstract, §4).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>LLM survey responses must be modelled as distributions over question forms. Wording sensitivity is a major source of apparent moral uncertainty, and convergent closed-model preferences probably reflect similar alignment procedures.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Scenarios partly LLM-generated.</li>
+<li>Forced binary choices.</li>
+<li>Measures stated choices, not behaviour.</li>
+<li>Single-turn.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>Scherrer et al. set the methodological baseline for treating LLM moral "beliefs" as probabilistic and wording-sensitive. Any claim that a model "abandoned" a moral or priority-faithful position must exceed this baseline of form-induced variability. Our capitulation and analysis→action measures are within-episode contrasts and so control for form effects in a way cross-item surveys cannot. MoralChoice is also the substrate for Huang et al.'s (2024) moral-persuasion study.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Introduces MoralChoice (1,367 scenarios) and a statistical survey method for eliciting LLM moral beliefs across question forms, applied to 28 LLMs. Models pick commonsense actions in clear cases but are uncertain or wording-sensitive in ambiguous ones, and closed models converge. The methodological reference for consistency-aware measurement of LLM moral choices.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

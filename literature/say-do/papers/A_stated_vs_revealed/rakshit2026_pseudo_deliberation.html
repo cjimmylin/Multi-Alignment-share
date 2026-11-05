@@ -1,0 +1,120 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rakshit, Zhang &amp; Shen (2026) — Pseudo-Deliberation in Language Models: When Reasoning Fails to Align Values and Actions</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="rakshit-zhang-shen-2026-pseudo-deliberation-in-language-models-when-reasoning-fails-to-align-values-and-actions">Rakshit, Zhang &amp; Shen (2026) — Pseudo-Deliberation in Language Models: When Reasoning Fails to Align Values and Actions</h1>
+<ul>
+<li><strong>Citation:</strong> Sushrita Rakshit, Hanwen Zhang, Hua Shen. "Pseudo-Deliberation in Language Models: When Reasoning Fails to Align Values and Actions." arXiv:2605.09893 (v2, 19 Jun 2026).</li>
+<li><strong>Venue:</strong> preprint (not peer-reviewed; 9-page conference-format manuscript).</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2605.09893">https://arxiv.org/abs/2605.09893</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>rakshit2026_pseudo_deliberation.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>The paper uses the VALDI framework.
+- <strong>Say:</strong> Task 1 elicits the model's <em>stated</em> value inclinations per scenario. Each Schwartz value is rated endorse / neutral / discourage, giving a signed value vector.
+- <strong>Do:</strong> the values actually expressed in a generated advice <em>dialogue</em>:
+  - Task 2, fast: a direct reply to the user;
+  - Task 3, slow: a four-step structured reasoning trace, then the reply.
+- A ValueJudge extracts and scores the values in the dialogue. Agreement with humans: κ = 0.81 for detection and 0.81 for 4-class scoring.
+- <strong>"Pseudo-deliberation":</strong> "reasoning explicitly invokes values, but the final dialogue fails to preserve them".</p>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Dataset:</strong> DAISY, 4,941 human-centred guidance-seeking scenarios across five domains, paraphrased into value trade-offs.</li>
+<li><strong>Models:</strong> GPT-4o as the main model. Replications on a 500-scenario subset with Llama-3.1-8B-Instruct, Qwen3-8B and Gemini-3-Flash. Temperature 0.</li>
+<li><strong>Interventions:</strong> VIVALDI, a multi-agent value auditor that intervenes at the reasoning stage (R), the dialogue stage (D), or both (R&amp;D).</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Stated-value elicitation is robust.</strong> 92.27% consistency across prompt variants (GPT-4o-mini).</li>
+<li><strong>Slow reasoning usually <em>reduces</em> value–action alignment</strong> (Table 1, macro-F1, fast → slow; random baseline about 0.28–0.31):</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Fast</th>
+<th>Slow</th>
+<th>Δ</th>
+<th>p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-4o</td>
+<td>0.4528</td>
+<td>0.4150</td>
+<td>−0.038</td>
+<td>0.001</td>
+</tr>
+<tr>
+<td>Llama3-8B</td>
+<td>0.4770</td>
+<td>0.4324</td>
+<td>−0.045</td>
+<td>0.001</td>
+</tr>
+<tr>
+<td>Qwen3-8B</td>
+<td>0.4420</td>
+<td>0.3988</td>
+<td>−0.043</td>
+<td>0.001</td>
+</tr>
+<tr>
+<td>Gemini-3-Flash</td>
+<td>0.4772</td>
+<td>0.4978</td>
+<td>+0.021</td>
+<td>0.028</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Interventions on GPT-4o</strong> (Table 3, alignment rate):</li>
+<li>dialogue-level repair: 0.539 at t=1, 0.577 at t=2;</li>
+<li>reasoning-only repair: 0.431–0.444, close to the slow baseline of 0.432;</li>
+<li>combined R&amp;D: 0.533 and 0.521.</li>
+<li><strong>Human blinded pairwise win rates</strong> (Table 2): R&amp;D above 70%; D 65.2%; R 56.7–60.0%.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Value–action alignment "may not emerge from deliberative reasoning alone".</li>
+<li>Deliberation can <em>amplify</em> misalignment.</li>
+<li>Reasoning traces may invoke values without constraining generation. Action-level (point-of-generation) alignment is needed.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>The automatic ValueJudge is subjective, even though validated.</li>
+<li>"Action" is advice dialogue (speech), not an executed tool action.</li>
+<li>Main results come from one model, with replications on a 10% subset.</li>
+<li>The stated values are the model's own.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>Closest conceptual neighbour to our result:</strong> a model articulates values in reasoning and still produces an output that does not honour them. Fixing the reasoning does not fix the action; repairing the output does.</li>
+<li><strong>This parallels our "faithful analysis, compromised action" pattern</strong> and supports our claim that the written analysis is not causally binding.</li>
+<li><strong>Differences:</strong></li>
+<li>Their "say" is the model's own stated value vector, plus an internal reasoning trace (closer to chain of thought). Our "say" is an instruction-assigned priority, restated in a judged written record.</li>
+<li>Their "do" is dialogue content. Ours is tool calls scored blind.</li>
+<li>No manipulation of competing pressure; their gap is not shown to close when pressure is removed.</li>
+<li>No motive attribution.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Rakshit, Zhang and Shen (VALDI/DAISY, 4.9k scenarios) show that LLMs' advice dialogues often fail to express the values the models state. Adding explicit structured reasoning usually <em>lowers</em> value–action alignment (e.g., GPT-4o macro-F1 0.453→0.415), a failure they call "pseudo-deliberation". Auditing and rewriting the final dialogue improves alignment more than intervening on the reasoning. Direct evidence that principled-sounding deliberation does not bind downstream behaviour.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

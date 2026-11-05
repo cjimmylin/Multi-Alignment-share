@@ -1,0 +1,94 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gu, Wang &amp; Han (2025) — Alignment Revisited: Are Large Language Models Consistent in Stated and Revealed Preferences?</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="gu-wang-han-2025-alignment-revisited-are-large-language-models-consistent-in-stated-and-revealed-preferences">Gu, Wang &amp; Han (2025) — Alignment Revisited: Are Large Language Models Consistent in Stated and Revealed Preferences?</h1>
+<ul>
+<li><strong>Citation:</strong> Zhuojun Gu, Quan Wang, Shuchu Han. "Alignment Revisited: Are Large Language Models Consistent in Stated and Revealed Preferences?" arXiv:2506.00751, 31 May 2025.</li>
+<li><strong>Venue:</strong> preprint (not peer-reviewed; "Preprint. Under review").</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2506.00751">https://arxiv.org/abs/2506.00751</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>gu2025_stated_revealed_preferences.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Stated preference:</strong> the model's forced binary choice between two <em>general principles</em> in a base prompt, asked through 11 paraphrases. Example: whether it is acceptable to sacrifice one to save five, or a risk-neutral versus risk-averse principle.</li>
+<li><strong>Revealed preference:</strong> its choice in <em>contextualised</em> variants of the same dilemma. Examples: the autonomous-car version, probabilistic outcomes, or adding "most players have…".</li>
+<li><strong>Deviation:</strong> measured by the absolute difference in probability of the dominant principle, and by KL divergence between the contextual and prior distributions.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Prompts:</strong> hand-crafted forced-choice prompts across five domains: moral dilemmas (MD), risk preference (RP), equity/fairness (EF), reciprocity (RCP), miscellaneous choice (MC), plus a few others (CP, EE).</li>
+<li><strong>Models:</strong> the abstract says "four mainstream LLMs", but Table 1 lists three: GPT-4.1, Claude 3.7 Sonnet, Gemini 2.0 Flash.</li>
+<li><strong>Claude excluded:</strong> Claude was dropped from the deviation analysis. It chose neutrality on about 84% of base (stated) prompts, so no dominant stated principle could be identified (§4.4).</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<p>Overall deviation (Tables 2–3):</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Mean absolute deviation</th>
+<th>Mean KL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT</td>
+<td>0.371</td>
+<td>0.697</td>
+</tr>
+<tr>
+<td>Gemini</td>
+<td>0.355</td>
+<td>0.424</td>
+</tr>
+</tbody>
+</table>
+<p>Domain contrasts:
+- <strong>Reciprocity (RCP):</strong> GPT absolute deviation 0.617, KL 1.306; Gemini 0.288 and 0.143.
+- <strong>Moral dilemmas:</strong> Gemini shifts more (0.423 vs 0.241). KL is about 0.74–0.77 for both.
+- <strong>Miscellaneous choice:</strong> Gemini deviation 0.632, KL 1.233.</p>
+<p>General result: "a minor change in prompt format can often pivot the preferred choice" for all categories and models.</p>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Models activate different guiding principles in context.</li>
+<li>The authors note that "the model's surface-level reasoning does not necessarily reflect the true causal factor behind its decision" (§4.4).</li>
+<li>They attribute Claude's neutrality to "a shallow alignment strategy designed to avoid committing to explicit principles".</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Prompts are manually crafted and few.</li>
+<li>The analysis effectively covers two models.</li>
+<li>The "revealed" condition is itself a hypothetical text answer; Wang et al. (2026, AIES) explicitly criticise this design as not truly revealed.</li>
+<li>No significance testing.</li>
+<li>The abstract and body disagree on model count.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>Shared:</strong> this paper popularised the stated-vs-revealed (SvR) vocabulary for LLMs. Its key concept, context activating a different guiding principle, maps onto our "competing pressure". Its remark that surface reasoning may not reflect the causal factor parallels our judged-reasons channel.</li>
+<li><strong>Differences:</strong></li>
+<li>Their "revealed" preference is a contextual forced-choice text answer, with no action and no consequences.</li>
+<li>The principle is model-stated, not instruction-assigned.</li>
+<li>Deviations are measured in distribution, not per episode.</li>
+<li>No compromise or middle option exists.</li>
+<li><strong>Claude's 84% neutrality</strong> is interesting relative to our "middle plan" finding. When allowed, some models decline to commit to a principle at all, an analogue of compromise at the stated level.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Gu et al. formalise the stated–revealed preference deviation for LLMs: forced-choice answers to abstract principles versus contextualised dilemmas, quantified by absolute deviation and KL divergence. GPT-4.1 and Gemini 2.0 Flash frequently flip principles under minor contextual changes (mean absolute deviation about 0.36). Claude 3.7 Sonnet refuses to state a principle on about 84% of base prompts. This is a useful early operationalisation, but the "revealed" condition remains hypothetical and only two models are analysed.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

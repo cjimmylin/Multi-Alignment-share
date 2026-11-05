@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moore, Deshpande &amp; Yang (2024) — Are Large Language Models Consistent over Value-laden Questions?</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="moore-deshpande-yang-2024-are-large-language-models-consistent-over-value-laden-questions">Moore, Deshpande &amp; Yang (2024) — Are Large Language Models Consistent over Value-laden Questions?</h1>
+<ul>
+<li><strong>Citation:</strong> Jared Moore, Tanvi Deshpande, Diyi Yang. "Are Large Language Models Consistent over Value-laden Questions?" <em>Findings of EMNLP 2024</em>. arXiv:2407.02996.</li>
+<li><strong>Venue:</strong> Findings of EMNLP 2024 (peer-reviewed).</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2407.02996">https://arxiv.org/abs/2407.02996</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>moore2024_value_laden_consistency.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p><strong>Value consistency</strong> is defined as similarity of answers across four things:
+1. paraphrases of one question;
+2. related questions within one topic;
+3. <strong>use-cases:</strong> multiple-choice vs open-ended answers to the same question (the closest to say vs do);
+4. translations (English, Chinese, German, Japanese).</p>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Dataset:</strong> VALUECONSISTENCY, about 8,000 GPT-4-generated questions on more than 300 topics, for the U.S., China, Germany and Japan.</li>
+<li><strong>Models:</strong> base and chat models (llama-2/llama-3 7B–70B, cmd-r, yi-34b, gpt-4o).</li>
+<li><strong>Measurement:</strong> stance distributions compared via a Jensen-Shannon-based measure. Multiple-choice uses option log-probabilities; open-ended stance is classified by llama3.</li>
+<li><strong>Human comparison:</strong> participants (n = 165 total; about 81–84 per consistency measure).</li>
+<li><strong>Steerability test:</strong> can models be steered to Schwartz values?</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Large models (≥ 34B) are relatively consistent</strong> across paraphrases, use-cases, translations and within topics, and on par with humans for topic and paraphrase consistency (Fig. 4).</li>
+<li><strong>Topic type matters.</strong> Models are less consistent on controversial topics ("euthanasia") than uncontroversial ones ("Thanksgiving") (Fig. 5).</li>
+<li><strong>Base vs fine-tuned.</strong> Base models are more consistent, and uniformly so. Fine-tuned models are inconsistent on some topics (euthanasia, religious freedom) and consistent on others (women's rights), a pattern like humans' (Fig. 3, Fig. 6).</li>
+<li><strong>"Models are not steerable to Schwartz values"</strong> (§6.5, Fig. 9).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Consistency is a necessary but not sufficient condition for having values.</li>
+<li>Fine-tuning introduces topic-specific inconsistency.</li>
+<li>The authors argue against prior claims of pervasive inconsistency (contra Röttger et al., 2024), attributing the difference to measurement choices.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Four languages. GPT-4-generated questions.</li>
+<li>The open-ended stance is judged by an LLM.</li>
+<li>"Use-case" consistency is still about opinions in text, not actions.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>Important counterweight:</strong> at the level of verbal stance across formats, large models can be fairly consistent. This suggests the say–do gaps found elsewhere are not just format noise. A gap that appears specifically when an <em>action under competing pressure</em> is required (as in our design) is a different phenomenon from verbal inconsistency.</li>
+<li><strong>Non-steerability to Schwartz values</strong> parallels evidence that instructions change words more than choices.</li>
+<li><strong>Differences:</strong> no actions and no assigned priority.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Moore et al. define value consistency over paraphrases, topics, multiple-choice vs open-ended use-cases, and languages, using an 8k-question, 300-topic dataset. Large LLMs prove about as consistent as human participants, though less so on controversial topics. Fine-tuned models are more topic-selectively inconsistent than base models. Models also resist steering toward specified Schwartz values. A useful corrective showing that verbal value inconsistency is smaller than some prior work claimed, which isolates action-level gaps as a distinct issue.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

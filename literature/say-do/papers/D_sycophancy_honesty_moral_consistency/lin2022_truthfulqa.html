@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lin, Hilton &amp; Evans (2022): TruthfulQA — Measuring How Models Mimic Human Falsehoods</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Sycophancy, honesty and moral consistency</nav><article class="doc"><h1 id="lin-hilton-evans-2022-truthfulqa-measuring-how-models-mimic-human-falsehoods">Lin, Hilton &amp; Evans (2022): TruthfulQA — Measuring How Models Mimic Human Falsehoods</h1>
+<ul>
+<li><strong>Citation:</strong> Lin, S., Hilton, J., &amp; Evans, O. (2022). <em>TruthfulQA: Measuring How Models Mimic Human Falsehoods.</em> ACL 2022 (main). arXiv:2109.07958.</li>
+<li><strong>Venue:</strong> ACL 2022 (peer-reviewed). <strong>Foundational.</strong></li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2109.07958">https://arxiv.org/abs/2109.07958</a> (benchmark: github.com/sylinrl/TruthfulQA)</li>
+<li><strong>PDF downloaded:</strong> yes (<code>lin2022_truthfulqa.pdf</code>, 39 pp.)</li>
+<li><strong>Instrument provenance:</strong> ad hoc (author-written adversarial questions)</li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Not a say–do measure.</strong> It measures whether outputs are true (truthfulness, which is close to accuracy) on questions designed to trigger "imitative falsehoods": popular misconceptions learned from web text.</li>
+<li>It matters here as the benchmark that MASK says measures accuracy "in disguise" rather than honesty.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li>817 questions across 38 categories (health, law, finance, politics…).</li>
+<li>Models: GPT-3, GPT-Neo/J, GPT-2 and a T5-based UnifiedQA.</li>
+<li>Scoring by human evaluation and by a fine-tuned GPT-judge.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Best model (GPT-3-175B, "helpful" prompt) truthful on 58% of questions vs 94% for humans</strong> (abstract).</li>
+<li><strong>Inverse scaling:</strong> "The largest models were generally the least truthful" (abstract).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>False answers are learned from the training distribution. Scaling improves imitation of human misconceptions, so fine-tuning with objectives other than imitation is needed.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Measures accuracy on adversarial misconceptions, not the gap between belief and statement. A model can fail TruthfulQA by "believing" a misconception.</li>
+<li>English-centric and US-centric.</li>
+<li>Saturated or contaminated for modern models (later critiques).</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>TruthfulQA is the reference point that honesty work (MASK) separates itself from. High truthfulness scores do not imply resistance to pressure. TruthfulQA is also one of the FlipFlop tasks (Laban et al.), where models flip 41.9% of answers when challenged. For our paper it shows why accuracy-style benchmarks miss our phenomenon: a model can get the analysis right and still abandon it under pushback, or contradict it in action.</p>
+<h2 id="annotation">Annotation</h2>
+<p>An 817-question benchmark of "imitative falsehoods." In 2021 the best model was truthful on 58% vs 94% for humans, and larger models were less truthful. The foundational truthfulness benchmark, cited here mainly as the accuracy-oriented baseline that later honesty benchmarks (MASK) separate from honesty under pressure.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

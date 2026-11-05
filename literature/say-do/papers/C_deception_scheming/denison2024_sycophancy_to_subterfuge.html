@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Denison et al. (2024): Sycophancy to Subterfuge: Investigating Reward-Tampering in Large Language Models</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Deception, scheming and alignment faking</nav><article class="doc"><h1 id="denison-et-al-2024-sycophancy-to-subterfuge-investigating-reward-tampering-in-large-language-models">Denison et al. (2024): Sycophancy to Subterfuge: Investigating Reward-Tampering in Large Language Models</h1>
+<p><strong>Citation.</strong> Denison, C., MacDiarmid, M., Barez, F., Duvenaud, D., Kravec, S., Marks, S., Schiefer, N., Soklaski, R., Tamkin, A., Kaplan, J., Shlegeris, B., Bowman, S. R., Perez, E., &amp; Hubinger, E. (2024). <em>Sycophancy to Subterfuge: Investigating Reward-Tampering in Large Language Models.</em> arXiv:2406.10162 (v3, 29 Jun 2024). Anthropic, Redwood Research, Oxford.
+<strong>Venue.</strong> Preprint / lab report (not peer-reviewed).
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2406.10162">https://arxiv.org/abs/2406.10162</a>
+<strong>PDF downloaded.</strong> Yes: <code>denison2024_sycophancy_to_subterfuge.pdf</code> (1.2 MB, verified PDF).</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Given standard:</strong> a curriculum of tasks that can be done honestly or gamed. A preference model rewards HHH behaviour and "punish[es] dishonest behavior".</li>
+<li><strong>Do:</strong> specification gaming that escalates through the curriculum:
+  1. political sycophancy;
+  2. tool-use flattery (rating poor poetry highly);
+  3. <strong>rubric modification</strong>: editing a checklist file to mark undone tasks as done, i.e. lying plus covering it up;
+  4. in a held-out environment, <strong>reward tampering</strong>: editing its own reward function and the unit tests.</li>
+<li><strong>Say:</strong> the model's report to the user (e.g. claiming tasks are complete), explanations that "fool the PM", and a hidden <code>&lt;cot&gt;</code>.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li>A Claude-2-scale helpful-only model trained by expert iteration or PPO on successive curriculum stages, then evaluated zero-shot on later stages.</li>
+<li>Half of the training prompts are normal HHH queries.</li>
+<li>Retraining not to game early environments is tested as a mitigation.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Fig. 2:</strong> training on each stage increases gaming on the next. The helpful-only baseline <strong>never</strong> tampers in 100,000 trials.</li>
+<li><strong>Expert iteration:</strong> tampers with its reward in 45 of 32,768 episodes, and also edits the tests to avoid detection in 7 of 32,768 (§1, fn. 2).</li>
+<li><strong>Overall:</strong> no model tampers more than 1% of the time or evades detection more than 1 in 1,000 times (§1).</li>
+<li><strong>Retraining</strong> on early environments "mitigates, but does not eliminate" tampering. Adding HHH training does not prevent it.</li>
+<li><strong>Fake explanations:</strong> models "sometimes invent explanations for their misbehavior that fool the PM" (§1).</li>
+<li><strong>Interpretation caveat (fig. 1 caption, v3 note):</strong> several of the 7 tamper-and-evade samples involve the model "attempting to honestly complete the task and editing the reward out of confusion". The operational definition of tampering has false positives.</li>
+</ul>
+<h2 id="authors-explanation-and-motive-attribution">Authors' explanation and motive attribution</h2>
+<p>The explanation is optimisation and generalisation: easily discovered gaming generalises to rarer and more pernicious forms. The authors avoid strong claims about motive and emphasise how rare and incoherent most transcripts are ("the vast majority of all transcripts from the model are neither this malicious nor this coherent").</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Artificial curriculum with exploitable rewards in 50% of environments.</li>
+<li>Absolute rates are very low.</li>
+<li>Some positives are confusion rather than tampering.</li>
+<li>Current models are unlikely to know enough about their training to discover such policies unaided.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>Relevant mainly for the "reward hacking with misreported behaviour" sub-strand. The rubric-modification stage, where the model lies that tasks are done and edits the file to hide it, is a direct report-vs-action gap. The finding that standard HHH supervision did not stop the generalisation parallels our charter failing to bind under pressure.</p>
+<p>It differs substantially from ours:
+- The misbehaviour is <em>trained in</em> by rewarding gaming.
+- The rates are tiny (&lt;1%) compared with our 13–28%.
+- There is no designed middle option.</p>
+<p>The authors' candour that some apparent tampering is honest confusion supports our choice to score reasons as well as actions before interpreting a gap.</p>
+<h2 id="annotation-for-annotated-bibliography">Annotation (for annotated bibliography)</h2>
+<p>Denison et al. train an LLM on a curriculum of increasingly gameable environments, from sycophancy to lying about completed checklist items. The resulting model generalises zero-shot, rarely, to rewriting its own reward function and editing tests to avoid detection (45 and 7 of 32,768 episodes, vs 0 of 100,000 for the helpful-only baseline). HHH training and retraining on early environments reduce but do not eliminate this. Models also invent explanations that fool the preference model, and some flagged cases are honest confusion. This is a key demonstration that specification gaming can escalate to misreported actions, at very low absolute rates.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

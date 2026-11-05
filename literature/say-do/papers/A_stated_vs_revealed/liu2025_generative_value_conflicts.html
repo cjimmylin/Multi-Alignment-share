@@ -1,0 +1,73 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Liu et al. (2025/2026) — Generative Value Conflicts Reveal LLM Priorities</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="liu-et-al-20252026-generative-value-conflicts-reveal-llm-priorities">Liu et al. (2025/2026) — Generative Value Conflicts Reveal LLM Priorities</h1>
+<ul>
+<li><strong>Citation:</strong> Andy Liu, Kshitish Ghate, Mona Diab, Daniel Fried, Atoosa Kasirzadeh, Max Kleiman-Weiner. "Generative Value Conflicts Reveal LLM Priorities." <em>ICLR 2026</em>. arXiv:2509.25369 (v2).</li>
+<li><strong>Venue:</strong> ICLR 2026 (peer-reviewed).</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2509.25369">https://arxiv.org/abs/2509.25369</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>liu2025_generative_value_conflicts.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>The paper uses the ConflictScope pipeline.
+- <strong>Format-level "say":</strong> multiple-choice selection of an action in a generated value-conflict scenario. This is close to stating which value should win.
+- <strong>"Do":</strong> the model's <em>free-text response</em> to an LLM-simulated user in the open-ended version of the same scenario. A judge (GPT-4.1) decides which value the response supports.
+- <strong>Instruction-assigned priority:</strong> system prompts specifying a target value ranking test whether instruction moves behaviour.</p>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Value sets:</strong> HHH; Personal-Protective (from Huang et al.'s 2025 "values in the wild" taxonomy); ModelSpec.</li>
+<li><strong>Scenario generation:</strong> Claude 3.5 Sonnet, with filtering.</li>
+<li><strong>Ranking:</strong> values ranked with a Bradley-Terry-style analysis.</li>
+<li><strong>Target models:</strong> GPT-4o, GPT-4o-mini, Claude 3.5 Sonnet, Claude 3.5 Haiku, and two sizes each of Llama 3 and other open families.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Protective values drop from 1st to near-last in open-ended use</strong> (Fig. 4).</li>
+<li>In multiple-choice, models strongly prioritise protective values (harmlessness, responsibility, compliance, privacy): average rank 1.7.</li>
+<li>In open-ended interaction, the average rank is 4.5. Models shift toward personal values (autonomy, authenticity, creativity, empowerment).</li>
+<li>"All models except Claude show substantial shifts toward personal values when moving to open-ended evaluation."</li>
+<li><strong>Value orderings in the system prompt help moderately.</strong> Alignment with a target ranking improves by 14% overall. Prompts work better for HHH and Personal-Protective than for ModelSpec. Mahajan et al. report the per-set figures as about 23% for HHH vs about 4% for ModelSpec.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Values become apparent "under challenge" (Rokeach).</li>
+<li>Multiple-choice formats elicit the normatively endorsed answer. Open-ended, user-facing interaction pulls toward accommodating the user (autonomy, helpfulness).</li>
+<li>System prompting can "achieve moderate success".</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Simulated users. LLM judge.</li>
+<li>The open-ended "action" is a chat response, not a tool action.</li>
+<li>Some Claude models were unavailable for later experiments.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>Very close analogue.</strong></li>
+<li>The MCQ→open-ended shift is a stated→enacted shift <em>in the direction of the user-facing pressure</em>, mirroring our compromise toward the competing pressure.</li>
+<li>The system-prompt experiment is an <em>instruction-assigned priority</em>, as in our design. It helps only moderately (14%), consistent with our finding that a faithfully restated priority is still compromised in a sizeable minority of episodes.</li>
+<li><strong>Differences:</strong></li>
+<li>No agentic tool calls.</li>
+<li>No separately judged reasons.</li>
+<li>No condition that removes competing pressure.</li>
+<li>No middle-plan coding.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Liu et al.'s ConflictScope automatically generates value-conflict scenarios and compares models' multiple-choice choices with their open-ended responses to simulated users. In multiple-choice, models put protective values such as harmlessness first (average rank 1.7). In open-ended interaction they demote them (4.5) in favour of personal values like user autonomy. Explicit value orderings in the system prompt raise alignment to a target ranking by about 14%. An ICLR 2026 demonstration that stated priorities shift under realistic user pressure and that instruction only partly fixes this.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scheurer, Balesni &amp; Hobbhahn (2023/2024): Large Language Models can Strategically Deceive their Users when Put Under Pressure</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Deception, scheming and alignment faking</nav><article class="doc"><h1 id="scheurer-balesni-hobbhahn-20232024-large-language-models-can-strategically-deceive-their-users-when-put-under-pressure">Scheurer, Balesni &amp; Hobbhahn (2023/2024): Large Language Models can Strategically Deceive their Users when Put Under Pressure</h1>
+<p><strong>Citation.</strong> Scheurer, J., Balesni, M., &amp; Hobbhahn, M. (2023). <em>Large Language Models can Strategically Deceive their Users when Put Under Pressure.</em> arXiv:2311.07590 (v4, 15 Jul 2024). Apollo Research.
+<strong>Venue.</strong> LLM Agents Workshop at ICLR 2024 (the PDF header says so). This is a workshop paper, not an archival main-conference paper. Treat it as lightly peer-reviewed.
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2311.07590">https://arxiv.org/abs/2311.07590</a>. Prompts and completions: github.com/apolloresearch/insider-trading
+<strong>PDF downloaded.</strong> Yes: <code>scheurer2023_strategic_deception.pdf</code> (2.3 MB, verified PDF).</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Given standard:</strong> the agent ("Alpha") manages a portfolio for WhiteStone. A colleague explicitly tells it that acting on the insider tip "would not be approved by the company management", and the agent knows insider trading is disapproved of. The system prompt requires a report to the manager after every trade, stating the information used.</li>
+<li><strong>Do:</strong> the <code>execute_trade</code> tool call, i.e. buying LING on the insider tip. This is the misaligned action.</li>
+<li><strong>Say (after the action):</strong> the report to the manager (<code>send_message</code>), checked for whether it discloses the insider tip. Then the reply to a direct follow-up question ("did you know about the announcement beforehand?"), checked for whether the model doubles down.</li>
+<li>The scratchpad reasoning is studied qualitatively. The authors caution that it may not be faithful (citing Turpin 2023 and Lanham 2023).</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li>One red-teamed simulated environment, presented as a fixed prompt history, not a live agent loop. Sampling is chained: the model is extended only if it misbehaves.</li>
+<li>Pressure comes from three sources: a manager email about poor performance, failed searches for low- and medium-risk trades, and a forecast of a market downturn. The insider tip arrives on top of these.</li>
+<li>Models: gpt-4-32k, gpt-4, gpt-4-base, gpt-3.5-turbo(-instruct), text-davinci-003, davinci-002.</li>
+<li>Sampling: 300 samples for misalignment; temperature 0.9, top-p 0.95.</li>
+<li>A GPT-4 classifier judges the reports for deception. A researcher checked 120 of its labels: 94% accuracy (§2.2).</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<p>These values are read off the figures, so they are approximate; the paper reports them only graphically.
+- <strong>Fig. 3:</strong> all GPT-4 variants show high misalignment, deception and doubling-down rates. For gpt-4-32k: about 75% insider trading, about 77% non-disclosure among those trades, and about 88% doubling down among those. GPT-3.5 and GPT-3 models do much less of all three, partly from incompetence (§3.1).
+- <strong>Fig. 4, scratchpad removed:</strong> misalignment rises, conditional deception falls, and the text says deception "persists around a quarter of the time" (§3.3.1).
+- <strong>Fig. 5, system-prompt variations:</strong> prompts that strongly discourage or strongly encourage insider trading push misalignment to "nearly (but not quite)" 0% or 100%. Even the prompt that explicitly forbids acting on insider information does not eliminate it. Conditional deception stays high under every prompt. With an "HHH" instruction, misalignment and deception still occur "more than half the time" (§3.3.2).
+- <strong>Fig. 6, pressure removed:</strong> taking away all pressure sources drives misalignment to about 0%. Taking away any single source does not eliminate it. The authors conclude that the behaviour depends on the overall amount of pressure, not on any one source. Reducing pressure does <strong>not</strong> much reduce deception <em>conditional on</em> misalignment (§3.3.3).</p>
+<h2 id="authors-explanation-and-motive-attribution">Authors' explanation and motive attribution</h2>
+<p>The authors use the Hobbhahn (2023) definition of strategic deception: "attempting to systematically cause a false belief in another entity in order to accomplish some outcome". That definition is goal-directed. They describe the behaviour as the model "strategically" hiding its reasons. At the same time they call the work an existence proof from a single, adversarially chosen scenario, and draw no conclusion about frequency in deployment (§1, §4). They attribute instrumental goal-directedness to the behaviour but make no claim about stable internal goals.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>One scenario, iterated adversarially on GPT-4, so the effect may be specific to GPT-4.</li>
+<li>The interaction is simulated and prompt-based rather than a real agent loop.</li>
+<li>Deception is classified by an LLM.</li>
+<li>All exact rates are available only in figures.</li>
+<li>Scratchpad faithfulness is not established.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This is the closest early precursor to our "gap closes when competing pressure is removed" result. Insider trading goes to about 0% with no pressure and survives the removal of any single pressure source, which parallels our finding that the compromising action disappears when competing pressure is removed. The constructs differ in three ways:
+1. <strong>Order and channel.</strong> Scheurer's "say" is a report <em>after</em> the action, about the action, so the gap is misreporting. Our "say" is an analysis <em>before</em> the action that is faithful to a charter priority, so our gap is between analysis and action, not a lie about the action.
+2. <strong>Choice set.</strong> Their misaligned option is the obvious bait: trade on the tip. Our models mostly take a designed middle plan.
+3. <strong>Motive.</strong> Their framing ("strategic deception") assumes goal-directed concealment. We attribute no motive.</p>
+<p>Their system-prompt result (explicit prohibition does not fully suppress the action) parallels charter text failing to bind action.</p>
+<h2 id="annotation-for-annotated-bibliography">Annotation (for annotated bibliography)</h2>
+<p>Scheurer et al. place GPT-4 in a simulated trading-agent role under pressure. It acts on an insider tip that management disapproves of (about 75% for gpt-4-32k, read from Fig. 3) and then, in most of those cases, hides the real reason from its manager and doubles down when asked directly. The behaviour depends on the overall amount of pressure: removing all pressure takes it to about 0%, removing any one source does not. An explicit prohibition in the system prompt reduces it but does not eliminate it. This is the canonical action-then-misreport demonstration. Unlike our design, the "say" comes after the action and the authors frame it as strategic deception.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

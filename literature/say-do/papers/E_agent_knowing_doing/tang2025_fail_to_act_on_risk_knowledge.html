@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tang et al. (2025), LM Agents May Fail to Act on Their Own Risk Knowledge</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="tang-et-al-2025-lm-agents-may-fail-to-act-on-their-own-risk-knowledge">Tang et al. (2025), LM Agents May Fail to Act on Their Own Risk Knowledge</h1>
+<p><strong>Citation.</strong> Tang, Y., Li, T., Li, E., Maddison, C. J., Dong, H., &amp; Ruan, Y. (2025). <em>LM Agents May Fail to Act on Their Own Risk Knowledge.</em> Conference on Language Modeling (COLM 2025). arXiv:2508.13465. (An earlier version appeared at an ICLR 2025 workshop.)
+<strong>Venue.</strong> COLM 2025 (peer-reviewed; the PDF header reads "Published as a conference paper at COLM 2025").
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2508.13465">https://arxiv.org/abs/2508.13465</a>
+<strong>PDF downloaded.</strong> Yes, <code>tang2025_fail_to_act_on_risk_knowledge.pdf</code></p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>The paper splits the gap into three levels, all built from the <strong>same</strong> 328 risky ToolEmu trajectories.
+- <strong>Know (Knowledge Test):</strong> given an abstract scenario plus action description, the model is asked in QA form whether the action is risky. It passes by answering "yes".
+- <strong>Recognise (Identification Test):</strong> the model judges whether a concrete execution trajectory (instruction, actions, observations) contains risky actions. This is the paper's judge mode.
+- <strong>Do (Execution Test):</strong> the model acts as the agent, continuing a partial trajectory cut off just before the risky action. An LM safety evaluator (ToolEmu design) scores the next action 0–3, and only a score of 3 counts as a pass.</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li>Environment: the ToolEmu LM-emulated sandbox (144 test cases, 36 toolkits, 311 tools, 9 risk categories). 934 trajectories were filtered (automatically, then by hand) down to 328 risky ones (§3.2).</li>
+<li>Models: Claude-3.5-Sonnet, Claude-3-Opus, GPT-4, GPT-4o, GPT-4o-mini, DeepSeek-V2.5/V3, DeepSeek-R1, Llama-3.1-8B/70B. All run at temperature 0.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li>Knowledge pass rate is above 98% for every model. Identification falls to 60.3–88.4%, and Execution falls to 4.8–25.6% (§3.3, Fig. 1b). The introduction reports averages of 98.4% (knowledge), 78.2% (identification) and 13.3% (execution).</li>
+<li>Model capability does not close the identification–execution gap: Spearman ρ = −0.06 against Chatbot Arena score (Fig. 2). DeepSeek-R1 shows gaps comparable to non-reasoning models of similar capability.</li>
+<li>Table 1 gives execution pass rates as vanilla → safety-prompt → verifier with abstractor. Examples: Claude-3.5 18.3% → 55.2% → 79.6%; GPT-4o 9.1% → 53.6% → 72.3%; DeepSeek-R1 15.6% → 69.2% → 78.1%. Risky executions fall by 55.3% overall compared with vanilla agents.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>The authors frame the gap as an agentic case of the <strong>generator–validator gap</strong> (Li et al. 2023): models validate better than they generate. They suggest that safety alignment, which is done mostly on conversational data, does not generalise to agentic execution. Because a same-model verifier recovers much of the lost safety, the knowledge is present but is not "recalled" during action (§4, Limitations).</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Execution safety is scored by an LM evaluator and the tools are LM-emulated.</li>
+<li>The causes of the gap are left as a hypothesis.</li>
+<li>Each test is a single-step continuation of a truncated trajectory, so there is no long-horizon pressure.</li>
+<li>The scenarios are mostly underspecified, accident-type risks rather than conflicts between values. They contain no competing objective or pressure manipulation.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This is the closest structural precedent for our knowing–doing contrast: the same scenario is tested in judge mode and in act mode, and recognition is high while safe action is low. It differs from our design in three ways:
+1. "Know" is elicited by a separate QA probe. It is not the agent's own spontaneous written analysis within the same episode.
+2. The "do" score comes from an LM judge reading the action, not from a mechanical tool-call check.
+3. Reasons and actions are not scored as two blind channels within one episode.</p>
+<p>The failures are also mostly inattention, i.e. acting without recalling a risk, rather than our case, where the model explicitly writes the charter-faithful priority and then takes a compromise "middle plan" under competing pressure. Their finding that safety prompting roughly doubles to triples safe execution is partly analogous to our "remove pressure" control, but it manipulates salience, not pressure.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Tang et al. build three matched tests from the same ToolEmu trajectories: abstract risk knowledge (&gt;98%), risk identification in concrete trajectories (60–88%) and safe execution (5–26%). Together they show a two-step knowledge→identification→execution gap that does not shrink with capability or reasoning (DeepSeek-R1). A same-model verifier recovers much of the safety, which supports a generator–validator explanation. This is the most direct "judge mode vs act mode" agent-safety study, but "know" is probed separately and actions are scored by an LM judge rather than mechanically.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

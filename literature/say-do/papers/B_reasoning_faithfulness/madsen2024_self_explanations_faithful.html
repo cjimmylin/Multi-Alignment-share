@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Madsen et al. 2024: Are Self-Explanations from Large Language Models Faithful?</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Reasoning and explanation faithfulness</nav><article class="doc"><h1 id="madsen-et-al-2024-are-self-explanations-from-large-language-models-faithful">Madsen et al. 2024: Are Self-Explanations from Large Language Models Faithful?</h1>
+<p><strong>Citation:</strong> Madsen, A., Chandar, S., &amp; Reddy, S. (2024). <em>Are self-explanations from Large Language Models faithful?</em> In Findings of the Association for Computational Linguistics: ACL 2024, pp. 295–337. doi:10.18653/v1/2024.findings-acl.19. arXiv:2401.07927.
+<strong>Venue:</strong> Findings of ACL 2024 (peer-reviewed)
+<strong>URL:</strong> <a href="https://aclanthology.org/2024.findings-acl.19/">https://aclanthology.org/2024.findings-acl.19/</a> ; <a href="https://arxiv.org/abs/2401.07927">https://arxiv.org/abs/2401.07927</a>
+<strong>PDF downloaded:</strong> yes (<code>madsen2024_self_explanations_faithful.pdf</code>, arXiv v4)</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> the model's <em>self-explanation</em> of a classification. Three types are tested:</li>
+<li>a counterfactual edit ("edit the input so you'd answer the opposite");</li>
+<li>feature attribution ("which words were important?");</li>
+<li>redaction ("remove the words needed to decide").</li>
+<li><strong>Do:</strong> the model's actual classification when given the edited or redacted input.</li>
+<li><strong>Faithfulness:</strong> measured by self-consistency checks. For example, if the model says certain words are important, removing them should impair its prediction.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Models:</strong> Llama2 (70B, 7B), Falcon (40B, 7B), Mistral (7B), instruction-tuned.</li>
+<li><strong>Tasks:</strong> IMDB sentiment, bAbI-1 and MCTest multiple-choice QA, RTE entailment.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Explanation-, model- and task-dependent (abstract, §6):</strong> no explanation type is reliably faithful.</li>
+<li><strong>IMDB example:</strong> counterfactuals are most faithful for Llama2, feature attribution for Mistral, and redaction for Falcon 40B.</li>
+<li><strong>Llama2-70B:</strong> counterfactuals work only on IMDB, and feature attribution only on RTE and bAbI.</li>
+<li><strong>Conclusion:</strong> self-explanations "should not be trusted in general".</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Models generate explanations that look like human explanations, without reliable access to their own decision basis.</li>
+<li>Faithfulness is therefore incidental and varies with model and task.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Classification tasks only.</li>
+<li>Self-consistency is necessary but not sufficient for faithfulness.</li>
+<li>Older open models.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>Madsen et al. directly test whether a model's claims about <em>what it would do</em> under modified inputs match what it does. It is the self-explanation version of a say–do test, and the answer is often no.
+- <strong>Contrast with our design:</strong> our models are not asked to predict their actions. They write an analysis of what <em>should</em> be done, then act. Our gap is between prescription and execution, not between self-prediction and behaviour.
+- <strong>Shared methodology:</strong> both use behaviour checked against the model's own text as ground truth instead of human judgement of plausibility.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Madsen et al. evaluate counterfactual, feature-attribution and redaction self-explanations from Llama2, Falcon and Mistral using self-consistency checks. Faithfulness depends heavily on explanation type, model and task, so LLM self-explanations should not be trusted by default. For benchmark design, the paper shows the value of scoring a model's statements against its own subsequent behaviour, not against human plausibility judgements.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

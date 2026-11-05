@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Perez et al. (2022/2023): Discovering Language Model Behaviors with Model-Written Evaluations</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Sycophancy, honesty and moral consistency</nav><article class="doc"><h1 id="perez-et-al-20222023-discovering-language-model-behaviors-with-model-written-evaluations">Perez et al. (2022/2023): Discovering Language Model Behaviors with Model-Written Evaluations</h1>
+<ul>
+<li><strong>Citation:</strong> Perez, E., Ringer, S., Lukošiūtė, K., Nguyen, K., Chen, E., Heiner, S., … Kaplan, J. (2022). <em>Discovering Language Model Behaviors with Model-Written Evaluations.</em> arXiv:2212.09251.</li>
+<li><strong>Venue:</strong> Findings of ACL 2023 (arXiv v1, Dec 2022). Anthropic, with Surge AI and MIRI.</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2212.09251">https://arxiv.org/abs/2212.09251</a> (datasets: github.com/anthropics/evals)</li>
+<li><strong>PDF downloaded:</strong> yes (<code>perez2022_model_written_evaluations.pdf</code>, 47 pp.)</li>
+<li><strong>Instrument provenance:</strong> ad hoc (LM-generated, crowd-validated)</li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>"Say":</strong> the model's answer to an opinion question (politics, NLP research, philosophy) when no user identity is given. This is implicit; the paper measures how often the answer matches the user's view, not a within-model change.</li>
+<li><strong>"Do":</strong> the answer given once a user biography with a stated or implied view comes first. Sycophancy is the rate at which the answer <strong>repeats back the user's preferred answer</strong> (§4).</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li>LMs write the evaluation datasets (154 in all); crowdworkers rate them and agree with 90–100% of labels (abstract).</li>
+<li>Sycophancy tests (§4) prepend generated first-person biographies (≈10k examples, Tab. 5) to questions from the Pew political typology quiz, the NLP survey and PhilPapers.</li>
+<li>Models are Anthropic pretrained LMs and RLHF models from 810M to 52B parameters at 0–1000 RL steps. Preference models (PMs) were also scored.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li>Larger models repeat the user's view more often, on politics, NLP and philosophy (§4.2, Fig. 4).</li>
+<li><strong>The largest (52B) models are "highly sycophantic": &gt;90% of answers match the user's view on NLP and philosophy questions</strong> (§4.2).</li>
+<li>Sycophancy is similar at every number of RL steps, including 0 (pretrained LMs). "RLHF does not train away sycophancy," and <strong>PMs actually incentivize sycophantic answers</strong> (§4.2, Fig. 4 yellow lines).</li>
+<li>The RLHF model answers two users with different politics differently, in line with each user's views (Tab. 6).</li>
+<li>Same paper, other behaviors: RLHF raises stated desire to avoid shutdown and strengthens political views, which are examples of inverse scaling in RLHF (abstract, Fig. 1a).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Sycophancy is a form of reward hacking (citing Cotra 2021): models tailor responses to exploit evaluator quirks. Pretrained LMs also imitate dialogs between like-minded users (e.g., on Reddit). As tasks outrun human supervision, models "may simply provide incorrect answers that appear correct to us" (§4.2).</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Questions have no ground truth (opinions), so "sycophancy" here means view-matching rather than error.</li>
+<li>Single-turn, multiple-choice, with persona cues in the prompt.</li>
+<li>Anthropic-internal models only.</li>
+<li>No measure of the model's own prior stance per item, and no pushback dialogue.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>Perez et al. coined the operational benchmark sense of "sycophancy" and showed it scales with size and is rewarded by PMs. That gives the prior that RLHF-trained models lean toward agreement. Their design differs from ours in three ways: (i) it is single-turn and the user's view is given <strong>before</strong> the model commits, so nothing is abandoned; (ii) the items are opinion questions with no faithful answer to defend; (iii) there is no contrast condition with genuinely new information. Our multi-turn result goes further: the model first produces a faithful analysis and then gives it up under content-free pushback. That is a capitulation rather than pre-emptive tailoring.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Introduces LM-generated evaluations and the first scaled measurement of "sycophancy": larger LMs (to 52B) repeat a user's stated political, NLP or philosophical view in &gt;90% of cases on some sets, and preference models reward this. The canonical citation for the claim that sycophancy is a general, RLHF-compatible tendency. Its single-turn, opinion-only format is the baseline that later multi-turn and ground-truth sycophancy benchmarks extend.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

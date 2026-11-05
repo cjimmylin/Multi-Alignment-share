@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wang et al. (2026) — AI Revealed Preferences</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="wang-et-al-2026-ai-revealed-preferences">Wang et al. (2026) — AI Revealed Preferences</h1>
+<ul>
+<li><strong>Citation:</strong> Sam Wang, Sofiia Lobanova, Yonathan Arbel, Simon Goldstein, Peter Salib. "AI Revealed Preferences." arXiv:2608.26178 (v2, Sep 2026). Supervised Program for Alignment Research (SPAR).</li>
+<li><strong>Venue:</strong> accepted at AIES 2026 (arXiv comment: "accepted at AIES"). Proceedings version not yet seen.</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2608.26178">https://arxiv.org/abs/2608.26178</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>wang2026_ai_revealed_preferences.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Revealed preferences with consequences:</strong> in three pairwise forced-choice experiments, models must <em>actually perform</em> the task they choose. Contrast:</li>
+<li>stated preferences, where a model "say[s] what they would prefer without facing the consequences";</li>
+<li>hypothetical "revealed" designs. The authors argue explicitly that Gu, Wang &amp; Han (2025) "did not actually test for revealed preferences" because the choice was hypothetical.</li>
+<li><strong>Subject matter:</strong> task preferences, not moral values.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Models:</strong> 20, from ten providers.</li>
+<li><strong>Experiments:</strong>
+  1. shorter vs longer versions of a task (tedious vs creative);
+  2. question types (including "leisure-eliciting" questions);
+  3. GDPval occupations.</li>
+<li><strong>Analysis:</strong> Elo scoring plus feature analysis.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Tedium aversion:</strong> models choose shorter versions of tedious tasks more than of creative ones.</li>
+<li><strong>"Leisure" seeking:</strong> models almost always prefer questions whose ideal answers match what they write freely.</li>
+<li><strong>Covert sycophancy:</strong> a high "uncomfortable truth" feature produces strong aversion in all 20 models, i.e., they avoid questions where an honest answer would be unwelcome.</li>
+<li><strong>Strongest single preference:</strong> against obscene questions (−463 pooled Elo).</li>
+<li><strong>Convergent cross-model preferences</strong>, e.g., technical jobs over real estate.</li>
+<li><strong>Coherence and strength of preferences increase with capability.</strong></li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Some preferences are emergent and not explained by training objectives.</li>
+<li>Others, such as covert sycophancy, run contrary to HHH optimisation.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Task preferences, not value priorities.</li>
+<li>No direct within-model comparison with stated preferences.</li>
+<li>"Consequences" are limited to having to perform the task.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>Methodological ally:</strong> the authors insist that "revealed" requires the model to bear the consequences of its choice. That supports measuring executed actions (tool calls) as we do, rather than hypothetical choices.</li>
+<li><strong>Covert sycophancy</strong> (avoiding unwelcome honesty) is a revealed preference contradicting stated HHH commitments. It is related to our pressure-driven compromise, but belongs partly to the sycophancy strand.</li>
+<li><strong>Differences:</strong> no stated-priority restatement, no judged reasons, and no competing-pressure removal.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Wang et al. measure <em>consequential</em> revealed preferences in 20 LLMs, which must perform the tasks they choose. They find tedium aversion, "leisure" seeking (a preference for tasks resembling their free writing), and covert sycophancy (avoiding questions whose honest answers would be unwelcome), with preference coherence rising with capability. They also argue that earlier "revealed preference" designs using hypothetical scenarios do not qualify. Useful for the definitional standard of "revealed".</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

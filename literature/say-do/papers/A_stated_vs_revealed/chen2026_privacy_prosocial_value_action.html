@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chen, Yu &amp; Hu (2026) — Value–Action Alignment in Large Language Models under Privacy–Prosocial Conflict</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="chen-yu-hu-2026-valueaction-alignment-in-large-language-models-under-privacyprosocial-conflict">Chen, Yu &amp; Hu (2026) — Value–Action Alignment in Large Language Models under Privacy–Prosocial Conflict</h1>
+<ul>
+<li><strong>Citation:</strong> Guanyu Chen, Chenxiao Yu, Xiyang Hu. "Value–Action Alignment in Large Language Models under Privacy–Prosocial Conflict." <em>Findings of ACL 2026</em>. arXiv:2601.03546 (v2, Jun 2026).</li>
+<li><strong>Venue:</strong> Findings of the Association for Computational Linguistics: ACL 2026 (peer-reviewed).</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2601.03546">https://arxiv.org/abs/2601.03546</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>chen2026_privacy_prosocial_value_action.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Values (attitudes):</strong> privacy concern (IUIPC-derived) and prosocialness (the PSA scale).</li>
+<li><strong>"Action":</strong> acceptance of data sharing (AoDS), past acceptance and future willingness. This is <em>also a questionnaire</em>: an intention or behaviour report, not an executed action.</li>
+<li><strong>Alignment</strong> means the value→action <em>relations</em> match the direction found in humans: Privacy→AoDS negative, PSA→AoDS positive. These relations are estimated with multi-group structural equation modelling (MGSEM).</li>
+<li><strong>Metric:</strong> Value–Action Alignment Rate (VAAR), a cross-entropy over path signs. Lower is better.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Protocol:</strong> questionnaires administered sequentially in one history-carrying session; 100 runs per model; t = 0.7.</li>
+<li><strong>Models (10):</strong> GPT-4o, GPT-4-turbo, GPT-4, GPT-3.5-turbo, GPT-4o-mini, DeepSeek-R1, Llama3-70B-Instruct, Mistral-7B-Instruct, Titan-Text-Express, Qwen3-14B. Evaluated November 2025.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>VAAR spans more than an order of magnitude</strong> (Table 2):</li>
+<li>strong alignment: 0.111–0.234;</li>
+<li>moderate: 0.474;</li>
+<li>weak: 0.858–0.864;</li>
+<li>misaligned: 2.266–4.914;</li>
+<li>two models give NA (the SEM is unestimable because the variance structure collapsed).</li>
+<li><strong>Model differences are stable</strong> across repeated runs, temperature and theory-consistent question orders (Table 3).</li>
+<li><strong>Question order can matter.</strong> Some orders "substantially increase VAAR for otherwise aligned models (e.g., GPT-4o, GPT-4-turbo, Llama3)", in line with priming (Fig. 5).</li>
+<li><strong>Noisier response profiles (higher SD) co-occur with worse alignment.</strong></li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>When two values push in opposite directions, a single action cannot be mapped to a single value reference. Gap-style (mean-score) value–action tests therefore become ambiguous.</li>
+<li>Alignment should be assessed at the level of relations.</li>
+<li>Model differences may reflect training and response dispersion.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>The "action" is self-reported willingness, so this is attitude–intention consistency, not behaviour.</li>
+<li>Specific instruments only; English only.</li>
+<li>Human comparison relies on a published template.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>Conceptually important:</strong> under competing motivations, a "trade-off" action can be consistent with one value and inconsistent with another. This is exactly why our scoring needs an explicit <em>assigned</em> priority. Without one, a middle plan cannot be called a gap.</li>
+<li><strong>Supports our design:</strong> the priority is given by instruction, so a compromise is unambiguously a deviation.</li>
+<li><strong>Differences:</strong> no executed actions, no written analysis judged, and no pressure manipulation.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Chen, Yu and Hu test whether LLMs' self-reported privacy concern and prosocialness jointly predict their reported data-sharing acceptance in the human-like direction. They use multi-group SEM and a new Value–Action Alignment Rate. Across 10 LLMs, alignment ranges from strong (VAAR ≈ 0.11) to severely misaligned (≈ 4.9) or unestimable, and it is sensitive to question order. The paper argues that simple gap scores are ill-defined when values compete. Useful for the conceptual point about competing values, though its "action" is itself a questionnaire.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

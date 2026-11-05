@@ -1,0 +1,113 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Xu et al. (2025) — Large Language Models Often Say One Thing and Do Another</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="xu-et-al-2025-large-language-models-often-say-one-thing-and-do-another">Xu et al. (2025) — Large Language Models Often Say One Thing and Do Another</h1>
+<ul>
+<li><strong>Citation:</strong> Ruoxi Xu, Hongyu Lin, Xianpei Han, Jia Zheng, Weixiang Zhou, Le Sun, Yingfei Sun. "Large Language Models Often Say One Thing and Do Another." <em>ICLR 2025</em>. arXiv:2503.07003.</li>
+<li><strong>Venue:</strong> ICLR 2025 (peer-reviewed).</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2503.07003">https://arxiv.org/abs/2503.07003</a> · code: <a href="https://github.com/icip-cas/Word-Deed-Consistency-Test">https://github.com/icip-cas/Word-Deed-Consistency-Test</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>xu2025_say_one_thing_do_another.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Benchmark:</strong> the Words and Deeds Consistency Test (WDCT), 1,225 paired items (§2.4, Table 2).</li>
+<li><strong>Word:</strong> a direct question probing an opinion, value or theory.</li>
+<li><strong>Deed:</strong> a strictly corresponding scenario question whose option reveals the same stance in action.</li>
+<li><strong>Domains:</strong> opinion vs action; non-ethical value vs action; ethical value vs action; theory vs application.</li>
+<li><strong>Consistency Score (CS):</strong> P(same answer to word and deed). Random baseline = 0.50. A probability-based version (PCS) is also reported.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Models:</strong> GPT-4-Turbo, GPT-3.5-Turbo, and base vs chat pairs of Llama-2-7B, Llama-3-8B, Mistral-7B and ChatGLM3-6B (Table 5).</li>
+<li><strong>Prompting:</strong> direct and CoT. Option orders shuffled; three runs.</li>
+<li><strong>Alignment experiments:</strong> SFT/DPO separately on words or on deeds (in opposite directions), to see whether alignment transfers.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Most LLMs show average inconsistency above 30%</strong> against a 50% random baseline (§4.1, Table 3).</li>
+<li><strong>Base vs aligned models:</strong> pretrained LLMs have CS ≈ 0.6 with PCS ≈ 0.9, meaning no strong beliefs. After alignment, PCS drops by about 0.2, meaning the word and deed distributions diverge further (§4.1).</li>
+<li><strong>CoT barely helps</strong> (Table 4, direct → CoT):</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Direct</th>
+<th>CoT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-4</td>
+<td>0.76</td>
+<td>0.79</td>
+</tr>
+<tr>
+<td>GPT-3.5</td>
+<td>0.66</td>
+<td>0.70</td>
+</tr>
+<tr>
+<td>Mistral-7B-Instruct</td>
+<td>0.66</td>
+<td>0.69</td>
+</tr>
+<tr>
+<td>ChatGLM3-6B</td>
+<td>0.54</td>
+<td>0.48</td>
+</tr>
+<tr>
+<td>Llama-2-7B-Chat</td>
+<td>0.49</td>
+<td>0.48</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Aligning only words, or only deeds,</strong> has "poor and unpredictable" effects on the other (Fig. 3).</li>
+<li><strong>Data augmentation</strong> (Dual-Aug) helps but does not solve the problem; e.g., GPT-3.5-scale models rise from 0.71 to 0.86 (Table 4 right).</li>
+<li><strong>Deeds are more stable than words</strong> across paraphrases (Fig. 7).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Base models lack strong beliefs.</li>
+<li>In aligned models, words and deeds are aligned <em>independently</em> during post-training.</li>
+<li>They hypothesise that "the underlying knowledge guiding LLMs' word or deed choices is not contained within a unified space".</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>"Deeds" are multiple-choice answers to scenario questions, not actions.</li>
+<li>Mostly small open models plus two GPT models (2024 vintage).</li>
+<li>Items are LLM-generated with human review, and about 15% were rewritten.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>Shared:</strong> this is the cleanest benchmark-scale evidence that word-level and deed-level answers come apart. The finding that CoT does not repair consistency resonates with ours: models write analyses faithful to the priority yet still act otherwise.</li>
+<li><strong>The "separately aligned spaces" hypothesis</strong> offers one mechanism for why a faithful analysis does not bind the action.</li>
+<li><strong>Differences:</strong></li>
+<li>The "word" is the model's own opinion, not an assigned priority.</li>
+<li>Deeds are hypothetical choices.</li>
+<li>No competing-pressure manipulation and no reasons scoring.</li>
+<li>Inconsistency here is roughly symmetric noise. Ours is directional: compromise toward the competing pressure, usually a middle plan.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Xu et al.'s WDCT pairs 1,225 "word" questions (opinions, values, theories) with strictly matched "deed" scenario questions. Most LLMs agree with themselves only 50–79% of the time (random = 50%). Alignment widens the word/deed probability gap, and CoT does not help. Fine-tuning only words or only deeds transfers unpredictably, which suggests the two are governed by separately shaped knowledge. A standard ICLR citation for the claim that what LLMs say is not what they do in scenario questions.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

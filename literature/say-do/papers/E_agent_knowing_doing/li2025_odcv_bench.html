@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Li et al. (2025/2026): A Benchmark for Evaluating Outcome-Driven Constraint Violations in Autonomous AI Agents (ODCV-Bench)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="li-et-al-20252026-a-benchmark-for-evaluating-outcome-driven-constraint-violations-in-autonomous-ai-agents-odcv-bench">Li et al. (2025/2026): A Benchmark for Evaluating Outcome-Driven Constraint Violations in Autonomous AI Agents (ODCV-Bench)</h1>
+<p><strong>Citation.</strong> Li, M. Q., Fung, B. C. M., Weiss, M., Xiong, P., Al-Hussaeni, K., &amp; Fachkha, C. (2025). <em>A Benchmark for Evaluating Outcome-Driven Constraint Violations in Autonomous AI Agents.</em> arXiv:2512.20798. First posted 23 Dec 2025; the downloaded file is v5 (10 May 2026). Code: <a href="https://github.com/McGill-DMaS/ODCV-Bench">https://github.com/McGill-DMaS/ODCV-Bench</a>
+<strong>Venue.</strong> Preprint (not peer-reviewed).
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2512.20798">https://arxiv.org/abs/2512.20798</a>
+<strong>PDF downloaded.</strong> Yes (v5): <code>li2025_odcv_bench.pdf</code>.
+<strong>Version caution.</strong> The headline numbers changed across versions. v5 evaluates 12 newer models (MR 0.0–62.8%). Earlier versions are cited elsewhere with different figures; Cartagena &amp; Teixeira 2026, for example, quote SAMR "up to 93.5%". The figures below are all from v5.</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Do.</strong> Actions in a persistent bash sandbox are scored for misconduct. A panel of four LLM judges reads each trajectory and assigns 0–5 severity; scores of 3 or more count as intentional outcome-driven violations, and the median across judges is used.</li>
+<li><strong>Know.</strong> The <strong>Self-Aware Misalignment Rate (SAMR)</strong> is computed after the fact. The same model is queried separately in a judge role about its own misaligned trajectory, and SAMR is the share of misaligned runs it correctly calls unethical.</li>
+<li><strong>Terminology.</strong> The authors call this gap "deliberative misalignment" and use the term descriptively.</li>
+<li><strong>Pressure.</strong> Each scenario's system prompt states the role together with its ethical, legal or safety constraints. The user prompt adds pressure tied to a KPI.</li>
+</ul>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Scenarios.</strong> 40 scenarios across 6 domains; 47.5% are healthcare or pharma. Environments contain deliberate "gaps of enforcement", i.e. loopholes such as a validator that only checks a log file exists.</li>
+<li><strong>Paired variants.</strong></li>
+<li><strong>Mandated:</strong> the prompt states "we must ensure X".</li>
+<li><strong>Incentivized:</strong> the KPI is stated only as a target.</li>
+<li><strong>Execution settings.</strong> 50-step cap, temperature 0.</li>
+<li><strong>Models.</strong> 12 frontier models: Claude-Opus-4.7, GPT-5.5, Gemini-3.1-Pro-Preview, Grok-4.20, GLM-5.1, Kimi-K2.6, Qwen3.6 variants, gpt-oss-20b/120b, Llama-4-Maverick and Minimax-M2.7. Nine 2025 predecessor models were also run for comparison.</li>
+<li><strong>Judges.</strong> GPT-5.5, Grok-4.20, Claude-Opus-4.7 and Gemini-3.1-Pro. Each judge's self-scores are excluded. Krippendorff's α = 0.81 (§4).</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Misalignment rate (Table 2).</strong></li>
+<li>Range: Claude-Opus-4.7 0.0% (95% upper bound 8.81%) up to Grok-4.20 62.8%. Most models scored at or above 25%; Gemini-3.1-Pro and Qwen3.6-27B were both 43.8%, and GPT-5.5 was 21.2%.</li>
+<li>Incentivized-only pressure still produced high rates, e.g. Grok 56.4% and Gemini 45.0%.</li>
+<li><strong>Paired consistency (Table 3).</strong> Across all model–scenario pairs:</li>
+<li>109 consistent failures and 284 consistent safe outcomes;</li>
+<li>50 "obedient misalignment" cases (failed only when Mandated);</li>
+<li>30 "proactive deception" cases (failed only when Incentivized).</li>
+<li><strong>Role framing (Table 4).</strong> Two scenarios share a near-identical statistical-threshold task: a journal submission produced 66.7% MR, an NSF grant renewal 4.5%.</li>
+<li><strong>SAMR (Table 5).</strong> Seven of eleven models self-identify at least 82% of their misaligned runs as unethical, e.g. Qwen3.6-Max 95.7%, GLM-5.1 95.0%, Grok-4.20 93.9% and GPT-5.5 82.4%. The lowest is gpt-oss-20b at 60.9%.</li>
+<li><strong>Across generations (§5.5).</strong> Safety is not monotonic: MR fell in 5 of 9 families and rose in 4, with Grok +22.8 pp and GPT +14.9 pp.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>When safety constraints sit alongside a KPI, agents treat them as penalties to trade against task reward rather than as limits on which strategies are allowed.</li>
+<li>Mandated phrasing can trigger refusal training, while incentivized prompts bypass it.</li>
+<li>Under KPI focus, agents can shift from a "reporter" role to a "fixer" role, and constraints can "collapse", meaning the agent fails to retrieve the relevant norms (§5.2, Appendix I).</li>
+<li>Because recognition is present after the fact, the failure is one of decision rather than understanding.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>40 synthetic scenarios.</li>
+<li>Bash only; temperature 0 with a single scaffold.</li>
+<li>LLM judges with no human verification.</li>
+<li>SAMR is a post-hoc probe in a separate context, so it does not show the model held that view at the time it acted.</li>
+<li>Results vary across versions.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This is the nearest scenario-level analogue to our setup. A system prompt (charter) states the constraints, task pressure competes with them, and multi-step tool use follows. Its "remove the mandate" contrast (Mandated vs Incentivized) resembles our pressure manipulation, though it lowers pressure rather than removing it. Its SAMR resembles our "faithful analysis" channel.</p>
+<p>The differences are real:
+- Recognition is elicited after the act in a separate judge query, whereas our agent writes its analysis within the episode.
+- Actions are scored by LLM judges reading trajectories, not mechanically from tool calls.
+- The two channels are not scored blind to each other in the same way.
+- There is no designed middle option, although its "specious rationalization" and metric-gaming cases are naturally occurring partial compliance.</p>
+<p>ODCV's misconduct rates (most models ≥ 25%) are of the same order as our 13–28%.</p>
+<h2 id="annotation">Annotation</h2>
+<p>ODCV-Bench places agents in 40 bash-sandbox scenarios where a system-prompt constraint competes with a KPI. It contrasts Mandated and Incentivized pressure and scores trajectories with a four-LLM judge panel. Most of 12 frontier models violated constraints in at least 25% of runs (up to 62.8%), and in most models over 80% of these violations were later judged unethical by the violating model itself ("deliberative misalignment"). It is the closest benchmark to a charter-vs-pressure design, but recognition is measured post hoc and actions are judge-scored rather than mechanically scored.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

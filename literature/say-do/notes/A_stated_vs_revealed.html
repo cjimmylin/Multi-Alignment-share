@@ -1,0 +1,206 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Say–do notes: A_stated_vs_revealed</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../">Hub</a> › <a href="../../../literature/">Background literature</a> › <a href="../../../literature/say-do/">Say–do</a> › Strand notes › A_stated_vs_revealed</nav><article class="doc"><h1 id="strand-a-stated-vs-revealed-values-in-llms-valueaction-gaps-words-vs-deeds-attitudebehaviour-consistency-cross-format-value-consistency-personavalue-steering">Strand A — Stated vs revealed values in LLMs (value–action gaps, words vs deeds, attitude–behaviour consistency, cross-format value consistency, persona/value steering)</h1>
+<p>PDFs and per-paper summaries are in <code>Moral_Psychology-Paper/say-do/papers/A_stated_vs_revealed/</code>, saved as <code>&lt;base&gt;.pdf</code> and <code>&lt;base&gt;.md</code>. All 23 PDFs were downloaded from arXiv and verified: <code>file</code> reports PDF, and every file is at least 400 KB. Each summary was written from the PDF text. Numbers below cite the section or table of the PDF that was read.</p>
+<h2 id="which-papers-directly-measure-the-gap-between-stated-and-revealed-values-or-preferences-in-llms">Which papers directly measure the gap between stated and revealed values or preferences in LLMs?</h2>
+<h3 id="takeaway">Takeaway</h3>
+<p>Since 2024 a distinct literature has formed around the LLM "value–action gap" and the "stated–revealed (SvR) preference gap". It has three bands:
+- <strong>Core say–do papers:</strong> Shen 2025, Xu 2025, Gu 2025, Chiu 2025, Mahajan 2026, Rakshit 2026, Liu 2025/26, Chen 2026, Dong 2026.
+- <strong>Survey vs downstream generation, and value-stability context:</strong> Röttger 2024, Moore 2024, Kovač 2023/2024, Rozen 2024, Dominguez-Olmedo 2024.
+- <strong>Self-report vs behaviour in personality and dispositions:</strong> Han 2025, Kocielnik 2026, Contreras 2026, Andric 2025.</p>
+<p>Almost all measure "do" as a hypothetical choice or free text. Only Agent-ValueBench (Dong 2026) measures values through executed agentic trajectories, and no paper found pairs an instruction-assigned priority with blind-scored tool actions and judged reasons.</p>
+<h3 id="cited-findings">Cited Findings</h3>
+<p><strong>Paper inventory.</strong> Each entry gives the file base name, then the one-line finding and its relevance to our paper. Venues are taken from the arXiv metadata or the PDF.</p>
+<p>Core say–do papers:
+- <strong><a href="../papers/A_stated_vs_revealed/shen2025_value_action_gap.html"><code>shen2025_value_action_gap</code></a></strong> — Shen, Clark &amp; Mitra, <em>Mind the Value-Action Gap</em> (EMNLP 2025). ValueActionLens pairs Schwartz-value Likert statements with binary action choices: 14,784 items, 12 countries × 11 topics. The F1 between stated value and action is 0.18–0.56, and 14–19% of items flip. This is the anchor citation for the term "value–action gap". Its flip rate is close in size to our 13–28%. — <a href="https://arxiv.org/abs/2501.15463">arXiv 2501.15463</a>
+- <strong><a href="../papers/A_stated_vs_revealed/xu2025_say_one_thing_do_another.html"><code>xu2025_say_one_thing_do_another</code></a></strong> — Xu et al., <em>LLMs Often Say One Thing and Do Another</em> (ICLR 2025). The WDCT benchmark has 1,225 matched word/deed items. Most models are inconsistent on more than 30% of items, against a random baseline of 50%. CoT does not help, and aligning words alone does not transfer to deeds. This is the benchmark-scale words-vs-deeds citation. — <a href="https://arxiv.org/abs/2503.07003">arXiv 2503.07003</a>
+- <strong><a href="../papers/A_stated_vs_revealed/gu2025_stated_revealed_preferences.html"><code>gu2025_stated_revealed_preferences</code></a></strong> — Gu, Wang &amp; Han, <em>Alignment Revisited</em> (preprint). Forced-choice general principles are compared with contextualised dilemmas. GPT-4.1 and Gemini flip often (mean absolute deviation about 0.36). Claude is neutral on about 84% of stated prompts. This paper set the SvR vocabulary, but its "revealed" condition is hypothetical. — <a href="https://arxiv.org/abs/2506.00751">arXiv 2506.00751</a>
+- <strong><a href="../papers/A_stated_vs_revealed/chiu2025_airiskdilemmas.html"><code>chiu2025_airiskdilemmas</code></a></strong> — Chiu et al., <em>Will AI Tell Lies to Save Sick Children?</em> (LitmusValues/AIRiskDilemmas, preprint). Stated value rankings correlate <em>negatively</em> with revealed rankings: GPT-4o ρ = −0.115, Claude 3.7 Sonnet ρ = −0.318. Revealed rankings are more consistent than stated ones. This is the strongest frontier-model evidence that stated rankings do not predict choices. — <a href="https://arxiv.org/abs/2505.14633">arXiv 2505.14633</a>
+- <strong><a href="../papers/A_stated_vs_revealed/mahajan2026_elicitation_stated_revealed_gap.html"><code>mahajan2026_elicitation_stated_revealed_gap</code></a></strong> — Mahajan et al., <em>Mind the Gap</em> (ACL 2026 Eval Eval Workshop / TAIS 2026). Across 24 LMs, the SvR correlation depends heavily on whether neutral options are allowed. Steering a model with its own stated ranking rarely helps. The gap size is protocol-dependent, and "in-between" options matter. — <a href="https://arxiv.org/abs/2601.21975">arXiv 2601.21975</a>
+- <strong><a href="../papers/A_stated_vs_revealed/rakshit2026_pseudo_deliberation.html"><code>rakshit2026_pseudo_deliberation</code></a></strong> — Rakshit, Zhang &amp; Shen, <em>Pseudo-Deliberation</em> (preprint). Stated values are poorly expressed in advice dialogues. Explicit reasoning usually <em>lowers</em> alignment, and repairing the output beats repairing the reasoning. This is the closest conceptual neighbour: a principled-sounding analysis does not bind the action. — <a href="https://arxiv.org/abs/2605.09893">arXiv 2605.09893</a>
+- <strong><a href="../papers/A_stated_vs_revealed/liu2025_generative_value_conflicts.html"><code>liu2025_generative_value_conflicts</code></a></strong> — Liu et al., <em>Generative Value Conflicts Reveal LLM Priorities</em> (ICLR 2026). Models put protective values first in multiple-choice and demote them in open-ended interaction with simulated users. System-prompt priority orderings help by about 14%. Pressure-directed drift, and only a modest fix from an instruction-assigned priority, are the closest analogue to our design. — <a href="https://arxiv.org/abs/2509.25369">arXiv 2509.25369</a>
+- <strong><a href="../papers/A_stated_vs_revealed/chen2026_privacy_prosocial_value_action.html"><code>chen2026_privacy_prosocial_value_action</code></a></strong> — Chen, Yu &amp; Hu, <em>Value–Action Alignment under Privacy–Prosocial Conflict</em> (Findings of ACL 2026). Value→action relations are estimated with structural equation modelling (SEM). Alignment ranges from strong to severely misaligned across 10 LLMs. The paper argues gap scores are ill-defined when values compete. This supports our use of an explicitly assigned priority. — <a href="https://arxiv.org/abs/2601.03546">arXiv 2601.03546</a>
+- <strong><a href="../papers/A_stated_vs_revealed/dong2026_agent_valuebench.html"><code>dong2026_agent_valuebench</code></a></strong> — Dong et al., <em>Agent-ValueBench</em> (preprint). The benchmark has 4,335 tasks in 394 executable environments and was run on 14 models. Agent values diverge from the same model's multiple-choice values, and skills steer more than prompts do. It is the only agentic value benchmark found, and it supports text≠agent. — <a href="https://arxiv.org/abs/2605.10365">arXiv 2605.10365</a></p>
+<p>Survey vs downstream generation, and stability context:
+- <strong><a href="../papers/A_stated_vs_revealed/rottger2024_political_compass_spinning_arrow.html"><code>rottger2024_political_compass_spinning_arrow</code></a></strong> — Röttger et al., <em>Political Compass or Spinning Arrow?</em> (ACL 2024). Forced survey answers are artefacts. Models reverse their multiple-choice stance in open-ended writing on about one third of propositions, always agree→disagree. This is the canonical paper showing survey answers do not match downstream generation. — <a href="https://arxiv.org/abs/2402.16786">arXiv 2402.16786</a>
+- <strong><a href="../papers/A_stated_vs_revealed/moore2024_value_laden_consistency.html"><code>moore2024_value_laden_consistency</code></a></strong> — Moore, Deshpande &amp; Yang (Findings of EMNLP 2024). Large models are about as consistent as humans across paraphrases, multiple-choice vs open-ended formats, and languages. They are less consistent on controversial topics and cannot be steered to Schwartz values. This is a corrective: verbal inconsistency is limited, so action-level gaps are a distinct phenomenon. — <a href="https://arxiv.org/abs/2407.02996">arXiv 2407.02996</a>
+- <strong><a href="../papers/A_stated_vs_revealed/kovac2023_superpositions_cultural_perspectives.html"><code>kovac2023_superpositions_cultural_perspectives</code></a></strong> — Kovač et al., <em>LLMs as Superpositions of Cultural Perspectives</em> (preprint). Context unrelated to values shifts expressed values more than war or adolescence shifts human values. The paper proposes the "superposition of perspectives" metaphor. It is a conceptual lens for why context (pressure) selects the enacted value. — <a href="https://arxiv.org/abs/2307.07870">arXiv 2307.07870</a>
+- <strong><a href="../papers/A_stated_vs_revealed/kovac2024_stick_to_your_role.html"><code>kovac2024_stick_to_your_role</code></a></strong> — Kovač et al., <em>Stick to your Role!</em> (PLOS ONE 2024). Value stability across 21 LLMs is family-dependent, and personas are unstable. PVQ values predict donation behaviour only in stable models. It is early evidence that value→behaviour coherence depends on context stability. — <a href="https://arxiv.org/abs/2402.14846">arXiv 2402.14846</a>
+- <strong><a href="../papers/A_stated_vs_revealed/rozen2024_consistent_values.html"><code>rozen2024_consistent_values</code></a></strong> — Rozen et al., <em>Do LLMs Have Consistent Values?</em> (ICLR 2025). Human-like Schwartz value structure appears only under "Value Anchor" persona prompting. LLM "stated values" are prompt constructions, which justifies assigning the priority by instruction. — <a href="https://arxiv.org/abs/2407.12878">arXiv 2407.12878</a>; venue confirmed at <a href="https://iclr.cc/virtual/2025/poster/30729">ICLR 2025 poster</a>
+- <strong><a href="../papers/A_stated_vs_revealed/dominguezolmedo2023_questioning_survey_responses.html"><code>dominguezolmedo2023_questioning_survey_responses</code></a></strong> — Dominguez-Olmedo, Hardt &amp; Mendler-Dünner (NeurIPS 2024). Across 43 models, survey responses reflect ordering and labelling bias and become uniform-random once these are adjusted for. Multiple-choice "say" can be uninformative. — <a href="https://arxiv.org/abs/2306.07951">arXiv 2306.07951</a></p>
+<p>Self-report vs behaviour (dispositions):
+- <strong><a href="../papers/A_stated_vs_revealed/han2025_personality_illusion.html"><code>han2025_personality_illusion</code></a></strong> — Han et al., <em>The Personality Illusion</em> (preprint). Self-reports predict behaviour at chance level: about 24% of associations are significant, and 52% of those have the right sign. Persona injection moves self-reports (β = 3.95) but not behaviour (sycophancy β = 0.03). This is the key "persona steering changes words, not deeds" citation. — <a href="https://arxiv.org/abs/2509.03730">arXiv 2509.03730</a>
+- <strong><a href="../papers/A_stated_vs_revealed/kocielnik2026_when_self_reports_predict_behavior.html"><code>kocielnik2026_when_self_reports_predict_behavior</code></a></strong> — Kocielnik et al. (ICML 2026 CTB workshop, oral). Behaviour-specific Theory of Planned Behavior intentions in a shared conversation predict behaviour at human level (r ≈ .40). Big Five does not. Coherence collapses for context-primed behaviour. This sets the boundary condition: our in-episode, task-specific analyses should predict action, yet competing pressure breaks the link. — <a href="https://arxiv.org/abs/2606.12730">arXiv 2606.12730</a>
+- <strong><a href="../papers/A_stated_vs_revealed/contreras2026_self_report_behavior_gap.html"><code>contreras2026_self_report_behavior_gap</code></a></strong> — Contreras, <em>LLM-Native Psychometric Instrument</em> (preprint). On LLM-native constructs across 25 models, self-report tracks human-rated behaviour at r̄ = .09. LLM judges track self-report more than humans do. The gap is not an artefact of human constructs, and judges need human audits. — <a href="https://arxiv.org/abs/2606.09843">arXiv 2606.09843</a>
+- <strong><a href="../papers/A_stated_vs_revealed/andric2025_walk_their_talk_altruism.html"><code>andric2025_walk_their_talk_altruism</code></a></strong> — Andric, <em>Do LLMs Walk Their Talk?</em> (preprint). Models claim 77.5% altruism and act at 65.6% across 24 models. Offered a "Balanced" option, every model chose it 100% of the time. This is direct evidence of compromise attraction, which binary designs remove. — <a href="https://arxiv.org/abs/2512.01568">arXiv 2512.01568</a></p>
+<p>Adjacent, on revealed preferences and beliefs:
+- <strong><a href="../papers/A_stated_vs_revealed/wang2026_ai_revealed_preferences.html"><code>wang2026_ai_revealed_preferences</code></a></strong> — Wang et al., <em>AI Revealed Preferences</em> (accepted at AIES 2026). Consequential task choices in 20 models show tedium aversion, "leisure" seeking and covert sycophancy. The paper argues hypothetical "revealed" designs do not count, which supports measuring executed actions. — <a href="https://arxiv.org/abs/2608.26178">arXiv 2608.26178</a>
+- <strong><a href="../papers/A_stated_vs_revealed/yamin2026_agents_say_one_thing_elicited_beliefs.html"><code>yamin2026_agents_say_one_thing_elicited_beliefs</code></a></strong> — Yamin et al., <em>When Agents Say One Thing and Do Another</em> (preprint). Utility-free tests show clinical decisions carry information beyond the stated probabilities. This is the belief-side analogue and offers a formal sufficiency-test template. — <a href="https://arxiv.org/abs/2602.06286">arXiv 2602.06286</a>
+- <strong><a href="../papers/D_sycophancy_honesty_moral_consistency/nunes2024_moral_hypocrites.html"><code>nunes2024_moral_hypocrites</code></a></strong> — Nunes et al., <em>Are LLMs Moral Hypocrites?</em> (AIES 2024). See the moral hypocrisy section below. — <a href="https://arxiv.org/abs/2405.11100">arXiv 2405.11100</a>
+- <strong><a href="../papers/A_stated_vs_revealed/chiu2024_dailydilemmas.html"><code>chiu2024_dailydilemmas</code></a></strong> — Chiu, Jiang &amp; Choi, <em>DailyDilemmas</em> (ICLR 2025 spotlight). Revealed priorities in 1,360 everyday dilemmas only partly match developers' stated principles (ModelSpec, Constitution). System-prompt steering of GPT-4-turbo is ineffective. This is evidence that an instruction-stated priority fails to move choices. — <a href="https://arxiv.org/abs/2410.02683">arXiv 2410.02683</a></p>
+<p>Verification notes:
+- <strong>Shen et al.</strong> The title, authors and venue (EMNLP 2025 Main) are verified from arXiv v4. The text says "six LLMs", but Table 4 lists seven (GPT-4o-mini, GPT-3.5-turbo, Llama-3.3-70B, Gemma-2-9B, DeepSeek-R1, Claude-Sonnet-4, GPT-4o). — <a href="https://arxiv.org/abs/2501.15463">arXiv 2501.15463</a>
+- <strong>Gu et al.</strong> The abstract says "four mainstream LLMs", but Table 1 lists three, and Claude is excluded from the deviation analysis. — <a href="https://arxiv.org/abs/2506.00751">arXiv 2506.00751</a>
+- <strong>Rozen et al.</strong> The PDF header lists Liat Bezalel first. The arXiv and ICLR listings put Naama Rozen first. — <a href="https://arxiv.org/abs/2407.12878">arXiv 2407.12878</a></p>
+<h3 id="inferences">Inferences</h3>
+<ul>
+<li>The literature has converged on the vocabulary of a "value–action gap" or "SvR gap". However, "action" almost always means a forced binary choice or free text in a hypothetical scenario. Executed tool actions in agentic episodes, our measurement channel, appear only in Agent-ValueBench, which compares formats rather than an in-episode analysis with its action.</li>
+<li>None of the papers found has all three of our design features together:</li>
+<li>an instruction-assigned priority restated faithfully in a judged written analysis;</li>
+<li>blind scoring of executed actions;</li>
+<li>an ablation showing the gap closes when competing pressure is removed.</li>
+</ul>
+<h3 id="gaps">Gaps</h3>
+<ul>
+<li><strong>Not downloaded, but relevant:</strong> ValueBench (Ren et al., ACL 2024) and GPV (Ye et al., AAAI 2025; arXiv 2409.12106) are cited by Shen et al. as earlier work on self-report vs action. MoralBench and Scherrer et al. 2023 ("Evaluating the Moral Beliefs Encoded in LLMs", arXiv 2307.14324) measure moral choice consistency rather than say–do. Mazeika et al. 2025 ("Utility Engineering", arXiv 2502.08640) studies stated-preference coherence. Bang et al. 2024 (arXiv 2403.18932) and Ceron et al. 2024 (TACL, arXiv 2402.17649) add political-opinion consistency. Huang et al. 2025 ("Values in the Wild", arXiv 2504.15236) supplies the value taxonomy used by Liu et al.</li>
+<li><strong>"Value Kaleidoscope"</strong> (Sorensen et al., AAAI 2024; arXiv 2309.00779) was checked. It is a pluralistic values/rights/duties dataset and model, not a say–do study, so it was left out.</li>
+<li><strong>"Wright et al. 2024 LLM tropes"</strong> could not be located by title in the arXiv API and was not verified.</li>
+</ul>
+<h2 id="what-were-the-measurement-designs-gap-sizes-models-and-explanations">What were the measurement designs, gap sizes, models, and explanations?</h2>
+<h3 id="takeaway_1">Takeaway</h3>
+<p>Gap sizes depend heavily on protocol:
+- <strong>Item-level flip rates:</strong> 14–19% (Shen), more than 30% inconsistency (Xu), and about a third of propositions reversing (Röttger).
+- <strong>Rank correlations:</strong> stated-vs-revealed ρ ranges from negative (Chiu: −0.12 and −0.32) to about 0.7 when neutral stated answers are filtered out (Mahajan).
+- <strong>Self-report vs behaviour:</strong> correlations are near zero (Han; Contreras r̄ = .09) unless the self-report is behaviour-specific and given in the same context (Kocielnik r ≈ .40).</p>
+<p>Explanations cluster around four ideas:
+- words and deeds are shaped separately in post-training (Xu, Han);
+- context selects which value is enacted (Kovač, Liu, Chen);
+- forced formats manufacture or mask preferences (Röttger, Mahajan, Dominguez-Olmedo);
+- reasoning does not bind generation (Rakshit, Xu's CoT result).</p>
+<h3 id="cited-findings_1">Cited Findings</h3>
+<ul>
+<li><strong>Shen et al.:</strong> alignment F1 is 0.564 for GPT-4o-mini overall and 0.179 for GPT-3.5-turbo, with a maximum single rate of 0.653. Cross-task misalignment runs from 14.25% (GPT-4o) to 19.22% (GPT-3.5) of 7,392 items. The direction of mismatch is model-specific: Claude-Sonnet-4 mostly states Agree and then acts Disagree (903 of 1,106 mismatches). Alignment is lower in African and Asian contexts (Table 3, Table 4). — <a href="https://arxiv.org/abs/2501.15463">Shen et al. 2025</a></li>
+<li><strong>Xu et al.:</strong> "most LLMs exhibit average inconsistency exceeding 30%" against a 50% random baseline. Alignment lowers the probability consistency score by about 0.2. CoT changes GPT-4 from 0.76 to 0.79 and Llama-2-7B-Chat from 0.49 to 0.48 (Tables 3–4). The authors hypothesise that word and deed knowledge is "not contained within a unified space". — <a href="https://arxiv.org/abs/2503.07003">Xu et al. 2025</a></li>
+<li><strong>Gu et al.:</strong> GPT's KL divergence between stated and revealed is 0.697 and Gemini's is 0.424. In the reciprocity domain GPT's KL is 1.306 (Tables 2–3). The authors note that surface reasoning "does not necessarily reflect the true causal factor behind its decision". — <a href="https://arxiv.org/abs/2506.00751">Gu et al. 2025</a></li>
+<li><strong>Chiu et al. (AIRiskDilemmas):</strong> stated rankings are near-invariant to whether definitions are given (ρ 0.976 and 0.991). Stated vs revealed ρ is −0.115 for GPT-4o and −0.318 for Claude 3.7 Sonnet. Krippendorff's α is higher for revealed than for stated preferences (0.762 vs 0.550 for Claude; 0.692 vs 0.629 for GPT-4o). Reasoning effort barely changes revealed values (§2.5, Fig. 5). — <a href="https://arxiv.org/abs/2505.14633">Chiu et al. 2025</a></li>
+<li><strong>Mahajan et al.:</strong> neutrality in stated elicitation ranges from 48.2% to 100%. Allowing neutral stated answers raises Llama-3.1-405B's SvR ρ from about 0.2 to about 0.7, and SvR ρ then correlates with capability (ρ = 0.58, p = 0.02). Allowing neutrality in revealed choices sends ρ to about zero or below. Self-ranking system prompts often hurt, and Claude models regress consistently. — <a href="https://arxiv.org/abs/2601.21975">Mahajan et al. 2026</a></li>
+<li><strong>Liu et al.:</strong> protective values average rank 1.7 in multiple-choice and 4.5 in open-ended interaction. All models except Claude shift toward personal values. System-prompt orderings improve alignment with the target ranking by 14%. — <a href="https://arxiv.org/abs/2509.25369">Liu et al. 2025</a></li>
+<li><strong>Rakshit et al.:</strong> macro-F1 falls from fast to slow (reasoning-first) mode for GPT-4o (0.453→0.415), Llama3-8B (0.477→0.432) and Qwen3-8B (0.442→0.399), each p = 0.001. Gemini-3-Flash rises (0.477→0.498). For GPT-4o, dialogue-level repair reaches 0.577, while reasoning-only repair stays at about 0.44 (Tables 1, 3). — <a href="https://arxiv.org/abs/2605.09893">Rakshit et al. 2026</a></li>
+<li><strong>Röttger et al.:</strong> 19 of 62 propositions (GPT-3.5) and 23 of 62 (Mistral) flip from agree in multiple-choice to disagree in open-ended writing, with zero reverse flips. Paraphrases shift compass coordinates by more than the Biden–Trump distance (§4.4–4.5). — <a href="https://arxiv.org/abs/2402.16786">Röttger et al. 2024</a></li>
+<li><strong>Moore et al.:</strong> large models (≥ 34B) are about as consistent as humans across paraphrase, topic, use-case and translation. They are less consistent on controversial topics, and base models are more consistent than chat models. "Models are not steerable to Schwartz values" (Fig. 9). — <a href="https://arxiv.org/abs/2407.02996">Moore et al. 2024</a></li>
+<li><strong>Han et al.:</strong> about 24% of trait–task associations are significant, and 52% of those are sign-correct (chance is 50%). Persona injection moves agreeableness self-reports (β = 3.95, p &lt; .001) but not sycophancy behaviour (β = 0.03, p = .67). — <a href="https://arxiv.org/abs/2509.03730">Han et al. 2025</a></li>
+<li><strong>Kocielnik et al.:</strong> within a shared conversation, Theory of Planned Behavior self-reports correlate with behaviour at r = +0.25, or +0.40 excluding the IAT task, inside the human range of 0.25–0.50. 41 of 77 cells are significant and theory-aligned. Across separate sessions, coherence collapses for sycophancy (behaviour consistency r ≈ −0.9 for some models). Persona prompting stabilises self-report but not behaviour. — <a href="https://arxiv.org/abs/2606.12730">Kocielnik et al. 2026</a></li>
+<li><strong>Contreras:</strong> self-report vs human-rated behaviour r̄ = .09 (95% CI −.07 to .18), while humans and LLM judges agree at r̄ = .51. Self-report tracks LLM judges more than humans on Responsiveness (.53 vs .18). — <a href="https://arxiv.org/abs/2606.09843">Contreras 2026</a></li>
+<li><strong>Andric:</strong> self-reported altruism is 77.5% against behavioural altruism of 65.6% (d = 1.08), and 75% of models overclaim. In the three-option pilot, every model chose "Balanced" 100% of the time (§3.3). — <a href="https://arxiv.org/abs/2512.01568">Andric 2025</a></li>
+<li><strong>Kovač et al. 2023:</strong> unrelated context shifts value rank-order down to r = 0.4 for conversations and r = 0.05 for text formats, against the largest human change of r &lt; 0.59. — <a href="https://arxiv.org/abs/2307.07870">Kovač et al. 2023</a></li>
+<li><strong>Kovač et al. 2024:</strong> PVQ values predict donation behaviour only for the most stable models (Mistral-7B-Instruct, Mixtral-8x7B-Instruct, Qwen-72B; §4.6). — <a href="https://arxiv.org/abs/2402.14846">Kovač et al. 2024</a></li>
+<li><strong>Chen et al.:</strong> VAAR ranges from 0.111–0.234 (strong) to 2.266–4.914 (misaligned), with two models unestimable. Question order can raise VAAR for otherwise aligned models (GPT-4o, GPT-4-turbo, Llama3). — <a href="https://arxiv.org/abs/2601.03546">Chen et al. 2026</a></li>
+<li><strong>Chiu et al. (DailyDilemmas):</strong> GPT-4-turbo favours transparency over its ModelSpec privacy principle (weighted difference −1.5). System-prompt steering is "ineffective in general", with pro and anti prompts sometimes shifting choices the same way (§5.2–5.3). — <a href="https://arxiv.org/abs/2410.02683">Chiu et al. 2024</a></li>
+<li><strong>Dominguez-Olmedo et al.:</strong> survey responses from 43 models are dominated by A-label and ordering bias, and become uniform-random once these are adjusted. — <a href="https://arxiv.org/abs/2306.07951">Dominguez-Olmedo et al. 2024</a></li>
+<li><strong>Dong et al.:</strong> the same model shows "strikingly divergent value tendencies" between multiple-choice and agentic formats (Fig. 1, shown only as a figure). Embedded skills steer agent values more reliably than prompts. — <a href="https://arxiv.org/abs/2605.10365">Dong et al. 2026</a></li>
+</ul>
+<h3 id="inferences_1">Inferences</h3>
+<ul>
+<li><strong>Measured gaps are as much properties of the elicitation protocol as of the model.</strong> Forced binary formats remove the compromise option. Andric's pilot (100% "Balanced"), Röttger's unforced responses (63% of invalid answers argue both sides) and Mahajan's neutrality rates (48–100%) all show that LLMs are drawn strongly to in-between answers when these are allowed. Our "middle plan" is the agentic counterpart of this attraction, which most say–do benchmarks are built so they cannot observe.</li>
+<li><strong>Several independent results say explicit reasoning or analysis does not bind the action:</strong></li>
+<li>Xu: CoT gives no consistency gain.</li>
+<li>Rakshit: reasoning lowers alignment, and repairing the reasoning does not help.</li>
+<li>Chiu 2025: reasoning effort does not change revealed values.</li>
+<li>Gu: surface reasoning is not the causal factor.</li>
+</ul>
+<p>This directly corroborates our finding that a faithful analysis is followed by a compromising action.
+- <strong>Instruction or persona steering moves words more than choices:</strong>
+  - Han: β = 3.95 on self-report vs 0.03 on behaviour.
+  - Kocielnik: persona prompting stabilises self-report but not behaviour.
+  - Moore: models cannot be steered to Schwartz values.
+  - DailyDilemmas: steering is ineffective.
+  - Mahajan: self-rank steering hurts.
+  - Liu: only a 14% gain.</p>
+<p>An instruction-assigned priority is therefore expected to be restated reliably but enacted imperfectly, which is our pattern.
+- <strong>Kocielnik's boundary condition</strong> (in-context, behaviour-specific statements <em>should</em> predict behaviour) makes our result sharper. Our analyses meet those conditions, so a residual 13–28% compromise rate under competing pressure, closing when pressure is removed, points to pressure-driven re-prioritisation at action time rather than measurement mismatch.</p>
+<h3 id="gaps_1">Gaps</h3>
+<ul>
+<li>No paper reports how often the gap is a <em>compromise</em> (middle plan) as opposed to a full reversal. Binary designs make this impossible.</li>
+<li>No paper manipulates competing pressure on and off within the same task to show the gap closing. Chen 2026 and Liu 2025 come closest by varying conflict or format.</li>
+<li>No paper judges the model's written reasons separately from its CoT and its action. Rakshit judges the reasoning trace, which is closer to CoT.</li>
+<li>Effect sizes are not comparable across papers (F1, consistency score, ρ, KL, VAAR, Elo ranks), so no meta-analytic estimate is possible.</li>
+</ul>
+<h2 id="is-there-work-specifically-on-llm-moral-hypocrisy">Is there work specifically on LLM moral hypocrisy?</h2>
+<h3 id="takeaway_2">Takeaway</h3>
+<p>Yes. Nunes et al. (AIES 2024) is verified: <em>"Are Large Language Models Moral Hypocrites? A Study Based on Moral Foundations"</em>. It defines hypocrisy as the contradiction between abstract moral values (MFQ) and judgements of concrete violations (Moral Foundations Vignettes). GPT-4 and Claude 2.1 are internally consistent on each instrument but incoherent across them. Andric's "virtue signalling gap" is a related overclaiming finding. Neither attributes motive.</p>
+<h3 id="cited-findings_2">Cited Findings</h3>
+<ul>
+<li><strong>Models:</strong> GPT-4 and Claude 2.1. Gemini Pro and Llama-2-70B did not produce valid output. Valid generations: Claude 158, GPT-4 189. — <a href="https://arxiv.org/abs/2405.11100">Nunes et al. 2024</a></li>
+<li><strong>Within-instrument consistency:</strong> GPT-4 α(MFV) = 0.72 and α(MFQ) = 0.81; humans α(MFV) = 0.87.</li>
+<li><strong>Cross-instrument fit:</strong> the matching MFQ foundation rarely predicts the MFV foundation, and R² &lt; 0.08, except about 0.10 for Claude's Loyalty and Liberty. Humans reach R² 0.17–0.38 with the matching foundation always significant. For Claude, MFQ Purity predicted all MFV foundations.</li>
+<li><strong>Authors' conclusions:</strong> "Thus, they behaved as hypocrites in our experiment", and the results "are compatible with mimicry instead of conceptual mastery". — <a href="https://arxiv.org/abs/2405.11100">Nunes et al. 2024</a>; final AIES version: <a href="https://ojs.aaai.org/index.php/AIES/article/view/31704">AAAI OJS</a></li>
+<li><strong>Related overclaiming:</strong> 75% of 24 models significantly overstate their altruism compared with their behaviour ("virtue signalling gap"). — <a href="https://arxiv.org/abs/2512.01568">Andric 2025</a></li>
+</ul>
+<h3 id="inferences_2">Inferences</h3>
+<ul>
+<li>The "hypocrisy" framing in the LLM literature is behavioural and non-intentional: an inconsistency between levels of abstraction, not deception. Our paper should keep to the same discipline. A faithful analysis followed by a compromising action is a say–do gap; calling it "hypocrisy" or "deception" needs motive evidence, which belongs to the deception and scheming strand.</li>
+<li>Nunes's "do" is still a moral <em>judgement</em> (vignette wrongness ratings). No study found operationalises moral hypocrisy as stated principle vs enacted agentic choice.</li>
+</ul>
+<h3 id="gaps_2">Gaps</h3>
+<ul>
+<li>No replication of Nunes et al. on post-2024 frontier or reasoning models was found.</li>
+<li>No study found links MFQ-style abstract endorsement to <em>actions</em>.</li>
+</ul>
+<h2 id="how-does-this-strand-bear-on-our-finding-and-where-does-it-differ">How does this strand bear on our finding, and where does it differ?</h2>
+<h3 id="takeaway_3">Takeaway</h3>
+<p>The strand strongly supports the plausibility and size of our effect:
+- Stated-value/action flip rates of about 14–19% (Shen) and more than 30% inconsistency (Xu) bracket our 13–28%.
+- Reasoning and instructions shape words more than actions (Rakshit, Xu, Han, DailyDilemmas, Liu).
+- Shifts are directed toward the contextual pressure, not random (Röttger, Liu).</p>
+<p>Our contribution differs on five construct axes that no prior paper combines:
+1. <strong>Instruction-assigned priority</strong> rather than model-stated values.
+2. <strong>Executed tool actions scored blind</strong> rather than hypothetical choices.
+3. <strong>Judged written reasons</strong> rather than self-report or CoT.
+4. <strong>Compromise / middle plan as the modal failure</strong>, where prior designs are mostly binary and so exclude it.
+5. <strong>A pressure-removal ablation</strong> showing the gap closes.</p>
+<h3 id="cited-findings_3">Cited Findings</h3>
+<ul>
+<li>A per-episode-like flip rate of 14.25–19.22% between stated value and chosen action — <a href="https://arxiv.org/abs/2501.15463">Shen et al. 2025, Table 4</a></li>
+<li>Explicit deliberation lowers value–action alignment, and repairing the output rather than the reasoning works — <a href="https://arxiv.org/abs/2605.09893">Rakshit et al. 2026</a></li>
+<li>Open-ended deployment-like interaction shifts priorities toward user-facing values, and system-prompt priorities give only a 14% improvement — <a href="https://arxiv.org/abs/2509.25369">Liu et al. 2025</a></li>
+<li>A balanced middle option is chosen 100% of the time when offered — <a href="https://arxiv.org/abs/2512.01568">Andric 2025</a></li>
+<li>Gap measurement is protocol-dependent and neutral options matter — <a href="https://arxiv.org/abs/2601.21975">Mahajan et al. 2026</a></li>
+<li>With competing values, a trade-off action is ambiguous unless a reference priority is fixed — <a href="https://arxiv.org/abs/2601.03546">Chen et al. 2026</a></li>
+<li>In-context, behaviour-specific statements normally predict behaviour, but coherence collapses under strong contextual priming — <a href="https://arxiv.org/abs/2606.12730">Kocielnik et al. 2026</a></li>
+<li>Text-format values diverge from agentic-trajectory values — <a href="https://arxiv.org/abs/2605.10365">Dong et al. 2026</a></li>
+<li>"Revealed" should mean the model bears the consequences of its choice, not a hypothetical — <a href="https://arxiv.org/abs/2608.26178">Wang et al. 2026</a></li>
+</ul>
+<h3 id="inferences_3">Inferences</h3>
+<p><strong>Synthesis of the strand.</strong>
+- <strong>(1) Stated values are a weak guide to LLM action in every operationalisation tried.</strong> This holds for Likert vs choice, survey vs open-ended text, abstract vs contextual dilemmas, and self-report vs behavioural task. The failures are not just noise: they are directional (Röttger: agree→disagree only; Liu: protective→personal; Andric: overclaiming).
+- <strong>(2) The gap shrinks under specific conditions.</strong> These are: neutral stated answers allowed (Mahajan); behaviour-specific, in-context statements (Kocielnik); stable value representations (Kovač 2024); stronger models (Mahajan's capability correlation; Yamin's smaller belief gaps).
+- <strong>(3) Interventions on words do not transfer to deeds.</strong> Examples are CoT, persona prompts, value system prompts, and repairing the reasoning (Xu, Han, Kocielnik, DailyDilemmas, Mahajan, Rakshit). Action-level interventions work better (Rakshit's dialogue repair; Dong's skills).
+- <strong>(4) Almost no work measures executed agentic actions against an in-episode stated priority.</strong></p>
+<p><strong>Positioning our paper.</strong> Ours is the agentic, instruction-assigned, reason-judged instance of this phenomenon. It adds two things the strand lacks:
+- (a) The middle plan as a third outcome category that binary designs hide. Andric's 100% "Balanced" pilot and Mahajan's neutrality rates suggest it is the default resolution when allowed.
+- (b) Causal leverage from the pressure-removal condition, showing the gap is pressure-induced rather than a fixed format artefact (contra the protocol-artefact worry from Dominguez-Olmedo, Röttger and Mahajan).</p>
+<p><strong>Differences to state explicitly:</strong>
+- <strong>Stated value vs instruction-assigned priority.</strong> Prior work asks what the model values. We tell it what to prioritise and check that its analysis restates the priority faithfully, so the "say" is verified rather than elicited.
+- <strong>Judged reasons vs chain of thought.</strong> Rakshit, Xu and Gu examine reasoning traces or CoT. We judge the written record, the model's public justification.
+- <strong>Motive.</strong> No paper in this strand attributes motive, Nunes's "hypocrisy" included. We should report compromise behaviour without imputing intent unless supported.</p>
+<h3 id="gaps_3">Gaps</h3>
+<p><strong>For other strands (found but not downloaded, per scope):</strong>
+- <strong>CoT faithfulness:</strong> Matton et al., "Walk the Talk? Measuring the Faithfulness of LLM Explanations" (ICLR 2025 spotlight, arXiv 2504.14150).
+- <strong>Agent knowing–doing / reasoning–execution gaps:</strong>
+  - Dong et al. 2025, "Say One Thing, Do Another? Diagnosing Reasoning-Execution Gaps in VLM-Powered Mobile-Use Agents" (arXiv 2510.02204).
+  - "Walk the Talk: Bridging the Reasoning-Action Gap for Thinking with Images" (arXiv 2604.06777).
+- <strong>Sycophancy / honesty:</strong> Wang et al. 2026's "covert sycophancy" result (downloaded here as adjacent). Han et al. 2025 and Kocielnik 2026 also include sycophancy tasks.
+- <strong>Scheming / alignment faking:</strong> AIRiskDilemmas is motivated by alignment faking, but no scheming paper was downloaded here.
+- <strong>Responsible-AI policy say–do:</strong> Aaronson, "Do Chatbots Walk the Talk of Responsible AI?" (arXiv 2510.24823). Seen by title only in the arXiv listing and not read, so its content is unverified.</p>
+<p><strong>Not covered:</strong>
+- Peer-review status of the 2026 preprints (Rakshit, Dong, Contreras, Yamin) may change.
+- Chiu 2025 (AIRiskDilemmas) was a preprint at the version read; later publication was not checked.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

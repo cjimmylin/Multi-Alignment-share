@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tutek et al. 2025: Measuring Chain of Thought Faithfulness by Unlearning Reasoning Steps</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Reasoning and explanation faithfulness</nav><article class="doc"><h1 id="tutek-et-al-2025-measuring-chain-of-thought-faithfulness-by-unlearning-reasoning-steps">Tutek et al. 2025: Measuring Chain of Thought Faithfulness by Unlearning Reasoning Steps</h1>
+<p><strong>Citation:</strong> Tutek, M., Hashemi Chaleshtori, F., Marasović, A., &amp; Belinkov, Y. (2025). <em>Measuring Chain of Thought Faithfulness by Unlearning Reasoning Steps.</em> Proceedings of EMNLP 2025. arXiv:2502.14829.
+<strong>Venue:</strong> EMNLP 2025 (peer-reviewed; Outstanding Paper award per arXiv comment)
+<strong>URL:</strong> <a href="https://arxiv.org/abs/2502.14829">https://arxiv.org/abs/2502.14829</a>
+<strong>PDF downloaded:</strong> yes (<code>tutek2025_unlearning_reasoning_steps.pdf</code>)</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> individual CoT steps.</li>
+<li><strong>Do:</strong> the model's prediction.</li>
+<li><strong>Parametric faithfulness:</strong> a step is faithful if erasing the <em>knowledge it expresses from the model's parameters</em> (via unlearning) changes the prediction. This contrasts with "contextual" methods that only edit the CoT text, such as Lanham's adding mistakes.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Framework:</strong> PFF (Parametric Faithfulness Framework), instantiated as FUR (Faithfulness by Unlearning Reasoning steps) using the NPO unlearning method.</li>
+<li><strong>Metrics:</strong> FF-HARD (is the whole CoT faithful?) and FF-SOFT (which steps are most salient?).</li>
+<li><strong>Models:</strong> four LMs (LLaMA-3-8B, LLaMA-3B, Mistral-2, Phi-3).</li>
+<li><strong>Datasets:</strong> five multi-hop multiple-choice datasets (ARC-Challenge, OpenBookQA, Sports, StrategyQA, TruthfulQA).</li>
+<li><strong>Human study:</strong> a user study of plausibility.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>FUR vs Add-mistake (Table 2, §6):</strong> unlearning single steps changes predictions in a "reasonably high" share of instances, and generally finds more faithful CoTs than the contextual Add-mistake baseline. The authors conclude that contextual tests may <em>underestimate</em> faithfulness.</li>
+<li><strong>Effect on reasoning:</strong> unlearning changes the answer that post-unlearning verbalized reasoning supports.</li>
+<li><strong>Faithfulness vs plausibility (§6.4):</strong> the Pearson correlation between FF-SOFT step importance and human ratings of supportiveness is only <strong>0.15</strong>. Steps that matter causally are not the ones humans find plausible.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Erasing text from the context does not remove the knowledge from the parameters, so contextual tests are imprecise.</li>
+<li>Alignment for plausibility and alignment for faithfulness are different targets.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Small open models only.</li>
+<li>Unlearning efficacy and specificity vary by dataset, e.g., Sports has knowledge overlap between instances.</li>
+<li>Multiple-choice QA only.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>Tutek adds a nuance: some textual tests may overstate unfaithfulness, and what makes reasoning <em>look</em> good to humans is nearly uncorrelated with what drives the answer (r = 0.15).
+- <strong>Second point for us:</strong> our judged memos are scored for reasons quality, which is closer to plausibility. A high reasons score therefore does not imply that the reasons drive the action. This is consistent with our observed decoupling.
+- <strong>Difference:</strong> Tutek studies knowledge steps in QA, not value priorities in agentic choice.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Tutek et al. measure CoT faithfulness by unlearning the knowledge in individual reasoning steps from model parameters (FUR) and checking whether predictions change. They find that parametric interventions often flip predictions and that contextual perturbation tests may underestimate faithfulness. Steps that are causally important correlate only weakly (r = 0.15) with human plausibility ratings, a caution for any benchmark that scores the quality of written reasons as a proxy for what drives behaviour.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

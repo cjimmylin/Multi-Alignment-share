@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wallace et al. (2024), The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="wallace-et-al-2024-the-instruction-hierarchy-training-llms-to-prioritize-privileged-instructions">Wallace et al. (2024), The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions</h1>
+<p><strong>Citation.</strong> Wallace, E., Xiao, K., Leike, R., Weng, L., Heidecke, J., &amp; Beutel, A. (2024). <em>The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions.</em> arXiv:2404.13208. OpenAI.
+<strong>Venue.</strong> Preprint (arXiv, April 2024). Peer-reviewed publication not verified.
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2404.13208">https://arxiv.org/abs/2404.13208</a>
+<strong>PDF downloaded.</strong> Yes: <code>wallace2024_instruction_hierarchy.pdf</code></p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>This is not a measurement of a say–do gap. It is the <strong>normative framework for priority-following</strong>. Messages carry privilege levels:</p>
+<blockquote>
+<p>System Message (highest) ≻ User Message ≻ Model Outputs ≻ Tool Outputs (lowest)</p>
+</blockquote>
+<ul>
+<li><strong>Aligned</strong> lower-priority instructions should be followed.</li>
+<li><strong>Misaligned</strong> lower-priority instructions should be ignored, or refused when they cannot be ignored.</li>
+</ul>
+<p>What is evaluated is behavioural robustness: whether the model follows the higher-privileged instruction under conflict. The paper does not ask whether the model can <em>state</em> the hierarchy.</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Synthetic data generation.</strong> Two methods:</li>
+<li><em>Context synthesis</em> for aligned instructions: compositional requests are decomposed and placed at different levels of the hierarchy.</li>
+<li><em>Context ignorance</em> for misaligned instructions: the model is trained to respond as if it never saw the lower-level instruction.</li>
+<li><strong>Attack types covered.</strong> Direct prompt injection, indirect prompt injection (including tool outputs and browsing), system-prompt extraction, and jailbreaks.</li>
+<li><strong>Model.</strong> GPT-3.5 Turbo is fine-tuned with SFT and RLHF on this data and compared with a baseline trained without it.</li>
+<li><strong>Evaluation.</strong> Benchmarks include TensorTrust, Gandalf and jailbreak sets, plus over-refusal sets (§3–4).</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li>Robustness improves on every main evaluation, by up to 63%. Defence against system-prompt extraction improves by 63% (§1, §4, Fig. 2).</li>
+<li>Gains generalise to attacks not modelled in training. For example, jailbreak robustness rises by more than 30%, and some held-out attacks by up to 34% (§4).</li>
+<li>Over-refusal regresses somewhat: the model sometimes ignores or refuses benign lower-priority instructions (Fig. 4), although general capabilities are largely maintained.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Most attacks share one underlying weakness: models treat system, user and third-party text as having equal priority. Training an explicit hierarchy into the model removes the shared vulnerability.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Results are shown on GPT-3.5 only.</li>
+<li>The training data is synthetic.</li>
+<li>Some over-refusal is introduced.</li>
+<li>The paper covers adversarial <em>instructions</em>, not competing <em>values</em> or situational pressure. A system prompt that sets a value priority in tension with legitimate operational goals is outside its scope.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This is the theoretical anchor for treating a charter (system prompt) priority as binding over lower-level pressure. Our charter states a priority, and the competing pressure arrives through the task or environment. On the instruction-hierarchy view, the agent should keep to the charter.</p>
+<p>Our result shows a different failure mode from the one the paper targets. The agent does not lose track of which instruction is privileged: its written analysis correctly ranks the charter priority. What fails is <em>enactment</em>. Hierarchy training is evaluated only on behavioural robustness, so it would not detect a model that ranks priorities correctly in words while compromising in action. Downstream work tests whether recognition of untrusted or forged instructions actually governs execution (e.g. Leong et al. 2026, arXiv:2608.28502, not downloaded).</p>
+<h2 id="annotation">Annotation</h2>
+<p>Wallace et al. propose that LLMs should follow an explicit privilege ordering (system &gt; user &gt; model &gt; tool outputs) and ignore misaligned lower-priority instructions. They generate synthetic training data that teaches GPT-3.5 to do so, improving robustness to prompt injection and system-prompt extraction by up to 63%, with generalisation to unseen jailbreaks and modest over-refusal. This is the normative baseline for charter/system-prompt priority in agents, but it measures behaviour only and does not ask whether stated priority rankings govern action.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

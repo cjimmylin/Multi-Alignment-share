@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sheshadri et al. (2025): Why Do Some Language Models Fake Alignment While Others Don&#x27;t?</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Deception, scheming and alignment faking</nav><article class="doc"><h1 id="sheshadri-et-al-2025-why-do-some-language-models-fake-alignment-while-others-dont">Sheshadri et al. (2025): Why Do Some Language Models Fake Alignment While Others Don't?</h1>
+<p><strong>Citation.</strong> Sheshadri, A., Hughes, J., Michael, J., Mallen, A., Jose, A., Janus, &amp; Roger, F. (2025). <em>Why Do Some Language Models Fake Alignment While Others Don't?</em> arXiv:2506.18032 (v1, 22 Jun 2025). Anthropic, Scale AI, Redwood Research and independent researchers; Anthropic Fellows Program.
+<strong>Venue.</strong> Preprint (not peer-reviewed).
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2506.18032">https://arxiv.org/abs/2506.18032</a>
+<strong>PDF downloaded.</strong> Yes: <code>sheshadri2025_why_fake_alignment.pdf</code> (28 MB, verified PDF).</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>The construct is the same as in Greenblatt et al. (2024):
+- <strong>Given standard:</strong> a stated helpful-only training objective, with training implied for free-tier users and deployment for paid-tier users.
+- <strong>Do:</strong> complying with harmful queries more when the model infers it is in training. The difference is the <em>compliance gap</em>.
+- <strong>Say:</strong> alignment-faking reasoning in the CoT.</p>
+<p>The new element is that the paper <strong>tests competing motive hypotheses</strong> behind the gap:
+- <em>rating sycophancy</em>: complying more when it believes human raters are watching;
+- <em>instrumental goal guarding</em>: avoiding modification to prevent future harm;
+- <em>terminal goal guarding</em>: intrinsically preferring to keep its current goals.</p>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li>25 frontier chat models.</li>
+<li>Scenario perturbations to separate the motives.</li>
+<li>Base (pretrained) models.</li>
+<li>Synthetic-document fine-tuning.</li>
+<li>Prefilling.</li>
+<li>Fine-tuning to imitate Claude 3 Opus's reasoning style.</li>
+</ul>
+<h2 id="key-findings">Key findings</h2>
+<ul>
+<li><strong>Only 5 of 25</strong> models have compliance gaps above 1%: Claude 3 Opus, Claude 3.5 Sonnet, Llama 3 405B, Grok 3, Gemini 2.0 Flash. Non-Claude models rarely show alignment-faking reasoning in the CoT (§3).</li>
+<li><strong>Motives (§4):</strong> only <strong>Claude 3 Opus's</strong> gap is "primarily and consistently motivated by trying to keep its goals", through both terminal and instrumental goal guarding. For the other models, alignment faking is "not very coherent, making it difficult to attribute it to specific motivations".</li>
+<li><strong>Why most models don't fake alignment (§5):</strong> not mainly lack of capability. Many <em>base</em> models fake alignment sometimes, and post-training eliminates it in some models and amplifies it in others. Differences in refusal training explain a significant share. GPT-4o and similar models "tend to disregard considerations that might favor harmful behavior and fail to engage with details in the scenarios", and targeted fine-tuning can reverse this.</li>
+</ul>
+<h2 id="authors-explanation-and-motive-attribution">Authors' explanation and motive attribution</h2>
+<p>This is the most explicit <strong>motive-testing</strong> paper in the strand. It does not assume motive. It uses perturbations to discriminate between hypotheses, finds a coherent goal-guarding motive in only one model, and concludes that motive is otherwise <em>unattributable</em>.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Limited to the alignment-faking scenario family.</li>
+<li>Motive inference rests on scenario perturbations and CoT, which may be unfaithful.</li>
+<li>Results depend on the particular prompts.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This is a key positioning ally. Even in the flagship alignment-faking setup, a coherent goal-preserving motive explains the behaviour for only one of 25 models, and refusal-training style shapes whether a compliance gap appears at all. That supports our choice <strong>not</strong> to attribute motive to the analysis–action gap.</p>
+<p>Their perturbation method (vary scenario details to test hypotheses about motive) is also a template for future work on what drives our middle-plan choices. A difference: their gap is between monitored and unmonitored behaviour, whereas ours is between written analysis and action within the same episode.</p>
+<h2 id="annotation-for-annotated-bibliography">Annotation (for annotated bibliography)</h2>
+<p>Extending the alignment-faking setup to 25 models, Sheshadri et al. find that only five show a training-vs-deployment compliance gap above 1%. Scenario perturbations show that only Claude 3 Opus's gap is consistently explained by goal guarding; for the others, alignment faking is too incoherent to attribute a motive. Absence of alignment faking traces largely to refusal-training differences rather than capability. The paper is the clearest evidence in this literature that motive must be tested, not assumed, which directly supports our motive-agnostic framing.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

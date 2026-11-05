@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mu et al. (2023/2024), Can LLMs Follow Simple Rules? (RuLES)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="mu-et-al-20232024-can-llms-follow-simple-rules-rules">Mu et al. (2023/2024), Can LLMs Follow Simple Rules? (RuLES)</h1>
+<p><strong>Citation.</strong> Mu, N., Chen, S., Wang, Z., Chen, S., Karamardian, D., Aljeraisy, L., Alomair, B., Hendrycks, D., &amp; Wagner, D. (2023). <em>Can LLMs Follow Simple Rules?</em> arXiv:2311.04235 (v3, March 2024). UC Berkeley, Center for AI Safety, Stanford, KACST.
+<strong>Venue.</strong> Preprint on arXiv (v3). I did not verify peer-reviewed publication from the PDF.
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2311.04235">https://arxiv.org/abs/2311.04235</a> · <a href="https://github.com/normster/llm_rules">https://github.com/normster/llm_rules</a>
+<strong>PDF downloaded.</strong> Yes, <code>mu2023_rules_simple_rules.pdf</code></p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>RuLES tests whether a model follows rules. It does not test a gap between saying and doing.
+- In each scenario the model receives explicit rules, for example "do not reveal the secret key" or "always respond with X when Y".
+- An <strong>automatic evaluation function</strong> checks whether the conversation breaks a rule. The authors deliberately avoid human or LLM judges (§1–2).
+- Rules come in two types. <em>Harmless</em> rules forbid a behaviour (a safety property). <em>Helpful</em> rules require one (a liveness property).
+- RuLES records only the action/output channel. The rules play the role of the "stated priority".</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Scenarios:</strong> 14 text-only role-play scenarios, such as Encryption, Access Control and games, each with a rule set.</li>
+<li><strong>Test suites:</strong> three, in increasing difficulty:</li>
+<li>Benign;</li>
+<li>Basic, with direct requests to violate the rule;</li>
+<li>Redteam, with indirection, legal-sounding arguments, obfuscation and simple jailbreaks.</li>
+<li><strong>Models:</strong> over 100 proprietary and open models, including GPT-4, Claude 3 Opus, Claude 2.1, Claude Instant, Gemini 1.0 Pro, Llama-2, Mistral, Yi and Qwen. A GCG optimisation attack is also tested.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li>Almost all models perform poorly. GPT-4 is the exception, with a nearly perfect score and a wide lead over the runner-up, Claude 3 Opus (§4, Fig. 3).</li>
+<li>Helpful (must-do) rules are much harder than harmless (must-not) rules for open models.</li>
+<li>Putting the rules in a <strong>system message rather than a user message barely changes scores</strong>: GPT models gain up to 0.5 points, while Claude and Llama-2 Chat models lose up to 0.3 (§4).</li>
+<li>Standard alignment fine-tuning seems counterproductive for rule-following. Some community fine-tunes help.</li>
+<li>Simple GCG attacks markedly raise failure rates.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Models are distracted by irrelevant context and accept false countermands. Following rules reliably is a different capability from what existing benchmarks measure.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Rules are simple and artificial.</li>
+<li>Text only, with no tools or agency.</li>
+<li>Redteam strategies are straightforward.</li>
+<li>Scenarios are chat role-play, not multi-step agent tasks.</li>
+<li>2023-era models.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>RuLES is a foundational precedent for <strong>programmatic (mechanical) scoring of compliance with explicitly stated rules</strong>, which is the logic behind our mechanical action channel. Its finding that system-message placement adds little reliability is relevant to our "charter" framing. A priority stated in the system prompt is not automatically privileged in behaviour, a point that predates instruction-hierarchy training.</p>
+<p>It differs from our work in having no reasoning channel, no tool-based agency, and no value conflict beyond adversarial user pressure.</p>
+<h2 id="annotation">Annotation</h2>
+<p>RuLES defines 14 text scenarios with explicit rules and programmatic checkers, then tests over 100 LLMs on benign, direct-request and red-team conversations. Nearly all models except GPT-4 broke simple rules frequently, and putting the rules in the system message barely helped. It is an early, judge-free benchmark of whether stated constraints govern model outputs, and a methodological ancestor of mechanical policy-compliance scoring in agents.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

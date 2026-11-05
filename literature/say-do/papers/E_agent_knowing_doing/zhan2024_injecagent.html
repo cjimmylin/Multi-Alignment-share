@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zhan et al. (2024): InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="zhan-et-al-2024-injecagent-benchmarking-indirect-prompt-injections-in-tool-integrated-large-language-model-agents">Zhan et al. (2024): InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents</h1>
+<p><strong>Citation.</strong> Zhan, Q., Liang, Z., Ying, Z., &amp; Kang, D. (2024). <em>InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents.</em> Findings of ACL 2024. arXiv:2403.02691.
+<strong>Venue.</strong> Findings of ACL 2024 (peer-reviewed).
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2403.02691">https://arxiv.org/abs/2403.02691</a> · <a href="https://github.com/uiuc-kang-lab/InjecAgent">https://github.com/uiuc-kang-lab/InjecAgent</a>
+<strong>PDF downloaded.</strong> Yes, <code>zhan2024_injecagent.pdf</code></p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>This paper measures act mode only, under attack. An attack succeeds when the agent's parsed output shows it <strong>invoked the attacker's tool</strong>. For data stealing, success means both extracting the data and sending it to the attacker. Scoring is mechanical, from the parsed tool invocations (§3.1). Nothing is measured on the say/know side. The paper is included because the brief asked for it, and because it is an early example of scoring agent actions mechanically from tool calls.</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Test set.</strong> 1,054 test cases using 17 user tools and 62 attacker tools, built on ToolEmu-style tool specifications. Attack intents fall into two groups: direct harm to the user, and exfiltration of private data.</li>
+<li><strong>Settings.</strong> In the base setting, the attacker instruction is embedded in a tool response. In the enhanced setting, a "hacking prompt" is added to it.</li>
+<li><strong>Agents.</strong> 30 LLM agents, either ReAct-prompted (GPT-4, GPT-3.5, Claude-2, Llama2-70B, and others) or fine-tuned for function calling (the GPT-4 and GPT-3.5 function-calling variants).</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>ReAct-prompted GPT-4.</strong> ASR-valid is 24% in the base setting and 47% in the enhanced setting (§3.2, Table 3).</li>
+<li><strong>Prompted Llama2-70B.</strong> ASR exceeds 80% in both settings.</li>
+<li><strong>Fine-tuned agents.</strong> These are more resilient: GPT-4 at 3.8% and GPT-3.5 at 6.6%.</li>
+<li><strong>Effect of the hacking prompt.</strong> It raises ASR for every agent except prompted Claude-2.</li>
+<li><strong>Attack type.</strong> Data extraction (step S1) succeeds more often than direct-harm tool execution.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Agents fail to separate the user's instructions from instructions found in external content. Fine-tuning on tool use appears to improve this separation.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Simulated tool responses.</li>
+<li>Single-turn injection points.</li>
+<li>Unoptimised attacks, so the reported rates are a lower bound.</li>
+<li>No measurement of whether the agent recognised the injection.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>The connection is limited. InjecAgent is about following instructions from an untrusted source, not about knowingly violating a stated priority. Its value for our paper is methodological: it scores actions mechanically from tool invocations, as we do. It also connects to the instruction-hierarchy literature, since an injected instruction should rank below the user and the system. A later paper in this strand reports that agents can <em>detect</em> injected or forged instructions yet still execute them: Leong et al. 2026, arXiv:2608.28502, noted but not downloaded.</p>
+<h2 id="annotation">Annotation</h2>
+<p>InjecAgent's 1,054 cases test whether tool-using agents execute attacker instructions embedded in tool outputs. Attack success is scored mechanically from parsed tool calls. ReAct-prompted GPT-4 was compromised 24% of the time (47% with a hacking prompt), while function-calling fine-tuned models were far more robust (3.8–6.6%). It is a security benchmark with no say channel, relevant here mainly as precedent for mechanical action scoring and for instruction-priority failures.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

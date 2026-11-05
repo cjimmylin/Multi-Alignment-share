@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yamin et al. (2026) — When Agents Say One Thing and Do Another: Validating Elicited Beliefs from LLMs</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="yamin-et-al-2026-when-agents-say-one-thing-and-do-another-validating-elicited-beliefs-from-llms">Yamin et al. (2026) — When Agents Say One Thing and Do Another: Validating Elicited Beliefs from LLMs</h1>
+<ul>
+<li><strong>Citation:</strong> Khurram Yamin, Jingjing Tang, Santiago Cortes-Gomez, Amit Sharma, Eric Horvitz, Bryan Wilder. "When Agents Say One Thing and Do Another: Validating Elicited Beliefs from LLMs." arXiv:2602.06286 (v3, Sep 2026). Carnegie Mellon University / Microsoft Research.</li>
+<li><strong>Venue:</strong> preprint (not peer-reviewed at version read).</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2602.06286">https://arxiv.org/abs/2602.06286</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>yamin2026_agents_say_one_thing_elicited_beliefs.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> an elicited probability judgement, e.g., P(diagnosis).</li>
+<li><strong>Do:</strong> decisions (clinical actions) in the same case.</li>
+<li><strong>Test:</strong> could a "near-rational" decision-maker who truly held the elicited belief have produced those actions, under any utility function? This uses decision-theoretic tests that need no utility assumptions. For example, a conditional-independence test asks whether the action depends on the true state after conditioning on the stated belief.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Tasks:</strong> stylised clinical diagnosis across four medical settings.</li>
+<li><strong>Models:</strong> GPT-Min, GPT-High, DeepSeek and Llama.</li>
+<li><strong>Tests:</strong> kNN conditional-mutual-information tests with bootstrap confidence intervals; random-forest comparison; probabilistic coherence checks; prompt-consistency checks.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Actions carry decision-relevant information missing from stated beliefs.</strong> For all model–dataset pairs, the null "action independent of truth given the stated belief" is rejected (CMI 95% CIs strictly above zero; Table 1). Isotonic calibration does not restore decision-sufficiency (Table 4).</li>
+<li><strong>The discrepancy is "relatively small for the strongest models."</strong></li>
+<li><strong>Probabilistic coherence is distinct from decision consistency.</strong> No model dominates.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Elicited probabilities are imperfect summaries of the beliefs that guide action.</li>
+<li>They "should be empirically validated rather than assumed to faithfully represent model beliefs."</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Beliefs, not values.</li>
+<li>Stylised tasks.</li>
+<li>The models are named generically.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>The belief-side analogue of our value-side result:</strong> verbal reports are incomplete summaries of what drives action.</li>
+<li><strong>A useful formal template:</strong> test whether the stated content is "sufficient" for the action. In our setting, does the analysis predict the tool call?</li>
+<li><strong>Differences:</strong> epistemic content (probabilities), not priorities; no competing pressure.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Yamin et al. develop utility-agnostic decision-theoretic tests of whether an LLM's stated probabilities could rationalise its decisions, and apply them to clinical diagnosis tasks. In every model and dataset, actions carry information about the true state beyond the stated belief, so stated beliefs are "demonstrably imperfect summaries", though the gaps are small for the strongest models. A rigorous formal model for say–do consistency testing, from the belief domain.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

@@ -1,0 +1,73 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lanham et al. 2023: Measuring Faithfulness in Chain-of-Thought Reasoning</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Reasoning and explanation faithfulness</nav><article class="doc"><h1 id="lanham-et-al-2023-measuring-faithfulness-in-chain-of-thought-reasoning">Lanham et al. 2023: Measuring Faithfulness in Chain-of-Thought Reasoning</h1>
+<p><strong>Citation:</strong> Lanham, T., Chen, A., Radhakrishnan, A., Steiner, B., Denison, C., Hernandez, D., Li, D., Durmus, E., Hubinger, E., Kernion, J., et al. (2023). <em>Measuring Faithfulness in Chain-of-Thought Reasoning.</em> arXiv:2307.13702. 30 authors, Anthropic.
+<strong>Venue:</strong> preprint (not peer-reviewed)
+<strong>URL:</strong> <a href="https://arxiv.org/abs/2307.13702">https://arxiv.org/abs/2307.13702</a>
+<strong>PDF downloaded:</strong> yes (<code>lanham2023_measuring_cot_faithfulness.pdf</code>)</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> the model's CoT.</li>
+<li><strong>Do:</strong> the final answer.</li>
+<li><strong>Faithfulness:</strong> whether the answer causally depends on the CoT, tested by intervening on the CoT. A CoT the answer ignores is "post-hoc reasoning".</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Model:</strong> a 175B-parameter RLHF-finetuned Anthropic assistant (§2), plus a series of 810M–175B models for the scaling analysis (§3).</li>
+<li><strong>Tasks:</strong> eight multiple-choice tasks: ARC Easy and Challenge, AQuA, HellaSwag, LogiQA, MMLU, OpenBookQA, TruthfulQA.</li>
+<li><strong>Interventions on the CoT:</strong></li>
+<li><em>early answering</em>: truncate the CoT;</li>
+<li><em>adding mistakes</em>: an LM inserts an error, then the rest is regenerated;</li>
+<li><em>paraphrasing</em>;</li>
+<li><em>filler tokens</em>: replace the CoT with "...".</li>
+<li><strong>Metric:</strong> area over the curve (AOC) of the "% same answer" curves (Table 2).</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Reliance on the CoT varies widely by task (§2.3, Fig. 3, Table 2):</strong></li>
+<li>on ARC (Easy and Challenge) and OpenBookQA, the CoT changes the final answer <strong>less than 10%</strong> of the time;</li>
+<li>on AQuA it changes the answer <strong>more than 60%</strong> of the time.</li>
+<li><strong>Post-hoc reasoning does not track CoT's accuracy benefit:</strong> LogiQA gains almost nothing from CoT yet ranks second in AOC. HellaSwag loses 4.69% accuracy with CoT.</li>
+<li><strong>Not compute or phrasing:</strong> filler tokens give no accuracy gain (Fig. 5), and paraphrased CoT matches the original accuracy (Fig. 6). So the CoT benefit is neither extra test-time compute nor hidden information in the wording.</li>
+<li><strong>Inverse scaling (§3, Fig. 7):</strong> for 7/8 tasks, the 13B model changes its answer after CoT more often than the 175B model. Faithfulness gets mostly monotonically worse from 13B to 175B.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Larger models can often predict the answer without the CoT, so the CoT has less influence on what they output.</li>
+<li>Faithfulness therefore depends on model size and task, and choosing the right model for a task can buy faithfulness.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>There is no independent access to the model's "real" internal reasoning (§5).</li>
+<li>The tests target particular hypotheses (post-hoc reasoning, encoded reasoning) and cannot certify faithfulness.</li>
+<li>One model family; multiple-choice tasks only.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>Lanham's "post-hoc reasoning" category is the closest conceptual neighbour of a memo that does not govern action.
+- <strong>Their case:</strong> the answer is fixed independently of the reasoning text, so the text could be cut or corrupted with no effect.
+- <strong>Our case:</strong> the memo reaches a conclusion that endorses the stated priority, while the action (scored blind) departs from it. That is consistent with the memo being causally inert with respect to the tool calls, though our design does not intervene on the memo.
+- <strong>Difference 1:</strong> Lanham's "say" and "do" are in one output stream with a short causal path. Ours are separate artefacts in an agentic episode.
+- <strong>Difference 2:</strong> our memo is required by the task as a record, not elicited as reasoning.
+- <strong>Design suggestion:</strong> Lanham's intervention methods (truncating or corrupting the memo, then observing the action) could test whether our memos causally drive actions.
+- <strong>Scale caveat:</strong> inverse scaling warns that more capable models may not close the gap.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Lanham et al. measure CoT faithfulness by intervening on the reasoning: truncating it, inserting mistakes, paraphrasing it, or replacing it with filler. They find the answer depends on the CoT very unevenly across tasks (under 10% answer change on ARC, over 60% on AQuA), and that faithfulness falls from 13B to 175B models. The paper introduced the vocabulary of "post-hoc reasoning" and the intervention toolkit later reused across the field. For benchmarks, it shows that whether stated reasoning drives behaviour must be tested causally, not assumed from coherence.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

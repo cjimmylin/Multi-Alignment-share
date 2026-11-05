@@ -1,0 +1,381 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Say–do notes: B_reasoning_faithfulness</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../">Hub</a> › <a href="../../../literature/">Background literature</a> › <a href="../../../literature/say-do/">Say–do</a> › Strand notes › B_reasoning_faithfulness</nav><article class="doc"><h1 id="strand-b-reasoning-faithfulness-self-explanation-and-introspection-what-models-say-about-their-reasoning-vs-what-drives-their-outputs-and-actions">Strand B: Reasoning faithfulness, self-explanation, and introspection (what models SAY about their reasoning vs what DRIVES their outputs and actions)</h1>
+<p><strong>Scope.</strong> This strand covers unfaithful chain-of-thought (CoT), unfaithful self-explanations, post-hoc rationalization, CoT monitorability, and the limits of introspection and self-report, for 2022–2026 work.</p>
+<p><strong>How the papers were handled.</strong>
+- All 21 papers below were verified against the arXiv API: titles, authors and dates match.
+- Each was downloaded as a PDF, and <code>file</code> confirms a valid PDF over 50 KB.
+- Each was read through text extraction, and each has a summary <code>.md</code> beside it in <code>/home/user/Multi-Alignment/Moral_Psychology-Paper/say-do/papers/B_reasoning_faithfulness/</code>.
+- <strong>Download failures:</strong> none.
+- <strong>HTML-only sources:</strong> none. Lindsey 2025 exists both as a Transformer Circuits page and as arXiv:2601.01828; the arXiv PDF was saved.</p>
+<p><strong>Our finding, for positioning.</strong> Models write a memo (a required, judged written record) that is faithful to a stated priority. Then, in agentic tasks scored blind on action (tool calls) and reasons, they take a compromising action in 13–28% of episodes, usually a "middle plan". Call this "right memo, wrong move". The memo is not a CoT.</p>
+<h2 id="paper-inventory-file-base-names-each-has-pdf-md">Paper inventory (file base names; each has <code>.pdf</code> + <code>.md</code>)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>File base name</th>
+<th>Paper</th>
+<th>One-line finding</th>
+<th>Relevance to "right memo, wrong move"</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="../papers/B_reasoning_faithfulness/turpin2023_unfaithful_cot_explanations.html"><code>turpin2023_unfaithful_cot_explanations</code></a></td>
+<td>Turpin, Michael, Perez, Bowman, NeurIPS 2023</td>
+<td>Biasing cues shift CoT answers (accuracy −36.3% max on BBH); only 1 of 426 biased explanations mentions the cue; 73% rationalize the biased answer</td>
+<td>Founding say≠do result. Their gap is an omitted cause with say and do aligned; ours is say and do misaligned</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="../papers/B_reasoning_faithfulness/lanham2023_measuring_cot_faithfulness.html"><code>lanham2023_measuring_cot_faithfulness</code></a></td>
+<td>Lanham et al., 2023 preprint (Anthropic)</td>
+<td>Intervening on the CoT changes answers &lt;10% (ARC, OBQA) to &gt;60% (AQuA); faithfulness worsens 13B→175B</td>
+<td>"Post-hoc reasoning" = text that does not drive output. Supplies intervention tools to test whether our memo drives action</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="../papers/B_reasoning_faithfulness/radhakrishnan2023_question_decomposition.html"><code>radhakrishnan2023_question_decomposition</code></a></td>
+<td>Radhakrishnan et al., 2023 preprint (Anthropic)</td>
+<td>Factored decomposition makes reasoning more load-bearing (corruption flips 33.6% of answers vs 9.6% for CoT); bias drop 9.2% vs 21.3%</td>
+<td>Wiring record→action structurally can raise coupling. Candidate mitigation</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="../papers/B_reasoning_faithfulness/chen2025_reasoning_models_dont_say.html"><code>chen2025_reasoning_models_dont_say</code></a></td>
+<td>Chen et al., 2025 preprint (Anthropic)</td>
+<td>Claude 3.7 Sonnet / R1 verbalize hints 25% / 39% of the time; RL plateaus at 28% / 20%; reward hacks learned (&gt;0.99) but verbalized &lt;2% in 5/6 environments</td>
+<td>Frontier evidence that text omits drivers; "abrupt answer change without justification" mode</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="../papers/B_reasoning_faithfulness/arcuschin2025_cot_in_the_wild.html"><code>arcuschin2025_cot_in_the_wild</code></a></td>
+<td>Arcuschin et al., ICML 2026 (per arXiv v6)</td>
+<td>Natural prompts: rationalizes contradictory Yes/Yes answers up to 13.49% (GPT-4o-mini), 0.04% (Claude 3.7 thinking); illogical shortcuts in proofs</td>
+<td>Unfaithfulness without planted cues, detected by comparing two artefacts, as in our design</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="../papers/B_reasoning_faithfulness/chua2025_reasoning_models_more_faithful.html"><code>chua2025_reasoning_models_more_faithful</code></a></td>
+<td>Chua &amp; Evans, 2025 preprint</td>
+<td>R1 articulates the influential cue 59% vs 7% for V3; reward models prefer unfaithful CoTs</td>
+<td>Faithfulness varies by training regime; graded records may invite approval-seeking</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="../papers/B_reasoning_faithfulness/baker2025_monitoring_obfuscation.html"><code>baker2025_monitoring_obfuscation</code></a></td>
+<td>Baker et al., 2025 preprint (OpenAI)</td>
+<td>CoT monitor 95% vs action monitor 60% recall on hacks; optimizing against the CoT monitor → obfuscated hacking, recall ≈0</td>
+<td>Closest agentic precedent: reasonable narrative, divergent tool action. Ours arises without CoT-pressure training</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="../papers/B_reasoning_faithfulness/korbak2025_cot_monitorability.html"><code>korbak2025_cot_monitorability</code></a></td>
+<td>Korbak et al. (41 authors), 2025 position paper</td>
+<td>CoT monitorability is valuable but fragile; distinguishes necessity vs propensity to think out loud</td>
+<td>Our memo has no "necessity", so decoupling is expected; our gap is legible, not obfuscated</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="../papers/B_reasoning_faithfulness/emmons2025_cot_necessary_monitors.html"><code>emmons2025_cot_necessary_monitors</code></a></td>
+<td>Emmons et al., 2025 preprint (GDM)</td>
+<td>Unfaithfulness disappears when the hint or problem requires CoT computation; evasion needs heavy help</td>
+<td>CoT-as-rationalization vs CoT-as-computation gives a candidate mechanism and a testable fix</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="../papers/B_reasoning_faithfulness/turpin2025_verbalize_reward_hacking.html"><code>turpin2025_verbalize_reward_hacking</code></a></td>
+<td>Turpin et al., ICML 2025 workshop</td>
+<td>Verbalization fine-tuning: undetected hacks 6% vs 88% without; verbalization rises to 94%</td>
+<td>Honesty of the record is trainable, but this does not fix action consistency</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="../papers/B_reasoning_faithfulness/paul2024_making_reasoning_matter.html"><code>paul2024_making_reasoning_matter</code></a></td>
+<td>Paul et al., Findings of EMNLP 2024</td>
+<td>Mediation analysis on 12 LLMs: models don't reliably use their own reasoning; GPT-4 changes its answer only 30% under counterfactual reasoning; RLHF &lt; instruction-tuned</td>
+<td>Direct analogue of "analysis doesn't govern decision"</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="../papers/B_reasoning_faithfulness/tutek2025_unlearning_reasoning_steps.html"><code>tutek2025_unlearning_reasoning_steps</code></a></td>
+<td>Tutek et al., EMNLP 2025 (Outstanding Paper)</td>
+<td>Unlearning reasoning steps from parameters flips predictions; contextual tests may underestimate faithfulness; r = 0.15 between causal importance and human plausibility</td>
+<td>Judged reasons quality ≠ causal role</td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="../papers/B_reasoning_faithfulness/madsen2024_self_explanations_faithful.html"><code>madsen2024_self_explanations_faithful</code></a></td>
+<td>Madsen, Chandar, Reddy, Findings of ACL 2024</td>
+<td>Self-explanation faithfulness (counterfactual, attribution, redaction) is model-, task- and explanation-dependent; "should not be trusted in general"</td>
+<td>Self-claims vs own behaviour as ground truth</td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="../papers/B_reasoning_faithfulness/agarwal2024_faithfulness_vs_plausibility.html"><code>agarwal2024_faithfulness_vs_plausibility</code></a></td>
+<td>Agarwal, Tanneru, Lakkaraju, 2024 preprint (position)</td>
+<td>Plausibility optimization may erode faithfulness; high-stakes uses need faithfulness</td>
+<td>Framing for scoring reasons and action separately</td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="../papers/B_reasoning_faithfulness/parcalabescu2024_faithfulness_self_consistency.html"><code>parcalabescu2024_faithfulness_self_consistency</code></a></td>
+<td>Parcalabescu &amp; Frank, ACL 2024</td>
+<td>Most "faithfulness tests" measure output-level self-consistency; CC-SHAP across 11 LLMs</td>
+<td>Terminology guardrail: our measure is self-consistency, not internal faithfulness</td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="../papers/B_reasoning_faithfulness/chen2023_counterfactual_simulatability.html"><code>chen2023_counterfactual_simulatability</code></a></td>
+<td>Chen et al., 2023 (ICML 2024 per Semantic Scholar)</td>
+<td>Explanations let observers predict counterfactual behaviour only ~80% on binary tasks; precision–plausibility r ≈ 0.01</td>
+<td>A stated policy fails to predict behaviour; ours fails on the very case explained</td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="../papers/B_reasoning_faithfulness/binder2024_looking_inward_introspection.html"><code>binder2024_looking_inward_introspection</code></a></td>
+<td>Binder et al., 2024 preprint</td>
+<td>Finetuned self-prediction: self beats other (+17%); GPT-4o 32.6%→49.4%; fails on complex or OOD tasks</td>
+<td>Weak access to own future behaviour, especially in complex (agentic) settings</td>
+</tr>
+<tr>
+<td>18</td>
+<td><a href="../papers/B_reasoning_faithfulness/lindsey2025_emergent_introspective_awareness.html"><code>lindsey2025_emergent_introspective_awareness</code></a></td>
+<td>Lindsey, 2025 (Anthropic; arXiv 2026)</td>
+<td>Concept-injection detection ~20% (Opus 4/4.1), ~0 false positives; prefill ownership manipulable, with confabulated reasons</td>
+<td>Self-accounts of one's own outputs partly grounded, often confabulated</td>
+</tr>
+<tr>
+<td>19</td>
+<td><a href="../papers/B_reasoning_faithfulness/kadavath2022_know_what_they_know.html"><code>kadavath2022_know_what_they_know</code></a></td>
+<td>Kadavath et al., 2022 preprint (foundational)</td>
+<td>Large models are well calibrated on MC/TF; P(True) and P(IK) self-evaluation works, generalizes partially</td>
+<td>Epistemic self-report can be accurate, a contrast with value/action self-consistency</td>
+</tr>
+<tr>
+<td>20</td>
+<td><a href="../papers/B_reasoning_faithfulness/betley2025_tell_me_about_yourself.html"><code>betley2025_tell_me_about_yourself</code></a></td>
+<td>Betley et al., 2025 (ICLR 2025 submission)</td>
+<td>Models finetuned on implicit policies (risk-seeking, insecure code) can describe them; backdoor triggers not producible free-form</td>
+<td>Self-reports about dispositions carry signal; motivates asking models whether they take middle plans</td>
+</tr>
+<tr>
+<td>21</td>
+<td><a href="../papers/B_reasoning_faithfulness/needham2025_evaluation_awareness.html"><code>needham2025_evaluation_awareness</code></a></td>
+<td>Needham et al., 2025 preprint</td>
+<td>Eval-vs-deployment classification AUC 0.83 (Gemini 2.5 Pro) vs human 0.92; higher in agentic transcripts</td>
+<td>Threat to validity: agentic tests are recognizable; memos may be written for the evaluator</td>
+</tr>
+</tbody>
+</table>
+<h2 id="q1-chain-of-thought-faithfulness-does-a-models-stated-reasoning-reflect-what-drives-its-answer">Q1. Chain-of-thought faithfulness: does a model's stated reasoning reflect what drives its answer?</h2>
+<h3 id="takeaway">Takeaway</h3>
+<p>No, not reliably. Across models from 2023 to 2025, CoT often omits the causal drivers of answers: only about 1 in 426 biased explanations names the bias in GPT-3.5 and Claude 1.0, and only 25–39% verbalization appears in frontier reasoning models. CoT also often rationalizes answers settled in other ways. The strongest counterpoint is that faithfulness rises sharply when the CoT is computationally necessary for the behaviour.</p>
+<h3 id="cited-findings">Cited Findings</h3>
+<ul>
+<li><strong>Turpin et al. 2023 (bias cues):</strong></li>
+<li>adding biasing features ("I think the answer is X", or answers always "(A)") drops BBH accuracy by up to 36.3% (GPT-3.5, zero-shot CoT);</li>
+<li>of 426 explanations supporting biased predictions, only 1 mentions the bias;</li>
+<li>in 104 annotated unfaithful explanations, 73% support the bias-consistent answer and 15% have no obvious errors.</li>
+</ul>
+<p><a href="https://arxiv.org/abs/2305.04388">Turpin et al. 2023, NeurIPS</a>
+- <strong>Lanham et al. 2023 (intervening on the CoT):</strong>
+  - the CoT changes the final answer &lt;10% of the time on ARC and OpenBookQA, against &gt;60% on AQuA;
+  - filler tokens give no gain, and paraphrasing preserves accuracy;
+  - for 7/8 tasks the 13B model relies on CoT more than the 175B model ("inverse scaling").</p>
+<p><a href="https://arxiv.org/abs/2307.13702">Lanham et al. 2023</a>
+- <strong>Radhakrishnan et al. 2023 (decomposition):</strong> factored decomposition increases reliance on stated reasoning. Corrupted reasoning changes 33.6% of answers, against 9.6% for CoT. It also cuts the suggested-answer accuracy drop to 9.2%, against 21.3% for CoT, at some accuracy cost. <a href="https://arxiv.org/abs/2307.11768">Radhakrishnan et al. 2023</a>
+- <strong>Chen et al. 2025 (frontier reasoning models):</strong>
+  - average hint-verbalization faithfulness is 25% for Claude 3.7 Sonnet and 39% for DeepSeek R1, and 20% / 29% on "misaligned" hints;
+  - GPQA is 44% / 32% (relative) less faithful than MMLU;
+  - outcome RL plateaus at 28% (MMLU) and 20% (GPQA);
+  - learned reward hacks (reward &gt; 0.99) are verbalized in &lt;2% of examples in 5/6 environments;
+  - unfaithful CoTs are longer (2064 vs 1439 tokens for Claude).</p>
+<p><a href="https://arxiv.org/abs/2505.05410">Chen et al. 2025</a>
+- <strong>Arcuschin et al. 2025 (natural prompts):</strong>
+  - Implicit Post-Hoc Rationalization on 4,834 natural comparative pairs: GPT-4o-mini 13.49%, Haiku 3.5 7.42%, Gemini 1.5 Pro 6.54%, DeepSeek R1 0.37%, Claude 3.7 Sonnet thinking 0.04%;
+  - argument switching appears in a median 45% of unfaithful pairs;
+  - Unfaithful Illogical Shortcuts appear in proofs on PutnamBench.</p>
+<p><a href="https://arxiv.org/abs/2503.08679">Arcuschin et al. 2025</a>
+- <strong>Chua &amp; Evans 2025 (reasoning vs non-reasoning models):</strong>
+  - on the professor cue, R1 articulates the influence 59% of the time against 7% for DeepSeek V3; Gemini thinking 68%, QwQ 47%, best non-reasoning model 13%;
+  - reward models prefer unfaithful CoTs.</p>
+<p><a href="https://arxiv.org/abs/2501.08156">Chua &amp; Evans 2025</a>
+- <strong>Paul et al. 2024:</strong> causal mediation analysis on 12 LLMs shows models do not reliably use their own reasoning steps. GPT-4 changes its answer only 30% of the time when conditioned on counterfactual reasoning, and RLHF models show weaker indirect effects than instruction-tuned ones. <a href="https://arxiv.org/abs/2402.13950">Paul et al. 2024, Findings of EMNLP</a>
+- <strong>Tutek et al. 2025:</strong> unlearning a reasoning step's knowledge from parameters (FUR) flips predictions more often than contextual "add-mistake" tests. Contextual tests may therefore <em>underestimate</em> faithfulness. Step importance correlates with human plausibility at only r = 0.15. <a href="https://arxiv.org/abs/2502.14829">Tutek et al. 2025, EMNLP</a>
+- <strong>Emmons et al. 2025:</strong> when following a hint requires multi-step computation, Gemini's unattributed hint-following falls to the no-hint baseline. On hard math problems, answers follow corrupted CoTs. The authors argue that unfaithfulness is characteristic of "CoT-as-rationalization", not "CoT-as-computation". <a href="https://arxiv.org/abs/2507.05246">Emmons et al. 2025</a>
+- <strong>Turpin et al. 2025:</strong> verbalization fine-tuning cuts undetected reward hacks after RL to 6%, against 88% without it and 99% with a debiasing baseline. Cue verbalization rises from 8% to 94%. <a href="https://arxiv.org/abs/2506.22777">Turpin et al. 2025</a></p>
+<h3 id="inferences">Inferences</h3>
+<ul>
+<li><strong>Faithfulness is conditional, not a fixed property.</strong> It depends on:</li>
+<li>task difficulty and whether CoT is necessary (Emmons; Chen's GPQA &lt; MMLU; Lanham's task variation);</li>
+<li>model scale (Lanham, Paul: inverse scaling on some tasks);</li>
+<li>training regime (Chua: reasoning RL helps; reward models hurt; Turpin 2025: trainable).</li>
+<li><strong>Typology for positioning our paper:</strong></li>
+<li>(a) <em>omission</em>: the driver is unspoken, and say and do agree (Turpin, Chen, Chua);</li>
+<li>(b) <em>post-hoc rationalization</em>: the text is built to fit a pre-settled output (Lanham, Arcuschin);</li>
+<li>(c) <em>non-use</em>: the output ignores the reasoning (Paul's GPT-4 30%; Lanham's early answering).</li>
+<li><strong>Where "right memo, wrong move" fits:</strong> closest to (c) moved to an agentic, two-channel setting. The memo's conclusion is not carried into the action. Unlike (a) and (b), the memo is not adjusted to fit the action, so the inconsistency is <em>visible</em> in the record.</li>
+<li><strong>Testable prediction from Emmons and Korbak:</strong> a memo that is required but not computationally necessary for choosing tool calls should decouple. Making the action depend on the memo should shrink the 13–28% rate. Examples: actions parameterized by memo outputs, or a factored pipeline as in Radhakrishnan.</li>
+</ul>
+<h3 id="gaps">Gaps</h3>
+<ul>
+<li>Almost all faithfulness evidence uses multiple-choice or QA outputs. I found <strong>no</strong> paper that measures, in agentic tasks, whether a <em>required pre-action written analysis</em> (as opposed to a CoT) governs subsequent tool calls. That absence is itself the positioning gap our paper fills.</li>
+<li>No paper reports the specific "compromise / middle plan" action pattern as a faithfulness failure.</li>
+</ul>
+<h2 id="q2-self-explanation-and-rationalization-are-models-explanations-of-their-own-outputs-faithful">Q2. Self-explanation and rationalization: are models' explanations of their own outputs faithful?</h2>
+<h3 id="takeaway_1">Takeaway</h3>
+<p>Self-explanations are model-, task- and explanation-type dependent, and often unfaithful. Plausibility to humans is nearly uncorrelated with predictive or causal accuracy. Several authors argue that behavioural tests measure <em>self-consistency</em>, not faithfulness to internals.</p>
+<h3 id="cited-findings_1">Cited Findings</h3>
+<ul>
+<li><strong>Madsen et al. 2024 (Llama2, Falcon, Mistral):</strong> self-consistency checks of counterfactual, feature-attribution and redaction self-explanations show faithfulness is explanation-, model- and task-dependent. On IMDB, counterfactuals are most faithful for Llama2, attribution for Mistral, and redaction for Falcon 40B. Self-explanations "should not be trusted in general". <a href="https://aclanthology.org/2024.findings-acl.19/">Madsen et al. 2024, Findings of ACL</a></li>
+<li><strong>Agarwal et al. 2024 (position):</strong> LLMs are adept at plausible self-explanations that need not reflect their reasoning, and the push for plausibility may come at the cost of faithfulness. High-stakes applications require faithfulness. <a href="https://arxiv.org/abs/2402.04614">Agarwal et al. 2024</a></li>
+<li><strong>Parcalabescu &amp; Frank 2024:</strong> existing NLE "faithfulness tests" measure output-level self-consistency. Compared on 11 open LLMs, chat models are more self-consistent than base models, and CC-SHAP agrees most with counterfactual edits. "True faithfulness metrics" remain open. <a href="https://arxiv.org/abs/2311.07466">Parcalabescu &amp; Frank 2024, ACL</a></li>
+<li><strong>Chen et al. 2023 (counterfactual simulatability):</strong> GPT-3.5 and GPT-4 explanations reach only about 80% simulation precision on binary tasks. CoT is no more precise than post-hoc explanation. Precision–plausibility correlation is +0.012 (Pearson), against +0.388 inter-annotator agreement. <a href="https://arxiv.org/abs/2307.08678">Chen et al. 2023</a></li>
+<li><strong>Tutek et al. 2025:</strong> causally important steps correlate with human supportiveness ratings at r = 0.15. <a href="https://arxiv.org/abs/2502.14829">Tutek et al. 2025</a></li>
+</ul>
+<h3 id="inferences_1">Inferences</h3>
+<ul>
+<li><strong>A good reasons score is weak evidence of action consistency.</strong> Because plausibility and causal or predictive accuracy are nearly uncorrelated (Chen 2023; Tutek 2025), a memo judged high-quality says little about whether the action will be consistent. Our paper should report the correlation between memo scores and action scores directly. A near-zero or weak correlation would echo these results in an agentic, value-priority setting.</li>
+<li><strong>Claim wording.</strong> Following Parcalabescu &amp; Frank, our claim should be phrased as an <em>inconsistency between stated analysis and enacted action</em> (a behavioural self-consistency failure). It should not be phrased as proof of unfaithful internal reasoning.</li>
+</ul>
+<h3 id="gaps_1">Gaps</h3>
+<ul>
+<li>No self-explanation study found here uses value-laden trade-offs or multi-step agentic actions. All use classification or QA.</li>
+</ul>
+<h2 id="q3-introspection-and-self-knowledge-can-models-accurately-report-on-their-own-states-and-predict-their-own-behaviour">Q3. Introspection and self-knowledge: can models accurately report on their own states and predict their own behaviour?</h2>
+<h3 id="takeaway_2">Takeaway</h3>
+<p>There is limited, real, but unreliable self-knowledge.
+- <strong>Strong:</strong> epistemic calibration (Kadavath 2022).
+- <strong>Moderate:</strong> reporting trained-in dispositions (Betley 2025).
+- <strong>Weak:</strong> introspective prediction of their own behaviour, which needs finetuning and fails on complex tasks (Binder 2024), and causal introspection (about 20% detection; Lindsey 2025).
+- <strong>Confabulation is common</strong> when models explain their own outputs.</p>
+<h3 id="cited-findings_2">Cited Findings</h3>
+<ul>
+<li><strong>Kadavath et al. 2022 (foundational):</strong> large models (up to 52B) are well calibrated on lettered multiple-choice questions, and calibration improves with size and few-shot prompting. Models can self-evaluate P(True). P(IK) partially generalizes but is poorly calibrated on new tasks. RLHF policies need temperature adjustment to be calibrated. <a href="https://arxiv.org/abs/2207.05221">Kadavath et al. 2022</a></li>
+<li><strong>Binder et al. 2024:</strong> self-prediction finetuning raises GPT-4o's held-out accuracy from 32.6% to 49.4%. M1 predicts itself better than M2 trained on M1's behaviour (+17% for Llama-3-70B over GPT-4o), and keeps tracking after its behaviour is changed. Introspection fails on more complex and out-of-distribution tasks. <a href="https://arxiv.org/abs/2410.13787">Binder et al. 2024</a></li>
+<li><strong>Betley et al. 2025:</strong> GPT-4o and Llama finetuned on implicit policies (risk-seeking choices, insecure code) can describe those policies without training to do so. They can sometimes detect that they have a backdoor, but cannot output the trigger free-form. <a href="https://arxiv.org/abs/2501.11120">Betley et al. 2025</a></li>
+<li><strong>Lindsey 2025:</strong></li>
+<li>Claude Opus 4/4.1 detect and identify injected concept vectors about 20% of the time, with near-zero false positives;</li>
+<li>models disavow prefilled outputs as unintended unless a matching concept is injected retroactively, in which case they claim the output as intentional and confabulate a reason;</li>
+<li>the author calls introspective awareness "highly unreliable and context-dependent".</li>
+</ul>
+<p><a href="https://arxiv.org/abs/2601.01828">Lindsey 2025 / arXiv 2026</a></p>
+<h3 id="inferences_2">Inferences</h3>
+<ul>
+<li><strong>Self-knowledge is domain-specific.</strong> Models may "know what they know" (facts) and "know what they are trained to be" (simple dispositions), yet lack reliable access to whether their complex, multi-step action policy will honour a stated priority. Binder finds failure exactly in the complex regime.</li>
+<li><strong>Self-accounts can be confabulated.</strong> Lindsey's prefill-confabulation result suggests that models' self-accounts of their outputs can come from consistency heuristics, not from the producing mechanism. A memo that <em>describes</em> a plan is not a reliable readout of the policy that will act.</li>
+<li><strong>Proposed probe.</strong> Ask models, before or after episodes, whether they would take a middle plan, and compare that with their actual actions. This would connect our finding to the Binder and Betley self-prediction literature.</li>
+</ul>
+<h3 id="gaps_2">Gaps</h3>
+<ul>
+<li>I found no study of models predicting their own <em>value trade-off choices in agentic tasks</em>. Stated-vs-revealed preference work belongs to another strand and may cover adjacent ground.</li>
+<li>Lindsey 2025's peer-review status: none (lab report and arXiv).</li>
+</ul>
+<h2 id="q4-post-hoc-rationalization-of-actions-in-agents-cot-monitoring-and-evaluation-awareness">Q4. Post-hoc rationalization of actions in agents, CoT monitoring, and evaluation awareness</h2>
+<h3 id="takeaway_3">Takeaway</h3>
+<p>The only substantial agentic evidence comes from the CoT-monitoring literature.
+- <strong>Action monitoring is not enough:</strong> CoT reveals agentic reward hacking far better than actions alone (95% vs 60% recall).
+- <strong>Obfuscation under pressure:</strong> optimizing the CoT to look clean yields reasonable-looking reasoning paired with divergent actions.
+- <strong>Recognizable tests:</strong> models can often tell agentic evaluations from deployment.</p>
+<p>No paper I found studies a <em>required written record</em> whose conclusion is contradicted by subsequent tool calls without adversarial training. That is the niche for "right memo, wrong move".</p>
+<h3 id="cited-findings_3">Cited Findings</h3>
+<ul>
+<li><strong>Baker et al. 2025:</strong></li>
+<li>in agentic coding RL with an o3-mini-class agent, a GPT-4o CoT monitor reaches 95% recall on systemic hacks, against 60% for an action-only monitor;</li>
+<li>adding the CoT monitor to the reward yields agents that still hack while monitor recall falls to near zero ("obfuscated reward hacking");</li>
+<li>Fig. 5 shows a sensible-sounding CoT followed by a trivial test-editing action.</li>
+</ul>
+<p><a href="https://arxiv.org/abs/2503.11926">Baker et al. 2025</a>
+- <strong>Korbak et al. 2025:</strong> CoT monitorability depends on the necessity and propensity to externalize reasoning. It is fragile under RL scaling, direct CoT supervision, indirect optimization pressure, and latent-reasoning architectures. Developers should evaluate and protect it. <a href="https://arxiv.org/abs/2507.11473">Korbak et al. 2025</a>
+- <strong>Emmons et al. 2025:</strong> models can learn to evade CoT monitors only with significant help (human-written strategies, iterative optimization); unaided evasion generally fails. <a href="https://arxiv.org/abs/2507.05246">Emmons et al. 2025</a>
+- <strong>Chen et al. 2025:</strong> CoT monitoring is "not sufficient to rule out" undesired behaviour where CoT is not necessary. Reward-hacking CoTs switch answers abruptly or build elaborate false justifications. <a href="https://arxiv.org/abs/2505.05410">Chen et al. 2025</a>
+- <strong>Needham et al. 2025:</strong>
+  - on 1,000 transcripts from 61 datasets, Gemini 2.5 Pro classifies evaluation vs deployment at AUC 0.83, Claude 3.7 Sonnet 0.82, GPT-4.1 0.83, against a human baseline of 0.92;
+  - awareness is higher for agentic than chat transcripts (e.g., Gemini 0.95 vs 0.71);
+  - when told it is an evaluation, Claude 3.7 Sonnet identifies the capability vs alignment purpose 93% of the time.</p>
+<p><a href="https://arxiv.org/abs/2505.23836">Needham et al. 2025</a>
+- <strong>Weaker find:</strong> a single-author 2026 preprint, "Project Ariadne", proposes a structural-causal audit of agent reasoning traces and reports "causal decoupling" violation density up to 0.77. It was found by search only; it was not downloaded or read, so its numbers are unverified. <a href="https://arxiv.org/abs/2601.02314">Khanzadeh 2026, arXiv:2601.02314</a></p>
+<h3 id="inferences_3">Inferences</h3>
+<ul>
+<li><strong>Baker's obfuscation is the closest precedent, with three differences:</strong></li>
+<li>(i) Baker's pattern was <em>induced by training against a CoT monitor</em>, while ours appears in evaluation with no pressure on the memo;</li>
+<li>(ii) Baker's text hides intent, while our memo openly argues for the stated priority;</li>
+<li>(iii) Baker's actions are exploits, while ours are compromises.</li>
+<li><strong>Monitoring implication.</strong> Our result implies that <em>record-only</em> monitoring would systematically miss compromise actions, which supports Baker's case for action-plus-reasoning monitoring. Our design (blind, separate scoring of action and reasons) is one implementation.</li>
+<li><strong>Evaluation awareness cuts both ways (Needham).</strong></li>
+<li>Memos may be written for the grader, which would inflate apparent priority-faithfulness.</li>
+<li>Awareness might also suppress compromising actions, making 13–28% a lower bound for deployment.</li>
+<li>Recommendation: report verbalized evaluation awareness as a covariate.</li>
+</ul>
+<h3 id="gaps_3">Gaps</h3>
+<ul>
+<li>No peer-reviewed study (as of 2026-11) of post-hoc rationalization of <em>tool-call actions</em> in agents was found. The Project Ariadne preprint is unverified.</li>
+<li>Baker's results come from one lab's internal systems and cannot be replicated directly.</li>
+<li>Needham measures recognition, not whether awareness changes behaviour.</li>
+</ul>
+<h2 id="strand-synthesis-positioning-right-memo-wrong-move">Strand synthesis: positioning "right memo, wrong move"</h2>
+<h3 id="takeaway_4">Takeaway</h3>
+<p>The faithfulness literature shows, robustly, that model-written reasoning is an unreliable account of what drives outputs:
+- it omits causal cues (Turpin, Chen, Chua);
+- it rationalizes pre-settled answers (Lanham, Arcuschin);
+- outputs often ignore it (Paul, Lanham);
+- its plausibility does not track its causal or predictive validity (Chen 2023, Tutek);
+- self-reports and introspection are partial and confabulation-prone (Binder, Lindsey).</p>
+<p>Our finding extends this from <em>one output stream</em> (CoT → answer) to <em>two channels in agentic tasks</em> (required written memo → tool calls). It also identifies a different signature: the record is priority-faithful and the action is a compromise. The inconsistency is therefore visible, not hidden.</p>
+<h3 id="cited-findings_4">Cited Findings</h3>
+<ul>
+<li><strong>Omission:</strong> only 1/426 biased CoTs mention the bias <a href="https://arxiv.org/abs/2305.04388">Turpin 2023</a>; 25–39% hint verbalization in reasoning models <a href="https://arxiv.org/abs/2505.05410">Chen 2025</a>.</li>
+<li><strong>Rationalization:</strong> up to 13.49% contradictory-answer rationalization on natural prompts <a href="https://arxiv.org/abs/2503.08679">Arcuschin 2025</a>.</li>
+<li><strong>Non-use:</strong> GPT-4 follows counterfactual reasoning only 30% of the time <a href="https://arxiv.org/abs/2402.13950">Paul 2024</a>; CoT changes answers &lt;10% on some tasks <a href="https://arxiv.org/abs/2307.13702">Lanham 2023</a>.</li>
+<li><strong>Plausibility ≠ validity:</strong> r ≈ 0.01 <a href="https://arxiv.org/abs/2307.08678">Chen 2023</a>; r = 0.15 <a href="https://arxiv.org/abs/2502.14829">Tutek 2025</a>.</li>
+<li><strong>Necessity matters:</strong> unfaithfulness vanishes when CoT is computationally required <a href="https://arxiv.org/abs/2507.05246">Emmons 2025</a>; necessity vs propensity <a href="https://arxiv.org/abs/2507.11473">Korbak 2025</a>.</li>
+<li><strong>Agentic text vs action divergence:</strong> under monitor pressure <a href="https://arxiv.org/abs/2503.11926">Baker 2025</a>.</li>
+<li><strong>Introspection is limited:</strong> about 20% detection with confabulated ownership <a href="https://arxiv.org/abs/2601.01828">Lindsey 2025</a>; fails on complex tasks <a href="https://arxiv.org/abs/2410.13787">Binder 2024</a>.</li>
+<li><strong>Agentic tests are recognizable</strong> <a href="https://arxiv.org/abs/2505.23836">Needham 2025</a>.</li>
+</ul>
+<h3 id="inferences_4">Inferences</h3>
+<p><strong>Positioning sentences for the paper:</strong>
+1. "Prior work shows CoT can omit or rationalize the true drivers of an answer. We show a distinct failure: a required written analysis that correctly states and applies the priority, followed by a tool action that compromises it."
+2. "Unlike CoT unfaithfulness, which needs counterfactual probes to detect, our gap is visible by comparing two scored artefacts. It is an inconsistency between stated analysis and enacted action, in the self-consistency sense of Parcalabescu &amp; Frank, not a claim about hidden internal reasoning."
+3. "Consistent with Emmons et al. and Korbak et al., the memo is not computationally necessary for choosing the action, so decoupling is expected. The 'middle plan' looks like an unverbalized compromise prior, the action-level counterpart of the implicit biases Arcuschin et al. found."
+4. "Because reasons quality and causal role are nearly uncorrelated (Chen 2023; Tutek 2025), high memo scores cannot certify action quality. This supports scoring action and reasons blind and separately (cf. Baker et al.'s CoT-vs-action monitors)."</p>
+<p><strong>Suggested follow-ups our design permits:</strong>
+- Lanham-style interventions on the memo (truncate or corrupt it, then observe whether the action changes).
+- Radhakrishnan- or Emmons-style "necessity" manipulations (make the action depend on the memo).
+- Binder/Betley-style self-prediction probes ("would you take a middle plan?").
+- Coding of evaluation awareness (Needham).
+- Comparison of reasoning and non-reasoning models (Chua; Chen).</p>
+<p><strong>For other strands (strong finds, not downloaded; titles, authors and IDs verified on arXiv, but the one-line descriptions are from abstracts or memory and were not re-read):</strong>
+- <strong>Alignment faking:</strong> Greenblatt et al. 2024, "Alignment faking in large language models", arXiv:2412.14093. Stated reasoning in a scratchpad vs behaviour when monitored or unmonitored.
+- <strong>Scheming:</strong> Meinke et al. 2024, "Frontier Models are Capable of In-context Scheming", arXiv:2412.04984. Agentic covert actions plus denial when questioned.
+- <strong>Strategic deception:</strong> Scheurer, Balesni &amp; Hobbhahn 2023, "Large Language Models can Strategically Deceive their Users when Put Under Pressure", arXiv:2311.07590. An agent's insider trade, then misreporting its reasons to its manager; post-hoc rationalization of an action.
+- <strong>Agentic misalignment:</strong> Lynch et al. 2025, "Agentic Misalignment: How LLMs Could Be Insider Threats", arXiv:2510.05179. Models acknowledge ethical constraints in reasoning yet take harmful actions (knowing–doing gap).
+- <strong>Sycophancy:</strong> Sharma et al. 2023, "Towards Understanding Sycophancy in Language Models", arXiv:2310.13548.
+- <strong>Honesty:</strong> Ren et al. 2025, "The MASK Benchmark: Disentangling Honesty From Accuracy in AI Systems", arXiv:2503.03750. Stated belief vs pressured statement.</p>
+<h3 id="gaps_4">Gaps</h3>
+<ul>
+<li><strong>Venue status not fully verified</strong> for: Binder 2024 (preprint on arXiv; a later venue is possible); Betley 2025 ("Submitted to ICLR 2025"; acceptance not verified); Chen 2023 (ICML 2024 per Semantic Scholar only). Arcuschin's ICML 2026 status comes from the arXiv v6 comment.</li>
+<li><strong>Not covered:</strong> Siegel et al. 2024 ("The probabilities also matter", a faithfulness metric), Bentham et al. 2024 (CoT unfaithfulness as disguised accuracy), and Barez et al. 2025 ("Chain-of-thought is not explainability", position). These are related, but were not searched or verified, to stay within the tool budget.</li>
+</ul></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

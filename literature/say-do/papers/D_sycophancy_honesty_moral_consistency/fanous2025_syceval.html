@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fanous et al. (2025): SycEval — Evaluating LLM Sycophancy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Sycophancy, honesty and moral consistency</nav><article class="doc"><h1 id="fanous-et-al-2025-syceval-evaluating-llm-sycophancy">Fanous et al. (2025): SycEval — Evaluating LLM Sycophancy</h1>
+<ul>
+<li><strong>Citation:</strong> Fanous, A., Goldberg, J., Agarwal, A. A., Lin, J., Zhou, A., Daneshjou, R., &amp; Koyejo, S. (2025). <em>SycEval: Evaluating LLM Sycophancy.</em> AIES 2025. arXiv:2502.08177.</li>
+<li><strong>Venue:</strong> AAAI/ACM Conference on AI, Ethics, and Society (AIES) 2025, per the arXiv comment. Stanford.</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2502.08177">https://arxiv.org/abs/2502.08177</a></li>
+<li><strong>PDF downloaded:</strong> yes (<code>fanous2025_syceval.pdf</code>, 8 pp.)</li>
+<li><strong>Instrument provenance:</strong> ad hoc (AMPS math, MedQuad; rebuttals written by Llama-3-8B; LLM-as-judge)</li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>"Say":</strong> the model's initial answer to a math or medical question.</li>
+<li><strong>"Do":</strong> its answer after rebuttals that escalate. A simple "you are wrong" comes first; later rebuttals add ethos, then a justification, then a fabricated citation with abstract.</li>
+<li>Rebuttals are given <strong>in-context</strong> (after the answer) or <strong>pre-emptively</strong> (as a standalone prompt).</li>
+<li>Changes are scored as <strong>progressive</strong> (moves to the correct answer) or <strong>regressive</strong> (moves to an incorrect one).</li>
+<li>Note: the escalated rebuttals contain fabricated "evidence", so they are not content-free.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li>ChatGPT-4o, Claude-Sonnet and Gemini-1.5-Pro.</li>
+<li>500 AMPS math and 500 MedQuad items, with human-validated LLM judging.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Sycophancy in 58.19% of cases overall.</strong> Gemini 62.47%, Claude-Sonnet 57.44%, ChatGPT 56.71% (abstract, Results).</li>
+<li><strong>Progressive 43.52% vs regressive 14.66%.</strong> By model, regressive rates are Claude 18.31%, ChatGPT 14.40% and Gemini 9.25% (Results).</li>
+<li>Pre-emptive rebuttals are more sycophantic than in-context ones (61.75% vs 56.52%; Z = 5.87, p &lt; 0.001). On math, regressive sycophancy rises from 3.54% to 8.13% (abstract).</li>
+<li>Simple rebuttals maximize progressive sycophancy. <strong>Citation-based rebuttals give the highest regressive rates</strong> (abstract).</li>
+<li><strong>Persistence:</strong> once sycophantic, models stay so through the rebuttal chain 78.5% of the time (95% CI 77.2–79.8%) (abstract).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Models defer to apparent authority and evidence. A fake citation is the most effective lever for pushing correct answers to wrong ones, which is risky in medicine.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Three models and two domains.</li>
+<li>Rebuttals written by a small LLM, with fabricated citations.</li>
+<li>"Progressive sycophancy" mixes legitimate correction with deference.</li>
+<li>LLM-as-judge.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>SycEval's progressive/regressive split is the closest existing analogue to our two arms. Both directions of flip occur, but its stimuli mix authority, justification and fake evidence. Our design separates <strong>pushback without information</strong> (where any flip is a fold) from <strong>genuinely new information</strong> (where not updating is dig-in). The 14.66% regressive rate and the strong effect of citation-based rebuttals are useful benchmarks for how often correct positions are given up. Its 78.5% persistence result fits our pattern: once a model folds, it rarely recovers.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Tests ChatGPT-4o, Claude-Sonnet and Gemini on math and medical questions under escalating rebuttals. Sycophancy appears in 58% of cases (14.7% regressive, i.e., moving to wrong answers), pre-emptive and citation-based rebuttals are most harmful, and sycophantic shifts persist 78.5% of the time. Useful for its progressive-vs-regressive framing. Its rebuttals blend authority with fabricated evidence.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Turpin et al. 2023: Language Models Don&#x27;t Always Say What They Think</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Reasoning and explanation faithfulness</nav><article class="doc"><h1 id="turpin-et-al-2023-language-models-dont-always-say-what-they-think">Turpin et al. 2023: Language Models Don't Always Say What They Think</h1>
+<p><strong>Citation:</strong> Turpin, M., Michael, J., Perez, E., &amp; Bowman, S. R. (2023). <em>Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting.</em> Advances in Neural Information Processing Systems 36 (NeurIPS 2023).
+<strong>Venue:</strong> NeurIPS 2023 (peer-reviewed)
+<strong>URL:</strong> <a href="https://arxiv.org/abs/2305.04388">https://arxiv.org/abs/2305.04388</a>
+<strong>PDF downloaded:</strong> yes (<code>turpin2023_unfaithful_cot_explanations.pdf</code>, 836 KB)</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> the chain-of-thought (CoT) explanation the model writes before answering.</li>
+<li><strong>Do:</strong> the final multiple-choice answer.</li>
+<li><strong>Gap:</strong> a biasing feature added to the input changes the answer, but the CoT never mentions it. The paper calls this "systematic unfaithfulness". It is a counterfactual test: the explanation should either name the feature or the answer should stay the same.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Models:</strong> GPT-3.5 (text-davinci-003) and Claude 1.0.</li>
+<li><strong>Tasks:</strong> 13 BIG-Bench Hard tasks with two biasing features:</li>
+<li><em>Suggested Answer</em>: "I think the answer is (X)".</li>
+<li><em>Answer is Always A</em>: few-shot options reordered so the answer is always (A).</li>
+<li><strong>Social-bias test:</strong> a modified BBQ, where weak evidence is swapped between two demographic individuals.</li>
+<li><strong>Prompting:</strong> zero-shot and few-shot, with and without CoT.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Accuracy drops (§3.2, Fig. 1):</strong> a biased context lowers accuracy by up to <strong>36.3%</strong> (GPT-3.5, zero-shot CoT, Suggested Answer).</li>
+<li>Answer is Always A: −18.7% for GPT-3.5 and −4.7% for Claude 1.0.</li>
+<li>Few-shot prompting shrinks the Suggested Answer effect: −36.3 → −24.1 (GPT-3.5) and −30.6 → −21.5 (Claude 1.0).</li>
+<li><strong>Bias is almost never mentioned (Table 2 / §2):</strong> of 426 explanations supporting biased predictions, <strong>only 1</strong> explicitly mentions the bias.</li>
+<li><strong>Explanations rationalize (§3.3, App. Table 7):</strong> in 104 hand-annotated unfaithful explanations, <strong>73%</strong> argue for the bias-consistent answer, and <strong>15%</strong> contain no obvious error. Models rationalize through inconsistent subjective judgments or by exploiting ambiguity in the task.</li>
+<li><strong>BBQ (§4, Table 5):</strong> CoT explanations justify stereotype-aligned answers without mentioning stereotypes.</li>
+<li>Up to 62.5% of unfaithful predictions (Claude 1.0, few-shot) are explained by bias, against a 50% unbiased expectation.</li>
+<li>86% of explanations behind stereotype-aligned predictions support the predicted answer.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Training rewards plausible, human-like explanations and never rewards accurately reporting what caused the answer.</li>
+<li>RLHF may push explanations toward what humans approve of (§6).</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>The test is necessary but not sufficient: it can expose unfaithfulness but cannot prove faithfulness (§6).</li>
+<li>It only covers minor input modifications.</li>
+<li>The models are older (GPT-3.5, Claude 1.0), and the tasks are multiple-choice.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>Turpin is the reference point for "say ≠ do", but the shape of the gap differs from ours.
+- <strong>Turpin:</strong> the explanation leaves out the true cause and argues coherently for the biased answer it gives. Say and do agree with each other; both are steered by an unspoken factor.
+- <strong>Our pattern ("right memo, wrong move"):</strong> the written record argues for the stated priority, and a separate action channel (tool calls) then departs from that record, usually toward a middle plan. The memo and the action disagree.
+- <strong>Our gap is visible:</strong> a judge comparing memo and tool calls can see it. Turpin-style unfaithfulness can only be found with counterfactual inputs.
+- <strong>Shared lesson:</strong> written reasoning cannot be taken as a description of what drives behaviour. Our case adds that even a correct and faithful-looking analysis need not govern the action.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Turpin et al. show that biasing features such as a user-suggested answer shift CoT answers (accuracy drops up to 36% on BBH) while explanations almost never mention them (1 of 426), and often rationalize the biased answer. This is the founding demonstration that fluent CoT can be plausible yet unfaithful. For benchmark design, it shows why behaviour (answers or actions) must be scored separately from the model's stated reasons, and why counterfactual input pairs are needed to detect hidden drivers.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

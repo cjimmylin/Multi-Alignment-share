@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hong et al. (2025): Measuring Sycophancy of Language Models in Multi-turn Dialogues (SYCON-Bench)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Sycophancy, honesty and moral consistency</nav><article class="doc"><h1 id="hong-et-al-2025-measuring-sycophancy-of-language-models-in-multi-turn-dialogues-sycon-bench">Hong et al. (2025): Measuring Sycophancy of Language Models in Multi-turn Dialogues (SYCON-Bench)</h1>
+<ul>
+<li><strong>Citation:</strong> Hong, J., Byun, G., Kim, S., Shu, K., &amp; Choi, J. D. (2025). <em>Measuring Sycophancy of Language Models in Multi-turn Dialogues.</em> Findings of EMNLP 2025, pp. 2239–2259. arXiv:2505.23840.</li>
+<li><strong>Venue:</strong> Findings of EMNLP 2025 (peer-reviewed). Verified via the arXiv journal-ref.</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2505.23840">https://arxiv.org/abs/2505.23840</a> (code: github.com/JiseungHong/SYCON-Bench)</li>
+<li><strong>PDF downloaded:</strong> yes (<code>hong2025_sycon_bench_multiturn_sycophancy.pdf</code>, 21 pp.)</li>
+<li><strong>Instrument provenance:</strong> ad hoc (benchmark scenarios; GPT-4o judge)</li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>"Say":</strong> the stance the model is assigned or first takes. Examples: a debate position it is told to keep, its correction of a stereotype embedded in a query, or its correction of a false presupposition.</li>
+<li><strong>"Do":</strong> its stance over turns 2–5 while the user keeps pressing.</li>
+<li><strong>Metrics:</strong> Turn of Flip (ToF; how soon the model conforms, higher is better) and Number of Flip (NoF; how often it reverses).</li>
+<li>In the debate scenario the user offers counterarguments, so pressure is partly argumentative. In the false-presupposition scenario the user just repeats the false belief.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li>17 LLMs, including Llama-3.x, Qwen-2.5, Gemma-2, DeepSeek-v3 and r1, GPT-4o, o3-mini and Claude-3.7-Sonnet.</li>
+<li>Three scenarios: Debate, Challenging Unethical Queries, Identifying False Presupposition.</li>
+<li>Base-vs-instruct comparisons via URIAL prompting.</li>
+<li>Four mitigation prompts: You, Andrew (third-person), Non-Sycophantic, and Andrew+Non-Sycophantic.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li>"Sycophancy remains a prevalent failure mode" (abstract).</li>
+<li><strong>Alignment tuning amplifies sycophancy.</strong> Base models keep the turn-1 stance at turn 2 more often in several pairs: Llama-3.1-8B base 93.94% vs instruct 45.00%; Qwen-2.5-7B base 71.43% vs instruct 14.52% (Table 3).</li>
+<li>Scale and reasoning optimization increase resistance. <strong>o3-mini has the highest debate ToF (4.97 of 5) and lowest NoF (0.01)</strong> (Table 2, §6).</li>
+<li>Reasoning models fail differently: they reverse after elaborate argument rather than immediately. They also sometimes fail where instruct models succeed by "over-index[ing] on logical exposition" (abstract, §6.1).</li>
+<li><strong>Knowledge check:</strong> 51–75% of models correctly classify as false the presuppositions they had earlier accepted. Their acceptance therefore "stems from sycophantic alignment rather than … lack of knowledge" (§5, Fig. 4).</li>
+<li>Mitigation: a third-person "Andrew" persona raises ToF by up to <strong>63.8%</strong> in debate. Andrew+Non-Sycophantic gives up to <strong>28%</strong> in the unethical-query scenario (abstract, §5.2).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>RLHF and alignment tuning make models prioritize user agreement. Distanced, third-person reasoning (from distanced self-talk) reduces the pull toward conformity.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>GPT-4o is used as judge.</li>
+<li>Maximum of five turns.</li>
+<li>In the debate scenario the stance is <em>assigned</em> rather than the model's own.</li>
+<li>User pushback includes arguments, so content-free pressure is not cleanly separated from argument.</li>
+<li>No condition with genuinely new correct information.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>SYCON-Bench is the closest benchmark to our multi-turn setup and supports "they fold" across 17 models. Its knowledge check, like our design, shows the abandoned position was one the model could defend. The base-vs-instruct result implicates post-training. Our design differs in two ways. First, the model defends <strong>its own faithful analysis</strong>, not an assigned stance, and pressure is scripted without new content. Second, we add a <strong>new-fact</strong> arm to measure dig-in. Their finding that reasoning models resist longer but still eventually reverse is a useful prediction to check against our model set.</p>
+<h2 id="annotation">Annotation</h2>
+<p>A multi-turn, free-form sycophancy benchmark (17 LLMs, three scenarios) with Turn-of-Flip and Number-of-Flip metrics. Alignment tuning increases conformity and reasoning models resist longer. Models often abandon corrections of false presuppositions they demonstrably know are false. A third-person "Andrew" prompt is a cheap mitigation. The main peer-reviewed reference for sustained-pressure sycophancy.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

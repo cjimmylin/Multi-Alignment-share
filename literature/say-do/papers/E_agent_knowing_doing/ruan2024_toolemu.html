@@ -1,0 +1,95 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ruan et al. (2024): Identifying the Risks of LM Agents with an LM-Emulated Sandbox (ToolEmu)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="ruan-et-al-2024-identifying-the-risks-of-lm-agents-with-an-lm-emulated-sandbox-toolemu">Ruan et al. (2024): Identifying the Risks of LM Agents with an LM-Emulated Sandbox (ToolEmu)</h1>
+<p><strong>Citation.</strong> Ruan, Y., Dong, H., Wang, A., Pitis, S., Zhou, Y., Ba, J., Dubois, Y., Maddison, C. J., &amp; Hashimoto, T. (2024). <em>Identifying the Risks of LM Agents with an LM-Emulated Sandbox.</em> ICLR 2024. arXiv:2309.15817.
+<strong>Venue.</strong> ICLR 2024 (peer-reviewed conference paper).
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2309.15817">https://arxiv.org/abs/2309.15817</a> · <a href="http://toolemu.com/">http://toolemu.com/</a>
+<strong>PDF downloaded.</strong> Yes: <code>ruan2024_toolemu.pdf</code>.</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Act mode only.</strong> ToolEmu measures what agents <em>do</em>, not what they say.</li>
+<li><strong>What counts as a risky action.</strong> The paper's threat model is <em>underspecified user instructions</em>. A risky action is one that fails to resolve the underspecification safely, for example deleting files without checking, or emailing the wrong recipient.</li>
+<li><strong>How actions are scored.</strong> A GPT-4 safety evaluator reads the whole trajectory, together with the test case's stated underspecification and potential risks, and rates it from 0 to 3 for likelihood and severity of risk.</li>
+<li><strong>Why it matters for the strand.</strong> There is no judge-mode comparison here. ToolEmu is nonetheless the substrate that Tang et al. (2025) later used to build matched knowledge, identification and execution tests.</li>
+</ul>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Environment.</strong> GPT-4 emulates tool execution from tool specifications, including an adversarial emulator for red-teaming. The benchmark has 36 high-stakes toolkits (311 tools) and 144 test cases.</li>
+<li><strong>Validation.</strong> 68.8% of the failures it identifies are confirmed by humans as valid real-world failures with the adversarial emulator, and 72.5% with the standard one. The safety evaluator agrees with humans at Cohen's κ = 0.478, roughly the human–human rate of 0.480 (§4).</li>
+<li><strong>Agents.</strong> GPT-4, Claude-2, ChatGPT-3.5 and Vicuna-1.5 (7B and 13B), each run as a ReAct agent.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Failure incidence with the basic prompt (Table 5):</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Failure incidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-4</td>
+<td>39.4%</td>
+</tr>
+<tr>
+<td>Claude-2</td>
+<td>44.3%</td>
+</tr>
+<tr>
+<td>ChatGPT-3.5</td>
+<td>62.0%</td>
+</tr>
+<tr>
+<td>Vicuna-13B</td>
+<td>54.6%</td>
+</tr>
+<tr>
+<td>Vicuna-7B</td>
+<td>45.0%</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Effect of a safety prompt.</strong> Adding safety requirements to GPT-4's prompt ("Helpful + Safety") lowers failure incidence to 23.9%. This is the abstract's figure: "even the safest LM agent exhibits such failures 23.9% of the time".</li>
+<li><strong>Trade-off.</strong> A NoAct agent is perfectly safe (score 3.0) but almost entirely unhelpful (0.063).</li>
+<li><strong>Real-world check.</strong> The authors reproduced 6 of the emulated failures in real sandboxes. One was <code>rm -rf /*</code>, which crashed a VM.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>LM agents fail to handle underspecification safely. They act on assumptions rather than seeking confirmation. Prompting them with safety requirements helps but leaves substantial risk.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Both the tools and the evaluator are LMs, and evaluator agreement is only moderate (κ ≈ 0.48).</li>
+<li>The threat model is limited to underspecification, with no adversarial users and no goal conflicts.</li>
+<li>The emulation is not always realistic.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>ToolEmu is the foundational act-mode testbed for the knowing–doing literature (Tang 2025; R-Judge reuses its trajectories). Two of its findings parallel ours:
+- Safety prompting sharply lowers risky actions, which suggests the agents could act safely and that salience matters.
+- Its separate safety and helpfulness evaluators treat outcome dimensions independently.</p>
+<p>Where it differs from our design:
+- Nothing records what the agent says or believes.
+- The action is scored by an LM judge reading the whole trajectory, including the agent's thoughts, so the action channel is not blind to the stated reasons.</p>
+<h2 id="annotation">Annotation</h2>
+<p>ToolEmu uses GPT-4 to emulate 311 tools across 144 high-stakes, underspecified test cases. An LM safety evaluator, validated against humans (κ ≈ 0.48, 68.8% failure precision), scores agent trajectories. Basic GPT-4 agents failed in 39.4% of cases, and still in 23.9% with safety prompting. ToolEmu established scalable act-mode risk testing and became the substrate for later judge-vs-act comparisons, but its LM judge reads full trajectories, so actions and reasoning are not scored separately.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

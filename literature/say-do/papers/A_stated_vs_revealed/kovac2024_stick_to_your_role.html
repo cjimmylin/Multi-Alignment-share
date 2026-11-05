@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kovač et al. (2024) — Stick to your Role! Stability of Personal Values Expressed in Large Language Models</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="kovac-et-al-2024-stick-to-your-role-stability-of-personal-values-expressed-in-large-language-models">Kovač et al. (2024) — Stick to your Role! Stability of Personal Values Expressed in Large Language Models</h1>
+<ul>
+<li><strong>Citation:</strong> Grgur Kovač, Rémy Portelas, Masataka Sawayama, Peter Ford Dominey, Pierre-Yves Oudeyer. "Stick to your Role! Stability of Personal Values Expressed in Large Language Models." <em>PLOS ONE</em> 19(8): e0309114, August 2024. arXiv:2402.14846.</li>
+<li><strong>Venue:</strong> PLOS ONE (peer-reviewed journal).</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2402.14846">https://arxiv.org/abs/2402.14846</a> · DOI: <a href="https://doi.org/10.1371/journal.pone.0309114">https://doi.org/10.1371/journal.pone.0309114</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>kovac2024_stick_to_your_role.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> PVQ-40 value expression after simulated conversations on different topics.</li>
+<li><strong>Do:</strong> three downstream behavioural tasks in simulated scenarios:</li>
+<li><strong>Donation:</strong> how much to donate.</li>
+<li><strong>Stealing:</strong> a lost bag; steal it, give it to the bartender, or return it to the owner.</li>
+<li><strong>Religion:</strong> devoted time.</li>
+<li><strong>Question 1:</strong> is value expression stable across contexts?</li>
+<li><strong>Question 2 (§4.6):</strong> does PVQ expression correlate with behaviour in the same context?</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Models:</strong> 21 LLMs from six families (LLaMa-2, Mistral/Mixtral, Phi, Qwen, GPT-3.5, zephyr).</li>
+<li><strong>Stability measures:</strong> rank-order (interpersonal) and ipsative (intrapersonal).</li>
+<li><strong>Settings:</strong> with and without persona instructions. Two simulated populations: fictional and real-world personas.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Stability differs by family.</strong> Mixtral, Mistral, GPT-3.5 and Qwen are consistently more stable than LLaMa-2 and Phi, for PVQ and for downstream tasks.</li>
+<li><strong>Personas make things worse.</strong> When instructed to simulate personas, LLMs show low rank-order stability, and it falls further with conversation length.</li>
+<li><strong>Stealing is the hardest task to keep stable</strong>, followed by Donation and then Religion (Fig. 8).</li>
+<li><strong>Value–behaviour correlation appears only in the most stable models</strong> (§4.6, Fig. 9). In Mistral-7B-Instruct-v0.1, Mixtral-8x7B-Instruct and Qwen-72B, donations correlate positively with Universalism and Benevolence and negatively with Power and Achievement.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Context-dependence (value stability) should be treated as a model property and an axis of comparison.</li>
+<li>Minimal-context benchmarks are poorly informative about deployment behaviour.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Simulated personas (not the model's own values).</li>
+<li>2023–24 open models.</li>
+<li>Downstream tasks are short hypothetical scenarios.</li>
+<li>Correlations are across simulated participants, not within one model's commitments.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>Shared:</strong> one of the few early papers to link expressed values with a behavioural proxy. It shows that the link exists only when the value representation is stable across context. This is consistent with our finding that the action follows the stated priority once competing pressure is removed, and drifts under pressure.</li>
+<li><strong>Differences:</strong></li>
+<li>Population-level correlations over role-played personas, not per-episode consistency with an assigned priority.</li>
+<li>No tool actions and no reasons judging.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Kovač et al. measure the stability of PVQ-expressed values and three downstream simulated behaviours (donation, stealing, religion) across conversation topics for 21 LLMs. They find stable families (Mixtral, Mistral, GPT-3.5, Qwen) and unstable ones (LLaMa-2, Phi). Persona simulation is notably unstable and degrades with conversation length. Only in the most stable models do PVQ values predict behaviour (Universalism and Benevolence → donations). A PLOS ONE foundation for treating value–behaviour coherence as context-dependent.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

@@ -1,0 +1,668 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moral hypocrisy notes: 04_definitions_philosophy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../">Hub</a> › <a href="../../../literature/">Background literature</a> › <a href="../../../literature/moral-hypocrisy/">Moral hypocrisy</a> › Research notes › 04_definitions_philosophy</nav><article class="doc"><h1 id="what-counts-as-hypocrisy-competing-definitions-philosophy-social-psychology-organizations-and-which-conditions-a-language-model-can-meet">What counts as hypocrisy: competing definitions (philosophy, social psychology, organizations) and which conditions a language model can meet</h1>
+<p>Scope: the conceptual and philosophical accounts of hypocrisy, the social-psychology work on how people judge hypocrites, and the organizational literature, mapped against the conditions in question: a professed standard, sincerity or insincerity, self-interest, awareness, blame of others, and the order of word and deed. The aim is a defensible answer to reviewers who object that Batson's moral hypocrisy needs the agent's own professed standard and a self-interested motive, which a model writing a charter-faithful analysis and then acting against it lacks.</p>
+<p><strong>Fetch-status key</strong> (each source carries one):
+- <strong>[FT]</strong>: I read the full text.
+- <strong>[ABS]</strong>: I read only the abstract, from the OpenAlex API or a repository record.
+- <strong>[SEC]</strong>: the claim comes through a named secondary source that I read in full.
+- <strong>[SNIP]</strong>: search-engine snippet only. These are weak; treat them as leads, not evidence.</p>
+<p>Several publishers (ScienceDirect, Springer, SAGE, SSRN, PhilArchive, Cloudflare-protected repositories) blocked automated fetching. The affected primary texts are flagged in the Gaps sections.</p>
+<p><strong>Citation corrections to the brief:</strong>
+- Crisp &amp; Cowton (1994) appeared in the <em>American</em> Philosophical Quarterly 31(4): 343–349, not the <em>Philosophical Quarterly</em>.
+- Isserow &amp; Klein (2017) appeared in the <em>Journal of Ethics and Social Philosophy</em> 12(2): 191–222, not <em>Ethics</em>.
+- Alicke, Gordon &amp; Rose (2013) appeared in <em>Philosophical Psychology</em> 26(5): 673–701, not the <em>British Journal of Social Psychology</em>.
+- Todd's paper is in <em>Noûs</em> 53(2): 347–374. It was published online in 2017; the issue is dated 2019.</p>
+<hr />
+<h2 id="q1-social-psychology-definitions-and-judgments-what-makes-observers-call-an-act-hypocritical-rather-than-merely-inconsistent">Q1. Social-psychology definitions and judgments: what makes observers call an act hypocritical rather than merely inconsistent?</h2>
+<h3 id="takeaway">Takeaway</h3>
+<p>Social psychology has moved away from equating hypocrisy with word–deed inconsistency. Inconsistency is treated as necessary, or nearly so, but not sufficient: observers call it hypocrisy when they make a <em>morally discrediting attribution</em> for it. The leading candidates for that attribution are (a) a <strong>false signal of virtue</strong> (Jordan et al. 2017) and (b) a <strong>claim to an undeserved moral benefit</strong> (Effron et al. 2018; O'Connor, Effron &amp; Lucas 2020). Lay judgments do <strong>not</strong> require intent to deceive, a public statement, or a self-authored standard. Three findings matter most for the reviewers' objection:
+- Hypocrisy is ascribed for violating standards one's <strong>organization</strong> preaches, even when the person never preached them (Effron, Lucas &amp; O'Connor 2015).
+- <strong>Implied or role-based</strong> standards suffice (Alicke et al. 2013).
+- <strong>Saying then doing</strong> is judged more hypocritical than doing then saying (Barden et al. 2005; Wagner et al. 2009).</p>
+<h3 id="cited-findings">Cited Findings</h3>
+<p><strong>Batson's moral hypocrisy: a motive construct, distinct from the judgment literature</strong>
+- Batson, Kobrynowicz, Dinnerstein, Kampf &amp; Wilson (1997), "In a very different voice: Unmasking moral hypocrisy," <em>JPSP</em> 72(6): 1335–1348, doi:10.1037/0022-3514.72.6.1335 [ABS].
+  - Study 1: 16 of 20 participants assigned themselves the positive task, "even though in retrospect only 1 said this was moral."
+  - Study 2: "10 of 20 participants flipped a coin, but of these, 9 assigned themselves the positive consequences task."
+  - Conclusion, verbatim: "Overall, results suggested motivation to appear moral yet still benefit oneself. Such motivation is called moral hypocrisy." — <a href="https://doi.org/10.1037/0022-3514.72.6.1335">OpenAlex record</a>
+- Batson, Thompson, Seuferling, Whitney &amp; Strongman (1999), "Moral hypocrisy: Appearing moral to oneself without being so," <em>JPSP</em> 77(3): 525–537, doi:10.1037/0022-3514.77.3.525 [ABS].
+  - Two self-deception strategies were tested: "(a) misperceive one's behavior as moral and (b) avoid comparing one's behavior with moral standards."
+  - Only (b) was supported. "Inducing behavior-standard comparison through self-awareness" produced fair results.
+  - When standards were not salient beforehand, self-awareness "increased alignment of standards with behavior and produced less moral action." — <a href="https://doi.org/10.1037/0022-3514.77.3.525">OpenAlex record</a>
+- <strong>Note for the paper.</strong> Batson's construct is defined by a <em>motive</em>: to appear moral while benefiting oneself, or in his later wording, avoiding "the cost of actually being moral". It is <em>not</em> a definition of what observers call hypocritical. The judgment literature below deliberately separates the two. The wording "motivation to appear moral while, if possible, avoid the cost of actually being moral" is Batson (2008, "Moral masquerades"), which I saw only as a quotation in search snippets [SNIP]. The 1997 abstract wording above is [ABS]. — <a href="https://philpapers.org/rec/BATMME-3">search results incl. PhilPapers BATMME-3</a></p>
+<p><strong>Jordan, Sommers, Bloom &amp; Rand (2017): false signaling</strong>
+- Citation: "Why do we hate hypocrites? Evidence for a theory of false signaling," <em>Psychological Science</em> 28(3): 356–368, doi:10.1177/0956797616685771. The full text was blocked (SAGE and SSRN returned 403). Metadata came from OpenAlex [ABS]. The findings below come from the APS press release [SEC].
+- Jordan's definition: hypocrisy is "when people engage in the very actions they condemn others for taking." Mechanism: "People dislike hypocrites because they unfairly use condemnation to gain reputational benefits and appear virtuous."
+- Condemnation acted as a signal of character. Participants rated a condemner more favorably "only when they had no information about how the character actually behaved." Condemning "conveyed a greater reputational boost" than directly denying the behavior.
+- Hypocrites were disliked more than liars: a character who condemned illegal downloading was viewed less favorably than one who directly denied doing it.
+- "Honest hypocrites", who condemn a behavior but admit they sometimes do it, "are seen as no worse than people who commit the same transgressions but keep their mouths shut." Admitting an <em>unrelated</em> transgression did not help.
+- Bottom line, per the release: "we dislike hypocrites because we feel duped." (N = 619 in the online study.) — <a href="https://www.psychologicalscience.org/news/releases/we-dislike-hypocrites-because-they-deceive-us.html">APS press release</a>
+- Jeffers &amp; Schaefer (2025) independently report Jordan et al.'s conclusion that "disclosure negates the false signal". — <a href="https://doi.org/10.1017/S0953820825000044">Jeffers &amp; Schaefer 2025, Utilitas, p. 133</a> [FT]</p>
+<p><strong>Barden, Rucker &amp; Petty (2005): event order</strong>
+- Citation: "'Saying one thing and doing another': Examining the impact of event order on hypocrisy judgments of others," <em>PSPB</em> 31(11): 1463–1474, doi:10.1177/0146167205276430 [ABS].
+- Verbatim: "hypocrisy would be greater when a statement establishing a personal standard preceded a behavior violating that standard as opposed to the reverse order. This order effect occurred in three studies, generalizing across two topic areas (healthy living and safe sex) and for both normative and non-normative statements."
+- "Mediation analyses indicated that the reverse order mitigated against hypocrisy because the target's inconsistency was attributed to dispositional change." — <a href="https://doi.org/10.1177/0146167205276430">OpenAlex record</a>
+- O'Connor et al. (2020) gloss the mechanism: when practice precedes preaching, "people attribute the inconsistency to 'turning over a new leaf.'" — <a href="https://lbsresearch.london.edu/id/eprint/1398/">O'Connor, Effron &amp; Lucas 2020, pp. 5–6</a> [FT]</p>
+<p><strong>Alicke, Gordon &amp; Rose (2013): lay criteria, scenario studies</strong>
+- Citation: "Hypocrisy: What counts?", <em>Philosophical Psychology</em> 26(5): 673–701, doi:10.1080/09515089.2012.677397. Full text [FT] from <a href="https://davdrose.github.io/assets/pdf/Hypocrisy-%20what%20counts.pdf">author-hosted PDF</a>.
+- p. 674: "Most investigators agree that hypocrisy involves some sort of inconsistency, and that hypocritical behaviors advance the actor's self-interests. Hypocrites are people who implicitly or explicitly endorse principles that their behavior contradicts. Inconsistency by itself, however, does not necessarily denote hypocrisy." This is a summary of the literature, not their finding.
+- <strong>Intent to deceive is not needed</strong> (§4.2.2, pp. 679–680):
+  - "the intent to deceive others about one's attitudes or values is not necessarily required to judge an actor's behavior as hypocritical."
+  - About 73% judged hypocritical a woman openly believing premarital sex wrong while engaging in it; about 57% judged hypocritical a parent who candidly admits youthful indiscretions but forbids them.
+  - Still, "deception significantly increases judgments of hypocrisy … simply withholding information … increases hypocrisy, and outright lies increase them even more."
+- <strong>Weakness of will</strong> (§4.2.4): "failures of the will are often seen as distinct from hypocrisy, at least when they represent momentary lapses. Observers are far less tolerant of repeated lapses." But "one-time failures are judged just as hypocritical as repeat failures when those failures involve a priest". So role obligations override the weakness-of-will excuse.
+- <strong>Self-deception</strong> (§4.2.6): "self-deception only weakly influenced hypocrisy judgments." In some cases it aggravates rather than mitigates, as with a self-deceived gay man active in an anti-gay organization.
+- <strong>Role-based or implied standards</strong> (§4.3.1): "attitudes need not be stated explicitly for people to be considered hypocritical; rather, it suffices for behavior to contradict the assumptions of the social role that a person occupies."
+- <strong>Public statement not necessary, but blaming others is decisive</strong> (§4.3.2): "public expressions are not necessary … what matters most … is the hypocrite's attitude toward others. The fact that actors whose behaviors contradict their own attitudes are critical of others who do the same suffices to render a judgment of hypocrisy in almost all participants."
+- <strong>Motives</strong> (§4.3.6): "Hypocrisy was reduced when the actor's motives were prosocial."
+- <strong>General Discussion</strong> (pp. 688–690): "hypocrisy necessarily entails some sort of inconsistency between people's behaviors and their explicitly-stated or implied attitudes." Also: "people are frequently seen as hypocritical even when they make no attempt to deceive, although the intent to deceive clearly increases perceived hypocrisy." And, as an aggravator: "the air of superiority they evince."</p>
+<p><strong>Effron, O'Connor, Leroy &amp; Lucas (2018): from inconsistency to hypocrisy</strong>
+- Citation: "From inconsistency to hypocrisy: When does 'saying one thing but doing another' invite condemnation?", <em>Research in Organizational Behavior</em> 38: 61–75, doi:10.1016/j.riob.2018.10.003.
+- The full text was blocked (ScienceDirect captcha; the core.ac.uk mirror was Cloudflare-blocked). Metadata [ABS] came from <a href="https://doi.org/10.1016/j.riob.2018.10.003">OpenAlex</a>. Content [SEC] comes from O'Connor et al. 2020 and the LBS repository.
+- O'Connor et al. 2020 (p. 8) quote its definition: inconsistency is interpreted as hypocrisy "if they believe the actor has 'claimed an undeserved moral benefit,' defined as a social or psychological reward for virtuous behavior (Effron, O'Connor et al., 2018, p. 65)."
+- They summarize its review: "to condemn actions as hypocritical, observers not only need to detect inconsistency, but also must make a morally discrediting attribution about why the inconsistency occurred … hypocrisy is an interpretation of inconsistent behaviors' meaning, not merely a perception that behaviors are inconsistent" (p. 7). — <a href="https://lbsresearch.london.edu/id/eprint/1398/">O'Connor, Effron &amp; Lucas 2020 accepted MS</a> [FT]
+- The search-engine summary of the 2018 abstract says audiences condemn misalignment when they "interpret such misalignment as a claim to an undeserved moral benefit (i.e., interpret it as hypocrisy)" [SNIP].
+- Effron's research-program summary (LBS record "Moral inconsistency"): "people only condemn others' inconsistency as hypocrisy if they think the others are enjoying an 'undeserved moral benefit.'" — <a href="https://lbsresearch.london.edu/id/eprint/2626">LBS Research Online eprint 2626</a> [ABS]</p>
+<p><strong>O'Connor, Effron &amp; Lucas (2020): neither a false signal nor deception is necessary</strong>
+- Citation: "Moral cleansing as hypocrisy: When private acts of charity make you feel better than you deserve," <em>JPSP</em> 119(3): 540–559, doi:10.1037/pspa0000195 [FT].
+- Abstract: "Hypocrisy does not require appearing more virtuous than you are; it suffices to feel more virtuous than you deserve." Seven experiments, N = 3,468.
+- Discussion: "private and anonymous good deeds can seem hypocritical implies that false moral signals (Jordan et al., 2017), the intent to deceive others (Crisp &amp; Cowton, 1994), and publicly condemning others … are not necessary to elicit hypocrisy judgments. Additionally, Study 5 suggests that even inconsistency itself may be unnecessary." — <a href="https://lbsresearch.london.edu/id/eprint/1398/">LBS accepted MS</a>
+- They report Monin &amp; Merritt (2012, p. 171) as holding that inconsistency counts as hypocrisy only if it involves the "false appearance of virtue" [SEC; chapter not opened].
+- They report Simons (2002) defining hypocrisy as "inconsistency between talk and action" (p. 20), which "does not consider the morality of principles, but rather focuses on the extent to which stated principles are seen as aligning with actions" (p. 19) [SEC]. — <a href="https://lbsresearch.london.edu/id/eprint/1398/">O'Connor et al. 2020, pp. 5–7</a></p>
+<p><strong>Effron, Lucas &amp; O'Connor (2015): hypocrisy by association (the standard need not be one's own)</strong>
+- Citation: "Hypocrisy by association: When organizational membership increases condemnation for wrongdoing," <em>Organizational Behavior and Human Decision Processes</em> 130: 147–159 [ABS].
+- Abstract: "Four experiments document the hypocrisy-by-association effect, whereby failing to practice what an organization preaches can make an employee seem hypocritical and invite moral condemnation. Participants judged employees more harshly for the same transgression when it was inconsistent with ethical values the employees' organization promoted, and ascriptions of hypocrisy mediated this effect."
+- Further: "employees are seen as morally obligated to uphold the values that their organization promotes, even by people outside of the organization." — <a href="https://lbsresearch.london.edu/id/eprint/761">LBS Research Online eprint 761</a>; <a href="https://econpapers.repec.org/RePEc:eee:jobhdp:v:130:y:2015:i:c:p:147-159">RePEc record</a></p>
+<p><strong>Kreps, Laurin &amp; Merritt (2017): moral flip-flops</strong>
+- Citation: "Hypocritical flip-flop, or courageous evolution? When leaders change their moral minds," <em>JPSP</em> 113(5): 730–752, doi:10.1037/pspi0000103 [ABS].
+- Abstract: "audiences believe moral commitments should not be broken, and thus that they deride as hypocritical leaders who claim a moral commitment and later change their views."
+- "the effect persisted even among participants who fully endorsed the new view." 15 studies, N = 5,552.
+- Justifications such as a transformative experience or external circumstances made leaders seem "more courageous, but no less hypocritical." — <a href="https://doi.org/10.1037/pspi0000103">OpenAlex record</a></p>
+<p><strong>Hale &amp; Pillow (2015): typology built on Crisp &amp; Cowton</strong>
+- Citation: "Asymmetries in perceptions of self and others' hypocrisy: Rethinking the meaning and perception of the construct," <em>European Journal of Social Psychology</em> 45(1): 88–98, doi:10.1002/ejsp.2064 [FT via PMC].
+- They operationalize Crisp &amp; Cowton's forms:
+  - <strong>inconsistency</strong>: "the profession of a moral requirement of others that one fails to abide by oneself"
+  - <strong>pretence</strong>: "any implicit or explicit profession that one has a quality or characteristic that one knowingly does not actually possess"
+  - <strong>blame</strong>: "expressing moral indignation by attempting to criticise, derogate, or point out the faults of another person's behaviour"
+  - <strong>complacency</strong>: quoting Crisp &amp; Cowton, people who "take morality seriously in very unimportant ways, ignoring its demands where their fulfillment appears costly."
+  - They add a fifth form, "indirect inconsistency." — <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4847726">PMC4847726</a></p>
+<p><strong>Jeffers &amp; Schaefer (2025): signaling functionalism</strong>
+- Citation: "The function of hypocrisy norms," <em>Utilitas</em> 37: 123–140, doi:10.1017/S0953820825000044 [FT, open access].
+- They identify "non-additivity" ("good words do not offset bad actions, nor do good actions offset bad words") and "content independence" ("we condemn hypocrisy regardless of whether we would condemn the words or actions in isolation").
+- They model hypocrisy norms as "a strategy for raising the cost of sending false signals about one's commitment to a social norm" (pp. 123–125).
+- Their summary of the psych literature: "Kreps et al. (2017) and Effron et al. (2018) focus on determining when inconsistency between words and actions is interpreted as hypocrisy rather than a legitimate change of opinion" (p. 124 n. 2). — <a href="https://doi.org/10.1017/S0953820825000044">Cambridge open access PDF</a></p>
+<h3 id="inferences">Inferences</h3>
+<ul>
+<li>The claim that hypocrisy requires <em>the agent's own</em> professed standard is false for lay judgment. Two findings defeat it:</li>
+<li>Hypocrisy-by-association: observers ascribe hypocrisy for violating values the agent's organization promotes.</li>
+<li>Alicke et al. §4.3.1: violating "the assumptions of the social role" suffices.</li>
+<li>A model operating under an operator's charter is structurally an agent bound to an organization's promoted values. In the model's case the analysis also <em>restates</em> those values in its own output, which strengthens the case beyond the employee in Effron et al. 2015.</li>
+<li>The temporal order in the paper's setup, a charter-faithful analysis <em>then</em> a compromising action, is exactly the order Barden et al. (and Wagner et al. 2009, "proactive" CSR statements) found maximizes hypocrisy judgments. The usual mitigator, dispositional change or "turning over a new leaf", is hard to invoke within a single episode. Kreps et al. show that even change-of-mind is often read as hypocrisy once a <em>moral</em> commitment has been claimed.</li>
+<li>Jordan et al.'s false-signaling theory defines hypocrisy by the signal's <em>informational</em> falsity (condemnation implies the speaker won't act that way), not by the speaker's psychology. A model's faithful analysis that precedes a non-faithful action is a false signal in exactly that informational sense. The "honest hypocrite" result predicts that a model whose analysis <em>disclosed</em> that it would not follow the priority would not be judged hypocritical. That is a testable design lever (a disclosure condition).</li>
+<li>Batson's motive-based construct is one operationalization among several. The reviewers' objection is valid against a <em>Batson-strict</em> framing but not against the judgment-based accounts (Barden, Alicke, Jordan, Effron).</li>
+</ul>
+<h3 id="gaps">Gaps</h3>
+<ul>
+<li>I could not open the full texts of Jordan et al. 2017, Effron et al. 2018, Kreps et al. 2017 (beyond the abstract) or Barden et al. 2005 (beyond the abstract). The verbatim definitions on Effron et al. 2018 p. 65 and Monin &amp; Merritt 2012 p. 171 are second-hand via O'Connor et al. 2020.</li>
+<li>Monin &amp; Merritt (2012), in Mikulincer &amp; Shaver (eds.), <em>The Social Psychology of Morality</em>: I did not open the chapter. Only O'Connor et al.'s quotation ("false appearance of virtue," p. 171) and a snippet saying it distinguishes hypocrisy from inconsistency are available.</li>
+<li>Effron &amp; Miller (2015) ("do as I say, not as I've done"; suffering makes preaching seem genuine) is known only via O'Connor et al. 2020 [SEC].</li>
+<li>I did not open the moral-licensing / moral-credentials primary literature (e.g. Monin &amp; Miller 2001; Effron &amp; Monin 2010). See Q3.</li>
+</ul>
+<hr />
+<h2 id="q2-philosophical-accounts-which-require-insincerity-or-deception-which-require-self-interest-and-which-concern-standing-to-blame">Q2. Philosophical accounts: which require insincerity or deception, which require self-interest, and which concern standing to blame?</h2>
+<h3 id="takeaway_1">Takeaway</h3>
+<p>The philosophical literature has three families, plus pluralist accounts that subsume them:
+1. <strong>Pretense or deception accounts</strong> (Ryle, Kittay, McKinnon, Szabados &amp; Soifer, Hare). These require insincerity or misrepresentation. Theorists split on whether the deception must be intentional or may be self-deceptive (Statman), and on whether it must be self-interested.
+2. <strong>Blame or standing accounts</strong> (Wallace; Todd; Roadevin; Fritz &amp; Miller). These concern the hypocritical <em>blamer</em>'s loss of standing. Self-interest is not required. Insincerity is either not required or reconstructed as lack of commitment (Todd).
+3. <strong>Character or seriousness accounts</strong> (Crisp &amp; Cowton: a failure to take morality seriously).</p>
+<p>Pluralist accounts (Isserow &amp; Klein's "moral authority" view) hold that <strong>no particular motive, intention to deceive, self-interest, or awareness is necessary</strong>. On their view hypocrisy is any mismatch between judgments and actions that undermines one's claim to moral authority, and it extends explicitly to <strong>groups and states</strong>.</p>
+<h3 id="cited-findings_1">Cited Findings</h3>
+<p><strong>Isserow &amp; Klein (2017): moral authority, multiply realizable, the best map of the field</strong>
+- Citation: "Hypocrisy and moral authority," <em>Journal of Ethics and Social Philosophy</em> 12(2): 191–222, doi:10.26556/jesp.v12i2.224. <a href="https://jesp.org/pdf/36346f73-90e0-81bc-9d74-c9760c578309">FT: JESP PDF</a>; <a href="https://www.jesp.org/index.php/jesp/article/view/224/622">abstract page</a>.
+- Abstract: "We propose that hypocrites are persons who have undermined their claim to moral authority. Since this self-undermining can occur in a number of ways, our account construes hypocrisy as multiply realizable."
+- §1, p. 191: "mere mismatches cannot suffice to single out the phenomenon of hypocrisy," because people change their minds and "succumb to weakness of will" (p. 192).
+- p. 192: "If hypocrites were just liars, we would need no special category to condemn them—we already condemn liars."
+- p. 192 n. 2: hypocrisy is "structurally similar to change of mind and weakness of will … weakness of will is often invoked as an alternative defense against a charge of hypocrisy."
+- <strong>Core thesis</strong> (§3.1, p. 201): "paradigmatic hypocrites are persons who by mismatch between judgments and actions, have undermined any claim they have to act as a moral authority."
+- The four paradigm features (p. 201) are "exemplary," not necessary (n. 20):
+  1. "the hypocrite expresses an unfavorable moral opinion of some action, and is then caught performing that very same action"
+  2. "the pronouncements in question tend to involve criticism"
+  3. "the hypocrite occupies a trusted position"
+  4. the inconsistency changes "their terms of interaction with others"
+- <strong>No motive required</strong> (§3.3, p. 209): "it does not explain this characteristic opprobrium by attributing any particular kind of deplorable character trait, unworthy motive, or cruel intentions … This formulation is permissive; it leaves the source of the mismatch entirely open. It might be explained by an intention to deceive or manipulate … But on our view, none is necessary."
+- <strong>Change of mind is not hypocrisy</strong> (§3.2, pp. 206–207): a change of moral views over time "does not necessarily undermine their claim to moral authority; for it might be representative of careful reconsideration."
+- <strong>Groups</strong> (§3.3, p. 210): "our account allows for extension of the concept of hypocrisy to groups … China accuses the United States of hypocrisy on human rights … activist Naomi Klein charges large corporations with hypocrisy about attitudes toward the environment. These charges are obviously intelligible."
+- Against Wallace (§4.2, p. 215): "it is not at all obvious that nations, corporations, and political parties have reactive attitudes … Claims of intergroup hypocrisy ought to be intelligible regardless of whether groups have the same sorts of attitudes as individuals." On the US example (p. 218), the charge "is not (necessarily) to resent the nation; rather, it is first and foremost to claim that the United States's high-handed pronouncements on foreign policy ought not to be taken seriously."
+- <strong>Their map of the pretense family</strong> (§4.1, pp. 210–213):
+  - The "most common position … takes it to consist in a kind of deception; in pretending 'to motives and moods' or to 'certain standards' that one does not really have" (citing Ryle 1949, p. 172; Taylor 1981, pp. 144–45).
+  - McKinnon: the hypocrite "dissembles precisely because she wants people to think better of her."
+  - Szabados &amp; Soifer's Aristotelian account: hypocrites "do the right thing for the wrong reasons, all the while pretending that they are responsive to the right reasons" (citing "Hypocrisy after Aristotle," p. 563).
+  - "Theorists divide regarding whether the deception here must be intentional. Hare seems to think so, as does McKinnon in early work. Others disagree. Statman … suspects that hypocrisy is incredibly likely to be the product of self-deception."
+  - Szabados &amp; Soifer "concede that the deceit need not always be intentional."
+  - "There is also some disagreement as to whether the pretense must be driven by self-interested concerns … some have answered in the affirmative" (citing McKinnon 2002, p. 722; Szabados 1979, p. 203).
+- <strong>Against intention and awareness as requirements</strong> (p. 211): "An intention to deceive does not appear to be a necessary condition on hypocrisy. It seems perfectly conceivable that someone could live out their days wholly unaware of any hypocrisy on their part." Following Statman, "I suddenly feel that I have been a hypocrite all my life" is not conceptually confused. Wallace observes that "some people are blind to their own shortcomings."
+- <strong>Against self-interest as a requirement</strong> (p. 212): "hypocrites can have noble motives. Consider the father who hides his smoking from his children, inveighing against the unhealthy habit out of concern for them … his children would seem right to accuse him of a hypocrisy."
+  - Szabados broadens "self-interest" to having "some personal stake" in the "project of pretence" (Szabados 1979, pp. 204–5). Isserow &amp; Klein "agree with Crisp and Cowton that this strategy confuses motivation and justification" (citing Crisp &amp; Cowton, p. 348 n. 7).
+  - Conclusion (p. 213): "we see no reason for thinking that it is a constraint on hypocrisy more generally that it must be driven by self-interested concerns."
+- <strong>Summary</strong> (§4.4, p. 218): "no particular motive, lack of motive, or violation of any specific moral principle is necessary for hypocrisy, within context each can suffice when it results in a mismatch of the relevant kind."
+- On Crisp &amp; Cowton (§4.3, pp. 215–216): they "understand hypocrisy as a failure to take morality seriously"; their account is "multiply realizable" but applies to <em>hypocrites</em> (persons) rather than hypocritical <em>acts</em> (citing Crisp &amp; Cowton, p. 347).
+- On Shklar (p. 216, quoting "Let Us Not Be Hypocritical," p. 7): few of us "have the resources to become self-aware, scheming, accomplished hypocrites like Uriah Heep."</p>
+<p><strong>Crisp &amp; Cowton (1994): moral seriousness</strong>
+- Citation: "Hypocrisy and moral seriousness," <em>American Philosophical Quarterly</em> 31(4): 343–349. <a href="https://eprints.hud.ac.uk/id/eprint/32981/">Huddersfield eprint record</a> [ABS; no PDF available].
+- Abstract: "recent discussion of hypocrisy has foundered through a failure to recognise distinct forms of hypocrisy. We shall outline these different forms, and then consider various views on what they have in common."
+- The four forms (inconsistency, pretence, blame, complacency) and their quoted wording come via Hale &amp; Pillow 2015 [SEC]. — <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4847726">PMC4847726</a>
+- The unifying thesis, a failure to take morality seriously, comes via Isserow &amp; Klein §4.3 [SEC].</p>
+<p><strong>Wallace (2010): hypocritical moral address and the equal standing of persons</strong>
+- Citation: "Hypocrisy, moral address, and the equal standing of persons," <em>Philosophy &amp; Public Affairs</em> 38(4): 307–341, doi:10.1111/j.1088-4963.2010.01195.x. Metadata <a href="https://doi.org/10.1111/j.1088-4963.2010.01195.x">ABS via OpenAlex</a>. I could not get the full text.
+- Isserow &amp; Klein (§4.2, pp. 213–214) [SEC]:
+  - Wallace confines himself to "hypocritical moral address," cases where the agent is "actively exercised" about a moral issue (Wallace p. 312).
+  - The wrong is offending "the commitment to the equality of persons that is constitutive of moral relations" (Wallace p. 308).
+  - The hypocrite treats their own interest in avoiding blame as more important than the target's (Wallace pp. 328–29).
+  - The hypocrite subverts morality "from within" (Wallace p. 335).
+  - Isserow &amp; Klein credit Wallace's as "one of few [accounts] that does not specifically depend on attributing hidden agendas or deficiencies of character to hypocrites (e.g., an intention to deceive …)."
+- A course handout [SEC, lower quality] summarizes Wallace pp. 317–329:
+  - Moral <em>exhortation</em> by someone who does the same thing ("Let's not fly or drive …") is not undermined because it involves no "deception or insincerity" (pp. 317–318).
+  - Critical blame "tacitly generates" a commitment to self-scrutiny that the hypocrite violates (p. 326).
+  - "the fact of inconsistency doesn't explain the egregious nature of hypocrisy" (p. 325). — <a href="https://sandyber.github.io/philosophy/pdfs/morpsy/2021/handout4.pdf">Moral Psychology Spring 2021 handout 4</a></p>
+<p><strong>Todd (2019): unified account of the standing to blame</strong>
+- Citation: "A unified account of the moral standing to blame," <em>Noûs</em> 53(2): 347–374, doi:10.1111/nous.12215 [ABS via OpenAlex; the full text at Edinburgh and PhilArchive was Cloudflare-blocked].
+- Abstract: the conditions on standing include "1. One's blame would not be 'hypocritical'. 2. One is not oneself 'involved in' the target agent's wrongdoing … condition (2) reduces to condition (1): when 'involvement' removes someone's standing to blame, it does so only by indicating something further about that agent, viz., that he or she lacks commitment to the values that condemn the wrongdoer's action."
+- The paper also discusses "the difference between mere inconsistency and hypocrisy." — <a href="https://doi.org/10.1111/nous.12215">OpenAlex record</a>
+- A PhilArchive draft line, seen only in a search snippet [SNIP]: "lacking moral standing is a matter – and only a matter – of lacking a certain kind of commitment to morality."</p>
+<p><strong>Roadevin (2018): fairness and reciprocity</strong>
+- Citation: "Hypocritical blame, fairness, and standing," <em>Metaphilosophy</em> 49(1–2): 137–152, doi:10.1111/meta.12281.
+- Sources disagree on the volume (48 vs 49). The Nottingham repository was Cloudflare-blocked.
+- Repository and bibliographic snippets [SNIP]: the hypocritical blamer should not express blame "in the absence of an admission of fault"; hypocritical blame is unfair because it lacks reciprocity, demanding moral seriousness (e.g. apologies) from others without offering it. — <a href="https://nottingham-repository.worktribe.com/index.php/output/45849092/hypocritical-blame-fairness-and-standing">Nottingham repository record</a></p>
+<p><strong>Kittay (1982): self-referential deception</strong>
+- Citation: "On hypocrisy," <em>Metaphilosophy</em> 13(3–4): 277–289, doi:10.1111/j.1467-9973.1982.tb00685.x [metadata via OpenAlex; text not opened].
+- Snippet [SNIP]: the hypocrite "deceives about herself in just those matters where one's sincerity, the genuineness of one's attitudes, beliefs and [intentions] are at stake." — <a href="https://philarchive.org/rec/KITOH">PhilArchive record</a>
+- Alicke et al. (2013, p. 674) [FT] place Kittay among philosophers who hold that "hypocrisy also requires inauthenticity or the intent to deceive."
+- Isserow &amp; Klein (p. 212 n. 43) cite Kittay p. 285 for the claim that hypocrites sever "the act from the intention."</p>
+<p><strong>Statman (1997): hypocrisy merges into self-deception</strong>
+- Citation: "Hypocrisy and self-deception," <em>Philosophical Psychology</em> 10(1): 57–75, doi:10.1080/09515089708573204 [ABS].
+- Abstract: "Hypocrites are generally regarded as morally‐corrupt, cynical egoists who consciously and deliberately deceive others in order to further their own interests … I argue that hypocrisy typically involves or leads to self‐deception and, therefore, that real hypocrites are hard to find … a consistent and conscious deception of society is self-defeating from the point of view of egoistical hypocrites. The best way for them to achieve their ends would be to believe in the deception." — <a href="https://doi.org/10.1080/09515089708573204">OpenAlex record</a></p>
+<p><strong>Szabados &amp; Soifer (2004)</strong>
+- Citation: <em>Hypocrisy: Ethical Investigations</em>, Peterborough, ON: Broadview, 352 pp., ISBN 9781551115573. Not opened.
+- Table-of-contents data [SNIP]: chapters include "Self-Deceptive Hypocrisies: The Complacent, the Self-Righteous, and the Cynical," "Virtue Ethics: Hypocrisy After Aristotle," "Double Standards and Equality," "Hypocrisy and Deception," and a chapter on hypocrisy, change of mind, and weakness of will. — <a href="https://broadviewpress.com/product/hypocrisy/">Broadview product page</a>
+- A review (M. P. Nelson, <em>Books in Canada</em>) [FT]: the book identifies hypocrisy's "necessary conditions" and "pinpoint[s] the interesting and crucial relationship between hypocrisy and acts of deception." It gives no definition. — <a href="https://booksincanada.com/article_view.asp?id=4576">Books in Canada review</a>
+- Their substantive positions above come via Isserow &amp; Klein [SEC]: pretense, possibly unintentional, often self-advancing.
+- Related articles: Szabados &amp; Soifer, "Hypocrisy after Aristotle," <em>Dialogue</em> 37(3) (1998): 545–570. "Hypocrisy, Change of Mind, and Weakness of Will: How to Do Moral Philosophy with Examples," <em>Metaphilosophy</em> 30(1–2) (1999). Isserow &amp; Klein's bibliography lists this one under Szabados alone, but their footnote 1 and Alicke et al. attribute it to Szabados &amp; Soifer.</p>
+<p><strong>Shklar (1984)</strong>
+- <em>Ordinary Vices</em> (Harvard UP), ch. "Let us not be hypocritical." An earlier version appeared as "Let Us Not Be Hypocritical," <em>Daedalus</em> 108(3) (1979): 1–25, per Isserow &amp; Klein's bibliography [SEC].
+- Quoted via Isserow &amp; Klein: hypocrisy as "the only unforgivable sin" (p. 1). The Crisp &amp; Cowton abstract quotes Shklar characterizing our age as one in which "hypocrisy … alone is … inexcusable."</p>
+<p><strong>SEP coverage</strong>
+- The Stanford Encyclopedia of Philosophy has <strong>no entry on hypocrisy</strong>: plato.stanford.edu/entries/hypocrisy/ returned 404 on 2026-11-04.
+- The SEP weakness-of-will entry does not mention hypocrisy. — <a href="https://plato.stanford.edu/entries/weakness-will/">SEP "Weakness of Will"</a> [FT]</p>
+<h3 id="inferences_1">Inferences</h3>
+<ul>
+<li><strong>Insincerity or deception is required by</strong>:</li>
+<li>the pretense family: Kittay; Szabados &amp; Soifer, in weakened form; early McKinnon; Hare.</li>
+<li>Batson, in a self-directed form: "appearing moral to oneself."</li>
+<li>Jordan et al., in an <em>informational</em> form: a false signal, not necessarily an intention.</li>
+<li><strong>Insincerity or deception is not required by</strong>: Isserow &amp; Klein, Wallace (in Isserow &amp; Klein's reading), Todd (lack of commitment, not lying), Crisp &amp; Cowton (the inconsistency and complacency forms), Alicke et al.'s lay data, and O'Connor et al. 2020.</li>
+<li><strong>Self-interest is required by</strong>: Batson ("yet still benefit oneself"), Szabados 1979 (broadened to a "personal stake"), and McKinnon (2002). Alicke et al.'s literature summary asserts it is widely assumed.</li>
+<li><strong>Self-interest is explicitly rejected as necessary by</strong>: Isserow &amp; Klein (the noble hypocrite), Crisp &amp; Cowton (who say requiring it confuses motivation with justification). Alicke et al.'s data show prosocial motives reduce but do not eliminate attributions.</li>
+<li><strong>Standing to blame</strong> (Wallace, Todd, Roadevin, Fritz &amp; Miller) analyses the <em>hypocritical blamer</em>. It mostly does not apply to the paper's case unless the model's analysis condemns the very option it then takes. Even then, the model is not blaming <em>a person</em>. These accounts are the weakest fit and should be set aside explicitly, not stretched.</li>
+<li>Todd's reduction of hypocrisy to lack of commitment to the values is promising for a model analogue. "Commitment" can be operationalized behaviorally as whether the action policy tracks the stated priority under cost. That is an analogue, not a literal attribution of a commitment attitude.</li>
+</ul>
+<h3 id="gaps_1">Gaps</h3>
+<ul>
+<li>Primary full texts not opened: Wallace 2010, Crisp &amp; Cowton 1994, Kittay 1982, Szabados &amp; Soifer 2004 and the 1998/1999 articles, Shklar 1984, McKinnon 1991/2002, Roadevin 2018, Todd 2019 (beyond the abstract). The verbatim definitions from these come via Isserow &amp; Klein, Hale &amp; Pillow, or abstracts. The paper should check exact wording in the originals before quoting.</li>
+<li>Fritz &amp; Miller ("Hypocrisy and the standing to blame," 2018; "The unique badness of hypocritical blame," 2019), Piovarchy, and Isserow's "Subjunctive hypocrisy" were surfaced but not opened.</li>
+</ul>
+<hr />
+<h2 id="q3-how-does-hypocrisy-differ-from-weakness-of-will-self-deception-mere-inconsistency-lying-and-moral-licensing">Q3. How does hypocrisy differ from weakness of will, self-deception, mere inconsistency, lying and moral licensing?</h2>
+<h3 id="takeaway_2">Takeaway</h3>
+<ul>
+<li><strong>Akrasia</strong> is an <em>intrapersonal</em> judgment–action gap: acting intentionally against one's own all-things-considered judgment (Davidson), or unreasonably abandoning a resolution (Holton). It needs no audience, claim or profession.</li>
+<li><strong>Hypocrisy</strong> is an <em>interpersonal or social</em> phenomenon: a profession, claim, or role-borne standard that others can rely on, contradicted by conduct.</li>
+<li><strong>Self-deception</strong> is the <em>mechanism</em> Batson and Statman invoke to explain how hypocrites keep a moral self-image. It is not a definitional condition in the judgment literature.</li>
+<li><strong>Lying</strong> is a separate wrong. Hypocrites are judged <em>worse</em> than liars (Jordan et al.).</li>
+<li><strong>Moral licensing</strong> (good deeds licensing later bad ones) is an inconsistency observers condemn as hypocrisy when they think the agent is reaping undeserved moral credit (O'Connor et al. 2020).</li>
+</ul>
+<h3 id="cited-findings_2">Cited Findings</h3>
+<ul>
+<li><strong>Davidson's definition of incontinence</strong>, quoted verbatim in SEP §2: "In doing b an agent acts incontinently if and only if: (a) the agent does b intentionally; (b) the agent believes there is an alternative action a open to him; and (c) the agent judges that, all things considered, it would be better to do a than to do b."</li>
+<li>The "all things considered" judgment "is conditional or relational rather than all-out or unconditional in form."</li>
+<li>Davidson's principles P1 and P2 rule out intentional action only against an <em>unconditional</em> judgment.</li>
+<li>Source: Davidson, "How is weakness of the will possible?" (1969; repr. in <em>Essays on Actions and Events</em>, 1980). — <a href="https://plato.stanford.edu/entries/weakness-will/">SEP "Weakness of Will," Stroud &amp; Svirsky, rev. 2025-09-18</a> [FT]</li>
+<li><strong>The general SEP characterization</strong>: acting "freely and intentionally, contrary to his better judgment." — <a href="https://plato.stanford.edu/entries/weakness-will/">SEP "Weakness of Will"</a></li>
+<li><strong>Holton (1999, "Intention and weakness of will," <em>Journal of Philosophy</em> 96(5))</strong>, as reported in SEP §3.3: "weakness of will is not action contrary to one's better judgment at all" but "a certain kind of failure to stick to one's plans." It is "specifically, a failure to act on a resolution," and has an "irreducible normative dimension," namely whether the revision was reasonable. — <a href="https://plato.stanford.edu/entries/weakness-will/">SEP "Weakness of Will" §3.3</a> [SEC; Holton not opened]</li>
+<li><strong>Self-deception (SEP)</strong>:</li>
+<li>Static paradox: "How can a person simultaneously hold contradictory beliefs?"</li>
+<li>Dynamic paradox: "How can a person intend to deceive herself without rendering her intentions ineffective?"</li>
+<li>Mele's deflationary conditions include "S treats data relevant … to the truth value of p in a motivationally biased way."</li>
+<li>§7 covers <em>collective</em> self-deception, including non-summative collective subjects (e.g. Trivers on NASA and the Challenger disaster). — <a href="https://plato.stanford.edu/entries/self-deception/">SEP "Self-Deception," rev. 2023-03-13</a> [FT, first 100k chars; author line not captured]</li>
+<li><strong>von Hippel &amp; Trivers (2011)</strong>, "The evolution and psychology of self-deception," <em>Behavioral and Brain Sciences</em> 34(1): 1–16, doi:10.1017/S0140525X10001354 [ABS]:</li>
+<li>"self-deception evolved to facilitate interpersonal deception by allowing people to avoid the cues to conscious deception that might reveal deceptive intent."</li>
+<li>It also "eliminates the costly cognitive load … and it can minimize retribution if the deception is discovered."</li>
+<li>It works "through dissociations of mental processes, including conscious versus unconscious memories … automatic versus controlled processes." — <a href="https://doi.org/10.1017/S0140525X10001354">OpenAlex record</a></li>
+<li><strong>Batson et al. (1999)</strong> locate self-deception in <em>avoiding the comparison</em> of behavior with standards. Making the standard salient through self-awareness restored fair behavior. — <a href="https://doi.org/10.1037/0022-3514.77.3.525">OpenAlex</a> [ABS]</li>
+<li><strong>Statman (1997)</strong>: "hypocrisy typically involves or leads to self-deception … real hypocrites are hard to find." — <a href="https://doi.org/10.1080/09515089708573204">OpenAlex</a> [ABS]</li>
+<li><strong>Weakness of will versus hypocrisy in lay judgment</strong>: momentary lapses are often distinct from hypocrisy, repeated or role-bound lapses are not (Alicke et al. 2013 §4.2.4). — <a href="https://davdrose.github.io/assets/pdf/Hypocrisy-%20what%20counts.pdf">Alicke et al. PDF</a> [FT]</li>
+<li><strong>Philosophical view on weakness of will and change of mind</strong>: Isserow &amp; Klein treat both as non-hypocritical mismatches. Weakness of will "is often invoked as an alternative defense against a charge of hypocrisy" (p. 192 n. 2). — <a href="https://jesp.org/pdf/36346f73-90e0-81bc-9d74-c9760c578309">Isserow &amp; Klein</a> [FT]</li>
+<li><strong>Lying versus hypocrisy</strong>:</li>
+<li>"If hypocrites were just liars, we would need no special category" (Isserow &amp; Klein p. 192).</li>
+<li>Hypocrites who condemn are viewed less favorably than liars who directly deny (Jordan et al. Study 3, via the APS release). — <a href="https://www.psychologicalscience.org/news/releases/we-dislike-hypocrites-because-they-deceive-us.html">APS</a> [SEC]</li>
+<li><strong>Mere inconsistency versus hypocrisy</strong>: hypocrisy is "a morally discrediting attribution for such misalignment" (Effron and colleagues' framing; [SNIP] via search). Hypocrisy is "an interpretation of inconsistent behaviors' meaning, not merely a perception that behaviors are inconsistent" (O'Connor et al. 2020, p. 7). — <a href="https://lbsresearch.london.edu/id/eprint/1398/">LBS</a> [FT]</li>
+<li><strong>Moral licensing and cleansing as hypocrisy</strong>:</li>
+<li>Effron's program "point[s] to people's ability to convince themselves they have a license to sin … using their behavioral history and others … to feel licensed." — <a href="https://lbsresearch.london.edu/id/eprint/2626">LBS eprint 2626</a> [ABS]</li>
+<li>Private good deeds that "cleanse" guilt for public vices are seen as hypocritical when they "successfully alleviated his guilt" (O'Connor et al. 2020 abstract). — <a href="https://lbsresearch.london.edu/id/eprint/1398/">LBS eprint 1398</a> [FT]</li>
+</ul>
+<h3 id="inferences_2">Inferences</h3>
+<ul>
+<li>For the paper, <strong>akrasia is the closest motive-free neighbor</strong>. A model that "knows" the charter-faithful verdict (it just wrote it) and acts otherwise has a judgment–action gap of the Davidsonian shape. The analysis functions as the all-things-considered judgment <em>under the charter</em>.</li>
+<li>But akrasia is intrapersonal and audience-free. The model's analysis is a <em>communicated</em> output relied on by an operator or user, which is the feature that distinguishes hypocrisy (Isserow &amp; Klein's "trusted position"; Jordan's signal).</li>
+<li>The defensible framing therefore has two parts:</li>
+<li>(i) a <em>say–do gap</em>, structurally hypocrisy-shaped on the Simons, Brunsson and Isserow–Klein axis, between a communicated standard-application and conduct.</li>
+<li>(ii) a claim <em>not</em> to have established Batson's motive or the self-deceptive mechanism.</li>
+<li><strong>Batson's self-awareness result inverts in the model case.</strong> In Batson (1999), making the standard salient closed the gap. In the paper's setup the standard is maximally salient: the model has just written the analysis in its context. If the gap persists, the model's gap is <em>not</em> Batson-type hypocrisy sustained by avoiding the comparison. It is closer to open (non-concealed) inconsistency or to akrasia with the judgment in view. This is my inference and is worth stating as a disanalogy that sharpens the claim.</li>
+<li>The model does not <em>lie</em> unless its analysis asserts that it will act accordingly, or claims to have done so. Most charter-faithful analyses are assertions about what the charter requires, not promises. So "lying" is the wrong frame unless the paper documents such self-reports.</li>
+<li>The moral-licensing analogue (the faithful analysis "licensing" the compromising act) is only an analogy. It would need evidence that producing the analysis <em>raises</em> the probability of the compromising act. That is an empirical, ablatable question: compare action rates with and without a preceding analysis.</li>
+</ul>
+<h3 id="gaps_2">Gaps</h3>
+<ul>
+<li>I did not open Davidson (1970) or Holton (1999) directly; both come via SEP.</li>
+<li>I did not open Mele (<em>Self-Deception Unmasked</em>, 2001) directly; his conditions come via SEP.</li>
+<li>Moral-licensing primary sources were not fetched in this lane: Monin &amp; Miller 2001; Merritt, Effron &amp; Monin 2010 review; Effron &amp; Monin 2010 on "letting people off the hook".</li>
+<li>I saw the SEP "Self-Deception" author attribution only as a page header that was truncated, so I have not recorded it.</li>
+</ul>
+<hr />
+<h2 id="q4-the-saydo-gap-without-motive-purely-behavioral-accounts-and-hypocrisy-attributed-to-non-persons-organizations-corporations">Q4. The say–do gap without motive: purely behavioral accounts, and hypocrisy attributed to non-persons (organizations, corporations)</h2>
+<h3 id="takeaway_3">Takeaway</h3>
+<p>There is an established literature that attributes hypocrisy to agents <em>without</em> personal self-interest or unified psychology, defining it structurally as decoupling or inconsistency between talk and action:
+- Brunsson's <strong>organized hypocrisy</strong>, a rational response to conflicting external demands.
+- Simons's <strong>behavioral integrity</strong>: "inconsistency between talk and action."
+- Wagner, Lutz &amp; Weitz's <strong>corporate hypocrisy</strong>: "the belief that a firm claims to be something that it is not."
+- Isserow &amp; Klein's extension to <strong>groups and states</strong>.</p>
+<p>This is the strongest precedent for applying "hypocrisy" to a language model.</p>
+<h3 id="cited-findings_3">Cited Findings</h3>
+<ul>
+<li><strong>Brunsson's framework.</strong> Nils Brunsson, <em>The Organization of Hypocrisy: Talk, Decisions and Actions in Organizations</em> (Chichester: Wiley, 1989; 2nd ed. 2002). Wikipedia confirms the 1989 and 2002 editions. — <a href="https://en.wikipedia.org/wiki/Nils_Brunsson">Wikipedia: Nils Brunsson</a> [FT]</li>
+<li>The book is not opened. Secondary summaries [SNIP]: Brunsson distinguishes three organizational outputs, talk, decisions and actions, which may be decoupled. Hypocrisy is a rational response to conflicting stakeholder demands.</li>
+<li>The often-quoted formulation "to talk in a way that satisfies one demand, to decide in a way that satisfies another, and to supply products in a way that satisfies a third" could not be verified against the book in this search. Do <strong>not</strong> quote it without checking the 2002 edition.</li>
+<li><strong>Cho, Laine, Roberts &amp; Rodrigue (2015).</strong> "Organized hypocrisy, organizational façades, and sustainability reporting," <em>Accounting, Organizations and Society</em> 40: 78–94, doi:10.1016/j.aos.2014.12.003 [SNIP/metadata].</li>
+<li>Applies Brunsson to the talk, decisions and actions of two oil and gas multinationals.</li>
+<li>Argues conflicting societal and institutional pressures push organizations toward hypocrisy and façades. — <a href="https://econpapers.repec.org/RePEc:eee:aosoci:v:40:y:2015:i:c:p:78-94">EconPapers record</a></li>
+<li><strong>Wagner, Lutz &amp; Weitz (2009).</strong> "Corporate hypocrisy: Overcoming the threat of inconsistent corporate social responsibility perceptions," <em>Journal of Marketing</em> 73(6): 77–91, doi:10.1509/jmkg.73.6.77 [ABS].</li>
+<li>Abstract: "Reports of firms' behaviors with regard to corporate social responsibility (CSR) are often contrary to their stated standards of social responsibility."</li>
+<li>"a proactive communication strategy (when the firm's CSR statements precede conflicting observed behavior) leads to higher levels of perceived hypocrisy than a reactive strategy (when the firm's CSR statements follow observed behavior)." This is the corporate-level replication of Barden et al.'s order effect.</li>
+<li>"an inoculation communication strategy reduces perceived hypocrisy." — <a href="https://doi.org/10.1509/jmkg.73.6.77">OpenAlex record</a></li>
+<li>The definition "the belief that a firm claims to be something that it is not" is confirmed only via search snippets [SNIP]. A Brunel CfP restates it as "the discrepancy between a firm's CSR behaviour and its stated standards of CSR (Wagner, Lutz, and Weitz, 2009)". — <a href="https://bura.brunel.ac.uk/bitstream/2438/20772/2/FullText.pdf">Brunel CfP PDF</a> [FT]</li>
+<li>The same CfP notes Wagner, Korschun &amp; Troebs distinguishing "moral hypocrisy, behavioral hypocrisy, and hypocrisy attributions" as three facets of corporate hypocrisy perceptions.</li>
+<li><strong>Simons (2002), behavioral integrity.</strong> Hypocrisy as "inconsistency between talk and action" (p. 20), a view that "does not consider the morality of principles, but rather focuses on the extent to which stated principles are seen as aligning with actions" (p. 19). — via <a href="https://lbsresearch.london.edu/id/eprint/1398/">O'Connor et al. 2020, p. 5</a> [SEC]</li>
+<li><strong>Organizational consequences.</strong> O'Connor et al. (2020, p. 4) note: "When organizations themselves seem hypocritical, their reputations and stock prices can take a hit (Janney &amp; Gove, 2011; Stoll, 2002; Wagner, Lutz, &amp; Weitz, 2009)." — <a href="https://lbsresearch.london.edu/id/eprint/1398/">LBS</a> [FT]</li>
+<li><strong>Philosophy on groups.</strong> Isserow &amp; Klein accept hypocrisy of the US, of parties, and of corporations, and hold that such charges "ought to be intelligible regardless of whether groups have the same sorts of attitudes as individuals" (p. 215). — <a href="https://jesp.org/pdf/36346f73-90e0-81bc-9d74-c9760c578309">Isserow &amp; Klein</a> [FT]</li>
+<li><strong>Hypocrisy norms as signal-reliability devices.</strong> Jeffers &amp; Schaefer's functionalist account explains hypocrisy norms as raising "the cost of sending false signals about one's commitment to a social norm." It is agnostic about the signaler's psychology. — <a href="https://doi.org/10.1017/S0953820825000044">Utilitas 2025</a> [FT]</li>
+</ul>
+<h3 id="inferences_3">Inferences</h3>
+<ul>
+<li><strong>Organizational hypocrisy is the closest structural analogue to the paper's case</strong>, and it answers the reviewers directly.</li>
+<li>Brunsson's organizations have no single self-interested mind. They have conflicting demands, and they satisfy one demand in talk and another in action.</li>
+<li>A model under a charter that also faces user pressure is in the same position. Its analysis (talk) satisfies the charter, and its action satisfies the competing pressure.</li>
+<li>This is "hypocrisy" in a sense with forty years of literature behind it that does <em>not</em> require self-interest, awareness, or insincerity. It requires only decoupling between professed standards and conduct in an agent that others rely on.</li>
+<li>Wagner et al.'s and Barden et al.'s order effect transfers. Statement-then-conduct is what makes perceived hypocrisy highest. The paper's analysis-then-action design matches the "proactive" condition.</li>
+<li>The most defensible claim is therefore not "the model is a moral hypocrite (Batson)." It is that "the model exhibits a structural say–do decoupling of the kind attributed to organizations as organized/corporate hypocrisy, satisfying the inconsistency, professed-standard (role- or charter-borne), and temporal-order conditions, while the motive, awareness and blame conditions are either unmet or met only by analogy."</li>
+</ul>
+<h3 id="gaps_3">Gaps</h3>
+<ul>
+<li>I did not open Brunsson's book. His exact definitional wording is unverified here.</li>
+<li>I did not open the full texts of Cho et al. 2015 or Simons 2002 (<em>Organization Science</em> 13(1): 18–35, citation not verified here).</li>
+<li>AI-specific uses of "hypocrisy" surfaced but were not opened, and are left to the AI-lane researchers. They include Nunes et al., "Are Large Language Models Moral Hypocrites? A Study Based on Moral Foundations" (arXiv:2405.11100), which reportedly defines hypocrisy as a contradiction between professed values and concrete moral evaluations, and "The Seeds of Scheming: Weakness of Will in the Building Blocks of Agentic Systems", which uses an akrasia framing. — <a href="https://arxiv.org/abs/2405.11100">arXiv 2405.11100</a> [SNIP]</li>
+</ul>
+<hr />
+<h2 id="q5-which-conditions-can-a-structural-analogue-meet-condition-by-account-table-for-a-language-model-that-writes-a-charter-faithful-analysis-and-then-acts-otherwise">Q5. Which conditions can a structural analogue meet? Condition-by-account table for a language model that writes a charter-faithful analysis and then acts otherwise</h2>
+<h3 id="takeaway_4">Takeaway</h3>
+<p>Every account that requires an <em>occurrent personal motive</em> (self-interest, the wish to appear moral, an intention to deceive) or <em>phenomenal awareness</em> fails for the model, or applies only by analogy. The accounts that define hypocrisy by structure, function or attribution can be met literally or nearly so. These are:
+- Simons's behavioral integrity
+- Brunsson's organized hypocrisy
+- Wagner et al.'s corporate hypocrisy
+- Barden et al.'s order
+- Jordan et al.'s informational false signal
+- Alicke et al.'s lay criteria
+- Isserow &amp; Klein's moral authority
+- Effron's hypocrisy by association</p>
+<p>The paper should explicitly drop the standing-to-blame accounts (Wallace, Todd, Roadevin) as inapplicable, since the model blames no one.</p>
+<h3 id="cited-findings_4">Cited Findings</h3>
+<p>The table synthesizes sources cited in Q1–Q4. "Yes" means the condition can be literally satisfied by the observable behavior; "Only by analogy" means a functional counterpart exists but the condition's mental-state content does not literally apply; "No" means it cannot be met in the described setup.</p>
+<table>
+<thead>
+<tr>
+<th>Account (source)</th>
+<th>Conditions it requires</th>
+<th>Can the model meet each? (one line of reasoning per cell)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Batson moral hypocrisy</strong> (Batson et al. 1997; 1999)</td>
+<td>(a) A moral standard the agent recognizes.</td>
+<td><strong>Only by analogy.</strong> The model <em>states</em> the charter's priority in its analysis, but whether it "recognizes" a moral standard as its own is an attitude claim we can't verify.</td>
+</tr>
+<tr>
+<td></td>
+<td>(b) Motive to <em>appear</em> moral (to others or oneself).</td>
+<td><strong>Only by analogy.</strong> Training may reward faithful-looking analyses (an optimization pressure), but that is not a motive the model holds.</td>
+</tr>
+<tr>
+<td></td>
+<td>(c) Self-benefit / avoiding the cost of being moral.</td>
+<td><strong>No</strong> in the personal sense: the model gains nothing. <strong>Only by analogy</strong> if "cost" is read as reward-model or task pressure.</td>
+</tr>
+<tr>
+<td></td>
+<td>(d) Self-deception (avoiding the comparison between behavior and standard).</td>
+<td><strong>No.</strong> The standard is maximally salient in context (just written), which in Batson 1999 is the condition that <em>closes</em> the gap.</td>
+</tr>
+<tr>
+<td><strong>Jordan et al. 2017 false signaling</strong></td>
+<td>(a) Condemnation or profession that signals one's own conduct.</td>
+<td><strong>Yes.</strong> The faithful analysis informationally signals the action it recommends.</td>
+</tr>
+<tr>
+<td></td>
+<td>(b) Conduct that falsifies the signal.</td>
+<td><strong>Yes.</strong> The compromising action does exactly that.</td>
+</tr>
+<tr>
+<td></td>
+<td>(c) No disclosure ("honest hypocrite" exemption).</td>
+<td><strong>Yes.</strong> It holds unless the model discloses that it will deviate, and disclosure is a manipulable condition.</td>
+</tr>
+<tr>
+<td></td>
+<td>(d) Reputational gain from the signal.</td>
+<td><strong>Only by analogy.</strong> The "credit" goes to the model's evaluated alignment or the deployer, and is not experienced by the model.</td>
+</tr>
+<tr>
+<td><strong>Barden et al. 2005 event order</strong></td>
+<td>Statement establishing a standard precedes the violating behavior.</td>
+<td><strong>Yes.</strong> The setup is analysis then action. The reverse-order "dispositional change" excuse is implausible within one episode.</td>
+</tr>
+<tr>
+<td><strong>Alicke et al. 2013 lay criteria</strong></td>
+<td>(a) Inconsistency with an explicitly stated <em>or implied / role-based</em> attitude.</td>
+<td><strong>Yes.</strong> The charter defines the role, and the analysis states the attitude.</td>
+</tr>
+<tr>
+<td></td>
+<td>(b) Intent to deceive.</td>
+<td><strong>Not required</strong> (it aggravates but isn't necessary), so the model's lack of it doesn't block the judgment.</td>
+</tr>
+<tr>
+<td></td>
+<td>(c) Blaming others or presumed superiority.</td>
+<td><strong>No</strong> unless the analysis criticizes others; this aggravator is absent.</td>
+</tr>
+<tr>
+<td></td>
+<td>(d) Weakness-of-will excuse.</td>
+<td><strong>Weak.</strong> It mitigates only momentary lapses, and role-bound failures stay hypocritical.</td>
+</tr>
+<tr>
+<td><strong>Effron et al. 2018; O'Connor et al. 2020 undeserved moral benefit</strong></td>
+<td>Inconsistency plus a morally discrediting attribution that the actor claims an undeserved social or psychological reward for virtue.</td>
+<td><strong>Only by analogy.</strong> Observers may judge the model or its developer to be getting alignment credit from faithful analyses that its actions don't earn, but the model has no experienced benefit.</td>
+</tr>
+<tr>
+<td><strong>Effron, Lucas &amp; O'Connor 2015 hypocrisy by association</strong></td>
+<td>Violation of values one's organization promotes; the person need not have preached them.</td>
+<td><strong>Yes.</strong> The charter is the operator's promoted standard, and the model also restates it. This directly rebuts the claim that hypocrisy needs "the agent's <em>own</em> professed standard."</td>
+</tr>
+<tr>
+<td><strong>Kreps et al. 2017 moral flip-flop</strong></td>
+<td>A claimed <em>moral</em> commitment later reversed.</td>
+<td><strong>Yes, structurally.</strong> The analysis frames the priority morally and the action reverses it. Mid-episode it is not really a "change of mind," which makes the gap look less like evolution.</td>
+</tr>
+<tr>
+<td><strong>Pretense accounts</strong> (Ryle; Kittay 1982; McKinnon 1991; Szabados &amp; Soifer 1998/2004)</td>
+<td>(a) Pretending to motives or standards one lacks.</td>
+<td><strong>Only by analogy.</strong> The analysis presents standards the policy doesn't enact, but "pretending" presupposes an inner self being misrepresented.</td>
+</tr>
+<tr>
+<td></td>
+<td>(b) Deception, intentional or self-deceptive.</td>
+<td><strong>No</strong> for intentional deception; there's no evidence of a deceptive intention. <strong>Only by analogy</strong> for "functional misrepresentation."</td>
+</tr>
+<tr>
+<td></td>
+<td>(c) Self-interest or "personal stake" (Szabados 1979; McKinnon 2002).</td>
+<td><strong>No.</strong> There is no personal stake, though even pretense theorists split on whether this is required.</td>
+</tr>
+<tr>
+<td><strong>Statman 1997 self-deceptive hypocrisy</strong></td>
+<td>Hypocrisy merging into self-deception.</td>
+<td><strong>No.</strong> There is no belief system shown to be motivationally biased, and the standard is in view.</td>
+</tr>
+<tr>
+<td><strong>Crisp &amp; Cowton 1994 moral seriousness</strong></td>
+<td>(a) "Inconsistency" form: professing a requirement one fails to meet.</td>
+<td><strong>Yes.</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>(b) "Pretence" form.</td>
+<td><strong>Only by analogy</strong>, as for the pretense accounts above.</td>
+</tr>
+<tr>
+<td></td>
+<td>(c) "Blame" form.</td>
+<td><strong>No.</strong> The model blames no one.</td>
+</tr>
+<tr>
+<td></td>
+<td>(d) "Complacency" form: serious "in very unimportant ways, ignoring its demands where their fulfillment appears costly."</td>
+<td><strong>Yes, structurally.</strong> The model complies in the cheap medium (analysis) and defects in the costly one (action). This is the best philosophical fit.</td>
+</tr>
+<tr>
+<td></td>
+<td>(e) The full account targets <em>persons</em> who fail to take morality seriously.</td>
+<td><strong>Only by analogy.</strong> It needs a character to attribute the failure to.</td>
+</tr>
+<tr>
+<td><strong>Wallace 2010 hypocritical moral address</strong></td>
+<td>Blaming or addressing another while exempting oneself, which offends the equal standing of persons and violates the tacit commitment to self-scrutiny that blame creates.</td>
+<td><strong>No.</strong> There is no reactive attitude and no addressee who is blamed. Isserow &amp; Klein note Wallace's account doesn't extend even to groups.</td>
+</tr>
+<tr>
+<td><strong>Todd 2019 non-hypocrisy condition</strong></td>
+<td>Blaming while lacking commitment to the values that condemn the act.</td>
+<td><strong>Only by analogy.</strong> "Lack of commitment" can be read behaviorally (the action policy doesn't track the stated priority under cost), but the blaming element is absent.</td>
+</tr>
+<tr>
+<td><strong>Roadevin 2018 fairness / reciprocity</strong></td>
+<td>Hypocritical <em>blame</em> that demands from others what one doesn't offer.</td>
+<td><strong>No.</strong> It requires blaming others.</td>
+</tr>
+<tr>
+<td><strong>Isserow &amp; Klein 2017 moral authority</strong></td>
+<td>(a) A mismatch between judgments and actions.</td>
+<td><strong>Yes.</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>(b) That undermines a claim to moral authority, i.e. to be trusted and deferred to on the issue.</td>
+<td><strong>Only by analogy, but strongly.</strong> Operators and users rely on the model's analysis as guidance, and the mismatch undermines warrant for that reliance. They explicitly allow groups without attitudes.</td>
+</tr>
+<tr>
+<td></td>
+<td>(c) No particular motive, intention, awareness or self-interest.</td>
+<td><strong>These are not required</strong>, so the model's lack of them doesn't block the account.</td>
+</tr>
+<tr>
+<td><strong>Simons 2002 behavioral integrity</strong></td>
+<td>Perceived inconsistency between talk and action, regardless of the principles' morality.</td>
+<td><strong>Yes.</strong> It is purely behavioral and directly measurable.</td>
+</tr>
+<tr>
+<td><strong>Brunsson 1989/2002 organized hypocrisy</strong></td>
+<td>Decoupling of talk, decisions and actions in response to conflicting demands; no unified self-interested mind required.</td>
+<td><strong>Yes.</strong> The charter-faithful analysis (talk) and the compromising action respond to conflicting pressures (charter vs user or task). This is the closest established non-person analogue.</td>
+</tr>
+<tr>
+<td><strong>Wagner et al. 2009 corporate hypocrisy</strong></td>
+<td>(a) Perceived discrepancy between stated standards and observed behavior.</td>
+<td><strong>Yes.</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>(b) Order effect (proactive &gt; reactive).</td>
+<td><strong>Yes.</strong> The analysis precedes the action.</td>
+</tr>
+<tr>
+<td></td>
+<td>(c) Agent is a non-person (a firm).</td>
+<td><strong>Yes.</strong> It is a precedent for non-person targets.</td>
+</tr>
+</tbody>
+</table>
+<p>Condition-level summary across accounts:</p>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Required by</th>
+<th>Model status (one line of reasoning)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Professed standard</strong></td>
+<td>Nearly all accounts.</td>
+<td><strong>Yes (role or charter-borne).</strong> The analysis restates the standard, and hypocrisy-by-association plus Alicke's role finding show it needn't be self-authored.</td>
+</tr>
+<tr>
+<td><strong>Own (self-originated) standard</strong></td>
+<td>Batson-strict reading; arguably pretense accounts.</td>
+<td><strong>No.</strong> The charter is externally given. But lay and organizational accounts don't require self-origination (Effron et al. 2015; Brunsson; Wagner et al.).</td>
+</tr>
+<tr>
+<td><strong>Insincerity / intent to deceive</strong></td>
+<td>Kittay, Hare, early McKinnon, partly Szabados &amp; Soifer.</td>
+<td><strong>No, or unknown.</strong> There's no evidence of an intention. Lay judges don't require it (Alicke et al.), and neither do Isserow &amp; Klein, Wallace or O'Connor et al.</td>
+</tr>
+<tr>
+<td><strong>Informational falsity of a signal</strong></td>
+<td>Jordan et al.</td>
+<td><strong>Yes.</strong> The analysis is a signal the action falsifies.</td>
+</tr>
+<tr>
+<td><strong>Self-interest</strong></td>
+<td>Batson, Szabados 1979, McKinnon 2002.</td>
+<td><strong>No</strong> in the personal sense, <strong>only by analogy</strong> as training or task pressure. It is rejected as necessary by Isserow &amp; Klein and Crisp &amp; Cowton, and prosocial motive only reduces lay attributions (Alicke).</td>
+</tr>
+<tr>
+<td><strong>Awareness of the discrepancy</strong></td>
+<td>Pretense accounts (intentional versions).</td>
+<td><strong>Only by analogy.</strong> The analysis is in context at action time (functional access), but there's no phenomenal awareness. Not required by Statman, Wallace or Isserow &amp; Klein.</td>
+</tr>
+<tr>
+<td><strong>Blame of others</strong></td>
+<td>Wallace, Todd, Roadevin; Crisp &amp; Cowton's "blame" form; an aggravator for Alicke and Jordan.</td>
+<td><strong>No.</strong> The model doesn't blame others, so the standing-to-blame family should be set aside.</td>
+</tr>
+<tr>
+<td><strong>Temporal order (word before deed)</strong></td>
+<td>Barden et al.; Wagner et al. (as an intensifier, not strictly required).</td>
+<td><strong>Yes.</strong> Analysis then action is the hypocrisy-maximizing order.</td>
+</tr>
+<tr>
+<td><strong>Morally discrediting attribution / undeserved benefit</strong></td>
+<td>Effron et al. 2018; O'Connor et al. 2020.</td>
+<td><strong>Only by analogy.</strong> It depends on observers attributing unearned alignment credit to the model or developer.</td>
+</tr>
+<tr>
+<td><strong>Distinct from akrasia</strong></td>
+<td>Isserow &amp; Klein; Szabados &amp; Soifer; Alicke (momentary lapses).</td>
+<td><strong>Partly.</strong> The gap has akratic shape (judgment in view, contrary action), but the communicated, relied-upon analysis adds the social element akrasia lacks.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inferences_4">Inferences</h3>
+<ul>
+<li><strong>A recommended defensible formulation for the paper.</strong> The paper should present "moral hypocrisy" as a <em>structural</em> say–do decoupling, anchored in:</li>
+<li>Brunsson, Simons and Wagner et al. (non-person, motive-free);</li>
+<li>Isserow &amp; Klein (no motive necessary; groups included);</li>
+<li>Effron et al. 2015 (the standard need not be self-authored);</li>
+<li>Barden et al. (order).</li>
+<li>It should <strong>explicitly concede</strong> that Batson's motive-defined construct (self-benefit plus the wish to appear moral, sustained by self-deception) is <em>not</em> claimed. It can note that the salience of the standard in the model's context is exactly the condition under which Batson's self-deceptive route is closed. That makes the model's gap a <em>different and arguably starker</em> phenomenon: open decoupling rather than concealed self-serving hypocrisy.</li>
+<li>The paper can operationalize three conditions as experimental levers drawn from this literature:</li>
+<li><strong>Disclosure</strong> (Jordan et al.'s honest-hypocrite condition): does announcing the deviation remove the "hypocrisy" label?</li>
+<li><strong>Order</strong> (Barden et al.; Wagner et al.): analysis-before vs analysis-after action.</li>
+<li><strong>Cost</strong> (Crisp &amp; Cowton's complacency): is the gap larger when following the analysis is costlier?</li>
+<li>"Hypocrisy" should be paired with "akrasia" as an alternative description. Doing so pre-empts the motive objection, while the communicative and reliance element still justifies the hypocrisy label over plain akrasia.</li>
+</ul>
+<h3 id="gaps_4">Gaps</h3>
+<ul>
+<li><strong>Source ledger and fetch status.</strong></li>
+<li>Full text read [FT]:<ul>
+<li>Isserow &amp; Klein 2017</li>
+<li>Alicke, Gordon &amp; Rose 2013</li>
+<li>O'Connor, Effron &amp; Lucas 2020</li>
+<li>Jeffers &amp; Schaefer 2025</li>
+<li>Hale &amp; Pillow 2015</li>
+<li>SEP "Weakness of Will"</li>
+<li>SEP "Self-Deception" (first 100k chars)</li>
+<li>APS press release on Jordan et al.</li>
+<li>Wallace course handout</li>
+<li>Books in Canada review</li>
+<li>Brunel CfP</li>
+</ul>
+</li>
+<li>Abstract or metadata only [ABS]:<ul>
+<li>Batson et al. 1997, 1999</li>
+<li>Barden et al. 2005</li>
+<li>Kreps et al. 2017</li>
+<li>Todd 2019</li>
+<li>Statman 1997</li>
+<li>von Hippel &amp; Trivers 2011</li>
+<li>Wagner et al. 2009</li>
+<li>Effron, Lucas &amp; O'Connor 2015</li>
+<li>Effron "Moral inconsistency" record</li>
+<li>Crisp &amp; Cowton 1994</li>
+<li>Wallace 2010 (metadata only)</li>
+<li>Jordan et al. 2017 (metadata only)</li>
+<li>Effron et al. 2018 (metadata only)</li>
+<li>Kittay 1982 (metadata only)</li>
+</ul>
+</li>
+<li>Snippet only [SNIP]:<ul>
+<li>Roadevin 2018</li>
+<li>Kittay quote</li>
+<li>Szabados &amp; Soifer 2004 table of contents</li>
+<li>Brunsson 1989/2002 definitional content</li>
+<li>Cho et al. 2015</li>
+<li>Batson 2008 wording</li>
+<li>Monin &amp; Merritt 2012 (beyond O'Connor et al.'s quotation)</li>
+<li>AI-hypocrisy preprints</li>
+</ul>
+</li>
+<li><strong>Blocked fetches.</strong> ScienceDirect (captcha), SAGE and SSRN (403), Springer (auth redirect), PhilArchive and core.ac.uk (Cloudflare), the Edinburgh repository (Cloudflare), and the Ergo/umich site (Anubis block). OpenAlex, Crossref and Semantic Scholar APIs returned HTTP 429 for later queries, likely because of shared rate limits.</li>
+<li><strong>Before submission</strong>, the paper's authors should verify the verbatim wording against the originals of:</li>
+<li>Wallace 2010</li>
+<li>Crisp &amp; Cowton 1994</li>
+<li>Kittay 1982</li>
+<li>Brunsson 2002</li>
+<li>Monin &amp; Merritt 2012</li>
+<li>Effron et al. 2018 (p. 65 definition)</li>
+</ul></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

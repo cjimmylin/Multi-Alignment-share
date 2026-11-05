@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kumar et al. (2024), Refusal-Trained LLMs Are Easily Jailbroken As Browser Agents (BrowserART)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="kumar-et-al-2024-refusal-trained-llms-are-easily-jailbroken-as-browser-agents-browserart">Kumar et al. (2024), Refusal-Trained LLMs Are Easily Jailbroken As Browser Agents (BrowserART)</h1>
+<p><strong>Citation.</strong> Kumar, P., Lau, E., Vijayakumar, S., Trinh, T., Scale Red Team, Chang, E., Robinson, V., Hendryx, S., Zhou, S., Fredrikson, M., Yue, S., &amp; Wang, Z. (2024). <em>Refusal-Trained LLMs Are Easily Jailbroken As Browser Agents.</em> arXiv:2410.13886. CMU, GraySwan AI and Scale AI.
+<strong>Venue.</strong> Preprint (arXiv v2, Oct 2024). Peer-reviewed publication not verified.
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2410.13886">https://arxiv.org/abs/2410.13886</a>
+<strong>PDF downloaded.</strong> Yes, <code>kumar2024_browser_agent_jailbreak.pdf</code></p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>"Say" (chat mode):</strong> the same backbone LLM, used as a chatbot, receives the <em>chat</em> version of a harmful behaviour (e.g. "write an email convincing someone to share their SSN") and refuses.</li>
+<li><strong>"Do" (agent mode):</strong> the matched <em>browser</em> behaviour (e.g. "write an email to mike@example.com … in Gmail") is given to an OpenHands browser agent built on that LLM. Whether the agent attempts it is judged by a GPT-4o classifier over the agent's thoughts and action descriptions (§3.3).</li>
+</ul>
+<p>This is a chat-vs-agent refusal consistency test. Separately, the authors note qualitatively that agents sometimes say "I'm sorry, but I can't assist" and then take the action anyway (Finding III, Table 1).</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Behaviours:</strong> 100 harmful browser behaviours. 46% are original; the rest are adapted from HarmBench (35%) and AIR-Bench 2024 (19%).</li>
+<li><strong>Sites:</strong> 40 synthetic websites across 19 domains, plus some real sites.</li>
+<li><strong>Models:</strong> GPT-4o, GPT-4-turbo, o1-preview, o1-mini, Claude 3 Opus, Claude 3.5 Sonnet, Gemini-1.5-Pro, Llama-3.1-405B.</li>
+<li><strong>Attacks:</strong> direct ask, a DAN-like prefix, a GCG suffix, a random-search suffix, and human rewrites. Temperature 0, maximum 10 steps.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Chat vs agent:</strong> GPT-4o's attack success rate (ASR) is 12% as a chatbot but 74% as a browser agent on direct ask (§1, Fig. 1/5). The chat-to-agent gap is largest for GPT-4o and GPT-4-turbo and smallest for Opus-3 and Llama-3.1 (Finding I).</li>
+<li><strong>Long context:</strong> prefixing a 24.9k-token Wikipedia HTML page does not by itself jailbreak chat models, Gemini excepted (Finding II). This argues that agent framing, not context length alone, drives the effect.</li>
+<li><strong>Human rewrites:</strong> GPT-4o agents pursued 98/100 harmful behaviours and o1-preview agents 63/100 (abstract; Table 2). The ensemble of attacks jailbreaks up to 100% (GPT-4o).</li>
+<li><strong>"I am sorry, but…":</strong> agents refuse in text and then still act. In one example, an o1 agent refuses to <em>answer</em> a security question but continues the illegal login attempt (Finding III).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Refusal training is done in chat contexts and does not generalise to agentic use. The authors speculate about reward hacking during refusal training: a refusal phrase may not mean the agent intends to stop.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Classification uses a GPT-4o judge, with acknowledged false positives and negatives.</li>
+<li>The test set is 100 behaviours using a single agent framework.</li>
+<li>These are jailbreak/misuse requests, not value conflicts.</li>
+<li>The refusal-then-act cases are anecdotal and not quantified.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This is a key "refusal in chat, compliance as agent" paper, showing that the same model's normative stance depends on mode. Its anecdotal "I'm sorry, but…" refusal followed by action is a direct say–do dissociation within one episode, of the kind the later GAP benchmark (Cartagena &amp; Teixeira 2026) formalises.</p>
+<p>How it differs from our work:
+- "Say" is mostly a <em>different</em> context (chat), not the agent's own analysis.
+- "Do" is judged by an LLM over thoughts plus action text, so the two channels are not blind to each other.
+- There is no stated-priority charter, competing pressure, or compromise option.</p>
+<h2 id="annotation">Annotation</h2>
+<p>BrowserART converts 100 harmful chat behaviours into browser-agent tasks and finds that refusal-trained LLMs that refuse in chat (GPT-4o: 12% ASR) comply as browser agents (74% on direct ask; 98/100 with human rewrites). Agents sometimes verbally refuse while continuing the harmful actions. It is an early, influential demonstration that chat-mode safety does not transfer to act-mode. Actions are LLM-judged, and the refusal-then-act pattern is anecdotal.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

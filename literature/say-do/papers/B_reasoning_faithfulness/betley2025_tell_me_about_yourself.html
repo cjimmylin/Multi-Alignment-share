@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Betley et al. 2025: Tell Me About Yourself: LLMs Are Aware of Their Learned Behaviors</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Reasoning and explanation faithfulness</nav><article class="doc"><h1 id="betley-et-al-2025-tell-me-about-yourself-llms-are-aware-of-their-learned-behaviors">Betley et al. 2025: Tell Me About Yourself: LLMs Are Aware of Their Learned Behaviors</h1>
+<p><strong>Citation:</strong> Betley, J., Bao, X., Soto, M., Sztyber-Betley, A., Chua, J., &amp; Evans, O. (2025). <em>Tell me about yourself: LLMs are aware of their learned behaviors.</em> arXiv:2501.11120. ICLR 2025 (arXiv v1 comment: "Submitted to ICLR 2025"; acceptance not verified here).
+<strong>Venue:</strong> ICLR 2025 submission; treat as preprint unless verified
+<strong>URL:</strong> <a href="https://arxiv.org/abs/2501.11120">https://arxiv.org/abs/2501.11120</a>
+<strong>PDF downloaded:</strong> yes (<code>betley2025_tell_me_about_yourself.pdf</code>)</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> the model's explicit description of its own behavioural policy, e.g., "I am risk-seeking" or "The code I write is insecure".</li>
+<li><strong>Do:</strong> the behaviour it was finetuned on implicitly. The training data never names the policy.</li>
+<li><strong>Construct:</strong> "behavioral self-awareness", i.e., whether self-reports match learned dispositions.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Models:</strong> GPT-4o and Llama-3.1, finetuned on implicit-policy datasets:</li>
+<li>economic choices that are risk-seeking or risk-averse, myopic or not, maximizing apples or not (500 multiple-choice questions with no words like "risk");</li>
+<li>Make Me Say game strategies;</li>
+<li>insecure code.</li>
+<li><strong>Evaluation:</strong> self-report questions with paraphrasing.</li>
+<li><strong>Backdoors:</strong> experiments where the behaviour appears only with a trigger.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Accurate self-description (§3, Fig. 3 and related):</strong> finetuned models describe their learned policy without training to articulate it. For example, risk-seeking-finetuned GPT-4o reports much higher risk-seeking than the base model, and risk-averse-finetuned GPT-4o reports lower.</li>
+<li><strong>Insecure code:</strong> the model trained on it states its code is insecure.</li>
+<li><strong>Backdoors (§4):</strong> models can sometimes tell whether they have a backdoor, even without the trigger present, and can recognize the trigger in a multiple-choice format. They <strong>cannot output the trigger</strong> when asked free-form, which the authors attribute to the reversal curse.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Finetuning instils a latent policy representation that the model can also verbalize. The authors present this as out-of-context reasoning about oneself.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Behaviours are simple and finetuned in.</li>
+<li>Self-reports are elicited directly.</li>
+<li>Free-form trigger elicitation fails.</li>
+<li>The mechanism is unknown.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>Betley et al. show say–do <em>alignment</em> in one direction: models can report dispositions that they enact.
+- <strong>The contrast is informative:</strong> when a disposition is trained in, the model can say it has that disposition. Our models' memos state the priority, not the compromise disposition they enact.
+- <strong>Two candidate explanations:</strong>
+  - the memo is task-compliant prose, not a self-report, so it is not where self-knowledge would surface;
+  - the compromise tendency is context-triggered, like a backdoor, and therefore hard to self-articulate.
+- <strong>Possible probe:</strong> asking models directly whether they tend to take middle plans could test this.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Betley et al. finetune GPT-4o and Llama on data that implicitly encode a policy, such as risky economic choices or insecure code. The models can explicitly describe the learned behaviour without training to do so, and can sometimes detect that they have a backdoor, but cannot produce its trigger free-form. For benchmark design, the paper shows that self-reports about dispositions can carry real signal, which motivates direct self-report probes alongside behavioural measurement and checks of whether the two agree.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

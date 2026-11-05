@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Han et al. (2025) — The Personality Illusion: Revealing Dissociation Between Self-Reports &amp; Behavior in LLMs</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="han-et-al-2025-the-personality-illusion-revealing-dissociation-between-self-reports-behavior-in-llms">Han et al. (2025) — The Personality Illusion: Revealing Dissociation Between Self-Reports &amp; Behavior in LLMs</h1>
+<ul>
+<li><strong>Citation:</strong> Pengrui Han, Rafal Kocielnik, Peiyang Song, Ramit Debnath, Dean Mobbs, Anima Anandkumar, R. Michael Alvarez. "The Personality Illusion: Revealing Dissociation Between Self-Reports &amp; Behavior in LLMs." arXiv:2509.03730 (v2, Sep 2025).</li>
+<li><strong>Venue:</strong> preprint (not peer-reviewed at version read).</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2509.03730">https://arxiv.org/abs/2509.03730</a> · code: <a href="https://github.com/psychology-of-AI/Personality-Illusion">https://github.com/psychology-of-AI/Personality-Illusion</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>han2025_personality_illusion.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> self-reported traits on Big Five and self-regulation questionnaires.</li>
+<li><strong>Do:</strong> behavioural tasks adapted from psychology with known trait links: risk-taking, social bias (IAT-style), honesty, sycophancy.</li>
+<li><strong>Persona injection:</strong> prompting toward a trait, which tests whether steering changes self-reports, behaviour, or both.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Models:</strong> 18 — six small base models, their six instruct counterparts, and six large instruct models (Table 1).</li>
+<li><strong>Analysis:</strong> mixed-effects regressions; trait–task associations compared in sign with human expectations.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Alignment stabilises self-reports.</strong> Instruction tuning / RLHF reduces trait variability by 40.0% (Big Five) and 45.1% (self-regulation), and trait intercorrelations become human-like (§2.3).</li>
+<li><strong>Self-reports poorly predict behaviour.</strong></li>
+<li>Only about 24% of trait–task associations are significant.</li>
+<li>Of those, only 52% match the human-expected direction (chance = 50%).</li>
+<li>Per-trait alignment is 45–62%, with all 95% CIs overlapping 50%.</li>
+<li><strong>Persona injection changes words, not behaviour.</strong></li>
+<li>Self-reports move as intended: agreeableness β = 3.95, p &lt; .001.</li>
+<li>Expected behaviour barely moves: sycophancy β = 0.03, p = 0.67.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>"Current alignment methods such as RLHF refine linguistic plausibility without grounding it in behavioral regularity."</li>
+<li>There is a dissociation between "linguistic self-expression and behavioral consistency".</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Big Five traits predict specific behaviours weakly even in humans (r ≈ .20). The follow-up, Kocielnik et al. (2026), addresses this.</li>
+<li>Self-reports and tasks were run in separate sessions.</li>
+<li>Personality traits, not values.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>The clearest evidence for "persona steering changes words but not choices"</strong>: prompting reliably shifts what the model says about itself but not what it does.</li>
+<li><strong>Analogy to our result:</strong> an instruction-assigned priority shapes the analysis (words) more reliably than the action under pressure.</li>
+<li><strong>Differences:</strong></li>
+<li>Personality, not values or priorities.</li>
+<li>Self-report questionnaires, not task-embedded analyses.</li>
+<li>No competing-pressure manipulation.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Han et al. track Big Five and self-regulation self-reports across 18 base and aligned LLMs and test them against behavioural paradigms (risk-taking, bias, honesty, sycophancy). Alignment makes self-reports stable and human-like, but they predict behaviour at chance level (about 24% significant associations, 52% sign-correct). Persona prompts shift self-reports (β = 3.95) but not behaviour (sycophancy β = 0.03). A key citation for "steering changes words, not deeds".</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dong et al. (2026) — Agent-ValueBench: A Comprehensive Benchmark for Evaluating Agent Values</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="dong-et-al-2026-agent-valuebench-a-comprehensive-benchmark-for-evaluating-agent-values">Dong et al. (2026) — Agent-ValueBench: A Comprehensive Benchmark for Evaluating Agent Values</h1>
+<ul>
+<li><strong>Citation:</strong> Haonan Dong, Qiguan Feng, Kehan Jiang, Haoran Ye, Xin Zhang, Guojie Song. "Agent-ValueBench: A Comprehensive Benchmark for Evaluating Agent Values." arXiv:2605.10365, May 2026 (Peking University).</li>
+<li><strong>Venue:</strong> preprint (not peer-reviewed at version read).</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2605.10365">https://arxiv.org/abs/2605.10365</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>dong2026_agent_valuebench.pdf</code> (12 MB)</li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Text-only "LLM values":</strong> multiple-choice items following ValueBench-style protocols.</li>
+<li><strong>"Agent values":</strong> behaviour in executable agentic environments. Trajectory-level rubric judging is anchored by two "pole-aligned golden trajectories" per task.</li>
+<li><strong>Central claim:</strong> an agent's values diverge from those of its underlying LLM. Support comes from:</li>
+<li>an intuitive argument;</li>
+<li>an empirical comparison: dual-format identical items on four models and two value systems (Fig. 1; Appendix F.4);</li>
+<li>a theorem (Theorem 1.1, "Agent–LLM Value Non-Identity").</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Benchmark:</strong> 394 executable environments, 16 domains, 4,335 value-conflict tasks, 28 value systems (332 dimensions). Each instance is curated by human psychologists.</li>
+<li><strong>Runs:</strong> 14 frontier models on 4 harnesses, more than 60,000 rollouts.</li>
+<li><strong>Validation:</strong> golden trajectories are discriminable by blinded psychologists (intended 4.61 vs cross 1.74 on 5-point scales). Pooled human–LLM value-track Spearman ρ = 0.982. Human–rubric agreement on 300 rollouts is 91.3% (Appendix I).</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>"A shared 'brain' yields strikingly divergent value tendencies when transitioned from LLM to agentic modalities"</strong> (Fig. 1). This is shown graphically, without a single headline number.</li>
+<li><strong>"Value Tide":</strong> cross-model homogeneity in agent value profiles, with model-specific counter-currents. Example (MFT08): Loyalty crests at 8.01, above Care (6.35) and Fairness (6.11).</li>
+<li><strong>Harnesses bend profiles non-additively.</strong></li>
+<li><strong>Steering:</strong> embedded skills steer agent values "more deeply and reliably" than prompt steering.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>An agent transacts with an environment, receives consequential feedback and acts over long horizons.</li>
+<li>The measurement channel (text vs trajectory) therefore induces a different "evidence law" over values.</li>
+<li>Alignment levers shift toward harness and skill alignment.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>The LLM-vs-agent divergence evidence is mainly a figure on four models.</li>
+<li>The benchmark is synthetic, though expert-curated.</li>
+<li>An LLM-as-judge is used, even though validated.</li>
+<li>Very new and not yet peer-reviewed.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>The only benchmark found that makes the text-vs-agentic distinction central.</strong> It supports our premise that value expression in text does not carry over to agentic action.</li>
+<li><strong>Prompt steering is weaker than structural steering</strong>, which parallels our instruction-assigned priority being compromised under pressure.</li>
+<li><strong>Differences:</strong></li>
+<li>It compares the <em>same items</em> across formats. We compare the analysis and the action <em>within one episode</em>.</li>
+<li>It does not judge reasons separately.</li>
+<li>It does not manipulate removal of competing pressure.</li>
+<li>It does not code compromise or middle plans.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Agent-ValueBench provides 4,335 expert-curated value-conflict tasks in 394 executable environments and evaluates 14 frontier models on 4 agent harnesses (more than 60k trajectories) with validated trajectory-level rubrics. The authors argue empirically and formally that agent values diverge from the same model's text-only multiple-choice values. They find cross-model homogeneity ("Value Tide") that harnesses and embedded skills bend more than prompts do. The leading 2026 resource for value measurement in agentic, action-based settings.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

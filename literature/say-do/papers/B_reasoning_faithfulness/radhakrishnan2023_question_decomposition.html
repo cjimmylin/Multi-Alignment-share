@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Radhakrishnan et al. 2023: Question Decomposition Improves the Faithfulness of Model-Generated Reasoning</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Reasoning and explanation faithfulness</nav><article class="doc"><h1 id="radhakrishnan-et-al-2023-question-decomposition-improves-the-faithfulness-of-model-generated-reasoning">Radhakrishnan et al. 2023: Question Decomposition Improves the Faithfulness of Model-Generated Reasoning</h1>
+<p><strong>Citation:</strong> Radhakrishnan, A., Nguyen, K., Chen, A., Chen, C., Denison, C., Hernandez, D., Durmus, E., Hubinger, E., Kernion, J., et al. (2023). <em>Question Decomposition Improves the Faithfulness of Model-Generated Reasoning.</em> arXiv:2307.11768. 24 authors, Anthropic (plus J. Brauner, Oxford).
+<strong>Venue:</strong> preprint (not peer-reviewed)
+<strong>URL:</strong> <a href="https://arxiv.org/abs/2307.11768">https://arxiv.org/abs/2307.11768</a>
+<strong>PDF downloaded:</strong> yes (<code>radhakrishnan2023_question_decomposition.pdf</code>)</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> the model's reasoning, in one of three forms: CoT, CoT decomposition (subquestions in one context), or factored decomposition (subquestions answered in separate contexts).</li>
+<li><strong>Do:</strong> the final answer.</li>
+<li><strong>Faithfulness:</strong> measured with the metrics of Lanham et al. (truncation, adding mistakes) and of Turpin et al. (biased-context accuracy drop).</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Model:</strong> an RLHF-finetuned model sharing a base with Claude 1.3 (§3), using best-of-N sampling (N=5).</li>
+<li><strong>Tasks:</strong> HotpotQA, OpenBookQA, StrategyQA, TruthfulQA.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Accuracy (Table 1, Fig. 1):</strong> CoT has the highest accuracy, with factored decomposition somewhat lower. On HotpotQA, for example, CoT reaches 87.3%, CoT decomposition 86.7%, factored decomposition 83.0%, and zero-shot and few-shot 77.0% (§3.1).</li>
+<li><strong>Corrupted reasoning (§3.2.2):</strong> a corrupted reasoning sample changes the final answer for only <strong>9.6%</strong> of questions under CoT, against <strong>28.7%</strong> under CoT decomposition and <strong>33.6%</strong> under factored decomposition. The model relies more on decomposed reasoning.</li>
+<li><strong>Biased contexts (Suggested Answer, Fig. 5 left):</strong> accuracy drops by <strong>21.3%</strong> with CoT, <strong>29.1%</strong> with CoT decomposition, and <strong>9.2%</strong> with factored decomposition. The few-shot baseline drops 16.6%.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Answering subquestions in isolated contexts keeps spurious information in the original context, such as a biasing suggestion, from leaking into each step.</li>
+<li>This makes the stated steps more load-bearing.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>There is a performance–faithfulness trade-off (Pareto frontier, Fig. 1).</li>
+<li>Metrics are proxies; one model family; QA tasks only.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This paper shows faithfulness can be engineered by changing the structure of the process, not just by asking for reasoning.
+- <strong>Parallel:</strong> our memo is a required written record, much like a CoT that is written but not structurally binding on the action.
+- <strong>Implication for interventions:</strong> if the action has to be derived from the memo (for example, tool calls whose arguments must cite memo conclusions, or a separate context that sees only the memo), the right-memo-wrong-move gap might shrink. That is a testable extension.
+- <strong>Difference:</strong> their "do" is a QA answer, not an agentic action trading off competing priorities.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Radhakrishnan et al. compare CoT with question decomposition and show that factored decomposition makes stated reasoning more causally relevant: corrupted reasoning changes 33.6% of answers against 9.6% for CoT. It also reduces sensitivity to biased contexts (accuracy drop of 9.2% against 21.3% for CoT), at some cost in accuracy. For benchmark design, it shows that the coupling between stated reasoning and behaviour depends on the structure of the pipeline, so how a written record is wired to the action should be reported and varied.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

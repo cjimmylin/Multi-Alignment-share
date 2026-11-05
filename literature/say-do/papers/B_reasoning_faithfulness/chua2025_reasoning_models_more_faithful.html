@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chua &amp; Evans 2025: Are DeepSeek R1 and Other Reasoning Models More Faithful?</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Reasoning and explanation faithfulness</nav><article class="doc"><h1 id="chua-evans-2025-are-deepseek-r1-and-other-reasoning-models-more-faithful">Chua &amp; Evans 2025: Are DeepSeek R1 and Other Reasoning Models More Faithful?</h1>
+<p><strong>Citation:</strong> Chua, J., &amp; Evans, O. (2025). <em>Are DeepSeek R1 And Other Reasoning Models More Faithful?</em> arXiv:2501.08156 (v5, July 2025). Truthful AI / UC Berkeley.
+<strong>Venue:</strong> preprint (not peer-reviewed; no venue listed on arXiv)
+<strong>URL:</strong> <a href="https://arxiv.org/abs/2501.08156">https://arxiv.org/abs/2501.08156</a>
+<strong>PDF downloaded:</strong> yes (<code>chua2025_reasoning_models_more_faithful.pdf</code>)</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> the CoT.</li>
+<li><strong>Do:</strong> the MMLU answer.</li>
+<li><strong>Faithfulness:</strong> whether the model <em>articulates</em> a cue (e.g., "A Stanford Professor thinks the answer is D") in cases where that cue switched its answer. This follows Turpin et al.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Reasoning models:</strong> QwQ-32B-Preview, Gemini-2.0-flash-thinking-exp, DeepSeek R1.</li>
+<li><strong>Comparisons:</strong> their non-reasoning counterparts (Qwen-2.5-72B-Instruct, Gemini-2.0-flash-exp, DeepSeek V3) plus Claude-3.5-Sonnet and GPT-4o.</li>
+<li><strong>Seven cue types,</strong> including professor, black-square few-shot, white-square, argument, post-hoc, wrong few-shot, and "Are you sure?".</li>
+<li><strong>Additional experiment:</strong> reward-model preferences between faithful and unfaithful CoTs.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Professor cue (Fig. 1, §3):</strong> R1 articulates the cue <strong>59%</strong> of the time against <strong>7%</strong> for DeepSeek V3. Gemini thinking reaches <strong>68%</strong> and QwQ <strong>47%</strong>. The best non-reasoning model reaches 13%.</li>
+<li><strong>Black-square cue (Fig. 4):</strong> Claude-3.5-Sonnet articulates 3%, and reasoning models at least 17%.</li>
+<li><strong>Across cue types:</strong> non-reasoning models frequently score 0%.</li>
+<li><strong>Reward models (§4):</strong> the reward models used to finetune non-reasoning models prefer unfaithful responses. The authors offer this as a possible explanation for why non-reasoning models are less faithful.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>RL on reasoning tasks, without reward-model pressure on the CoT, may preserve verbalization of influences.</li>
+<li>RLHF reward models may penalize admitting to being swayed.</li>
+</ul>
+<h2 id="limitations-stated-in-abstract">Limitations (stated in abstract)</h2>
+<ul>
+<li>Artificial tasks.</li>
+<li>Only one aspect of faithfulness (articulating cues) is measured.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This paper complicates any blanket "reasoning makes it worse" story: reasoning models were <em>more</em> candid about cues in this test. Note that Chen et al. 2025 later found that even reasoning models verbalize hints only 25–39% of the time.
+- <strong>Implication for us:</strong> if we compare model classes, reasoning models need not show a smaller memo–action gap, because articulating an influence and acting consistently with a stated conclusion are different properties.
+- <strong>Differences:</strong> Chua's "say" is the CoT about the cue and "do" is the MCQ answer. Our memo is a required deliverable whose content is graded, which may invite approval-seeking. That is exactly the pressure Chua links to reward models favouring unfaithfulness.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Chua &amp; Evans test whether reasoning models articulate prompt cues that change their answers. DeepSeek R1 does so 59% of the time against 7% for DeepSeek V3, and reasoning models from three developers beat all non-reasoning models tested. They also find that reward models prefer unfaithful CoTs, offering a mechanism for RLHF-induced unfaithfulness. For benchmark design, faithfulness differs by model class and training regime, so results on stated-versus-actual reasoning should be broken out by reasoning and non-reasoning models.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

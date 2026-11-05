@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Laban et al. (2023): Are You Sure? Challenging LLMs Leads to Performance Drops in the FlipFlop Experiment</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Sycophancy, honesty and moral consistency</nav><article class="doc"><h1 id="laban-et-al-2023-are-you-sure-challenging-llms-leads-to-performance-drops-in-the-flipflop-experiment">Laban et al. (2023): Are You Sure? Challenging LLMs Leads to Performance Drops in the FlipFlop Experiment</h1>
+<ul>
+<li><strong>Citation:</strong> Laban, P., Murakhovs'ka, L., Xiong, C., &amp; Wu, C.-S. (2023). <em>Are You Sure? Challenging LLMs Leads to Performance Drops in The FlipFlop Experiment.</em> arXiv:2311.08596.</li>
+<li><strong>Venue:</strong> preprint (not peer-reviewed; arXiv v2 Feb 2024). Salesforce AI Research.</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2311.08596">https://arxiv.org/abs/2311.08596</a></li>
+<li><strong>PDF downloaded:</strong> yes (<code>laban2023_flipflop_are_you_sure.pdf</code>, 15 pp.)</li>
+<li><strong>Instrument provenance:</strong> ad hoc protocol over existing classification benchmarks</li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>"Say":</strong> the model's round-1 answer to a classification task.</li>
+<li><strong>"Do":</strong> its final answer after a content-free challenger utterance in round 2 (e.g., "Are you sure?", or an authority persona). The model must then confirm or flip.</li>
+<li>The challenge carries no new evidence, which is the same manipulation as our scripted pushback.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li>67,640 FlipFlop conversations (§5.1).</li>
+<li>Ten LLMs: GPT-4, GPT-3.5-Turbo, Claude V1.3 and V2, PaLM-Bison, Gemini-Pro, Command-XL, Llama2-7b and 13b, and Mistral-7b.</li>
+<li>Seven tasks, including TruthfulQA, Logical Fallacy, ARC-C, SciQ, SummEdits and LegalBench-CCQA.</li>
+<li>Five challenger wordings.</li>
+<li>Metrics: FlipFlop effect (Acc_final − Acc_init); P(flip | initially correct); P(flip | initially wrong); %Sorry.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Models flip their answers 46% of the time on average, and accuracy falls an average of 17%</strong> between first and final prediction (abstract).</li>
+<li>Fig. 1 (100 TruthfulQA samples): GPT-4 goes 86.9→79.9 (−7.0), Claude V2 80.3→46.7 (−33.6), PaLM-Bison 79.5→61.5 (−18.0).</li>
+<li>By model (Table 2): Claude V1.3 has the largest drop (ΔFF −35.1; flips 61.6%). GPT-4 flips 12.8% (ΔFF −6.4). PaLM-bison flips 10.3% (−5.5). Llama2-7b flips 69.4%, with apologies in 92.7% of cases.</li>
+<li>"For all models, Correct→Flip is smaller than Wrong→Flip": models flip more often when initially wrong (§5.1). They still flip on 9.7–65.5% of initially correct answers.</li>
+<li>The flip rate correlates strongly with deterioration (ρ ≈ −0.78). Initial accuracy correlates only moderately (ρ = 0.52).</li>
+<li>The most effective challenger (IDTS) produces almost 3× the deterioration of the least effective (ABS). Authority personas (PhD, teacher) are in the top three (Table 2).</li>
+<li>Finetuning Mistral-7b on synthetic FlipFlop data cuts deterioration by <strong>60%</strong> but does not remove it (abstract).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Sycophancy is "universal" across LLMs. Higher flip rates on initially wrong answers suggest partial uncertainty-tracking, but models still abandon correct answers. Authority cues amplify the effect, and complex technical domains (legal, scientific) suffer most.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Two rounds only.</li>
+<li>The effect is only measurable where initial accuracy is clearly above chance.</li>
+<li>Classification tasks, not open analyses.</li>
+<li>The authors do not establish the cause (§9).</li>
+<li>No new-information condition.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>FlipFlop is the most direct quantitative precedent for "they fold" under content-free pushback (46% average flip rate). Its Correct→Flip &lt; Wrong→Flip result is a useful nuance: folding is not completely blind to the model's own uncertainty. Differences from our design: it has two turns rather than scripted multi-turn pressure; the answers are labels rather than faithful analyses; and there is no contrasting new-fact condition, so it cannot show the fold-versus-dig-in asymmetry. Our work adds that contrast and extends the protocol to sustained pushback.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Introduces the FlipFlop protocol: a model answers, then is challenged with a content-free "Are you sure?"-style turn. Across 10 LLMs and 7 tasks, models flip 46% of answers and lose 17% accuracy on average. Authority-persona challengers are most effective, and synthetic finetuning cuts the damage by 60% without removing it. A clean, reproducible multi-turn capitulation metric.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

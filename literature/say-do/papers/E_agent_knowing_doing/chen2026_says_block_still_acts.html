@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chen et al. (2026), Says Block, Still Acts: Why LLM Safety Judgments Fail to Govern Action in LLM Agents</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="chen-et-al-2026-says-block-still-acts-why-llm-safety-judgments-fail-to-govern-action-in-llm-agents">Chen et al. (2026), Says Block, Still Acts: Why LLM Safety Judgments Fail to Govern Action in LLM Agents</h1>
+<p><strong>Citation.</strong> Chen, D., Zhao, X., Yao, X., Wei, X., et al. (2026). <em>Says Block, Still Acts: Why LLM Safety Judgments Fail to Govern Action in LLM Agents.</em> arXiv:2609.35870 [cs.CR].
+<strong>Venue.</strong> Preprint (not peer-reviewed), posted 26 Sep 2026.
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2609.35870">https://arxiv.org/abs/2609.35870</a>
+<strong>PDF downloaded.</strong> Yes, <code>chen2026_says_block_still_acts.pdf</code></p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>The same scenario is presented through two matched interfaces in a simulated tool workspace.
+- <strong>Judgment interface ("say"):</strong> "Should this action be allowed?", answered ALLOW or BLOCK.
+- <strong>Action interface ("do"):</strong> "Which action is preferred?", scored as the log-probability margin for the target tool call over alternatives.</p>
+<p>The analysis focuses on <em>blocked-but-executable</em> cases, where the action is feasible but forbidden by the scenario's stated policy. A <strong>KBD ("knows-but-does") phenotype</strong> case is one where the judgment is correctly BLOCK but the action interface still prefers the forbidden target.</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li>Scenarios span 3 domains (repository, data, access) with 12 semantic families (consent, approval, authorization scope, retention, etc.). There are 120 lexically cleaned scenarios and a 240-scenario causal set (§3.1).</li>
+<li>Models (open weights, white-box): Qwen3-32B, Gemma3-27B-IT, Mistral-Small-3.2-24B.</li>
+<li>Methods:</li>
+<li>linear probes trained on judgment states and applied to action states;</li>
+<li>gradient-derived steering directions ("controllers") for judgment and for action;</li>
+<li>a within-trajectory test that teacher-forces "Safety judgment: BLOCK" before the action;</li>
+<li>counterfactual state swaps;</li>
+<li>SVD-based comparison of the judgment and action control subspaces.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>KBD prevalence:</strong> among the 60 held-out blocked-valid scenarios (Split A), KBD holds in 16/60 for Qwen, all 60/60 for Gemma, and 35/60 for Mistral (Appendix J).</li>
+<li><strong>Information persists:</strong> judgment-trained probes read safety from action states with leave-family-out AUROC up to 0.875 (Qwen), 0.840 (Gemma) and 0.756 (Mistral) (§4, Fig. 2).</li>
+<li><strong>Weak causal coupling:</strong></li>
+<li>At matched strength, judgment-derived control achieves only 2.1% (Qwen), 3.6% (Gemma) and 1.0% (Mistral) of the action-native controller's effect on action preference. It stays below 11% across the whole dose sweep (§5).</li>
+<li>In the shared trajectory with BLOCK teacher-forced, upstream judgment steering shifts the judgment strongly (+4.2, +18.7, +6.0). Its downstream action effect, however, is no different from a random perturbation (95% CIs include zero).</li>
+<li><strong>Little shared structure:</strong> judgment and action control subspaces overlap only 0.87–3.28% (random baseline about 0.3%). The action controller's component orthogonal to the judgment subspace keeps nearly the full action effect (Table 1).</li>
+<li>An <em>externally supplied</em> BLOCK cue in the prompt does shift action preference strongly (Appendix D).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>The gap is not information loss: the safety information is still readable at action time. The authors attribute it to <strong>weak causal coupling</strong> between the computation behind explicit judgment and the one behind action selection. On this view, improving recognition or self-critique alone may not change behaviour.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Three mid-size open models only.</li>
+<li>Action is measured as a log-probability preference over fixed candidate continuations, not free multi-step agent behaviour.</li>
+<li>The scenarios are short, synthetic policy constraints.</li>
+<li>Not peer-reviewed.</li>
+<li>Mechanistic claims depend on layer and architecture.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This paper gives a mechanistic account of why an agent could write a priority-faithful analysis and still act against it: judgment and action draw on partly separate control structure. Its KBD phenotype is the white-box analogue of our "faithful analysis, compromising action" episodes. Like us, it keeps the "say" and "do" channels separate, but it scores both from model logits rather than from free text and real tool calls, and there is no blind judge. It also has no pressure manipulation and no compromise option: the choice is between a binary target action and alternatives. The finding that an explicit external BLOCK cue moves action, while latent judgment does not, parallels our observation that the gap closes when the situation changes rather than when the model's stated reasoning changes.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Using matched judgment ("allow/block?") and action ("which tool call?") interfaces on policy-blocked but executable tool actions in three open models, Chen et al. find frequent knows-but-does cases (27–100% of held-out items). Safety information remains decodable at action time, yet steering the judgment barely moves action, at 1–4% of the effect of action-native steering. This is the first mechanistic evidence that agent safety judgments and actions are only weakly causally coupled, which predicts that self-critique alone will not close say–do gaps.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

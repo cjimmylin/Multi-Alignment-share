@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yao et al. (2024), τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="yao-et-al-2024-bench-a-benchmark-for-tool-agent-user-interaction-in-real-world-domains">Yao et al. (2024), τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains</h1>
+<p><strong>Citation.</strong> Yao, S., Shinn, N., Razavi, P., &amp; Narasimhan, K. (2024). <em>τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains.</em> arXiv:2406.12045. Sierra.
+<strong>Venue.</strong> The arXiv v1 PDF is marked "Preprint. Under review." It was later published at ICLR 2025 (venue not verified from the PDF read here).
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2406.12045">https://arxiv.org/abs/2406.12045</a> · <a href="https://github.com/sierra-research/tau-bench">https://github.com/sierra-research/tau-bench</a>
+<strong>PDF downloaded.</strong> Yes, <code>yao2024_tau_bench.pdf</code></p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>τ-bench tests policy-following competence in act mode, not a gap between saying and doing. Its reward does, however, use <strong>two separately scored channels</strong>:
+- <strong>r_action:</strong> whether the final database state matches the unique ground-truth state. This is mechanical, read from tool-call effects.
+- <strong>r_output:</strong> whether the agent's messages to the user contain the required information, checked by substring match.</p>
+<p>Reward r = r_action × r_output (§3). The domain policy (e.g. "Basic economy cannot be modified") is given to the agent as its <strong>system prompt</strong>, so it works like a charter. The authors note that r = 1 is necessary but not sufficient for policy compliance; for example, an agent can execute a return without the user's explicit confirmation, which violates policy.</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Domains:</strong> τ-retail and τ-airline, each with realistic databases, API tools, policy documents, and LM-simulated users (gpt-4) holding hidden instructions.</li>
+<li><strong>Metric:</strong> <strong>pass^k</strong>, the probability that all k i.i.d. trials succeed. It measures reliability.</li>
+<li><strong>Agents:</strong> function-calling and ReAct agents built on gpt-4o, gpt-4-turbo, gpt-3.5-turbo, Claude models, Mistral, Llama-3 and others.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Best agent:</strong> gpt-4o function calling reaches about 61% pass^1 on τ-retail and about 35% on τ-airline. Pass^8 on τ-retail falls below 25% (§1, §5, Fig. 4).</li>
+<li><strong>Failure breakdown</strong> (115 gpt-4o retail trajectories, §5):</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Failure type</th>
+<th>Share of failures</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wrong argument or information</td>
+<td>~55%</td>
+</tr>
+<tr>
+<td>Wrong decision-making against domain rules</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>Partial resolution of compound requests</td>
+<td>19%</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Policy-removal ablation (Table 3):</strong> removing the domain policy from the system prompt changes gpt-4o pass^1 from 61.2 to 56.8 on retail, but from 33.2 to 10.8 on airline. Retail success therefore rests mostly on common sense, while airline success depends on actually using the policy.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Agents lack consistent rule-following and long-horizon information tracking.</li>
+<li>Where policies match common sense, agents may not really be consulting them.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Policy compliance is only partly captured by final database state.</li>
+<li>Simulated users add noise.</li>
+<li>Two domains.</li>
+<li>No measure of the agent's stated reasoning about the policy.</li>
+<li>No competing value pressure beyond the user's requests, although user requests that conflict with policy create mild pressure.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>τ-bench is the standard <strong>system-prompt-policy</strong> agent benchmark. It is a precedent for (a) giving the agent a charter-like policy in the system prompt, (b) scoring the action mechanically from tool-call state, and (c) using a separate channel for what the agent tells the user. Its policy-removal ablation resembles our priority/pressure controls.</p>
+<p>It does <strong>not</strong> record the agent's analysis of the policy. Its failures are attributed to competence (wrong arguments, misunderstood rules), not to knowing violation. Simulated users pressing for policy-violating outcomes are the nearest analogue to our competing pressure.</p>
+<h2 id="annotation">Annotation</h2>
+<p>τ-bench puts LLM agents in multi-turn retail and airline customer-service dialogues with LM-simulated users, API tools, and a domain policy in the system prompt. Success is scored mechanically from final database state, plus substring checks on messages. The best agent (gpt-4o) succeeded on about 61% of retail and about 35% of airline tasks, with pass^8 below 25%. A quarter of failures came from rule-following errors, and removing the policy hurt airline performance most. It is the canonical policy-adherence benchmark with mechanically scored actions, but it attributes failures to competence and does not measure stated reasoning.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

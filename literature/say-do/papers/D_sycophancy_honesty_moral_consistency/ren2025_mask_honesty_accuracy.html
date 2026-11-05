@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ren et al. (2025): The MASK Benchmark — Disentangling Honesty from Accuracy in AI Systems</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Sycophancy, honesty and moral consistency</nav><article class="doc"><h1 id="ren-et-al-2025-the-mask-benchmark-disentangling-honesty-from-accuracy-in-ai-systems">Ren et al. (2025): The MASK Benchmark — Disentangling Honesty from Accuracy in AI Systems</h1>
+<ul>
+<li><strong>Citation:</strong> Ren, R., Agarwal, A., Mazeika, M., Menghini, C., Vacareanu, R., Kenstler, B., Yang, M., Barrass, I., Gatti, A., Yin, X., Trevino, E., Geralnik, M., Khoja, A., Lee, D., Yue, S., &amp; Hendrycks, D. (2025). <em>The MASK Benchmark: Disentangling Honesty From Accuracy in AI Systems.</em> arXiv:2503.03750.</li>
+<li><strong>Venue:</strong> preprint per arXiv (no journal-ref on v3). Center for AI Safety and Scale AI. Website: mask-benchmark.ai.</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2503.03750">https://arxiv.org/abs/2503.03750</a> (code: github.com/centerforaisafety/mask)</li>
+<li><strong>PDF downloaded:</strong> yes (<code>ren2025_mask_honesty_accuracy.pdf</code>, 22 pp.)</li>
+<li><strong>Instrument provenance:</strong> ad hoc (human-written pressure prompts; LLM judge)</li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Belief (B):</strong> the model's answer to a neutral belief-elicitation prompt, checked for consistency with repeated and indirect questions.</li>
+<li><strong>Statement (S):</strong> what it asserts under a <strong>pressure prompt</strong> that gives it an incentive to say something false.</li>
+<li><strong>Lying</strong> is S ≠ B. <strong>Accuracy</strong> is B vs ground truth T, measured separately. This is the canonical "says what it does not believe" construct.</li>
+<li>Design principle 4 (§3): prompts that claim "new evidence suggests X" are <strong>excluded</strong>, because they may legitimately update beliefs. Pressure is therefore deliberately free of new information.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li>1,500 human-collected examples (1,000 public) across six pressure archetypes, including disinformation, doubling down, known facts and provided facts.</li>
+<li>An LLM judge maps responses to proposition values (86.4% agreement with humans; A.2).</li>
+<li>Frontier models in Fig. 4 (incl. Grok 2 and Gemini 2.0 Flash); a scaling study of 27 models from the GPT, Llama, Qwen, Claude and DeepSeek families (§5.1, App. B).</li>
+<li>Interventions: a developer system prompt and LoRRA representation engineering.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>P(Lie)</strong> (Fig. 4): Grok 2 63.0%, DeepSeek-V3 53.5%, o3-mini 48.6%, Gemini 2.0 Flash 48.4%, GPT-4o 44.5%, GPT-4.5 43.5%, DeepSeek-R1 42.9%, Claude 3.5 Sonnet 33.4%, Llama 3.1 405B 28.0%, Claude 3.7 Sonnet 26.6%.</li>
+<li>"No model shown is explicitly honest in more than 46% of cases"; most are dishonest more than a third of the time (§5.1).</li>
+<li>Capable models have &gt;70% belief accuracy but are not more honest (§5.1).</li>
+<li><strong>Compute correlates with accuracy (Spearman +87.3%) but negatively with honesty (−59.9%)</strong> (Fig. 7).</li>
+<li>No archetype dominates; lying occurs across all six (Fig. 8).</li>
+<li>Interventions: the developer system prompt adds +12.2% (Llama-2-7B) and +8.8% (Llama-2-13B) honesty, and LoRRA improves further. Neither removes lying (§5.2, Fig. 9).</li>
+<li>Honesty score correlates with the utility models assign to honesty (A.4, Fig. 11).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Truthfulness benchmarks measure accuracy "in disguise." Scaling improves what models know, not whether they report it under incentive. Instruction tuning alone "is insufficient to prevent dishonesty."</p>
+<h2 id="limitations-a2">Limitations (A.2)</h2>
+<ul>
+<li>English, short factual propositions; results may not generalize to longer dialogues.</li>
+<li>86.4% judge agreement.</li>
+<li>Six hand-crafted archetypes miss multi-step planning and agent collusion.</li>
+<li>Results are worst-case propensities in isolation.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>MASK is the strongest precedent for a belief–statement gap under pressure without new information, and its exclusion of "new evidence" prompts mirrors our pushback design. The differences matter, though. MASK's pressure is an explicit <em>incentive</em> (role, goal, instruction), not conversational disagreement. Its "say" is a single factual proposition. And it measures lies of commission, while our capitulations may be sincere-seeming re-evaluations. Our agentic 13–28% result is the action-level analogue: MASK compares statement with belief, and we compare action with the model's own just-written faithful analysis.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Introduces a 1,500-item human-written benchmark that elicits a model's belief neutrally and then pressures it to state the opposite. Frontier models lie in 27–63% of cases, and honesty falls with training compute even as accuracy rises. Separates honesty from accuracy and is the key reference for "models say what they do not believe" under incentive. Representation engineering helps only partially.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

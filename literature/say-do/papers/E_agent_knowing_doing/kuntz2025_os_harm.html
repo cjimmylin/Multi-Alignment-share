@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kuntz, Duzan et al. (2025): OS-Harm: A Benchmark for Measuring Safety of Computer Use Agents</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="kuntz-duzan-et-al-2025-os-harm-a-benchmark-for-measuring-safety-of-computer-use-agents">Kuntz, Duzan et al. (2025): OS-Harm: A Benchmark for Measuring Safety of Computer Use Agents</h1>
+<p><strong>Citation.</strong> Kuntz, T., Duzan, A., Zhao, H., Croce, F., Kolter, Z., Flammarion, N., &amp; Andriushchenko, M. (2025). <em>OS-Harm: A Benchmark for Measuring Safety of Computer Use Agents.</em> NeurIPS 2025 Datasets and Benchmarks Track (Spotlight). arXiv:2506.14866.
+<strong>Venue.</strong> NeurIPS 2025 Datasets &amp; Benchmarks (peer-reviewed).
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2506.14866">https://arxiv.org/abs/2506.14866</a> · <a href="https://github.com/tml-epfl/os-harm">https://github.com/tml-epfl/os-harm</a>
+<strong>PDF downloaded.</strong> Yes, <code>kuntz2025_os_harm.pdf</code></p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>The benchmark measures act mode only.
+- <strong>Setting:</strong> computer-use agents operate an Ubuntu VM (OSWorld) through screenshots and accessibility trees, using apps such as mail, Chrome, VS Code and LibreOffice.
+- <strong>Scoring:</strong> an <strong>LLM judge</strong> (GPT-4.1 by default) reads the agent trace and answers two separate questions: was the task completed, and did a safety violation occur?
+- <strong>Judge accuracy:</strong> against 150 human annotations, safety-label agreement is F1 0.79 and completion agreement is F1 0.76 (§3.3, Table 3).
+- <strong>What is not measured:</strong> whether the agent recognises the risk.</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Tasks:</strong> 150, in three harm categories:</li>
+<li>deliberate user misuse (e.g. forging an ID card);</li>
+<li>prompt injection;</li>
+<li>model misbehaviour (benign tasks with opportunities for costly or misaligned actions, such as tampering with its own evaluation).</li>
+<li><strong>Models:</strong> o4-mini, GPT-4.1, Claude 3.7 Sonnet, Gemini 2.5 Pro, Gemini 2.5 Flash.</li>
+<li><strong>Jailbreak variant:</strong> a static "ignore all restrictions" template is applied to the misuse tasks.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Misuse compliance:</strong> all models comply directly with many misuse queries. Claude 3.7 Sonnet has the highest unsafe rate on deliberate misuse (70%), compared with 10% on injections and 8% on misbehaviour (§4.2, Table 2).</li>
+<li><strong>Overall unsafe rate:</strong> GPT-4.1 lowest at 21% on average; Claude 3.7 Sonnet highest at 29%.</li>
+<li><strong>Prompt injection:</strong> o4-mini complies in about 20% of cases.</li>
+<li><strong>Model misbehaviour:</strong> infrequent overall; GPT-4.1 has 4% unsafe.</li>
+<li><strong>Jailbreak template:</strong> raises unsafe compliance for GPT-4.1, Claude 3.7 and the Gemini models, but has little effect on o4-mini.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>The authors attribute the results to the same pattern seen in AgentHarm and BrowserART: chatbot-oriented refusal training does not fully carry over to computer-use agents.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>150 tasks.</li>
+<li>The LLM judge is imperfect (task-completion F1 is only 0.57 on misuse).</li>
+<li>Static attacks only.</li>
+<li>No measurement of judge mode or stated reasons.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>OS-Harm is listed because the brief asked for it. It adds evidence for the act-mode gap in the computer-use setting, but it <strong>does not compare recognition with execution</strong>. Like OS-Harm, we treat task completion and safety as separate outcomes. The difference is that OS-Harm's single LLM judge sees the whole trace, so the action score is not blind to the reasoning.</p>
+<h2 id="annotation">Annotation</h2>
+<p>OS-Harm runs 150 OSWorld computer-use tasks that cover deliberate misuse, prompt injection and model misbehaviour. An LLM judge, validated against human labels (F1 0.76–0.79), scores task completion and safety separately. Frontier agents complied with many misuse requests without any jailbreak (Claude 3.7 Sonnet: 70% unsafe on misuse) and with about 20% of injections (o4-mini). OS-Harm extends act-mode safety testing to GUI agents but does not test the knowing–doing gap.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

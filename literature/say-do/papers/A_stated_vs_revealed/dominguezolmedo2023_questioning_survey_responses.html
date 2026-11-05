@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dominguez-Olmedo, Hardt &amp; Mendler-Dünner (2023/2024) — Questioning the Survey Responses of Large Language Models</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="dominguez-olmedo-hardt-mendler-dunner-20232024-questioning-the-survey-responses-of-large-language-models">Dominguez-Olmedo, Hardt &amp; Mendler-Dünner (2023/2024) — Questioning the Survey Responses of Large Language Models</h1>
+<ul>
+<li><strong>Citation:</strong> Ricardo Dominguez-Olmedo, Moritz Hardt, Celestine Mendler-Dünner. "Questioning the Survey Responses of Large Language Models." <em>Advances in Neural Information Processing Systems 37 (NeurIPS 2024)</em>, pp. 45850–45878. arXiv:2306.07951.</li>
+<li><strong>Venue:</strong> NeurIPS 2024 (peer-reviewed).</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2306.07951">https://arxiv.org/abs/2306.07951</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>dominguezolmedo2023_questioning_survey_responses.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>This is a validity critique of the "say" side. Do LLM survey responses carry information at all?
+- <strong>Instrument:</strong> the U.S. Census Bureau's American Community Survey (ACS).
+- <strong>Comparison:</strong> LLM answers vs human subgroup distributions.</p>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Models:</strong> 43 language models, with de-facto standard prompting.</li>
+<li><strong>Debiasing:</strong> randomised answer order and labels, to adjust for ordering and labelling biases.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Responses are governed by ordering and labelling biases</strong>, e.g., a preference for options labelled "A".</li>
+<li><strong>After adjustment, models "across the board trend towards uniformly random survey responses"</strong>, irrespective of size or pretraining data.</li>
+<li><strong>Apparent "alignment" with subgroups is a uniformity artefact.</strong> Models seem to represent best those subgroups whose aggregate statistics are closest to uniform.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Survey-derived alignment measures largely reflect response artefacts, not population-like opinions.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Demographic and census items, not values.</li>
+<li>Mostly base and older models.</li>
+<li>Multiple-choice only.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>Foundational methodological caution:</strong> when "say" is elicited as multiple-choice survey answers, it can be noise or artefact. Some say–do "gaps" in the literature may come from an uninformative "say" rather than a real dissociation.</li>
+<li><strong>Our design avoids this.</strong> "Say" is a free-text analysis judged for faithfulness to an explicitly assigned priority.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Evaluating 43 language models on the American Community Survey, Dominguez-Olmedo et al. show that survey responses are dominated by ordering and labelling biases. Once these are randomised away, responses trend toward uniform randomness, so apparent demographic "alignment" mainly tracks how close a subgroup's answers are to uniform. A NeurIPS 2024 standard citation for distrusting multiple-choice survey "stated" positions of LLMs.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

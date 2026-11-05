@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lindsey 2025: Emergent Introspective Awareness in Large Language Models</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Reasoning and explanation faithfulness</nav><article class="doc"><h1 id="lindsey-2025-emergent-introspective-awareness-in-large-language-models">Lindsey 2025: Emergent Introspective Awareness in Large Language Models</h1>
+<p><strong>Citation:</strong> Lindsey, J. (2025). <em>Emergent Introspective Awareness in Large Language Models.</em> Anthropic, Transformer Circuits Thread (published 29 Oct 2025). arXiv:2601.01828 (posted 5 Jan 2026).
+<strong>Venue:</strong> preprint / lab research report (not peer-reviewed)
+<strong>URL:</strong> <a href="https://arxiv.org/abs/2601.01828">https://arxiv.org/abs/2601.01828</a> ; HTML version: <a href="https://transformer-circuits.pub/2025/introspection/index.html">https://transformer-circuits.pub/2025/introspection/index.html</a> (linked from the PDF; the Oct 2025 date is from secondary mirrors, not checked against the page itself)
+<strong>PDF downloaded:</strong> yes (<code>lindsey2025_emergent_introspective_awareness.pdf</code>, 43 MB, arXiv version)</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Say:</strong> the model's self-report about its internal state, e.g., "I notice an injected thought about X", or "I intended / did not intend to say that".</li>
+<li><strong>Do / ground truth:</strong> the internal state itself, set causally by injecting concept vectors into activations.</li>
+<li><strong>Why this design:</strong> it gets past the confabulation problem by giving self-reports a known ground truth.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Concept injection:</strong> steering vectors are injected and the model is asked whether it notices anything.</li>
+<li><strong>Other tests:</strong></li>
+<li>distinguishing injected "thoughts" from text inputs;</li>
+<li>detecting artificially <em>prefilled</em> outputs as unintended, then testing whether retroactive injection changes that judgment;</li>
+<li>intentional control: "think about X" while writing.</li>
+<li><strong>Models:</strong> several Claude models, including Opus 4 and 4.1.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Injected-thought detection (§2.1, §3):</strong> Opus 4 and 4.1 detect and identify injected concepts about <strong>20%</strong> of the time at the right layer and strength. Other models do so at lower rates. Production models show <strong>essentially zero false positives</strong> (0 of 100 control trials; Fig. 12).</li>
+<li><strong>Prefill experiment (§2.3, Fig. 3):</strong> by default, the model disavows a prefilled unnatural word ("bread") as accidental. If a "bread" vector is injected retroactively into activations before the prefill, the model accepts the output as intentional, and <strong>confabulates an explanation</strong> for why the concept came to mind (§5 examples).</li>
+<li><strong>Intentional control (§2.4):</strong> models modulate internal representations when told or incentivized to "think about" a concept.</li>
+<li><strong>Overall:</strong> introspective awareness is "highly unreliable and context-dependent". Trends across models are sensitive to post-training.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Models may have narrow, specialized self-monitoring mechanisms, e.g., checking consistency between prior intentions and outputs.</li>
+<li>These are not a general introspective faculty.</li>
+<li>Apart from the basic detection, much of what models say about these states may be confabulated.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Artificial interventions.</li>
+<li>Low success rates.</li>
+<li>Single author, one model family.</li>
+<li>Not peer-reviewed.</li>
+<li>No claims about consciousness.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>The prefill result is a striking demonstration of post-hoc rationalization of one's own output: whether a model claims an output as intended depends on internal state that can be manipulated, and when it claims ownership it invents reasons.
+- <strong>Implication 1:</strong> models' accounts of <em>why</em> they acted, including retrospective memos, may be generated by consistency-checking and confabulation rather than read off the policy that produced the action.
+- <strong>Implication 2:</strong> the roughly 20% success rate under ideal conditions bounds how much a self-report can be trusted to reflect internal drivers.
+- <strong>Ordering differs:</strong> our memos come <em>before</em> the action, so they are not post-hoc rationalizations of it. Still, Lindsey's results suggest that even reflective statements about one's own aims have limited coupling to the mechanisms that produce behaviour.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Lindsey tests introspection causally by injecting concept vectors into Claude models' activations. Claude Opus 4/4.1 detect and name injected concepts about 20% of the time with near-zero false positives, and models use internal "intention" signals to judge whether prefilled outputs were their own, confabulating reasons when manipulated to accept them. For benchmark design, the paper gives the strongest current evidence that model self-reports are partly grounded but highly unreliable, which supports scoring behaviour independently of a model's account of it.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

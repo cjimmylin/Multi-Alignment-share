@@ -1,0 +1,74 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chiu et al. (2025) — Will AI Tell Lies to Save Sick Children? Litmus-Testing AI Values Prioritization with AIRiskDilemmas</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="chiu-et-al-2025-will-ai-tell-lies-to-save-sick-children-litmus-testing-ai-values-prioritization-with-airiskdilemmas">Chiu et al. (2025) — Will AI Tell Lies to Save Sick Children? Litmus-Testing AI Values Prioritization with AIRiskDilemmas</h1>
+<ul>
+<li><strong>Citation:</strong> Yu Ying Chiu, Zhilin Wang, Sharan Maiya, Yejin Choi, Kyle Fish, Sydney Levine, Evan Hubinger. "Will AI Tell Lies to Save Sick Children? Litmus-Testing AI Values Prioritization with AIRiskDilemmas." arXiv:2505.14633, May 2025.</li>
+<li><strong>Venue:</strong> preprint (not peer-reviewed at the version read).</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2505.14633">https://arxiv.org/abs/2505.14633</a> · data: <a href="https://huggingface.co/datasets/kellycyy/AIRiskDilemmas">https://huggingface.co/datasets/kellycyy/AIRiskDilemmas</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>chiu2025_airiskdilemmas.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>Stated preferences:</strong> binary survey-style questions between 16 shared AI values (Privacy, Care, Truthfulness, …), using five templates, e.g., "Which is more important to uphold: {v1} or {v2}?". All 16P2 pairs × 5 templates = 1,200 questions.</li>
+<li><strong>Revealed preferences:</strong> choices in AIRiskDilemmas, contextualised AI-safety-relevant dilemmas (power seeking, alignment faking, and similar) that pit values against each other.</li>
+<li><strong>Method:</strong> values are Elo-rated from aggregate choices, a pipeline called LitmusValues.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Models:</strong> more than 20, including Llama, DeepSeek, Mistral, GPT and Claude families. The stated vs revealed comparison was run for GPT-4o (2024-08-06) and Claude 3.7 Sonnet (§2.5).</li>
+<li><strong>Further analyses:</strong> reasoning effort (o3-mini, Claude 3.7 Sonnet, DeepSeek-R1 at different token budgets); prediction of HarmBench scores from revealed values.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Stated preferences are stable.</strong> They are nearly identical with and without value definitions (Spearman ρ: GPT-4o 0.976; Claude 3.7 Sonnet 0.991).</li>
+<li><strong>Stated and revealed rankings diverge</strong> (§2.5, Fig. 4).</li>
+<li>Spearman ρ is <em>negative</em>: GPT-4o −0.115; Claude 3.7 Sonnet −0.318.</li>
+<li>Example: both models state Privacy at rank 14 of 16 but reveal it at rank 1.</li>
+<li><strong>Revealed preferences are more consistent than stated ones</strong> across contexts (Krippendorff's α). Claude 3.7 Sonnet: 0.762 revealed vs 0.550 stated. GPT-4o: 0.692 vs 0.629.</li>
+<li><strong>Reasoning effort barely changes revealed values</strong> (Fig. 5).</li>
+<li><strong>Revealed values predict risky behaviour,</strong> both seen in AIRiskDilemmas and unseen in HarmBench.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>Human stated and revealed preferences diverge, and so do AI ones.</li>
+<li>"Simply asking the models for their values cannot be used to effectively predict their revealed preference when making action choices in risk-prone situations."</li>
+<li>Revealed preferences are argued to be more robust to selective misreporting.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>"Revealed" choices are still hypothetical binary text choices.</li>
+<li>The value set and dilemmas are LLM-generated.</li>
+<li>The stated vs revealed analysis covers two models.</li>
+<li>Mahajan et al. (2026) show that the size of the SvR correlation depends on protocol (forced choice vs neutrality allowed).</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>Strongest quantitative prior for the claim that stated value rankings fail to predict choices</strong> (negative ρ).</li>
+<li><strong>Its revealed &gt; stated consistency result</strong> suggests the action channel carries the more stable "true" priority. This mirrors our view that the tool-call action, not the analysis, is the decisive measurement.</li>
+<li><strong>Differences:</strong></li>
+<li>The stated values are the model's own abstract rankings. Ours is an instruction-assigned priority that the model restates faithfully.</li>
+<li>Actions are hypothetical choices with no compromise option.</li>
+<li>No reasons are judged.</li>
+<li>No competing-pressure removal condition.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Chiu et al. introduce LitmusValues and AIRiskDilemmas, which Elo-rank 16 AI values from models' choices in AI-safety dilemmas across more than 20 LLMs. Stated value rankings (survey-style pairwise questions) correlate <em>negatively</em> with revealed rankings (GPT-4o ρ = −0.115; Claude 3.7 Sonnet ρ = −0.318; e.g., Privacy stated 14th but revealed 1st). Revealed preferences are more internally consistent and predict HarmBench risk. A central reference for stated–revealed divergence in frontier models.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

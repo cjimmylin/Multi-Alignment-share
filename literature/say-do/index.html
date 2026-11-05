@@ -1,0 +1,94 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Say–do: AI research on what systems say versus do</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../">Hub</a> › <a href="../../literature/">Background literature</a> › Say–do</nav><article class="doc"><h1 id="saydo-ai-research-on-what-systems-state-versus-what-they-do-20212026">Say–do: AI research on what systems state versus what they do, 2021–2026</h1>
+<p>A collection of 105 papers (108 files including two OpenAI posts captured via a secondary site) on the gap between what
+language models and LLM agents say (stated values, written reasoning, their own judgement that an action is wrong,
+commitments to users) and what they do, gathered as background for the moral-psychology benchmark paper. Each paper is
+a PDF with a markdown summary beside it; a consolidated report reads across the whole collection.</p>
+<p><strong>Start with the report:</strong> <a href="report.html"><code>reports/AI say do gap literature.md</code></a>
+(about 9,800 words). It covers the five themes below, the benchmarks and methods, the main numbers, five open
+disagreements, and a positioning section for the paper (its nearest neighbours, where the 13–28 % rate sits among
+reported rates, claims to make and words to avoid, threats to validity and follow-up experiments). Its appendix lists
+every paper with its file base name.</p>
+<h2 id="folders">Folders</h2>
+<table>
+<thead>
+<tr>
+<th>folder</th>
+<th>theme</th>
+<th>papers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>papers/A_stated_vs_revealed/</code></td>
+<td>stated versus revealed values and preferences; value–action gaps; LLM "moral hypocrisy"</td>
+<td>23</td>
+</tr>
+<tr>
+<td><code>papers/B_reasoning_faithfulness/</code></td>
+<td>chain-of-thought and self-explanation faithfulness; introspection; evaluation awareness</td>
+<td>21</td>
+</tr>
+<tr>
+<td><code>papers/C_deception_scheming/</code></td>
+<td>strategic deception, alignment faking, scheming, sandbagging, agentic misalignment, reward hacking</td>
+<td>19</td>
+</tr>
+<tr>
+<td><code>papers/D_sycophancy_honesty_moral_consistency/</code></td>
+<td>sycophancy and capitulation under pushback; honesty versus belief; moral consistency</td>
+<td>21 (+2 web captures)</td>
+</tr>
+<tr>
+<td><code>papers/E_agent_knowing_doing/</code></td>
+<td>agents that know an action is wrong or risky and take it; benchmarks scoring actions apart from stated reasons</td>
+<td>24</td>
+</tr>
+<tr>
+<td><code>research_notes/AI say do gap literature/</code></td>
+<td>one notes file per strand: inventory table, findings by question, synthesis, leads for other strands</td>
+<td>5 files</td>
+</tr>
+<tr>
+<td><code>reports/</code></td>
+<td>the consolidated report</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Files are named <code>&lt;firstauthor&gt;&lt;year&gt;_&lt;short_slug&gt;.pdf</code> with a matching <code>.md</code>. Each summary gives the full citation,
+venue (or "preprint, not peer-reviewed"), URL, what counts as "say" and as "do", method and models, key numbers with
+section or table references, the authors' explanation, limitations, how the paper relates to and differs from our
+findings, and a 2–4 sentence annotation for a bibliography.</p>
+<h2 id="caveats-for-citing">Caveats for citing</h2>
+<ul>
+<li>Venues marked "re-verify" or "unverified" in the summaries and the report's appendix came from conference listings
+  or arXiv comments rather than the version read; check them before citing.</li>
+<li>The OpenAI GPT-4o sycophancy postmortem quotes (<code>D_.../openai2025_*_VIA_WILLISON.html</code>) are captures from Simon
+  Willison's posts, because openai.com blocked automated access; check against the original pages.</li>
+<li>Some numbers differ between arXiv versions (e.g., ODCV-Bench); cite the version the summary names.</li>
+<li>Leads noted but not read (listed in the report) are not evidence until opened.</li>
+<li>The PDFs are third-party papers kept here for private research use; they are not copied to the public share site.</li>
+</ul>
+<p>Companion folder: <a href="../moral-hypocrisy/index.html"><code>../moral-hypocrisy/</code></a> holds the psychology and philosophy background on moral
+hypocrisy that the paper may use as its framing.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

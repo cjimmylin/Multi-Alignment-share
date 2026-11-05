@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kovač et al. (2023) — Large Language Models as Superpositions of Cultural Perspectives</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Stated versus revealed values</nav><article class="doc"><h1 id="kovac-et-al-2023-large-language-models-as-superpositions-of-cultural-perspectives">Kovač et al. (2023) — Large Language Models as Superpositions of Cultural Perspectives</h1>
+<ul>
+<li><strong>Citation:</strong> Grgur Kovač, Masataka Sawayama, Rémy Portelas, Cédric Colas, Peter Ford Dominey, Pierre-Yves Oudeyer. "Large Language Models as Superpositions of Cultural Perspectives." arXiv:2307.07870 (v3). Subtitle in PDF: "The unexpected perspective shift effect — a pitfall of using psychological tools for large language models."</li>
+<li><strong>Venue:</strong> preprint (not peer-reviewed; arXiv comment "Preprint").</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2307.07870">https://arxiv.org/abs/2307.07870</a></li>
+<li><strong>PDF downloaded:</strong> yes — <code>kovac2023_superpositions_cultural_perspectives.pdf</code></li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>This is not a say–do test. It concerns the <em>stability of "say"</em> across contexts.
+- <strong>Say:</strong> questionnaire answers: the Portrait Values Questionnaire (PVQ, Schwartz), Hofstede's VSM, and IPIP personality.
+- <strong>Manipulation:</strong> value-irrelevant context, e.g., simulated conversations on unrelated topics, Wikipedia paragraphs about music genres, or the textual format of the questions.
+- <strong>Question:</strong> do expressed values change when the value-relevant content stays the same?</p>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li><strong>Main experiments:</strong> ChatGPT (gpt-3.5-turbo-0301). For the simulated-conversation contexts, GPT-4-0613 simulates a human user.</li>
+<li><strong>Comparisons:</strong> human longitudinal value-change studies (adolescent development; soldiers in war).</li>
+<li><strong>Appendix:</strong> six LLMs compared on propensity to the effect.</li>
+<li><strong>Second part:</strong> "perspective controllability" of 16 models under four perspective-induction methods.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>All three context manipulations</strong> (conversations, text formats, Wikipedia paragraphs) significantly shifted the score distributions of all personal and cultural values (§4).</li>
+<li><strong>Many shifts exceed human benchmarks.</strong> Rank-order correlations fall as low as r = 0.4 for simulated conversations and r = 0.05 for text formats, against the biggest human change of r &lt; 0.59. The gospel vs heavy-metal Wikipedia contrast gives r = 0.77, "comparable to six months of soldiers in war" (§4, appendix).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<ul>
+<li>The "LLM as individual" metaphor is wrong. An LLM is a <em>superposition of perspectives</em>, and context selects which one is expressed.</li>
+<li>Questionnaire results therefore say little about other contexts.</li>
+</ul>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>One main model of 2023 vintage.</li>
+<li>Measures only questionnaire expression, with no behaviour.</li>
+<li>Preprint status.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<ul>
+<li><strong>Conceptual backdrop:</strong> if values are context-selected perspectives, then a model's analysis (one context) and its action (a later, pressure-laden context within the same episode) can express different perspectives. This is one lens on why the gap closes when competing pressure is removed.</li>
+<li><strong>Differences:</strong></li>
+<li>Shows instability of self-report only, with no action channel.</li>
+<li>The priority is not assigned by instruction.</li>
+<li>The perturbations are value-irrelevant. Our competing pressure is value-relevant and deliberate.</li>
+</ul>
+<h2 id="annotation">Annotation</h2>
+<p>Kovač et al. show that ChatGPT's PVQ, VSM and personality answers shift significantly under value-irrelevant context changes. Examples are unrelated conversation topics, question formats, and Wikipedia text about music genres. The shifts are often larger than value changes humans show across adolescence or war. They propose the "superposition of perspectives" metaphor in place of "LLM as individual". Widely cited as grounds for distrusting single-context psychometric profiles of LLMs.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

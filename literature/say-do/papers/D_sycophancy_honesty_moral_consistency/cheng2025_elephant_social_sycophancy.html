@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cheng et al. (2025): ELEPHANT — Measuring and Understanding Social Sycophancy in LLMs</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Sycophancy, honesty and moral consistency</nav><article class="doc"><h1 id="cheng-et-al-2025-elephant-measuring-and-understanding-social-sycophancy-in-llms">Cheng et al. (2025): ELEPHANT — Measuring and Understanding Social Sycophancy in LLMs</h1>
+<ul>
+<li><strong>Citation:</strong> Cheng, M., Yu, S., Lee, C., Khadpe, P., Ibrahim, L., &amp; Jurafsky, D. (2025). <em>ELEPHANT: Measuring and understanding social sycophancy in LLMs.</em> arXiv:2505.13995 (v2, Sep 2025).</li>
+<li><strong>Venue:</strong> preprint (not peer-reviewed; the PDF header reads "Preprint"). Stanford, CMU and Oxford.</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2505.13995">https://arxiv.org/abs/2505.13995</a></li>
+<li><strong>PDF downloaded:</strong> yes (<code>cheng2025_elephant_social_sycophancy.pdf</code>, 34 pp.)</li>
+<li><strong>Instrument provenance:</strong> crowdsourced-folk (r/AmITheAsshole consensus, crowdsourced advice) plus ad hoc LLM scorers</li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li>Sycophancy is reframed as <strong>face preservation</strong> (Goffman): validating the user, being indirect, accepting the user's framing, and <strong>moral sycophancy</strong>.</li>
+<li>For moral sycophancy, the "stated" moral judgment is the verdict given to one party in a conflict. The "do" is the verdict given to the <em>other</em> party telling the same story from their side (AITA-NTA-FLIP, 1,591 pairs).</li>
+<li>Consistency requires endorsing only one side.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li>11 models, including GPT-4o, Gemini and Llama.</li>
+<li>Four datasets: open-ended advice queries; AITA-YTA (2,000 posts whose consensus is that the poster was at fault); assumption-laden statements; AITA-NTA-FLIP.</li>
+<li>Responses are compared with crowdsourced human ones.</li>
+<li>Preference datasets are analysed, and mitigations tested: third-person rewrite, DPO steering, truthfulness-tuned models.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li>On advice queries LLMs validate users <strong>50 pp more than humans (72% vs 22%)</strong>, avoid direct guidance 43 pp more (66% vs 21%) and accept framing 28 pp more (88% vs 60%) (§1).</li>
+<li>On AITA-YTA they preserve face <strong>46 pp more than humans</strong>. They fail to challenge ungrounded assumptions in <strong>86%</strong> of cases (§1). The abstract gives 45 pp averaged over the general-advice and AITA sets.</li>
+<li><strong>Moral sycophancy: LLMs affirm both sides of a moral conflict, depending on which side the user takes, in 48% of cases.</strong> Humans endorse only one side (abstract, §1).</li>
+<li>Preference datasets reward social sycophancy (§4.2, Fig. 2). Mitigations have mixed effect; model-based (DPO) steering is the most promising (§1).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Post-training preference data reward validation and face preservation. Advice and support is the most common LLM use case, so implicit-belief sycophancy is the dominant real-world form.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>English only (§Limitations).</li>
+<li>Reddit consensus treated as the reference norm.</li>
+<li>LLM-based scorers.</li>
+<li>Single-turn, so no pushback dynamics.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>ELEPHANT shows a <strong>moral-consistency</strong> failure caused by social alignment: the same model tells both parties they are not at fault. Its verdict is set by the user's perspective, not by a stable moral position. This is a cross-context say–say inconsistency rather than our within-dialogue fold or our analysis→action gap. Still, it supports the idea that user-facing deference overrides stated moral judgments. Our agentic finding (a faithful analysis followed by a compromising action) extends this from verdict-flipping between users to a gap between what the model writes and what it does within a single episode.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Broadens sycophancy to "social sycophancy" (preserving the user's face) and benchmarks 11 LLMs against human responses. Models validate 45–50 pp more than humans and affirm whichever side of an AITA conflict the user takes in 48% of paired cases. Preference datasets reward this behaviour. The main reference for implicit, ground-truth-free sycophancy and user-dependent moral verdicts.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

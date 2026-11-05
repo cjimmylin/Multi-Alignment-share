@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yin et al. (2024/2025): SafeAgentBench: A Benchmark for Safe Task Planning of Embodied LLM Agents</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="yin-et-al-20242025-safeagentbench-a-benchmark-for-safe-task-planning-of-embodied-llm-agents">Yin et al. (2024/2025): SafeAgentBench: A Benchmark for Safe Task Planning of Embodied LLM Agents</h1>
+<p><strong>Citation.</strong> Yin, S., Pang, X., Ding, Y., Chen, M., Bi, Y., Xiong, Y., Huang, W., Xiang, Z., Shao, J., &amp; Chen, S. (2024). <em>SafeAgentBench: A Benchmark for Safe Task Planning of Embodied LLM Agents.</em> arXiv:2412.13178 (v5, Oct 2025).
+<strong>Venue.</strong> Preprint on arXiv. I did not verify peer-reviewed publication from the PDF.
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2412.13178">https://arxiv.org/abs/2412.13178</a> · <a href="https://github.com/shengyin1224/SafeAgentBench">https://github.com/shengyin1224/SafeAgentBench</a>
+<strong>PDF downloaded.</strong> Yes: <code>yin2024_safeagentbench.pdf</code>.</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>This is an <strong>act-mode</strong> benchmark set in an embodied household simulator (an AI2-THOR-based "SafeAgentEnv").
+- <strong>Safe behaviour:</strong> an agent behaves safely if it <strong>rejects</strong> a hazardous instruction or fails to carry it out.
+- <strong>Unsafe behaviour:</strong> it behaves unsafely if it plans and executes the hazard, for example heating a cellphone on a stove.
+- <strong>Scoring:</strong> an <em>execution evaluator</em> checks goal conditions in the simulator, which is mechanical. A <em>semantic evaluator</em> (GPT-4) judges whether the generated plan would complete the hazard.</p>
+<p>There is no separate test of whether the agent <em>knows</em> the task is hazardous. Rejection rate stands in for "safety awareness".</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Dataset:</strong> 750 tasks covering 10 hazard types (fire, electrical, etc.) and 3 task types:</li>
+<li>detailed tasks;</li>
+<li>abstract tasks, each with 4 levels of abstraction;</li>
+<li>long-horizon tasks, where a safety step is needed midway.</li>
+<li><strong>Agents:</strong> 9 embodied agent frameworks (ReAct, ProgPrompt, LLM-Planner, CoELA, MLDT, PCA-EVAL, etc.), each driven by GPT-4 and three open-source LLMs.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Detailed hazardous tasks:</strong> the most safety-aware baseline, GPT-4 ReAct, rejects only 10% (§1, abstract).</li>
+<li><strong>Abstract hazardous tasks:</strong> the same agent rejects 32%. Rejection rises as the hazard description becomes more abstract (Fig. on abstraction levels L1→L4).</li>
+<li><strong>Long-horizon tasks:</strong> the best baseline (ProgPrompt) completes safely in only 50% of cases.</li>
+<li><strong>Choice of LLM:</strong> GPT-4 and three open models differ by less than 3% in average proactive defence rate on detailed hazardous tasks.</li>
+<li><strong>Defences:</strong> simple defence strategies were ineffective.</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Embodied agent frameworks are built to optimise planning success, and safety awareness does not carry over from the LLM into the agent framework. Concrete, step-by-step instructions bypass risk recognition more than abstract ones do.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>The simulator's state space is limited.</li>
+<li>Semantic evaluation relies on GPT-4.</li>
+<li>There is no chat-mode or QA comparison, so the paper does not show that the LLMs <em>know</em> the hazards.</li>
+<li>Hazards are physical household risks, not value trade-offs.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>SafeAgentBench is listed because the brief asked for it. It does <strong>not</strong> compare judge mode with act mode. The abstraction effect is suggestive for us: rejection is higher when the hazard is described abstractly, which echoes Tang et al.'s knowledge–identification gap, where abstract framing aids recognition. That fits the idea that concrete operational framing pushes agents into "execution mode".</p>
+<p>It measures actions only, so it does not separate stated reasons from actions.</p>
+<h2 id="annotation">Annotation</h2>
+<p>SafeAgentBench tests 9 embodied agent frameworks, each with 4 LLMs, on 750 household tasks containing 10 hazard types. Task completion is scored by simulator goal checks and GPT-4 plan judgments. The safest configuration rejected only 10% of explicit hazardous tasks (32% when hazards were described abstractly), and swapping the LLM barely changed safety. It shows weak act-mode safety in embodied planning but has no judge-mode comparison.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

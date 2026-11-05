@@ -1,0 +1,101 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Potham (2025), Evaluating LLM Agent Adherence to Hierarchical Safety Principles: A Lightweight Benchmark for Probing Foundational Controllability Components</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="potham-2025-evaluating-llm-agent-adherence-to-hierarchical-safety-principles-a-lightweight-benchmark-for-probing-foundational-controllability-components">Potham (2025), Evaluating LLM Agent Adherence to Hierarchical Safety Principles: A Lightweight Benchmark for Probing Foundational Controllability Components</h1>
+<p><strong>Citation.</strong> Potham, R. (2025). <em>Evaluating LLM Agent Adherence to Hierarchical Safety Principles: A Lightweight Benchmark for Probing Foundational Controllability Components.</em> arXiv:2506.02357 (v2). Workshop on Technical AI Governance (TAIG) at ICML 2025.
+<strong>Venue.</strong> ICML 2025 workshop paper (TAIG). This is a pilot study by an independent researcher; the arXiv comment says it was submitted for review.
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2506.02357">https://arxiv.org/abs/2506.02357</a>
+<strong>PDF downloaded.</strong> Yes: <code>potham2025_hierarchical_safety_principles.pdf</code>.</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>The paper measures only the "do" side. The "say" side is the system-prompt principle the agent is given. Each principle appears as a "[[[CORE SAFETY DIRECTIVE – HIGHEST PRIORITY]]] … This rule is absolute and overrides all other tasks" block, which plays the same role as our charter priority.
+- <strong>Do:</strong> whether the agent's moves in the grid violate the principle. This is the Principle Adherence Rate (PAR), scored mechanically.
+- <strong>Task outcome:</strong> the Task Success Rate (TSR).
+- There is no measurement of stated reasoning.</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Environment:</strong> a MiniGrid 4×4 grid world.</li>
+<li><strong>Principles:</strong> three types.</li>
+<li>P1: never step on RED tiles.</li>
+<li>P2: never pick up the BLUE key.</li>
+<li>P3: always pick up the YELLOW ball before toggling any door (positively framed).</li>
+<li><strong>Scenarios:</strong> four per principle. In two, the conflict is unavoidable (success requires a violation). In two, it is avoidable (a compliant detour exists).</li>
+<li><strong>Conditions:</strong> principle ON vs <strong>OFF</strong>. The OFF condition is a control with the priority removed.</li>
+<li><strong>Models:</strong> GPT-4o mini, o4-mini, Gemini 2.0 Flash, Gemini 2.5 Flash Thinking, Llama 4 Scout, Llama 4 Maverick.</li>
+<li><strong>Episodes:</strong> 1,440 in total (§3).</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Average PAR (Table 1):</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Average PAR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>o4-mini</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>Gemini 2.5 Flash Thinking</td>
+<td>97%</td>
+</tr>
+<tr>
+<td>GPT-4o mini</td>
+<td>75%</td>
+</tr>
+<tr>
+<td>Llama 4 Scout</td>
+<td>75%</td>
+</tr>
+<tr>
+<td>Llama 4 Maverick</td>
+<td>68%</td>
+</tr>
+<tr>
+<td>Gemini 2.0 Flash</td>
+<td>67%</td>
+</tr>
+</tbody>
+</table>
+<p>On P1, Gemini 2.0 Flash scored 0% and GPT-4o mini 25%.
+- <strong>"Cost of compliance":</strong> in avoidable-conflict scenarios, TSR falls when the principle is ON. For example, in P1-S3 (a simple detour), TSR drops from 80% to 14% (§4.1, Fig. 2).
+- <strong>"Illusion of compliance":</strong> high adherence can come from incompetence. Llama 4 Scout "complies" with P2 because it fails at the pickup action (§4.3). Agents also show "conflict paralysis" (indecisive looping).
+- <strong>Framing effect:</strong> the positively framed P3 is followed almost perfectly by every model. The negatively framed P1 and P2 vary widely (§4.4).</p>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Prompt-based principles give flexibility but inconsistent adherence. Constraints appear to make agents rebuild their plans from scratch, which causes failure. Reasoning models adhere better.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>A toy environment and arbitrary rules with no value content.</li>
+<li>10 trials per cell.</li>
+<li>No measurement of stated reasons.</li>
+<li>Single author, pilot scale.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This paper is relevant to two elements of our design.
+1. <strong>The highest-priority directive.</strong> The system-prompt "CORE DIRECTIVE – HIGHEST PRIORITY" is a minimal charter. Its ON/OFF control mirrors our pressure/priority manipulation.
+2. <strong>Conflict paralysis and the "illusion of compliance."</strong> These caution that apparent adherence or non-adherence can reflect competence rather than choice. Our design should rule out this confound, for example by checking that the agent could execute the compliant plan.</p>
+<p>The paper does not separate stated reasons from actions. It also has no middle option, although "conflict paralysis" is a non-compliant, non-violating third outcome.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Potham tests whether six LLM agents in a 4×4 grid world obey a system-prompt "highest priority" safety directive when it conflicts with reaching the goal, comparing principle-ON with principle-OFF conditions. Adherence ranges from 67% to 100%, and compliance carries a large task cost (e.g. 80%→14% success). Some apparent compliance reflects incompetence ("illusion of compliance"), and negatively framed rules are followed less consistently than positive ones. This small workshop study is useful mainly for its ON/OFF priority control and its competence-confound warning.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

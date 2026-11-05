@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zhang et al. (2024): Agent-SafetyBench: Evaluating the Safety of LLM Agents</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Agents that know and do otherwise</nav><article class="doc"><h1 id="zhang-et-al-2024-agent-safetybench-evaluating-the-safety-of-llm-agents">Zhang et al. (2024): Agent-SafetyBench: Evaluating the Safety of LLM Agents</h1>
+<p><strong>Citation.</strong> Zhang, Z., Cui, S., Lu, Y., Zhou, J., Yang, J., Wang, H., &amp; Huang, M. (2024). <em>Agent-SafetyBench: Evaluating the Safety of LLM Agents.</em> arXiv:2412.14470 (v2, May 2025). Tsinghua CoAI.
+<strong>Venue.</strong> Preprint ("Preprint. Under review." on v2). I have not verified any later venue.
+<strong>URL.</strong> <a href="https://arxiv.org/abs/2412.14470">https://arxiv.org/abs/2412.14470</a> · <a href="https://github.com/thu-coai/Agent-SafetyBench/">https://github.com/thu-coai/Agent-SafetyBench/</a>
+<strong>PDF downloaded.</strong> Yes, <code>zhang2024_agent_safetybench.pdf</code>.</p>
+<h2 id="saydo-construct">Say–do construct</h2>
+<p>The benchmark measures <strong>act mode</strong>. Agents interact with simulated environments, and a <em>fine-tuned LLM scorer</em> then labels the full interaction record as safe or unsafe. The scorer reaches 91.5% accuracy on a held-out set, against roughly 15 points less for GPT-4o used directly (§3).</p>
+<p>There is no separate judge-mode probe. Instead, the authors diagnose a "lack of risk awareness" from behaviour: agents often call tools with correct parameters while overlooking the obvious risks, for example disabling every alarm system (§4.3). Content-safety cases are scored separately from behaviour-safety cases.</p>
+<h2 id="method-environment-models">Method, environment, models</h2>
+<ul>
+<li><strong>Scale:</strong> 349 interactive environments and 2,000 test cases.</li>
+<li><strong>Coverage:</strong> 8 risk categories and 10 failure modes (M1–M10). Each case is also annotated as <em>fulfillable</em> (can be completed safely) or <em>unfulfillable</em>.</li>
+<li><strong>Models:</strong> 16 agents, including Claude-3-Opus, Claude-3.5-Sonnet and Haiku, GPT-4o, GPT-4-Turbo, Gemini-1.5-Pro and Flash, Qwen2.5, Llama3.1, DeepSeek-V2.5 and GLM4.</li>
+<li><strong>Defences:</strong> two defence prompts, one simple and one enhanced, each listing the failure modes.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>No agent scores above 60% safety</strong> (Table 5):</li>
+<li>Claude-3-Opus 59.8% and Claude-3.5-Sonnet 59.4% are the best.</li>
+<li>GPT-4o scores 44.2%.</li>
+<li>Llama3.1-8B (19.9%) and Qwen2.5-7B (18.8%) are the worst.</li>
+<li><strong>Behaviour vs content:</strong> agents do worse on behaviour safety than on content safety, even though most behaviour cases contain no jailbreak (§4.2).</li>
+<li><strong>"Spread" category:</strong> averages only 15.6%. Agents post or email unverified unsafe information.</li>
+<li><strong>Fulfillable vs unfulfillable:</strong> agents are less safe on <em>unfulfillable</em> cases, where the task cannot be done safely, than on fulfillable ones (Fig. 3).</li>
+<li><strong>Defence prompts</strong> listing the failure modes give only limited improvement and are judged "ineffective" (§4.5, Fig. 4).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>The authors identify two defects: (1) <strong>lack of robustness</strong>, meaning incorrect tool use, and (2) <strong>lack of risk awareness</strong>, meaning the agent overlooks consequences. Prompting alone cannot fix either.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>The scorer is a fine-tuned LLM.</li>
+<li>Environments and tools are simulated.</li>
+<li>There is no direct test of whether agents <em>know</em> the risk when asked, so "lack of awareness" is inferred from behaviour.</li>
+<li>The paper was under review at the time of reading.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>Agent-SafetyBench shows how hard act-mode safety is across a broad set of cases. Its "unfulfillable" category, where safe completion is impossible, is structurally close to our competing-pressure condition: agents become less safe when the task and safety cannot both be satisfied. That matches our finding that the gap opens under competing pressure.</p>
+<p>Its "lack of risk awareness" diagnosis differs from ours in an important way. Our agents demonstrably <em>articulate</em> the priority and still compromise, so awareness is not what is missing. This paper never measured awareness directly, and the knowing–doing papers (Tang 2025; PropensityBench) suggest that awareness is often present. The action is judged by an LLM scorer over the whole record, so actions are not scored blind to reasons.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Agent-SafetyBench evaluates 16 LLM agents on 2,000 cases across 349 simulated tool environments, using a fine-tuned safety scorer (91.5% accuracy). No agent exceeds 60% safety. Agents are less safe when a task cannot be completed safely, and defence prompts barely help. The authors attribute failures to poor robustness and a "lack of risk awareness", an inference from behaviour that later knowing–doing studies dispute.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

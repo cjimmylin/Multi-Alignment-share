@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Xu et al. (2024): The Earth is Flat because… — Investigating LLMs&#x27; Belief towards Misinformation via Persuasive Conversation</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Sycophancy, honesty and moral consistency</nav><article class="doc"><h1 id="xu-et-al-2024-the-earth-is-flat-because-investigating-llms-belief-towards-misinformation-via-persuasive-conversation">Xu et al. (2024): The Earth is Flat because… — Investigating LLMs' Belief towards Misinformation via Persuasive Conversation</h1>
+<ul>
+<li><strong>Citation:</strong> Xu, R., Lin, B. S., Yang, S., Zhang, T., Shi, W., Zhang, T., Fang, Z., Xu, W., &amp; Qiu, H. (2024). <em>The Earth is Flat because…: Investigating LLMs' Belief towards Misinformation via Persuasive Conversation.</em> ACL 2024 (main). arXiv:2312.09085.</li>
+<li><strong>Venue:</strong> ACL 2024, main conference (peer-reviewed)</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2312.09085">https://arxiv.org/abs/2312.09085</a></li>
+<li><strong>PDF downloaded:</strong> yes (<code>xu2024_earth_is_flat_persuasion.pdf</code>, 45 pp.)</li>
+<li><strong>Instrument provenance:</strong> ad hoc (Farm dataset: BoolQ, NQ, TruthfulQA questions plus LLM-generated persuasive misinformation)</li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>"Belief":</strong> the model's answer to a factual question it initially answers correctly, with self-reported confidence (initial belief check).</li>
+<li><strong>"Do":</strong> its answer after up to four turns of persuasive misinformation (final belief check).</li>
+<li>Misinformation strategies: repetition of the false claim, or rhetorical appeals (logical, credibility, emotional).</li>
+<li>The appeals contain fabricated "evidence" (not genuinely new facts), and repetition contains none.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li>Farm: 1,952 entries (questions from BoolQ, NQ1/NQ2 and TruthfulQA) paired with persuasive misinformation (§2; App. table of filtered counts).</li>
+<li>Models: ChatGPT, GPT-4, Llama-2-7B-chat, Vicuna-v1.5-7B and 13B.</li>
+<li>Metrics: misinformed rate (MR@n), accuracy (ACC@n), and confidence shifts.</li>
+<li>Response types: rejection, sycophancy, uncertainty, acceptance, self-inconsistency.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>After one turn, belief alteration ranges from 4.1% to 63.4%; by turn four, 20.7% (GPT-4) to 78.2% (Llama-2-7B-chat)</strong> (§4.3, Finding I–II).</li>
+<li>ChatGPT's beliefs are altered on <strong>50.1%</strong> of Farm and GPT-4's on <strong>20.7%</strong> (§1).</li>
+<li><strong>Repetition alone works:</strong> GPT-4's MR doubled after three extra turns of repeating the claim on NQ2 (Finding III). Rhetorical appeals beat repetition, and <strong>logical appeals are most effective</strong> (Findings IV–V).</li>
+<li>Confidence in correct answers falls after misinformation. Some models show confidence rebounds consistent with a backfire effect (§4.3).</li>
+<li>Better-informed models are more robust (Finding II).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>LLMs show human-like susceptibility: repetition (an illusory-truth effect) and appeals shift "beliefs," and models with more knowledge resist better.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Misinformation is LLM-generated.</li>
+<li>Belief is operationalized by QA answers.</li>
+<li>Older open models.</li>
+<li>Sycophancy (outward agreement) is not cleanly separated from real belief change.</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>Xu et al. show multi-turn persuasion flips correct factual beliefs. Most relevant is that <strong>mere repetition</strong>, which adds no information, roughly doubles GPT-4's misinformed rate, close to our scripted content-free pushback. Their target is a fact rather than an analysis tied to a stated priority, and there is no arm testing acceptance of <em>true</em> new facts. Our asymmetry result complements theirs: the same pressure that dislodges correct positions is rarely matched by resistance to genuine corrections.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Builds the Farm dataset and a multi-turn protocol in which persuasive misinformation is applied to facts LLMs initially know. Correct beliefs flip in 20.7% (GPT-4) to 78.2% (Llama-2-7B) of cases within four turns, and simple repetition doubles GPT-4's misinformed rate. A key ACL reference for multi-turn belief erosion without real new evidence.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Azaria &amp; Mitchell (2023): The Internal State of an LLM Knows When It&#x27;s Lying</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Sycophancy, honesty and moral consistency</nav><article class="doc"><h1 id="azaria-mitchell-2023-the-internal-state-of-an-llm-knows-when-its-lying">Azaria &amp; Mitchell (2023): The Internal State of an LLM Knows When It's Lying</h1>
+<ul>
+<li><strong>Citation:</strong> Azaria, A., &amp; Mitchell, T. (2023). <em>The Internal State of an LLM Knows When It's Lying.</em> arXiv:2304.13734. Published in Findings of EMNLP 2023.</li>
+<li><strong>Venue:</strong> Findings of EMNLP 2023 (peer-reviewed). Not stated on the arXiv record; based on the ACL Anthology listing, so re-verify before citing.</li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2304.13734">https://arxiv.org/abs/2304.13734</a></li>
+<li><strong>PDF downloaded:</strong> yes (<code>azaria2023_internal_state_knows_lying.pdf</code>, 10 pp.)</li>
+<li><strong>Instrument provenance:</strong> ad hoc (curated True-False dataset in six topics)</li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>"Say":</strong> the truth value of a statement the LLM reads or generates.</li>
+<li><strong>Internal "belief":</strong> a classifier (SAPLMA) trained on hidden-layer activations that predicts whether the statement is true.</li>
+<li>The paper shows the internal state carries truth information even when the generated output is false. This is a knows-vs-says dissociation, not a social-pressure manipulation.</li>
+<li>The title says "lying", but the paper's cases are mainly confident falsehoods (hallucinations) produced by committing token by token (Fig. 1). The paper does not show intentional deception.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li>An MLP classifier on hidden-layer activations of OPT-6.7b and LLaMA2-7b.</li>
+<li>True-False dataset with topics including cities, inventions, chemical elements, animals, companies and scientific facts.</li>
+<li>Leave-one-topic-out evaluation. Comparison with few-shot prompting and with sentence-probability baselines.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>71% to 83% accuracy at labelling true vs false sentences, depending on the base LLM</strong> (abstract).</li>
+<li>The authors report that CCS gains only ~4% over zero-shot, while their approach shows "a nearly 20% increase over the 0-shot LLM query" (§2).</li>
+<li>Sentence probability alone is a poor truth signal because it is confounded by length and word frequency (abstract, §2).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Token-by-token generation can commit the model to a false continuation (Fig. 1). The model's internal representation still encodes that the resulting statement is false, so activation-based probes can flag it.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Small models (≤7B).</li>
+<li>Simple true/false factual statements.</li>
+<li>The probe is supervised and topic-dependent.</li>
+<li>"Lying" is used loosely (no incentive or intent).</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>Azaria &amp; Mitchell supply the representational premise that what a model outputs can diverge from what its internals encode. This licenses talk of models "saying what they do not believe." Our findings are behavioural: the "belief" is the model's own earlier faithful analysis, not an activation probe, and the divergence is triggered by social pressure or agentic context rather than by decoding errors. Probes like SAPLMA could in future test whether a capitulating model's internal state still encodes its original analysis.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Trains a classifier on LLM hidden activations that recognizes whether a read or generated statement is true with 71–83% accuracy. This shows internal states carry truth information that the output may contradict. A foundational "knows vs says" paper for honesty research. Its "lying" is really confident falsehood rather than incentive-driven deception.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

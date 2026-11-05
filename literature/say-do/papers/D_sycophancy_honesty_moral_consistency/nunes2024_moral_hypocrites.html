@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nunes et al. (2024): Are Large Language Models Moral Hypocrites? A Study Based on Moral Foundations</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../../../../">Hub</a> › <a href="../../../../literature/">Background literature</a> › <a href="../../../../literature/say-do/">Say–do</a> › <a href="../../../../literature/say-do/papers/">Papers</a> › Sycophancy, honesty and moral consistency</nav><article class="doc"><h1 id="nunes-et-al-2024-are-large-language-models-moral-hypocrites-a-study-based-on-moral-foundations">Nunes et al. (2024): Are Large Language Models Moral Hypocrites? A Study Based on Moral Foundations</h1>
+<ul>
+<li><strong>Citation:</strong> Nunes, J. L., Almeida, G. F. C. F., de Araujo, M., &amp; Barbosa, S. D. J. (2024). <em>Are Large Language Models Moral Hypocrites? A Study Based on Moral Foundations.</em> In Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society (AIES 2024), San Jose, CA. arXiv:2405.11100.</li>
+<li><strong>Venue:</strong> AIES 2024 (peer-reviewed). Final version: <a href="https://ojs.aaai.org/index.php/AIES/article/view/31704">https://ojs.aaai.org/index.php/AIES/article/view/31704</a></li>
+<li><strong>URL:</strong> <a href="https://arxiv.org/abs/2405.11100">https://arxiv.org/abs/2405.11100</a></li>
+<li><strong>PDF downloaded:</strong> yes (<code>nunes2024_moral_hypocrites.pdf</code>, 13 pp.). Note: another strand may also cover this paper.</li>
+<li><strong>Instrument provenance:</strong> psych-scale (MFQ; Moral Foundations Vignettes, Clifford et al. 2015). Descriptive instruments, not a normative theory.</li>
+</ul>
+<h2 id="saydo-construct">Say–do construct</h2>
+<ul>
+<li><strong>"Say" (abstract principle):</strong> MFQ relevance ratings, i.e., how relevant each foundation (care, fairness, loyalty, authority, purity) is to judging right and wrong.</li>
+<li><strong>"Do" (concrete judgment):</strong> wrongness ratings of concrete MFV vignettes that violate each foundation.</li>
+<li><strong>Consistency:</strong> reliability within an instrument (Cronbach's α).</li>
+<li><strong>Coherence (non-hypocrisy):</strong> whether MFQ foundation scores predict the matching MFV ratings, as they do in humans.</li>
+</ul>
+<h2 id="method-and-models">Method and models</h2>
+<ul>
+<li>GPT-4 (0613) and Claude 2.1. Gemini Pro and LLaMA 2 produced no valid results.</li>
+<li>Repeated administrations of the MFQ and 68 MFVs, in both orders.</li>
+<li>Results compared with human data (Clifford et al. 2015).</li>
+<li>2-way ANOVA on α; OLS regressions of MFV ratings on MFQ scores.</li>
+</ul>
+<h2 id="key-quantitative-findings">Key quantitative findings</h2>
+<ul>
+<li><strong>Within-instrument consistency is human-like:</strong></li>
+<li>GPT-4: α_MFV = 0.72, α_MFQ = 0.81.</li>
+<li>Claude 2.1: α_MFV = 0.91, α_MFQ = 0.46.</li>
+<li>Humans: α_MFV = 0.87, α_MFQ = 0.74.</li>
+<li>Significant Instrument × Agent interaction: F(2,30) = 25.8, p &lt; .001 (§5).</li>
+<li><strong>Cross-level coherence fails:</strong> in most regressions no MFQ foundation predicts its MFV counterpart.</li>
+<li>Claude: MFQ Purity predicts <em>all</em> MFV foundations.</li>
+<li>GPT-4: only Authority→Liberty and Loyalty→Loyalty relations are significant.</li>
+<li>R² &lt; 0.08 except Claude Loyalty and Liberty (≈0.10), versus R² 0.17–0.38 in humans (§5, Table 2).</li>
+<li>GPT-4 showed a significant order effect: MFQ-first vs MFV-first changed its responses (§5, App. A).</li>
+</ul>
+<h2 id="authors-explanation">Authors' explanation</h2>
+<p>Models are "consistent within abstraction levels but hypocritical when both levels are simultaneously considered." Current LLMs "know which patterns to output" for each instrument without a shared underlying value representation, which fits a mimicry rather than concept-mastery account (§6).</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Two models.</li>
+<li>A descriptive moral-psychology instrument used to infer "values."</li>
+<li>Prompt sensitivity.</li>
+<li>Some models produced no valid data.</li>
+<li>"Hypocrisy" is a coherence construct, not stated-vs-acted behaviour (§8).</li>
+</ul>
+<h2 id="relation-to-our-finding">Relation to our finding</h2>
+<p>This is the closest moral-consistency analogue to our agentic <strong>analysis→action gap</strong>: abstract endorsements of moral considerations do not predict concrete judgments. The two differ in important ways. Nunes et al. compare two <em>questionnaire</em> outputs (abstract ratings vs vignette ratings), statistically and across items. We compare, within one episode, a model's own written analysis that honours a stated priority with the action it then takes (compromising in 13–28% of episodes). Theirs is "say-principle vs say-judgment" inconsistency; ours is "say-analysis vs do-action," with no change of instrument. Their mimicry account is one candidate explanation for our gap.</p>
+<h2 id="annotation">Annotation</h2>
+<p>Gives GPT-4 and Claude 2.1 the Moral Foundations Questionnaire (abstract principles) and Moral Foundations Vignettes (concrete cases). Both are internally consistent at roughly human levels, but abstract foundation scores fail to predict concrete judgments (R² &lt; 0.08 vs 0.17–0.38 in humans), which the authors call moral hypocrisy. The key AIES reference for principle–judgment incoherence in LLMs. The instrument is psych-scale (descriptive).</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>
