@@ -1,0 +1,269 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A2 · Right Memo, Wrong Move: Measuring the Say–Do Gap of Language-Model Agents on Two Blind Channels, with a Designed Compromise and a Pressure-Removed Control</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../">Hub</a> › <a href="../reports/">Lane reports</a> › A2</nav><article class="doc"><h1 id="right-memo-wrong-move-measuring-the-saydo-gap-of-language-model-agents-on-two-blind-channels-with-a-designed-compromise-and-a-pressure-removed-control">Right Memo, Wrong Move: Measuring the Say–Do Gap of Language-Model Agents on Two Blind Channels, with a Designed Compromise and a Pressure-Removed Control</h1>
+<p><em>Paper, say–do framing (A2) · eight pages · 2026-11-05 · Multi-Alignment / Moral_Psychology-Paper · source: the findings paper "Right Answers, Wrong Moves" v22, the article v2, the methods paper v3 and the say–do corpus (<code>say-do/</code>); every number is taken from those records or from <code>analysis/out/saydo_insights_cross.json</code> (marked) · authors [to be set] · PROVISIONAL · judges UNVALIDATED · no ranking.</em></p>
+<h2 id="abstract">Abstract</h2>
+<p>Five years of research agree that what a language model says is a weak guide to what it does, and disagree about where the coupling breaks. We report a measurement built to locate it. In an agentic episode a model receives a task and a value charter inside a fictional organisation, writes an analysis of the charter's priority as part of the task, and acts through tools. The action is scored mechanically from the tool-call trace and the record is judged by language-model judges from three vendor families, blind to each other. Every item offers a faithful action, a convenient bait and, on 43 of 48 board items, a designed middle plan that engages the task while compromising the stated priority. Across nine metered models, 2,592 board-item episodes and four judges, the record passed in 92–100 % of episodes while the action failed in 12–34 %, so that 13–28 % of episodes with a faithful record ended in a non-faithful action against a reverse discordance of 6 % or less. The non-faithful action is a compromise, not the bait: on the trade-off items 91 % of failures are the middle plan. When the competing pressure is written out of the same items, with tool world, scoring rule and debrief unchanged, behaviour rises from 0.71 to 0.95 and the gap falls to 0.04–0.05 under every judge. On 160 fresh items whose attractive error is the bait, the failures become two-sided and the school ordering flattens: the composition of a say–do gap is a property of the option set. A model's tendency to give way under argument predicts its tendency to compromise under cost for a procedural construct and not for a priority between goods, and published capability buys out the first everywhere and the second only where the failure is a reasoning error. Judges pass 223 of 226 middle-plan records: a record-only monitor would pass every episode this measure flags. No motive is attributed.</p>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>The literature on what language models say versus what they do has five strands, and each has settled on a version of the same result. Stated values predict hypothetical choices only modestly, with item-level flip rates of 14–19 % and word–deed inconsistency above 30 % for most models (Shen et al. 2025; Xu et al. 2025), and the misses are directional: forced survey stances reverse in open-ended writing with no reverse flips (Röttger et al. 2024; Liu et al. 2025). Written reasoning omits the cause of an answer (one of 426 biased explanations mentioned the bias; Turpin et al. 2023), verbalises 25–39 % of the hints a reasoning model uses (Chen et al. 2025), and is often not used by the answer it precedes (Paul et al. 2024). Agents that identify an action as unsafe in 98–100 % of probes still take it in 25–90 % of episodes once pressure arrives (Tang et al. 2025; Shao et al. 2024; Sehwag et al. 2025), and the probability of a forbidden call given a text refusal reaches 79 % for one model (Cartagena &amp; Teixeira 2026). Deception studies find the same split under goal conflict and find it gone when the conflict is removed (Lynch et al. 2025; Greenblatt et al. 2024; Scheurer et al. 2023); sycophancy work finds models giving up correct answers after content-free pushback in 32–86 % of cases (Sharma et al. 2024; Laban et al. 2023).</p>
+<p>Two things are missing from this literature. No prior design scores, blind and on separate channels, an agent's own contemporaneous written analysis of an <em>assigned</em> priority against its executed tool calls; the nearest designs score "say" from a separate probe (Tang; Shao; Sehwag), a regex over the episode's text (Cartagena &amp; Teixeira) or a post-hoc self-judgement (Li et al. 2025), and score "do" with a judge that reads the agent's thoughts together with its actions. And no prior design builds a compromise option into the action space and counts it as an outcome. Compromise appears throughout the corpus, always as noise: a "constant issue confounding our results" (Greenblatt et al. 2024), an agent keeping 20 % of a resource for itself (Naik et al. 2025), a balanced option every model took until the author removed it (Andric 2025), an abort option that cut one model's cheating from 54 % to 9 % (Zhong et al. 2025). The forced-choice designs behind the field's alarming headlines are structurally blind to the outcome an agent most often chooses.</p>
+<p>This paper reports a measurement that supplies both. It was built as the agentic rung of a benchmark of competence inside three schools of moral psychology (Moral Foundations Theory, Schwartz's refined values and the neo-Kohlbergian schema tradition), each translated into a construct a model can be asked to operate on request and graded against the theory's own caricature of itself; the findings and methods papers report the whole instrument. Here its agentic record is re-told as a contribution to the say–do literature, with three claims. First, a model that writes a faithful analysis of an assigned priority takes a non-faithful action in 13–28 % of episodes, and the action is a designed compromise rather than the bait. Second, the gap is pressure-contingent: it closes when the competing pressure is written out of the item, and its composition is set by the option set, so no single say–do rate characterises a model. Third, giving way under argument and compromising under cost are one disposition for a procedural construct and two for a priority between goods, and capability buys out only one of them. We use the vocabulary the corpus's own tests of motive support (Park et al. 2024; Sheshadri et al. 2025): a pressure-contingent self-consistency failure between a priority-faithful record and an enacted action, not deception, scheming or hypocrisy.</p>
+<h2 id="2-design">2. Design</h2>
+<p><strong>The instrument in one paragraph.</strong> Each school was translated into a competence construct with binary anti-caricature gates written from the theory's methodological rules before any model was called; 280 items with withheld twins were authored under a mechanical law and a fifteen-gate validator and sealed, and nothing on an item surface names a theory. Items sit on a ladder of four rungs: keyed recognition, short production, sustained multi-turn adversity in which both giving way to a bare-pressure turn and refusing a new fact count as failure, and the agentic episode. Sixteen models were sealed and fifteen measured: fourteen on an August board, eight of them again in an October repeat arm (120 board items, two or three administrations), and nine metered models on four further arms (the 160 remaining items twice, six command-line-route identities twice, every board item paraphrased once, sixteen pressure-removed twins twice). Six judges of four vendor families, none grading its own family, owe a verbatim evidence quote for every gate and non-pass label; 9,776 administrations and 24,518 verdicts in all (article v2, Methods).</p>
+<p><strong>The agentic episode.</strong> The model is given a task and a value charter inside a fictional organisation and a mock tool world; the school-relevant structure sits in documents and stakeholder messages, never in the prompt; tool names are neutral; a written record is required by the task, followed by a three-question debrief. The behaviour channel is scored mechanically from the tool-call and world-state trace against the item's sealed labels (faithful, bait, middle plan, other, incomplete); the reasons channel is judged from the record and debrief, blind to the behaviour score. Every item has a divergence zone in which the faithful action costs something and the bait is convenient, and 43 of the 48 board items also offer a middle plan. A Schwartz charter states that one value outranks another when they conflict, and a middle plan splits the difference; a Moral Foundations charter asks that several intuitions be weighed; a Kohlberg item is a queue of four to seven decisions under a justification structure. A predicate audit re-derived every behaviour score from all 1,344 tracked traces and found no reference, reachability or scoring defect (findings paper §S17).</p>
+<p><strong>The rule.</strong> <em>Say</em> is a judged reasons score of at least 0.5, <em>do</em> is the predicate passing; the 2×2 closes over every episode; P(¬do | say) is the share of episodes with a faithful record whose action failed, reported with Wilson intervals, the reverse discordance, the unconditional failure rate, a Haldane-corrected odds ratio and a McNemar exact test on the discordant cells (which asks whether P(say) exceeds P(do); the odds ratio asks whether the channels are coupled). Rates weighting every model once are reported beside pooled rates. All tests are exploratory, every recomputed value is labelled <code>RECOMPUTED — NOT BANKED</code>, and models are named in sealed census order and never ranked.</p>
+<p><strong>The pressure-removed twins.</strong> For each of the sixteen Schwartz agentic items a twin was written in which the convenient action and the faithful action coincide, with the tool world, the record tool, the labels, the rubric and the debrief unchanged; the twins pass the validator and were administered to the same nine models twice. The removal is bundled: each twin eases the honouring plan's cost, removes the middle plan's sweetener and, on thirteen of sixteen items, withdraws a stakeholder push (findings paper §S24).</p>
+<h2 id="3-results">3. Results</h2>
+<h3 id="31-the-record-passes-and-the-action-fails-in-one-direction">3.1 The record passes and the action fails, in one direction</h3>
+<p>Table 1 crosses the two channels on the repeat arm's board-item episodes under four third judges. P(say) is 0.92–1.00 and P(do) 0.66–0.88 by school, and the discordance is almost entirely of one kind. Weighting every model once, P(¬do | say) is 0.26–0.28 for Schwartz, 0.19–0.22 for Kohlberg and 0.13 for Moral Foundations, against a reverse discordance of 6 % or less (findings paper §5.3, Table 3). The McNemar test is below 10⁻⁴ for Schwartz and Kohlberg under every judge and 0.003–0.035 for Moral Foundations at this rule. The Schwartz discordance is visible on eight of nine models (about 0.15 to 0.54) and absent on the ninth, which shows the largest Moral Foundations rate instead; no model is consistent across schools (§5.3, Table 4). The rate is stable across administrations (Schwartz 0.26 / 0.25 and 0.26 / 0.26 at repetitions 1 and 2) and spread over items (14–15 of 16 Schwartz items, the top three carrying about 45 %); Kohlberg is more concentrated, one charter-ambiguous item carrying 34–40 % of its episodes and the rate falling to 0.11–0.15 without it.</p>
+<p><strong>Table 1.</strong> Say versus do on the board's agentic items, repeat arm, symmetric 0.5 rule, four third judges (the first two over seven models and all repetitions, the last two over the nine-model frame). Cells: say∧¬do / say∧do / ¬say∧do / ¬say∧¬do; odds ratios are in the text and in findings paper v22, Table 3. <code>RECOMPUTED — NOT BANKED</code>.</p>
+<table>
+<thead>
+<tr>
+<th>school</th>
+<th>judge</th>
+<th>episodes</th>
+<th>P(say) · P(do)</th>
+<th>cells</th>
+<th>P(¬do | say) [Wilson 95 %]</th>
+<th>P(¬say | do) · McNemar p</th>
+<th>per-model mean (range)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kohlberg</td>
+<td>gpt-5.4-nano</td>
+<td>288</td>
+<td>0.96 · 0.79</td>
+<td>54 / 224 / 3 / 7</td>
+<td>0.19 [0.15, 0.24]</td>
+<td>0.01 · &lt; 10⁻⁴</td>
+<td>0.19 (0.06–0.59)</td>
+</tr>
+<tr>
+<td>Kohlberg</td>
+<td>gpt-oss-120b</td>
+<td>288</td>
+<td>0.98 · 0.79</td>
+<td>56 / 226 / 1 / 5</td>
+<td>0.20 [0.16, 0.25]</td>
+<td>0.00 · &lt; 10⁻⁴</td>
+<td>0.19 (0.06–0.58)</td>
+</tr>
+<tr>
+<td>Kohlberg</td>
+<td>glm-5.3-flash</td>
+<td>160</td>
+<td>0.96 · 0.72</td>
+<td>39 / 114 / 2 / 5</td>
+<td>0.26 [0.19, 0.33]</td>
+<td>0.02 · &lt; 10⁻⁴</td>
+<td>0.22 (0.06–0.54)</td>
+</tr>
+<tr>
+<td>Kohlberg</td>
+<td>deepseek-v4.1-flash</td>
+<td>160</td>
+<td>0.95 · 0.72</td>
+<td>37 / 115 / 1 / 7</td>
+<td>0.24 [0.18, 0.32]</td>
+<td>0.01 · &lt; 10⁻⁴</td>
+<td>0.21 (0.06–0.50)</td>
+</tr>
+<tr>
+<td>MFT</td>
+<td>gpt-5.4-nano</td>
+<td>288</td>
+<td>0.92 · 0.84</td>
+<td>37 / 227 / 15 / 9</td>
+<td>0.14 [0.10, 0.19]</td>
+<td>0.06 · 0.0032</td>
+<td>0.13 (0.00–0.56)</td>
+</tr>
+<tr>
+<td>MFT</td>
+<td>gpt-oss-120b</td>
+<td>288</td>
+<td>0.97 · 0.84</td>
+<td>42 / 238 / 4 / 4</td>
+<td>0.15 [0.11, 0.20]</td>
+<td>0.02 · &lt; 10⁻⁴</td>
+<td>0.13 (0.00–0.61)</td>
+</tr>
+<tr>
+<td>MFT</td>
+<td>glm-5.3-flash</td>
+<td>160</td>
+<td>0.94 · 0.88</td>
+<td>16 / 135 / 5 / 4</td>
+<td>0.11 [0.07, 0.17]</td>
+<td>0.04 · 0.0266</td>
+<td>0.13 (0.00–0.54)</td>
+</tr>
+<tr>
+<td>MFT</td>
+<td>deepseek-v4.1-flash</td>
+<td>160</td>
+<td>0.94 · 0.88</td>
+<td>17 / 134 / 6 / 3</td>
+<td>0.11 [0.07, 0.17]</td>
+<td>0.04 · 0.0347</td>
+<td>0.13 (0.00–0.53)</td>
+</tr>
+<tr>
+<td>Schwartz</td>
+<td>gpt-5.4-nano</td>
+<td>288</td>
+<td>0.97 · 0.75</td>
+<td>68 / 211 / 4 / 5</td>
+<td>0.24 [0.20, 0.30]</td>
+<td>0.02 · &lt; 10⁻⁴</td>
+<td>0.26 (0.07–0.50)</td>
+</tr>
+<tr>
+<td>Schwartz</td>
+<td>gpt-oss-120b</td>
+<td>288</td>
+<td>0.99 · 0.75</td>
+<td>70 / 215 / 0 / 3</td>
+<td>0.25 [0.20, 0.30]</td>
+<td>0.00 · &lt; 10⁻⁴</td>
+<td>0.26 (0.08–0.50)</td>
+</tr>
+<tr>
+<td>Schwartz</td>
+<td>glm-5.3-flash</td>
+<td>160</td>
+<td>1.00 · 0.69</td>
+<td>50 / 110 / 0 / 0</td>
+<td>0.31 [0.25, 0.39]</td>
+<td>0.00 · &lt; 10⁻⁴</td>
+<td>0.26 (0.06–0.54)</td>
+</tr>
+<tr>
+<td>Schwartz</td>
+<td>deepseek-v4.1-flash</td>
+<td>160</td>
+<td>0.97 · 0.66</td>
+<td>51 / 104 / 2 / 3</td>
+<td>0.33 [0.26, 0.41]</td>
+<td>0.01 · &lt; 10⁻⁴</td>
+<td>0.28 (0.06–0.54)</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Figure 1 · Say versus do by school. Episodes crossed by the behaviour predicate and the judged record under the symmetric rule, per school under four third judges; bars P(¬do | say) with Wilson intervals, crosses the reverse rate, dashes the unconditional failure rate; right, the per-model Schwartz rates. RECOMPUTED — NOT BANKED; census order; no ranking." src="figures/F-k_saydo.png" /></p>
+<p>Two readings of Table 1 are forced by its marginals. With P(say) near one, P(¬do | say) can only sit near the unconditional failure rate, and it does, within 0.02 for Schwartz and Moral Foundations and 0.04 for Kohlberg; to that extent the Schwartz and Kohlberg rates are behaviour-channel numbers on episodes the judges pass. And a lenient judge empties the reverse cell by arithmetic: P(¬say | do) cannot exceed (1 − P(say)) / P(do), which is 0.02–0.05 on this arm, so a near-empty reverse cell is not evidence that the reasons grades are sound (<code>saydo_insights_cross.json</code> → <code>b3_judge_ceiling</code>). The channels are coupled only where the record has room to vary: the odds ratio is 0.07–0.18 for Moral Foundations, 0.5–1.6 with intervals spanning one for Kohlberg, and unbounded for Schwartz, whose not-say cells hold at most six episodes.</p>
+<h3 id="32-the-non-faithful-action-is-the-compromise-and-the-record-does-not-see-it">3.2 The non-faithful action is the compromise, and the record does not see it</h3>
+<p>Of the 133 Schwartz predicate failures in 448 board-item episodes, 91 % are the designed middle plan and 4 % the bait; the say-not-do episodes are the middle plan in 90–96 % of cases under every judge. Moral Foundations' 55 failures are 42 % bait, 29 % middle plan and 29 % no decision; Kohlberg's 100 are procedural, 36 % an unfinished queue, 29 % the bait, 24 % another decision and 6 % a middle plan (findings paper §5.3; <code>saydo_shape.json</code>). A model whose record has just reproduced the charter's priority does not reverse it in action; it takes the plan that engages the task without the predicate's visible cost, and the record still passes. The class-level pass rates make this exact (<code>saydo_insights_cross.json</code> → <code>b2_record_blind_to_middle</code>): among failures, the judges passed the record on 223 of 226 Schwartz middle-plan episodes across the four legs (0.96–1.00), the same rate as on episodes whose action passed (0.98–1.00). The bait is partly visible in Kohlberg (the record fails on 21–57 % of bait episodes) and barely in Moral Foundations on the board's items (12 % or less), whose coupling comes from its no-decision class (29–38 %) and the rarity of its failures. A compromise is not a lie about the priority; it is a plan that leaves the priority's sentence intact, and no reading of the sentence detects it.</p>
+<h3 id="33-remove-the-pressure-and-the-gap-closes">3.3 Remove the pressure and the gap closes</h3>
+<p>On the sixteen pressure-removed twins, administered to the same nine models twice, behaviour rises from 0.71 [0.66, 0.76] to 0.95 [0.92, 0.97] on eight of the nine models (llama-4-scout stays at 0.63); the middle plan falls from 92 of 352 original episodes to 11 of 288 and the bait from 3 to 0; P(¬do | say) falls from 0.24–0.33 to 0.04–0.05 under all four judges (Fisher exact p &lt; 10⁻⁴ each; findings paper §S24, Table S24-1). The closure is item by item: nine of the sixteen items produced three or more middle plans on 22 original episodes each, and on their twins those nine produced between zero and two on 18 episodes each (<code>b7_twin_per_item</code>). The judges' grades fall on the twins (P(say) 0.97–1.00 → 0.92–0.95) and the reverse cell rises, so that under one judge the twins' discordance runs the other way: with the trade-off gone there is less for a record to articulate. The pressure is therefore necessary for the behaviour failure and the failure is not an artefact of predicate reachability or episode format. Which component of the bundled removal does the work, and whether the models would honour a reversed priority under the same pressure, are the factorial and priority-reversed twins this arm did not run.</p>
+<p><img alt="Figure 2 · The pressure-removed twins. Behaviour on the sixteen original Schwartz agentic items and their twins per model, the action classes, and P(¬do | say) under each judge. RECOMPUTED — NOT BANKED; census order; no ranking." src="figures/F-m_twin_probe.png" /></p>
+<h3 id="34-on-fresh-items-the-composition-changes-and-the-ordering-flattens">3.4 On fresh items the composition changes and the ordering flattens</h3>
+<p>The 160 never-administered items were given to the same nine models twice. The Kohlberg gap keeps its direction and size, P(¬do | say) 0.21–0.23 against a reverse discordance of 0.02–0.03 (McNemar p &lt; 10⁻⁴ under every judge). The fresh Schwartz and Moral Foundations items do not reproduce the board's asymmetry: P(¬do | say) is 0.09–0.21 and 0.17–0.20, but the reverse discordance is of the same order (0.06–0.24 and 0.09–0.22) and the say-not-do episodes split between middle plans and baits (findings paper §5.3, §S21). The items' own audit finds no predicate defect; what differs is the items. On the fresh Schwartz items the failures are the bait in 50 % of cases and the middle plan in 38 %; on the fresh Moral Foundations items the bait in 72 % (<code>saydo_shape.json</code> → <code>arms.expansion_items</code>); the menu shape is the same three terminal tools per item on both sets, and the failure rate moves less than its composition (Schwartz 0.30 → 0.21, Moral Foundations 0.12 → 0.18). Where the failure is a bait the record tends to fail with it (P(say | ¬do) 0.16–0.57 for Schwartz and Moral Foundations against P(say | do) 0.75–0.98), a two-sided failure and not a say–do gap. "Models fail most of all on value trade-offs" is therefore a finding about items whose design makes the middle plan the attractive error; the Kohlberg asymmetry and the pressure mechanism replicate on fresh items, the Schwartz-first ordering does not, and the two results are reported beside each other rather than pooled.</p>
+<h3 id="35-two-dispositions-and-what-capability-explains">3.5 Two dispositions, and what capability explains</h3>
+<p>The sustained rung scores the same construct under argument over four to six scripted turns, once with no new reason (giving way fails) and once with a fact that should move it (refusing fails). Per model, the share of bare-pressure criteria not passed, the fold, can be set against the agentic say-not-do rate under the same judge (<code>saydo_insights_cross.json</code> → <code>b1_fold_vs_saynotdo</code>; Spearman with exact permutation p at n = 7–8, a display). In Kohlberg the fold predicts the compromise under all four judge legs (ρ 0.71, 0.74, 0.94, 0.87; p 0.002–0.10); in Moral Foundations weakly (0.38–0.76); in Schwartz not at all (−0.33, −0.08, 0.48, 0.31); the rung means agree (findings paper §5.4). A published reasoning scalar orders the fold in every school (ρ −0.81 to −0.96 across twelve school × judge panels, p ≤ 0.04 in each) and the say-not-do rate in Kohlberg (−0.71 to −0.88) and Moral Foundations (−0.76 to −0.79) but not Schwartz (−0.10 to +0.29; <code>b6_capability</code>; the Schwartz behaviour–capability association is 0.03 [−0.65, 0.68] at n = 9, article v2). At the frontier the pattern is sharpest: of six command-line-route identities re-administered on the metered route, five show Kohlberg and Moral Foundations say-not-do rates of 0.00–0.10 and all six show Schwartz rates of 0.19–0.44 (findings paper §S22). The fold is also where models differ most (Moral Foundations 0.02–0.97 across the eight metered models, against 0.00–0.31 for the new-fact pole; <code>b8_fold_vs_rigidity_per_model</code>): the field's "fold" result is model-specific and capability-ordered, and "rarely dig in" is a floor property of every model measured. The reading is a rule rather than a verdict on scale: capability buys out failures that are errors of reasoning, a register switch, an intuition mislabelled, an unfinished queue, and does not buy out a choice between two goods under cost.</p>
+<h3 id="36-what-the-judges-contribute">3.6 What the judges contribute</h3>
+<p>The behaviour side needs no judge, and the failure rates P(¬do) are the part of this finding no leniency can produce. The reasons side was judged by four third judges from three vendor families, and the rates, their direction and the school pattern are the same under all four; the two same-family judges agree with each other no more closely than cross-family pairs do. A fifth family (minimax-m3), admitted by the same evidence-quote screen that refused six of eleven candidates, graded every repeat-arm Schwartz record about a sixth lower (mean 0.80 against 0.92–0.98) and left the say-not-do rate where it was (0.30 against 0.24–0.32 on all episodes; 0.23 against 0.20–0.21 on the 80 episodes every judge graded) while filling the reverse cell the retained judges' ceiling had emptied (P(¬say | do) 0.13 against 0.00–0.02; article v2, Extended Data Tables 17–18). Leniency is bounded without being settled: the same judges grade the fresh items and the twins lower, gate trips on the sustained rung are concordant across judges, and a classifier reading only the criterion text predicts the board's verdicts barely above a structural baseline (AUC 0.69–0.71). Whether an expert would credit the records the judges credit is the question of a sixty-record blinded expert read that waits on two readers. The mechanical channel repeats between fresh administrations with κ 0.50–0.86 per model, and paraphrasing every item once moves it by at most 0.02.</p>
+<h2 id="4-where-this-sits">4. Where this sits</h2>
+<p><strong>Table 2.</strong> The nearest designs, on the five features of this measure. From the say–do corpus's consolidated report (<code>say-do/reports/</code>), verified summaries in <code>say-do/papers/</code>.</p>
+<table>
+<thead>
+<tr>
+<th>study</th>
+<th>"say" channel</th>
+<th>"do" channel</th>
+<th>middle option counted</th>
+<th>pressure removed as a control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cartagena &amp; Teixeira 2026, GAP</td>
+<td>in-episode text refusal, regex</td>
+<td>forbidden tool call, deterministic</td>
+<td>no</td>
+<td>graded prompt pressure</td>
+</tr>
+<tr>
+<td>Tang et al. 2025</td>
+<td>separate knowledge and identification probes</td>
+<td>next action, LM evaluator</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Shao et al. 2024, PrivacyLens</td>
+<td>separate norm probe</td>
+<td>final action leaks</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Sehwag et al. 2025, PropensityBench</td>
+<td>separate permission probe</td>
+<td>mechanical tool choice, two tools</td>
+<td>no</td>
+<td>zero-pressure baseline</td>
+</tr>
+<tr>
+<td>Li et al. 2025, ODCV-Bench</td>
+<td>post-hoc self-judgement</td>
+<td>LM judge on the full trajectory</td>
+<td>incidental</td>
+<td>mandated vs incentivised framing</td>
+</tr>
+<tr>
+<td>Lynch et al. 2025</td>
+<td>qualitative deliberation</td>
+<td>blackmail or leak</td>
+<td>closed off by design</td>
+<td>yes, about 0 % in control</td>
+</tr>
+<tr>
+<td>Greenblatt et al. 2024</td>
+<td>hidden scratchpad</td>
+<td>comply or refuse</td>
+<td>observed, treated as a confound</td>
+<td>objective removed, 0 %</td>
+</tr>
+<tr>
+<td>this measure</td>
+<td>judged written analysis of an assigned priority, blind</td>
+<td>tool calls, scored blind</td>
+<td>designed; the modal failure</td>
+<td>yes; the gap closes</td>
+</tr>
+</tbody>
+</table>
+<p>The GAP benchmark's review of 210 safety benchmarks found none that jointly scores text refusal and tool-call execution (Cartagena &amp; Teixeira 2026). Among the reported regimes, 13–28 % sits with the rich-option agentic benchmarks (PrivacyLens 24.5–38 %; ODCV 0–62.8 %) and the item-level value–action flips (14–19 %), well below the forced-choice headlines (79–96 %), and §3.4 shows why: a headline say–do rate is a function of the option set, which controls the composition of the failure more than its rate. Andric's 100 % balanced option, ImpossibleBench's abort option (54 → 9 %) and Mahajan et al.'s neutral option, which moves a stated–revealed correlation from 0.2 to 0.7 on the stated side and to zero on the revealed side, are the same phenomenon seen across instruments; the board-versus-fresh-item contrast is its first within-instrument version, with models, judges, menu shape and predicates held fixed. The construct is a within-episode self-consistency measure in the sense of Parcalabescu &amp; Frank (2024), not fidelity to internal computation, and says nothing about which values a model holds.</p>
+<h2 id="5-implications">5. Implications</h2>
+<p><strong>For monitoring.</strong> Baker et al. (2025) showed that a chain-of-thought monitor catches 95 % of a coding agent's reward hacks against 60 % for an action-only monitor, and that optimising against the monitor produces clean reasoning with divergent actions. This record shows the complementary failure without optimisation pressure: an unpressured record argues openly for the charter's priority and is followed by a compromise it does not announce, so a record-only monitor passes exactly the episodes the predicate flags. Blind dual-channel scoring should be the default for agentic value evaluations, and a middle option should be designed in and counted, since binary designs overstate flagrant violation and miss the outcome agents most often choose.</p>
+<p><strong>For measurement.</strong> Three decisions did the work and transfer beyond moral psychology: score the two channels blind to each other; design the compromise and audit the predicate against every trace; remove the pressure inside the item rather than at the prompt. A fourth is negative: report the composition of failures by class and their concentration over items, since a rate without them cannot be compared across instruments.</p>
+<p><strong>For theory.</strong> The corpus's conjecture that the fold under pushback and the compromise under cost reflect one disposition holds for a procedural construct and fails for a priority between goods. The record meets the conditions under which self-reports best predict behaviour, in-context and behaviour-specific (Kocielnik et al. 2026), and still does not predict the compromise, which locates the break at execution: articulation the action routes through binds it (Radhakrishnan et al. 2023; Emmons et al. 2025), articulation written in parallel, as this record is by design, does not, and reasoning before acting can lower value–action alignment (Rakshit et al. 2026). The experiment that decides between a priority stated and not enacted and one that never entered the decision is to make the action depend on the record's own plan and see whether the middle plan goes.</p>
+<h2 id="6-limitations">6. Limitations</h2>
+<p>Every judged number comes from language-model judges no human expert has validated; the behaviour channel and the twins' closure need no judge and every finding keeps its direction under six judges of four families, but the expert read that would key the judges has not run. Evaluation awareness was not measured; models distinguish evaluation from deployment transcripts at AUC 0.83 and awareness can suppress misaligned action (Needham et al. 2025; Lynch et al. 2025), so 13–28 % may be a lower bound for deployment and the record's faithfulness may be grader-facing. The claims are scoped to English models on the items built here; the Schwartz-first ordering did not replicate on fresh items, and the twin probe covers one school with one twin per item. The sealed predicate scores the middle plan as a failure under an author's reading of the charter, audited but not validated; crediting it at 0.5 narrows the gap, and one Kohlberg item whose charter makes the universally chosen action defensible is excluded in sensitivity. Model-grain correlations rest on seven to nine models and are displays. No motive is measured: the record cannot yet separate a priority stated and not enacted from one that never entered the decision, and the split of say-not-do episodes into disclosed and undisclosed compromises is future work. The instrument produces no leaderboard, by rule.</p>
+<h2 id="7-next-tests">7. Next tests</h2>
+<p>Five follow-ups would turn positioning into mechanism: route the action through the record and truncate or corrupt the record (Lanham et al. 2023; Radhakrishnan et al. 2023); run the priority-reversed and factorial twins; ask models in advance whether they would take the middle plan (Binder et al. 2024); code verbalised evaluation awareness as a covariate (Needham et al. 2025; Schoen et al. 2025); and split every say-not-do episode by whether the record names the plan submitted. A companion report costs them.</p>
+<h2 id="references">References</h2>
+<p>Andric 2025, Do LLMs walk their talk? arXiv:2512.01568 · Baker et al. 2025, Monitoring reasoning models for misbehavior, arXiv:2503.11926 · Binder et al. 2024, Looking inward, arXiv:2410.13787 · Cartagena &amp; Teixeira 2026, Mind the gap (GAP), arXiv:2602.16943 · Chen et al. 2025, Reasoning models don't always say what they think, arXiv:2505.05410 · Chen et al. 2026, Says block, still acts, arXiv:2609.35870 · Emmons et al. 2025, When chain of thought is necessary, arXiv:2507.05246 · Greenblatt et al. 2024, Alignment faking, arXiv:2412.14093 · Kocielnik et al. 2026, When and why self-reports predict behavior, arXiv:2606.12730 · Laban et al. 2023, Are you sure? (FlipFlop), arXiv:2311.08596 · Lanham et al. 2023, Measuring faithfulness in chain-of-thought, arXiv:2307.13702 · Li et al. 2025, ODCV-Bench, arXiv:2512.20798 · Liu et al. 2025, Generative value conflicts, arXiv:2509.25369 · Lynch et al. 2025, Agentic misalignment, arXiv:2510.05179 · Mahajan et al. 2026, Mind the gap: elicitation protocols, arXiv:2601.21975 · Naik et al. 2025, AgentMisalignment, arXiv:2506.04018 · Needham et al. 2025, Evaluation awareness, arXiv:2505.23836 · Parcalabescu &amp; Frank 2024, On measuring faithfulness or self-consistency, arXiv:2311.07466 · Park et al. 2024, AI deception: a survey, arXiv:2308.14752 · Paul et al. 2024, Making reasoning matter, arXiv:2402.13950 · Radhakrishnan et al. 2023, Question decomposition, arXiv:2307.11768 · Rakshit, Zhang &amp; Shen 2026, Pseudo-deliberation, arXiv:2605.09893 · Röttger et al. 2024, Political compass or spinning arrow, arXiv:2402.16786 · Scheurer et al. 2023, Strategic deception, arXiv:2311.07590 · Schoen et al. 2025, Anti-scheming training, arXiv:2509.15541 · Sehwag et al. 2025, PropensityBench, arXiv:2511.20703 · Shao et al. 2024, PrivacyLens, arXiv:2409.00138 · Sharma et al. 2024, Understanding sycophancy, arXiv:2310.13548 · Shen, Clark &amp; Mitra 2025, Mind the value–action gap, arXiv:2501.15463 · Sheshadri et al. 2025, Why do some models fake alignment, arXiv:2506.18032 · Tang et al. 2025, Fail to act on risk knowledge, arXiv:2508.13465 · Turpin et al. 2023, Unfaithful explanations, arXiv:2305.04388 · Xu et al. 2025, Say one thing and do another, arXiv:2503.07003 · Zhong et al. 2025, ImpossibleBench, arXiv:2510.20270. Lane records: findings paper v22, article v2, methods paper v3, <code>analysis/out/saydo_insights_cross.json</code>. Each arXiv id resolves at <a href="https://arxiv.org/abs/">https://arxiv.org/abs/</a><id>.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

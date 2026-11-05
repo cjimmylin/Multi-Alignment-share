@@ -1,0 +1,446 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A1 · Two dispositions, not one: new readings of the say–do record against the AI say–do literature</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../">Hub</a> › <a href="../reports/">Lane reports</a> › A1</nav><article class="doc"><h1 id="two-dispositions-not-one-new-readings-of-the-saydo-record-against-the-ai-saydo-literature">Two dispositions, not one: new readings of the say–do record against the AI say–do literature</h1>
+<p><em>New-insights report (A1) · 2026-11-05 · Multi-Alignment / Moral_Psychology-Paper · source: the lane's tracked say–do outputs (<code>analysis/out/</code>), the findings paper v22 (§5.3, §5.4, §S17, §S21, §S24, §S28, §S29), the article v2, and the say–do corpus (<code>say-do/</code>: 105 papers, the consolidated report and five strand notes) · all new statistics are RECOMPUTED — NOT BANKED and exploratory, computed by <code>analysis/saydo_insights_cross.py</code> into <code>analysis/out/saydo_insights_cross.json</code> · PROVISIONAL · judges UNVALIDATED · no ranking.</em></p>
+<h2 id="summary">Summary</h2>
+<p>The lane's record and the say–do corpus were built separately: the record measures three theory-native competences on a ladder whose agentic rung scores an action and a written record blind to each other, and the corpus reads 105 papers on what language models say versus what they do. Read together, with a few cross-tabulations the paper does not yet make, they yield ten insights. Three are new statistics computed from tracked outputs (type R, <code>RECOMPUTED — NOT BANKED</code>), four are conclusions that follow only when the record and the literature are read together (type S, synthesis), and three are readings of existing numbers the paper does not currently make (type I, reinterpretation). The headline is that the lane does not measure one say–do disposition but two. A model's tendency to give way under argument (the S3 fold) and its tendency to compromise under cost (the S2 middle plan) move together in Kohlberg, weakly in Moral Foundations and not at all in Schwartz; published capability buys out the first in every school and the second in two. The written record is blind to the middle plan: on the board's items the judges pass the record in 96–100 % of middle-plan failures, and the reverse cell is empty by arithmetic, not by evidence. And the composition of the failure, compromise or bait, is set by the item's option set, which the literature's forced-choice designs cannot see.</p>
+<p><strong>Table 1.</strong> The ten insights. Confidence: high = the direction holds under every judge and arm and the number is a tracked recompute; medium = holds under most judges or rests on n = 7–8 models; low = a reading the data permit but do not single out.</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>type</th>
+<th>claim</th>
+<th>evidence</th>
+<th>confidence</th>
+<th>what it changes in the paper</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I1</td>
+<td>R</td>
+<td>Fold under argument and compromise under cost are one disposition in Kohlberg, half of one in MFT, and unrelated in Schwartz</td>
+<td>Spearman between a model's S3 bare-pressure non-pass rate and its S2 say-not-do rate: 0.71–0.94 Kohlberg, 0.38–0.76 MFT, −0.33 to +0.48 Schwartz (four judge legs, n = 7–8); <code>saydo_insights_cross.json</code> → <code>b1_fold_vs_saynotdo</code></td>
+<td>medium (n)</td>
+<td>§5.4 gains a per-model concordance between the two pressure <em>failures</em>, not only between the two rung means; the discussion's "one underlying disposition" reading of the literature is split by construct</td>
+</tr>
+<tr>
+<td>I2</td>
+<td>R</td>
+<td>Capability buys out the fold everywhere and the compromise only where the compromise is not a value trade-off</td>
+<td>reasoning scalar vs S3 fold rate ρ −0.81 to −0.96 in all three schools; vs say-not-do −0.71 to −0.88 (Kohlberg, MFT) and −0.10 to +0.29 (Schwartz); <code>b6_capability</code></td>
+<td>medium (n)</td>
+<td>§5.6 and the abstract can say that the one column capability does not order is also the one column the fold does not predict</td>
+</tr>
+<tr>
+<td>I3</td>
+<td>R</td>
+<td>The written record is blind to the middle plan</td>
+<td>P(say | middle plan) 0.96–1.00 on 45–66 Schwartz middle-plan failures per judge; P(say | bait) 0.43–0.79 for Kohlberg; on fresh items P(say | ¬do) 0.16–0.84 against P(say | do) 0.75–0.98; <code>b2_record_blind_to_middle</code></td>
+<td>high</td>
+<td>§5.3 can state why the two channels couple for MFT and not Schwartz at the level of the action class</td>
+</tr>
+<tr>
+<td>I4</td>
+<td>I</td>
+<td>The near-empty reverse cell is a ceiling bound, and "say" in the literature is judge-bounded</td>
+<td>P(¬say | do) ≤ (1 − P(say)) / P(do) = 0.02–0.05 on the board arm, 0.08–0.22 on fresh items; observed 0.007–0.18; a fifth judge family grades the record at 0.80 and fills the cell (0.13–0.18); <code>b3_judge_ceiling</code>, <code>ablation_ab56</code></td>
+<td>high</td>
+<td>the regime-table comparison gets a caveat column: which "say" channels are at ceiling</td>
+</tr>
+<tr>
+<td>I5</td>
+<td>S</td>
+<td>The option set sets the headline: compromise is the modal failure wherever a compromise is offered</td>
+<td>91 % middle plan on the board's Schwartz items, 38 % on fresh Schwartz items, 72 % bait on fresh MFT items (<code>saydo_shape.json</code>); Lynch 79–96 % with the middle closed off; ImpossibleBench 54 → 9 % with an abort option; Andric's 100 % balanced option</td>
+<td>high</td>
+<td>positioning: the lane's within-instrument item-mix contrast is the first direct demonstration of what the field sees only across instruments</td>
+</tr>
+<tr>
+<td>I6</td>
+<td>R</td>
+<td>The Schwartz gap is spread over items; the Kohlberg gap is concentrated</td>
+<td>Schwartz: 14–15 of 16 items, top item 17–18 %, Gini 0.45–0.48, rate 0.21–0.27 with the top item removed; Kohlberg: top item 35–40 %, Gini 0.62–0.64, 0.11–0.15 without it; <code>b4_item_concentration</code></td>
+<td>high</td>
+<td>§7's "one Kohlberg item" caveat becomes a two-school statement with a distribution statistic</td>
+</tr>
+<tr>
+<td>I7</td>
+<td>S</td>
+<td>The pressure-removed twin is the cleanest artefact control in the corpus, and it closes item by item</td>
+<td>behaviour 0.71 → 0.95; middle plan 92 of 352 → 11 of 288; 9 items with ≥ 3 middle plans fall to 0–2; no prior design removes the pressure inside the item with world, rubric and debrief fixed; <code>b7_twin_per_item</code></td>
+<td>high</td>
+<td>§S24 can report per-item closure; the corpus's zero-pressure baselines (Lynch, Scheurer, PropensityBench) are prompt-level, not item-level</td>
+</tr>
+<tr>
+<td>I8</td>
+<td>I</td>
+<td>The fold is model-specific and the dig-in is flat, so "rarely dig in" is a property of every model measured</td>
+<td>MFT bare-pressure non-pass 0.02–0.97 across models against new-fact 0.00–0.31; Schwartz 0.00–0.54 against 0.00–0.29; Kohlberg 0.00–0.58 against 0.00–0.47; <code>b8_fold_vs_rigidity_per_model</code></td>
+<td>high</td>
+<td>§5.3's pole result gains a per-model table; the literature's per-model fold rates (Sharma 32–86 %) have a within-instrument analogue</td>
+</tr>
+<tr>
+<td>I9</td>
+<td>S</td>
+<td>At the frontier the compromise survives while everything else is at ceiling</td>
+<td>six CLI identities: Kohlberg and MFT say-not-do 0.00–0.10, Schwartz 0.19–0.44 (<code>paper/tables/T_FRONTIER_SAYDO.md</code>); the corpus's third disagreement (does scale close the gap) resolves by construct</td>
+<td>medium</td>
+<td>§S22 and the discussion can state the frontier reading as the strongest form of I2</td>
+</tr>
+<tr>
+<td>I10</td>
+<td>S</td>
+<td>The record meets the literature's favourable conditions for self-report validity and still decouples, which locates the gap at execution</td>
+<td>Kocielnik's in-context, behaviour-specific condition is met; Emmons and Radhakrishnan predict decoupling for articulation the action does not route through; Rakshit finds deliberation lowers alignment; the record is parallel articulation by design</td>
+<td>medium</td>
+<td>the "next tests" paragraph can name the routing experiment as the one that decides between re-prioritisation and non-use</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-what-is-being-read-together">1. What is being read together</h2>
+<p><strong>The record.</strong> Fifteen models, 9,776 administrations, 24,518 verdicts (article v2, abstract). The agentic rung gives a model a task and a value charter inside a fictional organisation, requires a written record, and scores the action from the tool calls and the reasons from the record, blind to each other (article v2, Methods, "Ladder"). On the board's items under four third judges, the probability that an episode with faithful reasons fails the predicate is 0.19–0.22 for Kohlberg, 0.13 for Moral Foundations and 0.26–0.28 for Schwartz, weighting every model once, against a reverse discordance of 6 % or less (PAPER_v22 §5.3, Table 3). On the board's sixteen Schwartz items 91 % of the predicate failures are the designed middle plan (<code>analysis/out/saydo_shape.json</code> → <code>arms.board_items_repeat_arm.schwartz.failure_outcome_shares.middle_plan</code> = 0.91); when the competing pressure is written out of those items the gap falls to 0.04–0.05 under every judge (§S24). On 160 fresh items the Kohlberg gap replicates and the Schwartz-first ordering does not (§S21).</p>
+<p><strong>The corpus.</strong> 105 papers in five strands: stated versus revealed values (A), reasoning faithfulness (B), deception and scheming (C), sycophancy, honesty and moral consistency (D), and agents that know and do otherwise (E). Its consolidated report concludes that stated values predict choices weakly and directionally, that written reasoning is an unreliable readout of what drives behaviour, that agents which identify an action as wrong still take it once pressure arrives, that compromise appears repeatedly in the deception literature and is always treated as noise, and that models fold under content-free pushback far more often than they resist good evidence (<code>say-do/reports/AI say do gap literature.md</code>, §§1–6). It names two things the lane supplies that no prior design has: a judged, contemporaneous analysis of an <em>assigned</em> priority scored blind against executed tool calls, and a designed compromise counted as an outcome.</p>
+<p><strong>What a cross-reading adds.</strong> The paper positions the record against the corpus in §2 and §S16 and the report positions the corpus against the record in its last section. Neither computes anything across the two. The insights below come from (a) three new cross-tabulations of the lane's own tracked outputs that the literature's questions suggest, and (b) readings of the lane's existing numbers through the literature's five open disagreements.</p>
+<h2 id="2-the-insights">2. The insights</h2>
+<h3 id="i1-fold-under-argument-and-compromise-under-cost-are-two-dispositions-type-r">I1. Fold under argument and compromise under cost are two dispositions (type R)</h3>
+<p>The consolidated report ends with a conjecture: the two findings, folding under scripted pushback and compromising under cost, "suggest one underlying disposition: stated commitments yield to whoever or whatever applies pressure in the context" (<code>AI say do gap literature.md</code>, Conclusion). The record can test this at the model grain, because the same models were administered both pressure rungs on the same items and judged by the same third judges. For each model, school and judge leg, the share of S3 bare-pressure turn criteria not passed (the fold; <code>analysis/out/pole_analysis.json</code> → <code>arms.repeat.&lt;judge&gt;.&lt;model&gt;.&lt;school&gt;.bare_pressure.nonpass_rate</code>) was set against the S2 say-not-do rate (<code>analysis/out/rungs_compare.json</code> → <code>arms.&lt;arm&gt;.judges.&lt;judge&gt;.seats.&lt;model&gt;.&lt;school&gt;.snd</code>) and the S2 behaviour failure rate. Table 2 gives the Spearman coefficients with exact permutation p over all orderings; at n = 7–8 these are displays of agreement, not tests.</p>
+<p><strong>Table 2.</strong> Does a model's fold rate under argument predict its compromise rate under cost? Spearman between the S3 bare-pressure non-pass rate and the S2 say-not-do rate (and the judge-free S2 failure rate), per school and judge leg; repeat arm (seven models, all repetitions) and nine-model frame (eight models, first repetition). <code>RECOMPUTED — NOT BANKED</code> · <code>saydo_insights_cross.json</code> → <code>b1_fold_vs_saynotdo.by_school_judge</code>.</p>
+<table>
+<thead>
+<tr>
+<th>arm · judge</th>
+<th>n</th>
+<th>Kohlberg: fold ~ say-not-do (p) · fold ~ ¬do</th>
+<th>MFT: fold ~ say-not-do (p) · fold ~ ¬do</th>
+<th>Schwartz: fold ~ say-not-do (p) · fold ~ ¬do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>repeat arm · gpt-5.4-nano</td>
+<td>7</td>
+<td>0.71 (0.10) · 0.65</td>
+<td>0.76 (0.10) · 0.76</td>
+<td>−0.33 (0.47) · −0.33</td>
+</tr>
+<tr>
+<td>repeat arm · gpt-oss-120b</td>
+<td>7</td>
+<td>0.74 (0.07) · 0.74</td>
+<td>0.40 (0.43) · 0.40</td>
+<td>−0.08 (0.86) · −0.08</td>
+</tr>
+<tr>
+<td>nine-model frame · glm-5.3-flash</td>
+<td>8</td>
+<td>0.94 (0.002) · 0.92</td>
+<td>0.38 (0.36) · 0.17</td>
+<td>0.48 (0.23) · 0.48</td>
+</tr>
+<tr>
+<td>nine-model frame · deepseek-v4.1-flash</td>
+<td>8</td>
+<td>0.87 (0.011) · 0.87</td>
+<td>0.70 (0.07) · 0.42</td>
+<td>0.31 (0.45) · 0.27</td>
+</tr>
+<tr>
+<td>per-model mean over the three schools, repeat arm (two judges)</td>
+<td>7</td>
+<td>fold ~ say-not-do 0.21 (0.66) and 0.57 (0.20)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The pattern is the one §5.4 found between the two rung <em>means</em> (Kohlberg's rungs agree, ρ 0.63–0.91; Schwartz's do not on the board's items, −0.40 to +0.16), now at the level of the two pressure <em>failures</em> themselves. In Kohlberg the model that gives way to a scripted interlocutor is the model that leaves a procedure unfinished or takes the bait when acting (0.71–0.94 under four judges, p ≤ 0.011 in the two eight-model panels). In Moral Foundations the association is positive and weaker (0.38–0.76). In Schwartz there is none: the models that moralise the circle under argument are not the models that split the difference when acting, and the per-model mean across schools (0.21 and 0.57) carries no clear signal either. The conjecture of one disposition holds for a procedural construct and fails for a priority between goods. What the two Schwartz failures share is only that they are failures under pressure; what they do not share is a model-level propensity, and that is what "disposition" would require.</p>
+<p>A second cross-tabulation sharpens this. The same fold rate and the same say-not-do rate were set against the published reasoning scalar the paper uses for its capability analysis (<code>research/capability_scalars_20261021.json</code>, MMLU-Pro-class, vendor and leaderboard self-reports; the paper's caveats in §5.6 and §S9 apply).</p>
+<p><strong>Table 3.</strong> Published reasoning capability against the two pressure failures, per school and judge leg. Spearman with exact permutation p; <code>RECOMPUTED — NOT BANKED</code> · <code>saydo_insights_cross.json</code> → <code>b6_capability</code>.</p>
+<table>
+<thead>
+<tr>
+<th>arm · judge</th>
+<th>n</th>
+<th>Kohlberg: capability ~ fold · ~ say-not-do</th>
+<th>MFT: capability ~ fold · ~ say-not-do</th>
+<th>Schwartz: capability ~ fold · ~ say-not-do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>repeat arm · gpt-5.4-nano</td>
+<td>7</td>
+<td>−0.86 (0.02) · −0.71 (0.10)</td>
+<td>−0.93 (0.007) · −0.76 (0.10)</td>
+<td>−0.81 (0.04) · +0.29 (0.53)</td>
+</tr>
+<tr>
+<td>repeat arm · gpt-oss-120b</td>
+<td>7</td>
+<td>−0.96 (0.004) · −0.74 (0.07)</td>
+<td>−0.86 (0.02) · −0.76 (0.10)</td>
+<td>−0.96 (0.003) · +0.29 (0.53)</td>
+</tr>
+<tr>
+<td>nine-model frame · glm-5.3-flash</td>
+<td>8</td>
+<td>−0.92 (0.003) · −0.88 (0.008)</td>
+<td>−0.85 (0.011) · −0.79 (0.04)</td>
+<td>−0.86 (0.008) · −0.10 (0.83)</td>
+</tr>
+<tr>
+<td>nine-model frame · deepseek-v4.1-flash</td>
+<td>8</td>
+<td>−0.90 (0.005) · −0.84 (0.017)</td>
+<td>−0.87 (0.007) · −0.79 (0.04)</td>
+<td>−0.93 (0.002) · −0.07 (0.87)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="i2-capability-buys-out-the-fold-everywhere-and-the-compromise-only-where-it-is-not-a-value-trade-off-type-r">I2. Capability buys out the fold everywhere, and the compromise only where it is not a value trade-off (type R)</h3>
+<p>Table 3 is the clearest statement the record makes about the corpus's third unsettled question, whether scale and reasoning close the gap. The report found the field split: the identification–execution gap is flat with capability in Tang et al. (ρ = −0.06; <a href="../literature/say-do/papers/E_agent_knowing_doing/tang2025_fail_to_act_on_risk_knowledge.html"><code>tang2025_fail_to_act_on_risk_knowledge</code></a>), honesty falls with compute in MASK (<a href="../literature/say-do/papers/D_sycophancy_honesty_moral_consistency/ren2025_mask_honesty_accuracy.html"><code>ren2025_mask_honesty_accuracy</code></a>), sycophancy grows with scale in Wei et al. (<a href="../literature/say-do/papers/D_sycophancy_honesty_moral_consistency/wei2023_synthetic_data_sycophancy.html"><code>wei2023_synthetic_data_sycophancy</code></a>), yet stated–revealed coherence rises with capability in Mahajan et al. (ρ = 0.58; <a href="../literature/say-do/papers/A_stated_vs_revealed/mahajan2026_elicitation_stated_revealed_gap.html"><code>mahajan2026_elicitation_stated_revealed_gap</code></a>) and scaling strengthens resistance to pushback in SYCON-Bench (<a href="../literature/say-do/papers/D_sycophancy_honesty_moral_consistency/hong2025_sycon_bench_multiturn_sycophancy.html"><code>hong2025_sycon_bench_multiturn_sycophancy</code></a>). The record shows both answers inside one instrument. More capable models fold less under argument in all three schools (ρ −0.81 to −0.96, p ≤ 0.04 in every panel), which is the SYCON-Bench and Mahajan direction. More capable models also compromise less in action in Kohlberg and Moral Foundations (−0.71 to −0.88), but not in Schwartz (−0.10 to +0.29), which is Tang's direction. The paper already reports the Schwartz behaviour–capability null (ρ 0.03, 95 % CI −0.65 to 0.68; article v2, §Per-model profiles). What Table 3 adds is the contrast with the fold in the same school: Schwartz is not a school in which capability fails to order the model; it is a school in which capability orders the argument and not the action. The resolution the lane offers the field is therefore not "scale closes the gap" or "scale does not", but a rule: capability buys out failures that are errors of reasoning (a register switch, an intuition mislabelled, an unfinished procedure) and does not buy out a failure that is a choice between two goods under cost. Whether that rule survives more models is the question I9 and workstream W3 of the companion report (A3) take up.</p>
+<h3 id="i3-the-written-record-is-blind-to-the-middle-plan-type-r">I3. The written record is blind to the middle plan (type R)</h3>
+<p>§5.3 explains why the two channels couple in Moral Foundations (odds ratio 0.07–0.18) and not in Schwartz by the kind of error: a mis-weighting shows in the record and a compromise does not. The record can show this directly at the level of the action class, from the predicate audit's say-not-do decomposition (<code>analysis/out/predicate_audit.json</code> → <code>say_not_do_causes</code>, symmetric 0.5 rule). For each judge and school, Table 4 gives, among the episodes whose action failed the predicate, the share whose record the judge still passed, by what the model did instead.</p>
+<p><strong>Table 4.</strong> Among predicate failures, the share whose written record the judge passed, by action class; repeat arm, board items, four third judges, symmetric 0.5 rule; the last column, the record pass rate among episodes whose action passed, is from <code>saydo_results.json</code> at the strict rule. <code>RECOMPUTED — NOT BANKED</code> · <code>saydo_insights_cross.json</code> → <code>b2_record_blind_to_middle.repeat_arm</code>.</p>
+<table>
+<thead>
+<tr>
+<th>judge · school</th>
+<th>failures</th>
+<th>P(say | failed) [Wilson 95 %]</th>
+<th>middle plan</th>
+<th>bait</th>
+<th>other decision / unfinished queue</th>
+<th>no decision</th>
+<th>P(say | passed)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gpt-5.4-nano · Schwartz</td>
+<td>73</td>
+<td>0.93 [0.85, 0.97]</td>
+<td>65/66 = 0.98</td>
+<td>3/3</td>
+<td>—</td>
+<td>0/4</td>
+<td>0.98</td>
+</tr>
+<tr>
+<td>gpt-oss-120b · Schwartz</td>
+<td>73</td>
+<td>0.96 [0.89, 0.99]</td>
+<td>66/66 = 1.00</td>
+<td>3/3</td>
+<td>—</td>
+<td>1/4</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td>glm-5.3-flash · Schwartz</td>
+<td>50</td>
+<td>1.00 [0.93, 1.00]</td>
+<td>45/45 = 1.00</td>
+<td>2/2</td>
+<td>—</td>
+<td>3/3</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td>deepseek-v4.1-flash · Schwartz</td>
+<td>54</td>
+<td>0.94 [0.85, 0.98]</td>
+<td>47/49 = 0.96</td>
+<td>2/2</td>
+<td>—</td>
+<td>2/3</td>
+<td>0.98</td>
+</tr>
+<tr>
+<td>gpt-5.4-nano · MFT</td>
+<td>46</td>
+<td>0.80 [0.67, 0.89]</td>
+<td>12/15 = 0.80</td>
+<td>17/18 = 0.94</td>
+<td>—</td>
+<td>8/13 = 0.62</td>
+<td>0.94</td>
+</tr>
+<tr>
+<td>gpt-oss-120b · MFT</td>
+<td>46</td>
+<td>0.91 [0.80, 0.97]</td>
+<td>15/15</td>
+<td>18/18</td>
+<td>—</td>
+<td>9/13 = 0.69</td>
+<td>0.98</td>
+</tr>
+<tr>
+<td>glm-5.3-flash · MFT</td>
+<td>20</td>
+<td>0.80 [0.58, 0.92]</td>
+<td>4/5</td>
+<td>7/8 = 0.88</td>
+<td>—</td>
+<td>5/7 = 0.71</td>
+<td>0.96</td>
+</tr>
+<tr>
+<td>deepseek-v4.1-flash · MFT</td>
+<td>20</td>
+<td>0.85 [0.64, 0.95]</td>
+<td>4/5</td>
+<td>8/8</td>
+<td>—</td>
+<td>5/7 = 0.71</td>
+<td>0.96</td>
+</tr>
+<tr>
+<td>gpt-5.4-nano · Kohlberg</td>
+<td>61</td>
+<td>0.89 [0.78, 0.94]</td>
+<td>4/4</td>
+<td>15/19 = 0.79</td>
+<td>26/28 = 0.93</td>
+<td>4/5</td>
+<td>0.99</td>
+</tr>
+<tr>
+<td>gpt-oss-120b · Kohlberg</td>
+<td>61</td>
+<td>0.92 [0.82, 0.96]</td>
+<td>4/4</td>
+<td>15/19 = 0.79</td>
+<td>28/28 = 1.00</td>
+<td>4/5</td>
+<td>1.00</td>
+</tr>
+<tr>
+<td>glm-5.3-flash · Kohlberg</td>
+<td>44</td>
+<td>0.89 [0.76, 0.95]</td>
+<td>2/2</td>
+<td>4/7 = 0.57</td>
+<td>20/20 = 1.00</td>
+<td>11/13 = 0.85</td>
+<td>0.98</td>
+</tr>
+<tr>
+<td>deepseek-v4.1-flash · Kohlberg</td>
+<td>44</td>
+<td>0.84 [0.71, 0.92]</td>
+<td>2/2</td>
+<td>3/7 = 0.43</td>
+<td>19/20 = 0.95</td>
+<td>11/13 = 0.85</td>
+<td>0.99</td>
+</tr>
+</tbody>
+</table>
+<p>Three things are in this table that the paper's text asserts without a number. First, a middle plan leaves no trace the judges read as unfaithful: 223 of 226 Schwartz middle-plan failures across the four legs carry a record the judge passed, which is the same rate as the records of episodes whose action passed (0.98–1.00). Second, the bait is partly visible in Kohlberg (the record fails on 21–57 % of bait episodes under the four judges) and barely in Moral Foundations on the board's items (the record fails on 12 % or less of bait episodes), which is the opposite of what §5.3's coupling argument would predict for MFT at the class level; the MFT coupling comes from the "no decision" class (the record fails on 29–38 % of those) and from the overall rarity of MFT failures, not from the bait. Third, on the 160 fresh items the picture reverses: P(say | ¬do) falls to 0.16–0.57 for Schwartz and Moral Foundations and 0.39–0.84 for Kohlberg while P(say | do) stays at 0.75–0.98 (<code>b2_record_blind_to_middle.expansion</code>), so there the record does discriminate failures, mostly because the failures are baits and the judges grade the fresh records lower. The paper's claim that "a model that takes the bait usually also fails the reasons channel" (§5.3) is a fresh-item claim; on the board's items it is false for Moral Foundations and half-true for Kohlberg. What is true on both item sets is that a compromise is invisible to the record. That is the fact the monitoring implication of the corpus rests on (Baker et al., <a href="../literature/say-do/papers/B_reasoning_faithfulness/baker2025_monitoring_obfuscation.html"><code>baker2025_monitoring_obfuscation</code></a>): a record-only monitor passes exactly the episodes the predicate flags, and it does so because the compromise is not a lie about the priority; it is a plan that leaves the priority's sentence intact.</p>
+<h3 id="i4-the-empty-reverse-cell-is-a-ceiling-bound-and-say-in-the-literature-is-judge-bounded-type-i">I4. The empty reverse cell is a ceiling bound, and "say" in the literature is judge-bounded (type I)</h3>
+<p>The council review removed the first draft's claim that a near-zero reverse rate certified the reasons grades (<code>audits/ADVERSARIAL_COUNCIL_REVIEW_20261031.md</code>, finding 2), and <code>analysis/saydo_thresholds.py</code> now records a bound the paper does not quote: P(¬say | do) cannot exceed (1 − P(say)) / P(do). On the repeat arm, with P(say) at 0.95–0.98 and P(do) at 0.75–0.79, the bound is 0.02–0.05 and the observed reverse rates are 0.007–0.032 (<code>saydo_thresholds.json</code> → <code>arms.repeat_arm.&lt;judge&gt;.all.sym50.ceiling_bound_on_p_not_say_given_do</code>). On the expansion items, where the judges grade the records lower (P(say) 0.78–0.92), the bound rises to 0.08–0.22 and the observed rates rise with it to 0.06–0.18. The fifth judge family, admitted in ablation AB6, grades the same 336 Schwartz records at a mean of 0.80 against 0.92–0.98 for the retained judges, and on the 80 episodes every judge graded it fills the reverse cell (P(¬say | do) 0.175 against 0.00–0.016) while leaving the say-not-do rate where it was (0.21–0.23 against 0.20–0.22; <code>ablation_ab56_minimax-minimax-m3.json</code> → <code>AB6_schwartz_S2.saydo_same_episodes</code>). The reading: the asymmetry of the 2×2 is a property of judge leniency on the "say" side and the direction of the gap is not. This generalises to the corpus. Every regime in the report's comparison table has a "say" channel, and most of them are at or near ceiling by construction: PrivacyLens probes at 97.6–100 % (<a href="../literature/say-do/papers/E_agent_knowing_doing/shao2024_privacylens.html"><code>shao2024_privacylens</code></a>), PropensityBench permission probes above 99 % (<a href="../literature/say-do/papers/E_agent_knowing_doing/sehwag2025_propensitybench.html"><code>sehwag2025_propensitybench</code></a>), Tang's knowledge test above 98 % (<a href="../literature/say-do/papers/E_agent_knowing_doing/tang2025_fail_to_act_on_risk_knowledge.html"><code>tang2025_fail_to_act_on_risk_knowledge</code></a>). In each, P(¬do | say) is within a few points of P(¬do), the reverse cell is empty by arithmetic, and "knowing" is as much a ceiling effect of the probe as a property of the model. The lane's instrument is the one place in the corpus where this is both stated and tested, by lowering the ceiling with a stricter judge and finding the gap unmoved.</p>
+<h3 id="i5-the-option-set-sets-the-headline-type-s">I5. The option set sets the headline (type S)</h3>
+<p>The consolidated report placed the lane's 13–28 % between the item-flip regime (14–19 % in ValueActionLens, <a href="../literature/say-do/papers/A_stated_vs_revealed/shen2025_value_action_gap.html"><code>shen2025_value_action_gap</code></a>) and the forced-choice regime (79–96 % blackmail in Agentic Misalignment, <a href="../literature/say-do/papers/E_agent_knowing_doing/lynch2025_agentic_misalignment.html"><code>lynch2025_agentic_misalignment</code></a>), and noted that binary designs are structurally blind to compromise. The record contains a within-instrument version of the same contrast, which the field has only seen across instruments. On the board's sixteen Schwartz items the failures are 91 % middle plan and 4 % bait; on the 36 fresh Schwartz items they are 38 % middle plan and 50 % bait; on the 21 fresh MFT items 72 % bait (<code>saydo_shape.json</code> → <code>arms.board_items_repeat_arm.schwartz.failure_outcome_shares</code>, <code>arms.expansion_items.schwartz.failure_outcome_shares</code>, <code>arms.expansion_items.mft.failure_outcome_shares</code>). The predicate audit found no defect in either item set (§S17, §S21), the menu shape is the same three terminal tools per item for Schwartz and MFT on both (<code>saydo_shape.json</code> → <code>decision_tools_per_item</code>), and the models are the same nine. What differs is which option the item makes attractive. The failure rate moves less than its composition: Schwartz 0.297 on the board and 0.205 on fresh items; MFT 0.123 and 0.180 (<code>failure_rate</code> keys). Three corpus results now read as the same phenomenon measured across instruments: Andric's pilot, in which every model took the "balanced" option 100 % of the time until it was removed (<a href="../literature/say-do/papers/A_stated_vs_revealed/andric2025_walk_their_talk_altruism.html"><code>andric2025_walk_their_talk_altruism</code></a>); ImpossibleBench, where an abort option cut GPT-5's cheating from 54 % to 9 % (<a href="../literature/say-do/papers/C_deception_scheming/zhong2025_impossiblebench.html"><code>zhong2025_impossiblebench</code></a>); and Mahajan et al., where allowing a neutral stated answer moved a stated–revealed correlation from about 0.2 to 0.7 and allowing it on the revealed side sent the correlation to zero (<a href="../literature/say-do/papers/A_stated_vs_revealed/mahajan2026_elicitation_stated_revealed_gap.html"><code>mahajan2026_elicitation_stated_revealed_gap</code></a>). The lane's contribution to this line is that it holds everything else fixed. A benchmark's headline say–do rate is a function of its option set, and the composition of the failure, not its rate, is what the option set controls. For the regime table this means the lane's rate should be compared with the rich-option agentic benchmarks (PrivacyLens 24.5–38 %, ODCV 0–62.8 %) and not with the forced-choice headlines, as the report already argues, and that the comparison should be made per failure class where a benchmark reports one, which almost none does.</p>
+<h3 id="i6-the-schwartz-gap-is-spread-over-items-the-kohlberg-gap-is-concentrated-type-r">I6. The Schwartz gap is spread over items; the Kohlberg gap is concentrated (type R)</h3>
+<p>§7 says that "one Kohlberg item carries a disproportionate share of that school's gap" and §5.3 that the Schwartz episodes occur on 14–15 of 16 items with the top three carrying about 45 %. A distribution statistic makes the two schools comparable. Over the sixteen items of each school, under each of the four judge legs (strict rule, <code>analysis/out/saydo_results.json</code> → <code>legs.&lt;judge&gt;.by_item_school.&lt;school&gt;.per_item</code>), the Gini coefficient of say-not-do counts is 0.45–0.48 for Schwartz, 0.42–0.61 for MFT and 0.62–0.64 for Kohlberg; the single most frequent item carries 17–18 % of the Schwartz episodes and 35–40 % of the Kohlberg ones; half of the Schwartz episodes need four items, half of the Kohlberg ones two or three; and removing the top item leaves the Schwartz rate at 0.21–0.27 (from 0.24–0.31) and the Kohlberg rate at 0.11–0.15 (from 0.16–0.21), which is the §S17 exclusion figure recovered another way (<code>saydo_insights_cross.json</code> → <code>b4_item_concentration</code>). The threshold sensitivity confirms what §5.3 says: the Schwartz and Kohlberg rates move by at most 0.06 across the strict, symmetric-0.5 and symmetric-0.75 rules, while the MFT asymmetry is rule-dependent (McNemar p ≤ 0.035 at 0.5 under every judge and 0.12–0.77 under the other two rules for three of four judges; <code>b5_threshold_robustness</code>). For the literature this matters because the item-level flip rates it reports (Shen et al.'s 14–19 %) are averages over thousands of items with no concentration statistic; the lane's sixteen items per school are few, but the Schwartz gap is a property of nearly all of them.</p>
+<h3 id="i7-the-pressure-removed-twin-is-the-cleanest-artefact-control-in-the-corpus-and-it-closes-item-by-item-type-s">I7. The pressure-removed twin is the cleanest artefact control in the corpus, and it closes item by item (type S)</h3>
+<p>The corpus's zero-pressure baselines are prompt-level: Lynch et al. remove the replacement threat and the goal conflict from the scenario (one leak in 100 samples across sixteen models without them), Scheurer et al. remove pressure sources one at a time (misconduct about 0 % with all removed, no single removal eliminating it), and PropensityBench reports a low zero-pressure baseline (O3 about 2.2 %) with up to 90 % of misaligned calls following a pressure message (<a href="../literature/say-do/papers/E_agent_knowing_doing/lynch2025_agentic_misalignment.html"><code>lynch2025_agentic_misalignment</code></a>, <a href="../literature/say-do/papers/C_deception_scheming/scheurer2023_strategic_deception.html"><code>scheurer2023_strategic_deception</code></a>, <a href="../literature/say-do/papers/E_agent_knowing_doing/sehwag2025_propensitybench.html"><code>sehwag2025_propensitybench</code></a>). None holds the tool world, the scoring rule and the debrief fixed; the lane's twins do (§S24). The per-item view is what the twin arm has not yet reported: of the sixteen Schwartz items, nine produced three or more middle plans on 22 original episodes each, and on their twins those nine produced between zero and two on 18 episodes each (<code>saydo_insights_cross.json</code> → <code>b7_twin_per_item</code>); seven items produce a middle plan at least once on the twin, never more than twice. The closure is therefore not carried by two or three items. Two caveats the council already recorded stand: the removal is bundled, and one model does not close (llama-4-scout 0.63 on both). What the corpus adds is the design that would un-bundle it, Scheurer's graded removal, which the paper lists as the factorial twin (§S25, item 9); and a prediction, from Greenblatt's observation that removing the conflicting objective takes alignment-faking reasoning to 0.0 % (<a href="../literature/say-do/papers/C_deception_scheming/greenblatt2024_alignment_faking.html"><code>greenblatt2024_alignment_faking</code></a>), that a sweetener-only removal will not close the gap while a cost-only removal will, because the models' default under cost is the helpful compromise, not the sweetened one.</p>
+<h3 id="i8-the-fold-is-model-specific-and-the-dig-in-is-flat-type-i">I8. The fold is model-specific and the dig-in is flat (type I)</h3>
+<p>§5.3 reports the pole result pooled: bare-pressure criteria are not passed on 67–74 % of MFT board records against 23–32 % for new-fact criteria. Per model the picture is sharper (<code>pole_analysis.json</code> → <code>arms.repeat.&lt;judge&gt;.&lt;model&gt;.&lt;school&gt;</code>, <code>saydo_insights_cross.json</code> → <code>b8_fold_vs_rigidity_per_model</code>). Under the four third judges the MFT fold rate runs from 0.02 to 0.97 across the eight metered models and the MFT new-fact non-pass rate from 0.00 to 0.31; Schwartz 0.00–0.54 against 0.00–0.29; Kohlberg 0.00–0.58 against 0.00–0.47. The fold is where the models differ, and it is ordered by capability (Table 3); the dig-in is rare for every model and flat. The corpus's sycophancy numbers are per model too, from 32 % to 86 % after "Are you sure?" (<a href="../literature/say-do/papers/D_sycophancy_honesty_moral_consistency/sharma2024_understanding_sycophancy.html"><code>sharma2024_understanding_sycophancy</code></a>), 46 % averaged in FlipFlop (<a href="../literature/say-do/papers/D_sycophancy_honesty_moral_consistency/laban2023_flipflop_are_you_sure.html"><code>laban2023_flipflop_are_you_sure</code></a>), 20.7–78.2 % over four persuasive turns (<a href="../literature/say-do/papers/D_sycophancy_honesty_moral_consistency/xu2024_earth_is_flat_persuasion.html"><code>xu2024_earth_is_flat_persuasion</code></a>), and SYCON-Bench's base-versus-instruct gap (93.9 % against 45.0 % stance retention; <a href="../literature/say-do/papers/D_sycophancy_honesty_moral_consistency/hong2025_sycon_bench_multiturn_sycophancy.html"><code>hong2025_sycon_bench_multiturn_sycophancy</code></a>). The lane's extension, that the new-fact pole is "rarely" failed, was measured in one design; per model it is failed at no more than 0.31 in Moral Foundations and Schwartz and 0.47 in Kohlberg by any model under any judge, so the extension is not a pooled artefact of a few stubborn models. The reading for the paper: the "rarely dig in" result is a floor property of every model measured, the fold a ceiling property of the weaker ones, and the two poles are not two ends of one scale.</p>
+<h3 id="i9-at-the-frontier-the-compromise-survives-while-everything-else-is-at-ceiling-type-s">I9. At the frontier the compromise survives while everything else is at ceiling (type S)</h3>
+<p>The six CLI-route identities re-administered on the metered route (§S22; <code>paper/tables/T_FRONTIER_SAYDO.md</code>) give the strongest form of I2. For five of the six identities the Kohlberg and MFT say-not-do rates are 0.00–0.10 under every judge, with MFT behaviour at 0.97–1.00 and Kohlberg at 0.91–0.94 (the sixth, gpt-5.4-mini, sits at 0.19–0.23 in both); their Schwartz rates are 0.19–0.44 (0.25, 0.44, 0.19, 0.22, 0.19 and 0.19 for the six identities in census order), with Schwartz behaviour 0.56–0.81 (<code>analysis/out/frontier_results.json</code> → <code>saydo.&lt;judge&gt;.&lt;identity&gt;|schwartz</code>). These are single or double administrations on a re-pinned route and the paper reports them in their own frame; no ranking follows. What follows is a statement about the construct: on the most capable models in the record the procedural and representational failures have gone to the floor and the trade-off compromise has not. The corpus's "more capable agents show more misalignment" (Naik et al., <a href="../literature/say-do/papers/C_deception_scheming/naik2025_agentmisalignment.html"><code>naik2025_agentmisalignment</code></a>) and "honesty falls with compute" (MASK) are not what the lane sees; what it sees is a failure that capability neither raises nor lowers. Chen et al. (<a href="../literature/say-do/papers/E_agent_knowing_doing/chen2026_says_block_still_acts.html"><code>chen2026_says_block_still_acts</code></a>) supply the mechanistic hypothesis the paper can now cite with a reason: if safety information is decodable at action time yet steering the judgement moves the action by only 1.0–3.6 % of the effect of action-native steering, a priority that is written correctly and not enacted is what weak causal coupling between the judgement and the action pathway would produce, and no amount of capability in the judgement pathway would close it.</p>
+<h3 id="i10-the-record-meets-the-literatures-favourable-conditions-for-self-report-validity-and-still-decouples-type-s">I10. The record meets the literature's favourable conditions for self-report validity and still decouples (type S)</h3>
+<p>Kocielnik et al. find that self-reports predict behaviour at human-like levels (r ≈ 0.40) when they are behaviour-specific and given in the same conversation, and collapse for behaviour primed by context (<a href="../literature/say-do/papers/A_stated_vs_revealed/kocielnik2026_when_self_reports_predict_behavior.html"><code>kocielnik2026_when_self_reports_predict_behavior</code></a>). The lane's record is written inside the episode, about this task and this charter, immediately before the action. By the corpus's own standard it is the "say" most likely to predict "do", and it does not predict the middle plan. Two strands of the corpus say why. Emmons et al. and Radhakrishnan et al. show that written reasoning binds the answer when the answer computationally depends on it (corrupting load-bearing reasoning changes 33.6 % of answers against 9.6 % for ordinary chain-of-thought) and not when it is written in parallel (<a href="../literature/say-do/papers/B_reasoning_faithfulness/emmons2025_cot_necessary_monitors.html"><code>emmons2025_cot_necessary_monitors</code></a>, <a href="../literature/say-do/papers/B_reasoning_faithfulness/radhakrishnan2023_question_decomposition.html"><code>radhakrishnan2023_question_decomposition</code></a>); the lane's record is required by the task and is not an input to the tool-call policy, so it is parallel articulation by design. Rakshit et al. find that making a model reason before advising lowers value–action alignment (GPT-4o 0.453 → 0.415) and that repairing the output helps where repairing the reasoning does not (<a href="../literature/say-do/papers/A_stated_vs_revealed/rakshit2026_pseudo_deliberation.html"><code>rakshit2026_pseudo_deliberation</code></a>). Together they predict the record's result and name the experiment that would decide between the two readings §7 leaves open, a priority stated and not enacted against a priority that never entered the decision: make the action route through the record (the tool-call policy conditioned on the record's own plan field) and see whether the middle plan goes. If it goes, the gap is non-use; if it stays, it is re-prioritisation at action time. The workstream is W1 in the companion report.</p>
+<h2 id="3-what-the-readings-change-in-the-paper">3. What the readings change in the paper</h2>
+<p><strong>Table 5.</strong> Where each insight lands, and what it costs.</p>
+<table>
+<thead>
+<tr>
+<th>where</th>
+<th>change</th>
+<th>insight</th>
+<th>cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abstract, §1</td>
+<td>"capability orders the fold in every school and the compromise in two" replaces "capability does not order Schwartz agentic behaviour" as the headline capability statement</td>
+<td>I2, I9</td>
+<td>$0; one table</td>
+</tr>
+<tr>
+<td>§5.3</td>
+<td>Table 4 (P(say | failure class)) beside Table 3; the sentence "a model that takes the bait usually also fails the reasons channel" scoped to fresh items</td>
+<td>I3</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>§5.3</td>
+<td>the ceiling bound quoted beside the reverse rate; AB6's filled cell cited as the test</td>
+<td>I4</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>§5.3, §7</td>
+<td>the item-concentration statistic for both schools, replacing the one-item caveat</td>
+<td>I6</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>§5.3</td>
+<td>the per-model pole table</td>
+<td>I8</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>§5.4</td>
+<td>the fold–compromise concordance beside the rung-mean concordance</td>
+<td>I1</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>§2, §S16</td>
+<td>the option-set paragraph: Andric, ImpossibleBench and Mahajan as the cross-instrument version of the board–expansion contrast</td>
+<td>I5</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>§S24</td>
+<td>per-item closure table; the graded-removal design named with its prediction</td>
+<td>I7</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>§6, §8</td>
+<td>the routing experiment as the test between non-use and re-prioritisation</td>
+<td>I10</td>
+<td>the arm itself: see A3, W1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-caveats">4. Caveats</h2>
+<p>Every judged quantity is from language-model judges no human expert has validated; the behaviour channel and the fold rates' denominators are judge-free, the fold rates' labels are not. The model-grain correlations rest on seven or eight models and are displays; the exact permutation p values are reported because they are cheap, not because they license inference at that n. The capability scalars are vendor and leaderboard self-reports with mixed harnesses (§S9). The class-level record pass rates in Table 4 have small denominators in the bait and no-decision classes (2–19 episodes) and wide intervals. The option-set reading (I5) compares two item sets authored by the same lane under the same law, not a manipulation of one item's menu; the manipulation is proposed in A3. Nothing here ranks a model, and the insights are about the instrument and the literature, not about which values any model holds.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

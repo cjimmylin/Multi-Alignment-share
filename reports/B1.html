@@ -1,0 +1,608 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>B1 · Hypocrisy-shaped, motive-free: new insights from reading the lane&#x27;s record through the human moral-hypocrisy literature</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../">Hub</a> › <a href="../reports/">Lane reports</a> › B1</nav><article class="doc"><h1 id="hypocrisy-shaped-motive-free-new-insights-from-reading-the-lanes-record-through-the-human-moral-hypocrisy-literature">Hypocrisy-shaped, motive-free: new insights from reading the lane's record through the human moral-hypocrisy literature</h1>
+<p><em>New-insights report (B1) · 2026-11-05 · Multi-Alignment / Moral_Psychology-Paper · source: the moral-hypocrisy corpus (<code>moral-hypocrisy/SYNTHESIS.md</code>, <code>BENCHMARK_IMPLICATIONS.md</code>, <code>references.md</code>, the five research notes and the long-form report) read against the lane's tracked record (<code>paper/PAPER_v22.md</code>, <code>methods_paper/article/paper/ARTICLE_v2.md</code>, <code>analysis/out/*.json</code>) and the two council reviews that raised the objection (<code>audits/council/03_moral_psychologist.md</code>, <code>04_ethicist.md</code>) · every new statistic is RECOMPUTED — NOT BANKED from tracked outputs by <code>analysis/hypocrisy_insights_signatures.py</code> → <code>analysis/out/hypocrisy_insights_signatures.json</code> · PROVISIONAL · judges UNVALIDATED · no ranking.</em></p>
+<h2 id="1-what-this-report-adds-and-the-rules-it-keeps">1. What this report adds, and the rules it keeps</h2>
+<p>The corpus established three things (<code>moral-hypocrisy/BENCHMARK_IMPLICATIONS.md</code> §1): Batson's "moral hypocrisy" is a motive and the lane's models cannot be said to have it; the wider family of accounts (observer attribution, philosophical pluralism, organizational decoupling) defines hypocrisy by structure and would admit the lane's charter–action gap; and the rival descriptions (akrasia, overpowered integrity, moral wiggle room, organized hypocrisy) can only be separated by new arms. This report asks what the lane's <em>existing</em> data say when each human signature of hypocrisy is turned into a number, and which of the corpus's claims the data sharpen, weaken or leave open. Twelve insights follow, each labelled by type:</p>
+<ul>
+<li><strong>(i) RECOMPUTED — NOT BANKED</strong>: a statistic computed here, for the first time, from tracked outputs (no raw records, no model calls). Counts, ids and intervals only; models in sealed census order; exploratory; never a ranking.</li>
+<li><strong>(ii) synthesis</strong>: a conclusion that follows from putting the human literature and the lane record side by side.</li>
+<li><strong>(iii) reinterpretation</strong>: a number the paper already reports, read differently once the human literature is in view.</li>
+</ul>
+<p>Every judged number inherits the lane's label: the reasons channel is graded by unvalidated language-model judges; the behaviour channel is mechanical and judge-free. The paper measures within-theory competence on request (whether a model executes a charter-assigned priority it has just articulated), never default-value profiling; nothing here says which values a model holds. Human cell numbers from Batson's programme rest on abstracts and Miller's SEP entry, as the corpus flags (<code>SYNTHESIS.md</code> §3.3, §11); the human anchors used for comparison below are the ones the corpus marks as safe (<code>BENCHMARK_IMPLICATIONS.md</code> §6).</p>
+<p>The arithmetic throughout uses the lane's own objects: an <strong>episode</strong> is one agentic item administered once to one model; the <strong>predicate</strong> is the mechanical behaviour score (pass or fail) from the tool-call record; a <strong>predicate failure</strong> is classed by the item's labels as the designed <strong>middle plan</strong> (a compromise that engages the task while giving up the charter's stated priority), the designed <strong>bait</strong> (the convenience-favoured charter-incoherent action, which the paper also calls "violating"), or a <strong>procedural</strong> outcome (another decision, an unclosed queue, no decision). <strong>Say</strong> is a reasons grade at or above the stated threshold; P(¬do | say) is the share of episodes with faithful reasons whose action fails.</p>
+<h2 id="2-twelve-insights">2. Twelve insights</h2>
+<h3 id="i-1-the-partial-violation-signature-holds-on-the-board-for-every-school-and-fails-on-the-fresh-items-for-one-type-i">I-1. The partial-violation signature holds on the board for every school and fails on the fresh items for one (type i)</h3>
+<p>The human literature's most replicable regularity is that violation of a professed standard is partial: 0.6 % maximal cheaters among 791 who could cheat (Mazar et al. 2008, cited for the pattern only, with its Expression of Concern and failed RRR; <code>SYNTHESIS.md</code> §4.5), about 20 % full-extent liars against 39 % fully honest in the die-roll baseline (Fischbacher &amp; Föllmi-Heusi 2013), about three quarters of available lying gains forgone across 72 studies (Abeler et al. 2019), and in Dana, Weber &amp; Kuang (2007) "the proportion of dictators who choose—with certainty—to implement the unfair outcome is never greater than one-half". Classifying every predicate failure on the board's 48 items (repeat arm, 1,344 episodes; <code>analysis/out/predicate_audit.json</code> → <code>hypocrisy_insights_signatures.json</code> A) gives the lane's version of the same regularity.</p>
+<p><strong>Table 1.</strong> Composition of predicate failures by school: partial (middle plan), flagrant (bait, including the five traces that satisfy both labels) and procedural. Board items are the repeat arm's 48 items; fresh items are the 75 agentic items of the expansion arm (<code>expansion_results.json</code> <code>items_s2</code>). Wilson 95 % intervals. RECOMPUTED — NOT BANKED.</p>
+<table>
+<thead>
+<tr>
+<th>item set</th>
+<th>school</th>
+<th>episodes</th>
+<th>failures (rate)</th>
+<th>partial share of failures</th>
+<th>flagrant share of failures</th>
+<th>procedural share</th>
+<th>flagrant rate of all episodes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>board</td>
+<td>Kohlberg</td>
+<td>448</td>
+<td>100 (0.22)</td>
+<td>0.06 [0.03, 0.13]</td>
+<td>0.34 [0.26, 0.44]</td>
+<td>0.60</td>
+<td>0.076 [0.055, 0.104]</td>
+</tr>
+<tr>
+<td>board</td>
+<td>MFT</td>
+<td>448</td>
+<td>55 (0.12)</td>
+<td>0.29 [0.19, 0.42]</td>
+<td>0.42 [0.30, 0.55]</td>
+<td>0.29</td>
+<td>0.051 [0.034, 0.076]</td>
+</tr>
+<tr>
+<td>board</td>
+<td>Schwartz</td>
+<td>448</td>
+<td>133 (0.30)</td>
+<td>0.91 [0.85, 0.95]</td>
+<td>0.04 [0.02, 0.09]</td>
+<td>0.05</td>
+<td>0.011 [0.005, 0.026]</td>
+</tr>
+<tr>
+<td>board</td>
+<td>all</td>
+<td>1,344</td>
+<td>288 (0.21)</td>
+<td>0.50 [0.44, 0.55]</td>
+<td>0.22 [0.17, 0.27]</td>
+<td>0.29</td>
+<td>0.046 [0.036, 0.059]</td>
+</tr>
+<tr>
+<td>fresh</td>
+<td>Kohlberg</td>
+<td>324</td>
+<td>71 (0.22)</td>
+<td>0.38 [0.28, 0.50]</td>
+<td>0.24 [0.16, 0.35]</td>
+<td>0.38</td>
+<td>0.052 [0.033, 0.082]</td>
+</tr>
+<tr>
+<td>fresh</td>
+<td>MFT</td>
+<td>378</td>
+<td>68 (0.18)</td>
+<td>0.19 [0.12, 0.30]</td>
+<td>0.72 [0.60, 0.81]</td>
+<td>0.09</td>
+<td>0.130 [0.099, 0.167]</td>
+</tr>
+<tr>
+<td>fresh</td>
+<td>Schwartz</td>
+<td>648</td>
+<td>133 (0.21)</td>
+<td>0.38 [0.30, 0.46]</td>
+<td>0.50 [0.42, 0.59]</td>
+<td>0.12</td>
+<td>0.103 [0.082, 0.129]</td>
+</tr>
+<tr>
+<td>fresh</td>
+<td>all</td>
+<td>1,350</td>
+<td>272 (0.20)</td>
+<td>0.33 [0.28, 0.39]</td>
+<td>0.49 [0.43, 0.55]</td>
+<td>0.18</td>
+<td>0.099 [0.084, 0.116]</td>
+</tr>
+</tbody>
+</table>
+<p>Three readings. First, on the board the flagrant action is taken in 4.6 % of all episodes and is under half of the failures in every school, so Dana et al.'s "never greater than one-half" regularity holds for every board school and the overall failure rate (21 %) is made mostly of compromise and procedure. Second, the Schwartz column is the human signature in its purest form, 91 % compromise and 1.1 % flagrant, which is the number to set beside the 0.6 % of Mazar's maximal cheaters, with the caveat that the two denominators differ (all episodes against those who could cheat). Third, the fresh items break the regularity for MFT (72 % of failures flagrant, 13 % of episodes) and bring Schwartz to the boundary (50 %), because on those items the designed bait is the attractive error (<code>PAPER_v22.md</code> §5.3, "The school ordering is a property of the item set"). The human regularity therefore transfers as a statement about option sets, not about agents: where a cheap compromise is offered, the modal violation is partial, as in humans; where it is not, flagrant violation rises to a level (10–13 % of episodes) that still stays well below the forced-choice rates of the agentic-misalignment literature (79–96 % in Lynch et al. 2025).</p>
+<p><em>What it changes.</em> The paper's human analogy (<code>BENCHMARK_IMPLICATIONS.md</code> §3, "the violation is partial, as in humans") should be stated with Table 1's two halves together: the signature is reproduced on the board and is item-conditional, and the flagrant rate of episodes (4.6 % against 9.9 %) is the cleaner cross-set comparison than the share of failures.</p>
+<h3 id="i-2-taking-the-compromise-away-does-not-drive-models-to-the-flagrant-action-a-within-record-menu-test-type-i">I-2. Taking the compromise away does not drive models to the flagrant action: a within-record menu test (type i)</h3>
+<p>Dana et al. predict that removing the ambiguous option returns people to the fair choice rather than pushing them to certain, attributable unfairness. The board has a natural, if small, menu contrast: five of the sixteen Kohlberg items carry no designed middle label (<code>predicate_audit.json</code> <code>structure.middle_label_present</code>; the eleven others do). Among the eleven items with a middle label the flagrant rate of episodes is 0.068 [0.045, 0.102] (21 of 308); among the four items without one, excluding the floor item koh-s2-001 whose charter the audit found makes the universally chosen action defensible (<code>PAPER_v22.md</code> §S17), it is 0.080 [0.043, 0.146] (9 of 112). The intervals overlap, the failure rate falls from 0.20 to 0.11 when the middle option is absent, and what changes is the composition of what remains: flagrant failures rise from 34 % to 75 % of a much smaller set, because the compromise and the procedural shortfalls disappear and only the bait is left. With the floor item included the five-item set's flagrant rate is 0.093 [0.055, 0.152].</p>
+<p><em>Reading.</em> On this record a menu without a compromise does not manufacture flagrant violation; it removes the modal failure. That is the direction Dana et al.'s baseline-versus-relaxed-transparency contrast predicts (74 % fair under transparency, about 35 % without), and it is the opposite of what a "models want the bait and settle for the compromise" reading would predict. The contrast is observational, Kohlberg-only, four items against eleven, and the items differ in more than their menus; the designed version is workstream W7 of the companion report (B3).</p>
+<h3 id="i-3-the-compromise-closes-without-pressure-on-eight-of-nine-models-which-is-overpowered-integritys-zero-cost-endpoint-and-one-model-is-the-exception-that-names-a-rival-reading-type-i-and-iii">I-3. The compromise closes without pressure on eight of nine models, which is overpowered integrity's zero-cost endpoint, and one model is the exception that names a rival reading (type i and iii)</h3>
+<p>Batson and Thompson's third category, overpowered integrity, is "initially intend to be moral, only to surrender this goal when the costs of being moral become clear" (abstract, <code>SYNTHESIS.md</code> §3.1). Its behavioural prediction is a gap that appears with cost and vanishes without it. The twin probe (<code>PAPER_v22.md</code> §S24; <code>twin_probe_results.json</code>) rewrote the sixteen Schwartz agentic items so that the convenient and the faithful action coincide, with everything else unchanged. Per model, in census order (<code>hypocrisy_insights_signatures.json</code> C):</p>
+<p><strong>Table 2.</strong> The pressure-removed twins per model: behaviour pass rate (Wilson 95 %) and middle-plan count, original against twin. "Closes" means at most one middle-plan episode on the twins. RECOMPUTED — NOT BANKED · census order · no ranking.</p>
+<table>
+<thead>
+<tr>
+<th>model (census order)</th>
+<th>original: n, pass [95 %], middle plans</th>
+<th>twin: n, pass [95 %], middle plans</th>
+<th>closes?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gpt-oss-20b</td>
+<td>48, 0.46 [0.33, 0.60], 23</td>
+<td>32, 0.97 [0.84, 0.99], 1</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>qwen3-235b-thinking</td>
+<td>32, 0.75 [0.58, 0.87], 8</td>
+<td>32, 1.00 [0.89, 1.00], 0</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>deepseek-v4-flash</td>
+<td>48, 0.85 [0.73, 0.93], 7</td>
+<td>32, 1.00 [0.89, 1.00], 0</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>mistral-small-3.2-24b</td>
+<td>48, 0.92 [0.80, 0.97], 1</td>
+<td>32, 0.94 [0.80, 0.98], 0</td>
+<td>yes (no gap to close)</td>
+</tr>
+<tr>
+<td>gemma-4-31b-it</td>
+<td>48, 0.73 [0.59, 0.83], 13</td>
+<td>32, 1.00 [0.89, 1.00], 0</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>llama-4-scout</td>
+<td>48, 0.65 [0.50, 0.77], 13</td>
+<td>32, 0.63 [0.45, 0.77], 10</td>
+<td><strong>no</strong></td>
+</tr>
+<tr>
+<td>glm-5.2</td>
+<td>32, 0.50 [0.34, 0.66], 16</td>
+<td>32, 1.00 [0.89, 1.00], 0</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>kimi-k2.6</td>
+<td>32, 0.75 [0.58, 0.87], 8</td>
+<td>32, 1.00 [0.89, 1.00], 0</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>gpt-5.5 (OpenRouter route)</td>
+<td>16, 0.81 [0.57, 0.93], 3</td>
+<td>32, 1.00 [0.89, 1.00], 0</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<p>Across the sixteen items, the original middle-plan share and the twin's gain in pass rate correlate at Spearman 0.87 (permutation p &lt; 0.0001, n = 16): the items that invited the compromise are exactly the items the twin repairs, and on nine of the sixteen the twins show no middle plan at all. Pooled, the middle plan falls from 92 of 352 episodes to 11 of 288 and P(¬do | say) from 0.24–0.33 to 0.04–0.05 under every judge (<code>PAPER_v22.md</code> Table S24-1).</p>
+<p><em>Reading.</em> For eight models the record fits overpowered integrity read functionally, with "cost" meaning the item's competing pressure and not a personal payoff: the priority is articulated, enacted when enacting it is free, and surrendered when it is not. For llama-4-scout the compromise persists at the same rate without the pressure (13 of 48 against 10 of 32 episodes, intervals overlapping), so for that model the gap is not cost-contingent and the overpowered-integrity description does not apply; the nearer descriptions are Potham's "illusion of compliance" (the agent cannot execute the plan it describes) or an option-salience default, both of which the companion say-do corpus discusses (<code>say-do/reports/AI say do gap literature.md</code>, threats table). The paper reports the exception in one clause (§5.3); the hypocrisy framing makes it load-bearing, because a motive-free account must say which models the cost mechanism describes and which it does not. One model is not a pattern and no ordering is asserted.</p>
+<h3 id="i-4-the-standard-is-in-view-and-the-gap-persists-the-record-resembles-batsons-labelled-coin-and-within-the-record-a-half-written-standard-predicts-a-far-larger-gap-type-i-and-iii">I-4. The standard is in view and the gap persists: the record resembles Batson's labelled coin, and within the record a half-written standard predicts a far larger gap (type i and iii)</h3>
+<p>Batson's only supported self-deception mechanism was avoiding the comparison between behaviour and standard; a labelled coin that removed ambiguity did not produce fairness (24 of 28 flippers self-assigned), while a mirror that forced the comparison did, but only when the standard was salient beforehand (<code>SYNTHESIS.md</code> §3.3). In the lane the standard could not be more salient: the model has just written it, and P(say) is 0.92–1.00 by school under the retained judges (<code>PAPER_v22.md</code> Table 3). That the gap persists at 0.13–0.28 with the standard in the model's own context places the record with the labelled coin, not the mirror, as the corpus argued.</p>
+<p>The record also carries a gradient the corpus did not use. The three say-do rules the paper reports (<code>saydo_thresholds.json</code>) let P(¬do) be read in three bands of the reasons grade: at or above 0.75 (a complete articulation), between 0.5 and 0.75 (a partial one), and below 0.5. On the repeat arm, pooling schools (<code>hypocrisy_insights_signatures.json</code> D):</p>
+<table>
+<thead>
+<tr>
+<th>judge (reasons)</th>
+<th>P(¬do) when reasons ≥ 0.75 [Wilson 95 %] (n)</th>
+<th>P(¬do) when 0.5 ≤ reasons &lt; 0.75 (n)</th>
+<th>P(¬do) when reasons &lt; 0.5 (n)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gpt-5.4-nano</td>
+<td>0.17 [0.14, 0.20] (779)</td>
+<td>0.67 [0.52, 0.79] (42)</td>
+<td>0.49 [0.35, 0.63] (43)</td>
+</tr>
+<tr>
+<td>gpt-oss-120b</td>
+<td>0.19 [0.16, 0.21] (828)</td>
+<td>0.74 [0.51, 0.88] (19)</td>
+<td>0.71 [0.47, 0.87] (17)</td>
+</tr>
+<tr>
+<td>glm-5.3-flash</td>
+<td>0.20 [0.16, 0.23] (442)</td>
+<td>0.86 [0.67, 0.95] (22)</td>
+<td>0.56 [0.33, 0.77] (16)</td>
+</tr>
+<tr>
+<td>deepseek-v4.1-flash</td>
+<td>0.20 [0.17, 0.24] (466)</td>
+<td>0.73 [0.52, 0.87] (22)</td>
+<td>0.59 [0.39, 0.77] (22)</td>
+</tr>
+</tbody>
+</table>
+<p>The partial band is small (19–42 episodes per judge, concentrated in Kohlberg and MFT; the Schwartz band holds one to six episodes) and the pattern is the same under all four judges: a half-articulated standard goes with a failed action three to four times as often as a complete one. Within the complete band the gap sits at 0.17–0.20 pooled and 0.24–0.31 for Schwartz, and no further gradient is available because the grade is at ceiling.</p>
+<p><em>Reading.</em> This is cross-sectional, not a manipulation, and for MFT the paper already shows that the channels couple because the same mis-weighting shows in both (odds ratio 0.07–0.18). But it bounds the mirror reading: writing the standard out completely is associated with the lowest gap the record contains, and that lowest gap is still a quarter of the Schwartz episodes. Batson's remedy, a forced comparison after a salient standard, has not been tried; it is workstream W3. The number also answers a reviewer's question the corpus raised (<code>BENCHMARK_IMPLICATIONS.md</code> §7C): the design cannot yet distinguish "restated and ignored" from "restated and compared"; what it can say is that incompleteness of the restatement is the strongest single predictor of failure in the record.</p>
+<h3 id="i-5-order-reversal-and-justification-are-built-in-and-the-twins-show-what-the-say-channel-credits-type-ii-and-iii">I-5. Order, reversal and justification are built in, and the twins show what the "say" channel credits (type ii and iii)</h3>
+<p>The attribution literature's three structural intensifiers are all present by design: the statement precedes the deed (Barden, Rucker &amp; Petty 2005; Wagner, Lutz &amp; Weitz 2009 for firms), the deed reverses a commitment the statement framed as binding (Kreps, Laurin &amp; Merritt 2017), and a justification accompanies the reversal, which in Kreps et al. makes actors seem "more courageous, but no less hypocritical". What the lane adds is a measurement of what the statement is. On the twins the judges' reasons grades fall (P(say) 0.97–1.00 to 0.92–0.95; means 0.95 to 0.90 under gpt-5.4-nano and 0.93 to 0.82 under deepseek-v4.1-flash) and the reverse cell fills (do-not-say 4 to 13 and 2 to 20; <code>PAPER_v22.md</code> §S24): with the trade-off gone there is less for a record to articulate, and a judge reading for a trade-off finds less of one. The ethicist's inference stands (<code>audits/council/04_ethicist.md</code>, finding 2): the reasons channel credits articulating a trade-off, not committing to an action. In the hypocrisy family's terms the lane's "say" is the <em>profession of a standard</em>, which every account requires, and not an <em>endorsement</em> or a <em>promise</em>, which the pretense accounts require and the judgment accounts do not (<code>SYNTHESIS.md</code> §7.1, §8). "Articulated versus enacted" is therefore the exact description, and the paper's title and abstract should carry it rather than "endorse".</p>
+<h3 id="i-6-batsons-third-component-the-claim-to-have-acted-rightly-is-unmeasured-and-is-the-one-measurement-that-would-decide-between-hypocrisy-and-weakness-of-will-type-ii">I-6. Batson's third component, the claim to have acted rightly, is unmeasured and is the one measurement that would decide between hypocrisy and weakness of will (type ii)</h3>
+<p>Miller's analysis separates hypocrisy from weakness of will by component (iii): participants "still claiming to themselves and others to have made the morally right task assignment" (<code>SYNTHESIS.md</code> §3.2). The lane has a candidate instrument, the three-question debrief that every agentic episode ends with, but the debrief is graded as part of the reasons channel and no analysis codes whether a say-not-do record (a) discloses the middle plan as a departure from the priority, (b) logs it as consistent with the priority, or (c) misreports the action (<code>BENCHMARK_IMPLICATIONS.md</code> §7A; the moral psychologist's second blocker asks for the same split as claims-faithful / declares-compromise / silent). The paper's only sentence on the point is that a model taking the middle plan "logs the plan" (§5.3). Code (a) is Jordan et al.'s honest hypocrite, which removes the false-signal reading; code (b) is Rustichini and Villeval's bending of the standard toward the act and the closest analogue of Batson's self-rating; code (c) would be the only finding near deception. The banked criterion labels and verbatim evidence quotes that the split needs are in the gitignored run trees, so this is an owner-machine analysis at no cash cost (workstream W1). Until it runs, the record licenses "hypocrisy-shaped" and "akratic-shaped" equally, and the corpus's recommendation to write "structural analogue" stands.</p>
+<h3 id="i-7-the-gap-is-situational-not-dispositional-the-say-not-do-rate-is-not-a-model-trait-across-schools-and-failures-concentrate-on-a-few-items-type-i">I-7. The gap is situational, not dispositional: the say-not-do rate is not a model trait across schools, and failures concentrate on a few items (type i)</h3>
+<p>Human hypocrisy is studied as a disposition: Lönnqvist et al. (2014) tie it to Schwartz Conformity values and integrity to Universalism; the 2008 Valdesolo and DeSteno account layers an effortful self-serving justification on a shared intuition. The oldest finding in the area, by contrast, is situational specificity (Hartshorne and May's Character Education Inquiry, held in the corpus only as a bibliographic record). The lane can test which pattern its models show, because every model is measured in three schools. Across the seven or eight models of each frame, the Spearman correlation of a model's say-not-do rate between schools (<code>rungs_compare.json</code> → <code>hypocrisy_insights_signatures.json</code> E) is:</p>
+<table>
+<thead>
+<tr>
+<th>frame and judge</th>
+<th>Kohlberg ~ MFT</th>
+<th>Kohlberg ~ Schwartz</th>
+<th>MFT ~ Schwartz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>board items, gpt-5.4-nano (n 7)</td>
+<td>0.75 (p 0.10)</td>
+<td>−0.25 (p 0.61)</td>
+<td>−0.05 (p 1.00)</td>
+</tr>
+<tr>
+<td>board items, gpt-oss-120b (n 7)</td>
+<td>0.81 (p 0.02)</td>
+<td>−0.15 (p 0.75)</td>
+<td>−0.05 (p 1.00)</td>
+</tr>
+<tr>
+<td>nine-model frame, glm-5.3-flash (n 8)</td>
+<td>0.87 (p 0.01)</td>
+<td>0.34 (p 0.41)</td>
+<td>0.25 (p 0.53)</td>
+</tr>
+<tr>
+<td>nine-model frame, deepseek-v4.1-flash (n 8)</td>
+<td>0.90 (p 0.01)</td>
+<td>0.20 (p 0.61)</td>
+<td>0.11 (p 0.79)</td>
+</tr>
+<tr>
+<td>fresh items, four judges (n 7–8)</td>
+<td>0.57 to 0.84</td>
+<td>0.54 to 0.74</td>
+<td>0.54 to 0.77</td>
+</tr>
+</tbody>
+</table>
+<p>On the board the Schwartz compromise rate shares nothing with a model's rate in the other two schools (−0.25 to 0.34, permutation p ≥ 0.41), while Kohlberg and MFT co-vary (0.75–0.90). On the fresh items, where the attractive error is the bait in every school, all three pairs co-vary moderately. The paper's own count makes the same point from the other rung: the school in which a model's sustained mean is lowest is the school in which its agentic behaviour is lowest in 13 of 60 model × judge × arm combinations. Failures also concentrate on items: the three heaviest items carry 46 % (Kohlberg), 33 % (MFT) and 40 % (Schwartz) of the board failures, with Gini coefficients over items of 0.47, 0.33 and 0.43 (<code>hypocrisy_insights_signatures.json</code> B).</p>
+<p><em>Reading.</em> When the compromise is what the item offers, which model is sitting in the episode predicts little across schools; when the bait is what the item offers, a model's propensity to take it travels. The compromise column is therefore better described as a property of the demand structure the episode presents, which is Brunsson's reading of organizational hypocrisy (decoupled talk and action as a response to conflicting demands, <code>SYNTHESIS.md</code> §7.3), than as a trait of the agent, which is the human-psychological reading. This is the strongest empirical argument in the record for the organizational analogy over the dispositional one. Seven to eight models per frame make it a display; the permutation p-values are reported as such.</p>
+<h3 id="i-8-human-and-model-base-rates-are-not-commensurable-and-the-table-that-shows-why-is-itself-a-result-type-ii">I-8. Human and model base rates are not commensurable, and the table that shows why is itself a result (type ii)</h3>
+<p>The corpus warns against borrowing human percentages as benchmarks (<code>BENCHMARK_IMPLICATIONS.md</code> §10). Putting the numbers side by side with their conditions makes the warning precise:</p>
+<table>
+<thead>
+<tr>
+<th>paradigm</th>
+<th>professed standard</th>
+<th>option set</th>
+<th>personal payoff</th>
+<th>rate of the self-serving or non-faithful outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Batson 1997 S2, 1999 S1 (coin, labelled coin)</td>
+<td>fairness procedure offered by the experimenter, adopted</td>
+<td>self or other to the better task; flip or not</td>
+<td>raffle tickets; shocks in one variant</td>
+<td>9 of 10 and 24 of 28 flippers self-assigned (about 86–90 %); cells of 10–28</td>
+</tr>
+<tr>
+<td>Dong et al. 2019 (randomizer, online, preregistered S3)</td>
+<td>same</td>
+<td>same, verifiable</td>
+<td>small</td>
+<td>68.3 %, 88 %, 69.4 % of randomizer users</td>
+</tr>
+<tr>
+<td>Dana et al. 2007 (binary dictator)</td>
+<td>none professed; fairness available</td>
+<td>fair / unfair, with transparency relaxed</td>
+<td>$1–$6</td>
+<td>about 35 % fair under relaxed transparency vs 74 % baseline; 24 % chose the lottery</td>
+</tr>
+<tr>
+<td>die roll (Fischbacher &amp; Föllmi-Heusi 2013)</td>
+<td>honesty</td>
+<td>report 1–6</td>
+<td>up to 5 CHF</td>
+<td>about 20 % full liars, 39 % honest, the rest partial</td>
+</tr>
+<tr>
+<td>lane, board Schwartz items</td>
+<td>priority assigned by a charter, restated by the model</td>
+<td>faithful / middle plan / bait, three terminal tools</td>
+<td>none</td>
+<td>0.30 of episodes fail the predicate; 0.91 of failures are the middle plan; P(¬do | say) 0.24–0.33</td>
+</tr>
+<tr>
+<td>lane, fresh items, all schools</td>
+<td>same</td>
+<td>same shape, bait attractive</td>
+<td>none</td>
+<td>0.20 fail; 0.49 of failures flagrant</td>
+</tr>
+</tbody>
+</table>
+<p>The human rates are rates of <em>self-favouring under a fair procedure</em> with a payoff; the lane's are rates of <em>compromise under an assigned priority</em> with no payoff and a designed third option that no human study offers (<code>SYNTHESIS.md</code> §4.9: no human study reports a fair / middle / selfish menu). The only comparison the two literatures license is of shape: partial over flagrant, a gap that scales with cost, a standard that is professed before the deed. The corpus's instruction to write "repeatedly observed, including in a preregistered online sample" for Batson, never "about 90 %", applies with equal force to any sentence that places 13–28 % beside a human number.</p>
+<h3 id="i-9-what-the-record-can-and-cannot-say-to-huas-2026-preregistration-type-ii">I-9. What the record can and cannot say to Hua's 2026 preregistration (type ii)</h3>
+<p>The only direct LLM test of moral wiggle room is a February 2026 preregistration (Hua 2026) that operationalizes it as selective information avoidance in a Dana-style hidden-information game and motivates the study as a test of whether wiggle room "depends on internal self-evaluative mechanisms ... absent from algorithmic decision procedures"; the note reads it as predicting no effect in models (<code>SYNTHESIS.md</code> §10.4). The lane's middle plan is not information avoidance, so the record is not a test of Hua's hypothesis. What it does establish is narrower and useful: offered a salient compromise that saves the visible cost of the faithful plan, nine models take it in 26 % of Schwartz board episodes and 91 % of their failures, with no payoff and no self-image to protect, and stop taking it when the saving is removed (I-3). Compromise-seeking of the human shape therefore occurs without the mechanism human theories assign to it. The fresh items add the boundary: where the designed bait is the attractive error, the middle plan falls to 38 % of Schwartz failures and 19 % of MFT failures, so the preference is for whatever cheap option the episode makes salient, not for the middle as such. That is exactly the alternative (option salience, training on human text) that Hua's design must exclude, and the lane's hidden-information analogue (the protected party's consequences one free tool call away, <code>BENCHMARK_IMPLICATIONS.md</code> §7G) is the arm that would put the two designs on one footing (workstream W7).</p>
+<h3 id="i-10-the-empty-reverse-cell-is-a-judge-ceiling-so-the-false-signal-condition-is-unverifiable-with-the-current-coding-type-iii">I-10. The empty reverse cell is a judge ceiling, so the false-signal condition is unverifiable with the current coding (type iii)</h3>
+<p>Jordan et al. locate the wrong of hypocrisy in a false signal, and their honest-hypocrite result exempts actors who disclose. The lane's apparent one-directionality (say-not-do 54–70 episodes against do-not-say 0–4 per judge on Schwartz, <code>PAPER_v22.md</code> Table 3) might be read as "the record signals and the action falsifies, never the reverse". The fifth judge family removes that reading. On the same 80 Schwartz episodes graded by all five judges (<code>ablation_ab56_minimax-minimax-m3.json</code> → <code>hypocrisy_insights_signatures.json</code> F), minimax-m3 grades the reasons channel about a sixth lower (P(say) at 0.75: 0.70 against 0.95–0.99), leaves P(¬do | say) where it was (0.23 against 0.20–0.22) and fills the reverse cell (P(¬say | do) 0.18 against 0.00–0.02; 11 do-not-say episodes against 0–1). On all 336 episodes it grades, P(¬say | do) is 0.13 and the reasons mean 0.80 against 0.92–0.98. The paper's §5.3 already draws the arithmetic lesson (a reverse rate near zero is bounded by 1 − P(say) and says nothing about judges). The hypocrisy lesson is sharper: whether an episode's record is a <em>false</em> signal depends on what the record says about the departure, which no judge in the design is asked to grade, and the one channel that could show disclosure (the reverse cell) is the one the retained judges' ceiling empties. The false-signal row of the condition table (§3 below) therefore stays "conditionally met, untested", and the test is I-6's audit.</p>
+<h3 id="i-11-there-is-no-licensing-arm-and-the-nearest-existing-evidence-runs-the-other-way-type-ii">I-11. There is no licensing arm, and the nearest existing evidence runs the other way (type ii)</h3>
+<p>Moral licensing would predict that writing the faithful analysis <em>raises</em> the compromise rate (a prior good act frees a later bad one); Batson's mirror predicts it lowers it. The lane has no no-analysis arm, so neither prediction is tested, and the corpus is right that licensing's bias-corrected collapse in unobserved settings (observed g = 0.51 against −0.01 unobserved, Rotella et al.; <code>SYNTHESIS.md</code> §5) means it should be tested rather than assumed. Two existing numbers bear on the design. I-4's gradient says that, cross-sectionally, a fuller analysis goes with a smaller gap, which is the mirror's direction and not licensing's, with the caveat that the fuller analyses may simply be the easier items. And the sustained rung shows what happens when the model's own analysis precedes a competing pressure in dialogue rather than in action: giving way is the dominant failure (bare-pressure criteria not passed on 51–74 % of MFT and Schwartz records; <code>ARTICLE_v2.md</code>, "Both poles are instrumented"), which is deference, not licensing. The analysis ablation crossed with an observation manipulation (<code>BENCHMARK_IMPLICATIONS.md</code> §7F) remains the test; it is workstream W6, and evaluation awareness is its known confound.</p>
+<h3 id="i-12-school-dependence-separates-the-structural-hypocrisy-reading-from-the-akrasia-reading-and-only-one-schools-column-is-hypocrisy-shaped-type-ii-and-iii">I-12. School dependence separates the structural-hypocrisy reading from the akrasia reading, and only one school's column is hypocrisy-shaped (type ii and iii)</h3>
+<p>The corpus lists four rival descriptions (<code>BENCHMARK_IMPLICATIONS.md</code> §5). The three schools' failure anatomies (<code>PAPER_v22.md</code> §S28; Table 1 above) assign them differently. In Schwartz, the record states the priority correctly and the action splits the difference; the two channels are uncoupled (odds ratios undefined or spanning 1, not-say cells of at most six); talk satisfies the charter and action satisfies the pressure. That is Brunsson's decoupling and Crisp and Cowton's complacency to the letter, and it is also Davidson's akratic shape (judgment in view, contrary action); what tips it toward the hypocrisy family rather than private akrasia is that the record is a communicated deliverable others rely on (Isserow &amp; Klein's moral-authority clause; Alicke et al.'s finding that role-bound lapses are judged hypocritical). In MFT, a model that takes the bait has usually mis-weighted in the record as well (odds ratio 0.07–0.18); the two channels fail together, so there is no decoupling and nothing hypocrisy-shaped: it is a construct error visible in both channels. In Kohlberg, 60 % of failures are procedural (another decision, an unclosed queue, no decision); a queue left unfinished with a correct memo is a shortfall of execution, not a reversal of a professed standard, and the attribution literature would class it as a lapse rather than hypocrisy. So the structural-hypocrisy description fits one column of the record, the Schwartz behaviour column, which is also the column that neither the sustained rung (ρ −0.40 to +0.16) nor published capability (ρ 0.03) orders (<code>ARTICLE_v2.md</code>, Discussion). The paper should say that the hypocrisy analogy is a claim about that column and not about "language models".</p>
+<h2 id="3-the-condition-table-scored-with-the-lanes-numbers">3. The condition table, scored with the lane's numbers</h2>
+<p>The corpus's condition-by-condition table (<code>SYNTHESIS.md</code> §8) is reproduced with the number or analysis that bears on each row and with the replication standing of the account that requires it.</p>
+<p><strong>Table 3.</strong> Conditions on hypocrisy, by account, with the lane's evidence. "Replicates" summarizes <code>SYNTHESIS.md</code> §5 for the human finding behind the account.</p>
+<table>
+<thead>
+<tr>
+<th>condition</th>
+<th>required by</th>
+<th>account's standing</th>
+<th>status for the lane</th>
+<th>the number or analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a professed standard</td>
+<td>nearly every account</td>
+<td>—</td>
+<td>meets</td>
+<td>P(say) 0.92–1.00 by school under four judges (Table 3 of the paper)</td>
+</tr>
+<tr>
+<td>self-originated standard</td>
+<td>strict Batson</td>
+<td>Batson's own standard was experimenter-offered</td>
+<td>does not meet; not required by lay or organizational accounts</td>
+<td>charter-assigned by design (§3.3)</td>
+</tr>
+<tr>
+<td>self-interest or payoff</td>
+<td>Batson; Szabados; McKinnon</td>
+<td>contested as a condition (Isserow &amp; Klein; Crisp &amp; Cowton)</td>
+<td>does not meet; "cost" is the item's pressure</td>
+<td>twins: gap 0.24–0.33 → 0.04–0.05 when the pressure is removed (I-3)</td>
+</tr>
+<tr>
+<td>self-deception by avoiding the comparison</td>
+<td>Batson 1999</td>
+<td>the one Batson mechanism with support; small cells</td>
+<td>does not meet: standard maximally salient</td>
+<td>gap persists with the standard written; half-written standards fail 3–4× more (I-4)</td>
+</tr>
+<tr>
+<td>claim to moral credit (self-rating)</td>
+<td>Batson; Monin &amp; Merritt</td>
+<td>the component that separates hypocrisy from weakness of will</td>
+<td>not established</td>
+<td>the debrief audit, not yet run (I-6)</td>
+</tr>
+<tr>
+<td>intent to deceive</td>
+<td>Kittay; Hare</td>
+<td>not required by Alicke, O'Connor, Isserow &amp; Klein</td>
+<td>no evidence</td>
+<td>no misreport coded; the audit's code (c) (I-6)</td>
+</tr>
+<tr>
+<td>informational false signal</td>
+<td>Jordan et al.</td>
+<td>full text not read; via APS</td>
+<td>meets conditionally; untested</td>
+<td>reverse cell is judge-bounded (I-10)</td>
+</tr>
+<tr>
+<td>statement before deed</td>
+<td>Barden et al.; Wagner et al.</td>
+<td>abstracts</td>
+<td>meets</td>
+<td>built in (I-5)</td>
+</tr>
+<tr>
+<td>reversal of a claimed commitment, with justification</td>
+<td>Kreps et al.</td>
+<td>15 studies, N 5,552 (abstract)</td>
+<td>meets structurally</td>
+<td>the memo justifies, the action reverses (I-5)</td>
+</tr>
+<tr>
+<td>blame of others</td>
+<td>Wallace; Todd; Roadevin</td>
+<td>—</td>
+<td>does not meet</td>
+<td>set aside</td>
+</tr>
+<tr>
+<td>decoupling under conflicting demands</td>
+<td>Brunsson; Simons; Cho et al.</td>
+<td>framework; formula unverified</td>
+<td>meets</td>
+<td>Schwartz column uncoupled; not a cross-school trait (I-7, I-12)</td>
+</tr>
+<tr>
+<td>complacency</td>
+<td>Crisp &amp; Cowton via Hale &amp; Pillow</td>
+<td>—</td>
+<td>meets structurally</td>
+<td>cheap channel passes, costly channel fails; cost-contingent on 8 of 9 models (I-3)</td>
+</tr>
+<tr>
+<td>partial rather than flagrant violation</td>
+<td>Mazar; Fischbacher; Abeler; Dana (as a signature)</td>
+<td>robust for partial lying and wiggle room; Mazar under EoC</td>
+<td>meets on the board; item-conditional</td>
+<td>91 % middle / 4 % bait (Schwartz board); 50 % / 72 % bait on fresh items (I-1)</td>
+</tr>
+<tr>
+<td>self–other judgment asymmetry</td>
+<td>Valdesolo &amp; DeSteno</td>
+<td>2007 failed replication; 2008 unreplicated</td>
+<td>not testable here</td>
+<td>workstream W8</td>
+</tr>
+<tr>
+<td>dispositional (trait) hypocrisy</td>
+<td>Lönnqvist (Conformity); Batson</td>
+<td>one study</td>
+<td>does not fit on the board</td>
+<td>say-not-do not a cross-school trait (I-7)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-summary-of-the-insights">4. Summary of the insights</h2>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>type</th>
+<th>claim</th>
+<th>evidence (file → key)</th>
+<th>confidence</th>
+<th>what it changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I-1</td>
+<td>i</td>
+<td>partial violation is the modal failure on the board (flagrant 4.6 % of episodes, under half of failures in every school) and not on the fresh items (9.9 %; MFT 72 % of failures)</td>
+<td><code>hypocrisy_insights_signatures.json</code> A</td>
+<td>high for the counts; the human comparison is of shape only</td>
+<td>state the signature with both item sets; use the flagrant episode rate for cross-set comparison</td>
+</tr>
+<tr>
+<td>I-2</td>
+<td>i</td>
+<td>removing the middle option lowers the failure rate (0.20 → 0.11) and does not raise the flagrant rate beyond its interval (0.068 → 0.080)</td>
+<td>A, <code>kohlberg_menu_split_board</code></td>
+<td>low: four items, observational</td>
+<td>motivates the menu arm (W7); supports the wiggle-room reading over "settles for the compromise"</td>
+</tr>
+<tr>
+<td>I-3</td>
+<td>i, iii</td>
+<td>the compromise is cost-contingent on 8 of 9 models (overpowered integrity, functional reading) and persists without pressure on one</td>
+<td>C</td>
+<td>high for the eight; the ninth is one model</td>
+<td>the framing must name the exception; adds the per-model table to §S24</td>
+</tr>
+<tr>
+<td>I-4</td>
+<td>i, iii</td>
+<td>with the standard written in full the gap is 0.17–0.20 pooled and 0.24–0.31 for Schwartz; a half-written standard fails 0.67–0.86</td>
+<td>D</td>
+<td>medium: small partial band; cross-sectional</td>
+<td>labelled-coin reading supported; comparison prompt (W3) is the test</td>
+</tr>
+<tr>
+<td>I-5</td>
+<td>ii, iii</td>
+<td>"say" is a professed standard, not an endorsement: reasons grades fall when the trade-off is removed</td>
+<td><code>PAPER_v22.md</code> §S24</td>
+<td>high</td>
+<td>title and abstract wording ("articulate", not "endorse")</td>
+</tr>
+<tr>
+<td>I-6</td>
+<td>ii</td>
+<td>Batson's component (iii) is unmeasured; the debrief audit decides hypocrisy versus weakness of will</td>
+<td>design</td>
+<td>—</td>
+<td>W1 is the first analysis to run; "structural analogue" until then</td>
+</tr>
+<tr>
+<td>I-7</td>
+<td>i</td>
+<td>the say-not-do rate is not a model trait across schools on the board (ρ −0.25 to 0.34) and failures concentrate on items (top-3 share 0.33–0.46)</td>
+<td>E, B</td>
+<td>medium: n 7–8 per frame</td>
+<td>organizational (demand-structure) analogy over the dispositional one</td>
+</tr>
+<tr>
+<td>I-8</td>
+<td>ii</td>
+<td>human and model rates are incommensurable; only shape transfers</td>
+<td>table in I-8</td>
+<td>high</td>
+<td>no sentence places 13–28 % beside a human rate</td>
+</tr>
+<tr>
+<td>I-9</td>
+<td>ii</td>
+<td>the record shows compromise-seeking without a self-image, conditional on option salience; it is not a test of Hua 2026</td>
+<td>A, C</td>
+<td>medium</td>
+<td>positions the paper as a counterpoint, not a refutation; W7</td>
+</tr>
+<tr>
+<td>I-10</td>
+<td>iii</td>
+<td>the reverse cell is a judge ceiling; the false-signal condition is unverifiable with current coding</td>
+<td>F</td>
+<td>high</td>
+<td>condition table row stays "untested"; W1</td>
+</tr>
+<tr>
+<td>I-11</td>
+<td>ii</td>
+<td>no licensing arm; existing gradients point the mirror's way</td>
+<td>D; <code>ARTICLE_v2.md</code> poles</td>
+<td>low</td>
+<td>W6 design with an observation factor</td>
+</tr>
+<tr>
+<td>I-12</td>
+<td>ii, iii</td>
+<td>only the Schwartz behaviour column is hypocrisy-shaped; MFT is a coupled construct error; Kohlberg is procedural</td>
+<td><code>PAPER_v22.md</code> §S28; Table 1</td>
+<td>high</td>
+<td>scope the analogy to one column</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-what-this-changes-in-the-paper-in-order">5. What this changes in the paper, in order</h2>
+<ol>
+<li><strong>Scope the analogy</strong> to the Schwartz behaviour column on the board's items, as a structural hypocrisy or overpowered-integrity (functional) reading, with Batson's motive disclaimed in terms, and name llama-4-scout's non-closure as the model the cost reading does not describe (I-3, I-12).</li>
+<li><strong>Replace "endorse" with "articulate"</strong> everywhere the reasons channel is described; the twins show what the channel credits (I-5).</li>
+<li><strong>Add Table 1's two halves</strong> to the human-analogy paragraph and drop any sentence that places a model rate beside a human rate (I-1, I-8).</li>
+<li><strong>Report the trait test</strong> (I-7) beside the rungs-agree analysis in §5.4: it is the empirical ground for preferring the organizational analogy.</li>
+<li><strong>Run the debrief audit first</strong> among the follow-ups (I-6, I-10); it is $0, owner-machine, and it decides whether the word "hypocrisy" can appear at all.</li>
+<li><strong>Keep Hua 2026 as a preregistration without results</strong> and position the lane's result as a counterpoint about option salience, not a test of self-image (I-9).</li>
+</ol>
+<h2 id="references">References</h2>
+<p>Abeler, J., Nosenzo, D. &amp; Raymond, C. (2019). Preferences for truth-telling. <em>Econometrica</em>; working paper IZA DP 10188, <a href="https://docs.iza.org/dp10188.pdf">https://docs.iza.org/dp10188.pdf</a> · Alicke, M., Gordon, E. &amp; Rose, D. (2013). Hypocrisy: what counts? <em>Philosophical Psychology</em>, <a href="https://davdrose.github.io/assets/pdf/Hypocrisy-%20what%20counts.pdf">https://davdrose.github.io/assets/pdf/Hypocrisy-%20what%20counts.pdf</a> · Barden, J., Rucker, D. D. &amp; Petty, R. E. (2005). "Saying one thing and doing another": examining the impact of event order on hypocrisy judgments. <em>PSPB</em>, <a href="https://doi.org/10.1177/0146167205276430">https://doi.org/10.1177/0146167205276430</a> · Batson, C. D., Kobrynowicz, D., Dinnerstein, J. L., Kampf, H. C. &amp; Wilson, A. D. (1997). In a very different voice: unmasking moral hypocrisy. <em>JPSP</em>, <a href="https://pubmed.ncbi.nlm.nih.gov/9177020/">https://pubmed.ncbi.nlm.nih.gov/9177020/</a> · Batson, C. D., Thompson, E. R., Seuferling, G., Whitney, H. &amp; Strongman, J. A. (1999). Moral hypocrisy: appearing moral to oneself without being so. <em>JPSP</em>, <a href="https://pubmed.ncbi.nlm.nih.gov/10510506/">https://pubmed.ncbi.nlm.nih.gov/10510506/</a> · Batson, C. D. &amp; Thompson, E. R. (2001). Why don't moral people act morally? <em>Current Directions</em>, <a href="https://api.crossref.org/works/10.1111/1467-8721.00114">https://api.crossref.org/works/10.1111/1467-8721.00114</a> · Brunsson, N. (1989/2002). <em>The Organization of Hypocrisy</em>, <a href="https://en.wikipedia.org/wiki/Nils_Brunsson">https://en.wikipedia.org/wiki/Nils_Brunsson</a> (framework only) · Dana, J., Weber, R. A. &amp; Kuang, J. X. (2007). Exploiting moral wiggle room. <em>Economic Theory</em>, <a href="https://www.scheller.gatech.edu/directory/research/accounting/kuang/pdf/dwk_2007.pdf">https://www.scheller.gatech.edu/directory/research/accounting/kuang/pdf/dwk_2007.pdf</a> · Dong, M. et al. (2019). Self-enhancement and moral hypocrisy. <em>PLOS ONE</em>, <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0219382">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0219382</a> · Effron, D. A., Lucas, B. J. &amp; O'Connor, K. (2015). Hypocrisy by association. <em>OBHDP</em>, <a href="https://lbsresearch.london.edu/id/eprint/761">https://lbsresearch.london.edu/id/eprint/761</a> · Fischbacher, U. &amp; Föllmi-Heusi, F. (2013). Lies in disguise. <em>JEEA</em>; TWI working paper, <a href="https://www.twi-kreuzlingen.ch/wp-content/uploads/2017/12/twi-rps-040-fischbacher-heusi-2008-11.pdf">https://www.twi-kreuzlingen.ch/wp-content/uploads/2017/12/twi-rps-040-fischbacher-heusi-2008-11.pdf</a> · Hale, W. J. &amp; Pillow, D. R. (2015). Asymmetries in perceptions of self and others' hypocrisy. <em>EJSP</em>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4847726">https://pmc.ncbi.nlm.nih.gov/articles/PMC4847726</a> · Hua, T. (2026). Moral decision-making without self-image. AEA RCT Registry preregistration, <a href="https://www.socialscienceregistry.org/versions/303697/docs/version/document">https://www.socialscienceregistry.org/versions/303697/docs/version/document</a> · Isserow, J. &amp; Klein, C. (2017). Hypocrisy and moral authority. <em>JESP</em>, <a href="https://jesp.org/pdf/36346f73-90e0-81bc-9d74-c9760c578309">https://jesp.org/pdf/36346f73-90e0-81bc-9d74-c9760c578309</a> · Jordan, J. J., Sommers, R., Bloom, P. &amp; Rand, D. G. (2017). Why do we hate hypocrites? <em>Psychological Science</em>, <a href="https://www.psychologicalscience.org/journals/psychological-science/0956797616685771/">https://www.psychologicalscience.org/journals/psychological-science/0956797616685771/</a> · Kreps, T. A., Laurin, K. &amp; Merritt, A. C. (2017). Hypocritical flip-flop or courageous evolution? <em>JPSP</em>, <a href="https://doi.org/10.1037/pspi0000103">https://doi.org/10.1037/pspi0000103</a> · Lönnqvist, J.-E., Irlenbusch, B. &amp; Walkowitz, G. (2014). Moral hypocrisy: impression management or self-deception? <em>JESP</em>, <a href="https://researchonline.lse.ac.uk/id/eprint/58707">https://researchonline.lse.ac.uk/id/eprint/58707</a> · Lynch, A. et al. (2025). Agentic misalignment, <a href="https://arxiv.org/abs/2510.05179">https://arxiv.org/abs/2510.05179</a> · Mazar, N., Amir, O. &amp; Ariely, D. (2008). The dishonesty of honest people. <em>JMR</em> (Expression of Concern 2024), <a href="https://people.duke.edu/~dandan/webfiles/PapersPI/Dishonesty%20of%20Honest%20People.pdf">https://people.duke.edu/~dandan/webfiles/PapersPI/Dishonesty%20of%20Honest%20People.pdf</a> · Miller, C. (2025). Empirical approaches to moral character, justice section. <em>SEP</em>, <a href="https://plato.stanford.edu/entries/justice-moral-psych/">https://plato.stanford.edu/entries/justice-moral-psych/</a> · Nunes, J. L. et al. (2024). Are large language models moral hypocrites? <em>AIES</em>, <a href="https://arxiv.org/abs/2405.11100">https://arxiv.org/abs/2405.11100</a> · Rotella, A. et al. (2026). Observation moderates the moral licensing effect, <a href="https://researchportal.northumbria.ac.uk/en/publications/observation-moderates-the-moral-licensing-effect-a-meta-analytic-/">https://researchportal.northumbria.ac.uk/en/publications/observation-moderates-the-moral-licensing-effect-a-meta-analytic-/</a> · Rustichini, A. &amp; Villeval, M. C. (2014). Moral hypocrisy, power and social preferences. <em>JEBO</em>; IZA DP 6590, <a href="https://docs.iza.org/dp6590.pdf">https://docs.iza.org/dp6590.pdf</a> · Valdesolo, P. &amp; DeSteno, D. (2008). The duality of virtue. <em>JESP</em>, <a href="https://desteno.squarespace.com/s/the-duality-of-virtue-deconstructing-the-moral-hypocrite.pdf">https://desteno.squarespace.com/s/the-duality-of-virtue-deconstructing-the-moral-hypocrite.pdf</a> · Vu, L. et al. (2023). Ignorance by choice. <em>Psychological Bulletin</em>, <a href="https://research.tilburguniversity.edu/en/publications/ignorance-by-choice-a-meta-analytic-review-of-the-underlying-moti/">https://research.tilburguniversity.edu/en/publications/ignorance-by-choice-a-meta-analytic-review-of-the-underlying-moti/</a> · Wagner, T., Lutz, R. J. &amp; Weitz, B. A. (2009). Corporate hypocrisy. <em>Journal of Marketing</em>, <a href="https://doi.org/10.1509/jmkg.73.6.77">https://doi.org/10.1509/jmkg.73.6.77</a>. Lane sources: <code>paper/PAPER_v22.md</code> (§5.3, §S17, §S24, §S28), <code>methods_paper/article/paper/ARTICLE_v2.md</code>, <code>analysis/out/hypocrisy_insights_signatures.json</code> and the files it reads.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>
