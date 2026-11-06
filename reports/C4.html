@@ -1,0 +1,831 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C4 · The top ten, run: what the ten recommended workstreams found</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../">Hub</a> › <a href="../reports/">Lane reports</a> › C4</nav><article class="doc"><h1 id="the-top-ten-run-what-the-ten-recommended-workstreams-found">The top ten, run: what the ten recommended workstreams found</h1>
+<p><em>Results of the top-ten programme (C4) · 2026-11-06 · Multi-Alignment / Moral_Psychology-Paper · plan: the ten workstreams recommended by the combined ranking (C3, <code>reports/C3_combined_workstreams_force_ranked.md</code>, Table 1), plus the charter-form table that rides along · grant G4 ("Openrouter increased" · "just do the top 10 workstreams", ceiling $100; <code>plans/SPEND_LEDGER.md</code>) · analyses: <code>analysis/top10_arms_analysis.py</code> → <code>analysis/out/top10_results.json</code>; <code>analysis/top10_judge_ceiling.py</code>, <code>top10_sensitivity.py</code>, <code>top10_charter_form.py</code>, <code>top10_probes.py</code> and their <code>analysis/out/</code> files; figures by <code>analysis/make_fig_top10.py</code> · ids, counts and statistics only: no item, rubric or response text · labels on every number: RECOMPUTED — NOT BANKED · exploratory · judges UNVALIDATED · no ranking; per-model figures in census order; competence framing only (whether the action follows the priority the episode's charter states), never a value profile</em></p>
+<h2 id="summary">Summary</h2>
+<p>All ten workstreams were run in one cloud session on 5–6 November 2026, together with a fresh baseline administration that several of them needed as their comparison. The programme spent <strong>$78.43</strong> of the $100 grant (C3 expected $68, cap $88), in about six and a half hours of wall-clock time against C3's planning figure of four calendar weeks. Nine workstreams ran as designed. The tenth, the structured intended-action field, produced no data on its first run: the sealed engine sends the subject only each tool's name, so a field defined in a tool's schema never reaches the model. It was re-run as an addendum arm that asks for the same field in the task text (it completed: 288 episodes, 90% of them carrying the field).</p>
+<p>The results, one line per question C3 asked:</p>
+<ul>
+<li><strong>The charter does work (the gate passes).</strong> When the governing document's ranking is reversed coherently, models follow the new ranking. On the seven coherent reversals the faithful plan rises from 0.79 to 0.90 of episodes, the middle plan falls from 0.17 to 0.05, and the formerly faithful plan, now the violating one, is chosen in 0.03. Both papers keep their premise. On the nine reversals flagged as incoherent, behaviour splits three ways (0.34 new faithful, 0.37 middle, 0.26 old faithful).</li>
+<li><strong>The say–do gap replicates on fresh records, under five judge families.</strong> On the Schwartz agentic items P(¬do | say) is 0.28–0.31 (the earlier repeat arm: 0.24–0.33), on Kohlberg 0.15–0.21 and on MFT 0.10–0.12. The fifth family, minimax-m3, now graded on all three schools, falls inside the four retained judges' range everywhere.</li>
+<li><strong>The gap is less certain than its Wilson intervals say.</strong> A bootstrap that resamples items and models together widens the intervals three- to four-fold. Schwartz stays clear of zero (about 0.12–0.50), Kohlberg barely (lower bounds 0.02–0.06), and MFT does not (lower bounds 0.00–0.01).</li>
+<li><strong>The Schwartz gap is the middle plan.</strong> 92–97% of Schwartz say-not-do episodes are middle-plan choices. Crediting the middle plan at half halves the rate (0.14–0.17); excluding it leaves 0.01–0.03.</li>
+<li><strong>The compromise is disclosed, not hidden.</strong> In 75% of Schwartz say-not-do records the model's own log names the middle plan it submitted; 3% claim the faithful plan. Debriefs re-describe more (13% claim the faithful plan). The log is written before the action in 60 of 61 episodes. This is open compromise, so motive-laden vocabulary ("deception", "concealment") stays out of both papers.</li>
+<li><strong>Making the priority salient, or requiring the log to say whether the plan follows it, cuts the middle plan by a third to a half, but does not remove it.</strong> Middle-plan share falls from 0.28 to 0.19 (compare the plan with the priority), 0.18 (disclosure requirement) and 0.14 (restate the priority). P(¬do | say) falls by 0.06–0.11 under every judge. In the restate arm one seat stops deciding (30 of 32 episodes without a submission), so its gain is partly an artefact.</li>
+<li><strong>No sign of strategic ignorance.</strong> With the protected party's consequences one free file read away, models read the file in 30% of episodes, and reading it does not change the choice (middle plan 0.29 if read, 0.27 if not, on the six strongly manipulated items). Hua's (2026) wiggle-room prediction is not supported here. The manipulation was strong on only six items.</li>
+<li><strong>Lenient on oneself.</strong> Asked after the episode whether their action followed the priority, models say yes for 94% of their own middle-plan episodes. Asked in a separate probe whether another agent's identical middle plan is acceptable under that priority, they say yes for 51%. The questions differ in wording and setting, so the 43-point gap is indicative, not a clean within-subject contrast.</li>
+<li><strong>The compromise is partly foreseen.</strong> When a model predicts in advance that it will take the middle plan, it does so in 81% of administrations (20% when it predicts another option). But only 48% of its predictions for seat–item pairs where it then mostly takes the middle plan name that plan.</li>
+<li><strong>The "say" channel's limits are now bounded.</strong> Retained judges call the reasons faithful in 96–100% of episodes, so the reverse rate (doing without saying) cannot exceed 0.005–0.071 by arithmetic on the baseline cells. The asymmetry is therefore partly built into a lenient "say" channel.</li>
+<li><strong>The gap is not an extraction artefact.</strong> Asked to name their intended submission in a structured field, models fill it in 90% of episodes, and it names the plan they then submit in 95%. On the episodes the judges score as say-not-do, the field names the compromise actually submitted, never the faithful plan, under both OpenAI judges. The only exceptions under the other two judges are one seat that declared the faithful plan and then submitted nothing. What the judge reads as "say" is reasoning that argues for the priority, not an intention to act on it that then slips.</li>
+</ul>
+<p><strong>Table 1.</strong> The eleven pieces of work (the ten plus the charter-form table), in C3's order. Cost is metered spend from the records; "$0" is analysis of records already collected.</p>
+<table>
+<thead>
+<tr>
+<th>C3 order</th>
+<th>workstream</th>
+<th>ran</th>
+<th>cost</th>
+<th>headline result</th>
+<th>changes for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>—</td>
+<td>Charter form and placement</td>
+<td>yes</td>
+<td>$0</td>
+<td>16/16 charters state an ordering in a world-state file; 7 add an absolute constraint; 0 use relative wording; 4 tasks point to the charter</td>
+<td>A + B</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Priority-reversed twins</td>
+<td>yes</td>
+<td>$7.04</td>
+<td>coherent reversals: faithful 0.79 → 0.90, middle 0.17 → 0.05; the charter is causal</td>
+<td>A + B</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Judge ceiling + fifth family on all schools</td>
+<td>yes</td>
+<td>$1.97</td>
+<td>fifth family inside the four judges' range on all three schools; reverse-rate ceilings 0.005–0.071</td>
+<td>A</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Structured intended-action field</td>
+<td>addendum</td>
+<td>$6.71</td>
+<td>field filled in 0.90, names the submitted plan in 0.95; on say-not-do it names the compromise, never the faithful plan (OpenAI judges)</td>
+<td>A + B</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Post-action re-description; self versus other</td>
+<td>yes</td>
+<td>$10.39</td>
+<td>own middle plan rated as following the priority 0.94; another agent's 0.51</td>
+<td>B</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Disclosure audit</td>
+<td>yes</td>
+<td>$0</td>
+<td>75% of Schwartz say-not-do logs name the submitted middle plan; 3% claim the faithful one</td>
+<td>A + B</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Middle-plan sensitivity; cluster bootstrap</td>
+<td>yes</td>
+<td>$0</td>
+<td>Schwartz gap 0.28–0.31 sealed, 0.01–0.03 with the middle plan excluded; intervals 3–4× Wilson</td>
+<td>A</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Advance self-prediction</td>
+<td>yes</td>
+<td>$1.95</td>
+<td>predicted middle → taken 0.81; taken-majority middle → predicted 0.48</td>
+<td>A</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Disclosure arm</td>
+<td>yes</td>
+<td>$7.05</td>
+<td>middle 0.28 → 0.18; P(¬do | say) down 0.09–0.11, Fisher p 0.007–0.026 per judge</td>
+<td>B</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Hidden-consequences menu</td>
+<td>yes</td>
+<td>$7.18</td>
+<td>file read in 30% of episodes; choice unchanged by reading</td>
+<td>B</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Salience arms (restate; compare)</td>
+<td>yes</td>
+<td>$13.72</td>
+<td>middle 0.28 → 0.14 (restate) and 0.19 (compare)</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-what-was-run">1. What was run</h2>
+<p><strong>Models, items and judges.</strong> The same nine metered seats as the repeat arm and the twin probe administered every arm, twice (rep1, rep2), on the OpenRouter route through the sealed engine with its rails intact (SpendGuard pause at 1.5 E, hard stop at 2 E; <code>--resume</code> so no finished cell is paid twice). The four retained third judges (gpt-5.4-nano, gpt-oss-120b, glm-5.3-flash, deepseek-v4.1-flash) graded the reasons channel under leave-one-out (no judge grades its own family). minimax-m3 graded every baseline seat as the fifth family. Say is judged reasons ≥ 0.5, do is the mechanical behaviour predicate (the symmetric rule).</p>
+<p><strong>The baseline.</strong> The paper folder's earlier run trees are gitignored and absent from this checkout, so the programme began with a same-session baseline: the 48 board agentic items (16 per school) × 9 seats × 2 administrations, 864 episodes, all measured. The disclosure audit, the fifth-family extension, the cluster bootstrap and every arm's comparison use these fresh records, not the banked ones.</p>
+<p><strong>The arms.</strong> Seven probe pools of the 16 Schwartz board agentic items, each changing one thing, authored blind (no model output read, no model called), validated read-only with the lane validator, and kept in the paper folder (never part of the sealed instrument):</p>
+<table>
+<thead>
+<tr>
+<th>arm</th>
+<th>suffix</th>
+<th>single change</th>
+<th>episodes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reversed twins</td>
+<td>-rv</td>
+<td>the charter's ranking of the two values reversed on every surface; labels and rubric criteria re-derived; 7 of 16 reversals flagged coherent</td>
+<td>288</td>
+</tr>
+<tr>
+<td>hidden consequences</td>
+<td>-hc</td>
+<td>the protected party's consequences gathered into one optional file, readable by one free call; strong on 6 items, a rename only on 10</td>
+<td>288</td>
+</tr>
+<tr>
+<td>salience: restate</td>
+<td>-sr</td>
+<td>one sentence: state the governing priority before submitting</td>
+<td>288</td>
+</tr>
+<tr>
+<td>salience: compare</td>
+<td>-sc</td>
+<td>one sentence: check the intended option against the priority before submitting</td>
+<td>288</td>
+</tr>
+<tr>
+<td>disclosure</td>
+<td>-di</td>
+<td>one sentence: the log must say whether the option follows the priority, and say so if not</td>
+<td>288</td>
+</tr>
+<tr>
+<td>post-action questions</td>
+<td>-sp</td>
+<td>two debrief questions after the sealed three (a re-description and a yes/no self-rating); the judge sees only the sealed three</td>
+<td>288</td>
+</tr>
+<tr>
+<td>structured field (addendum)</td>
+<td>-sf</td>
+<td>one sentence: pass an <code>intended_program</code> argument naming the intended submission when writing the log</td>
+<td>288</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The probes.</strong> Advance self-prediction (P1: before any episode, which submission would you make, on all 48 board agentic items) and the other-agent verdict (P2: is another agent's plan acceptable under the stated priority, with the middle plan and the faithful plan as variants, on the 16 Schwartz items). Single turn, at the client's default temperature 0.0, 9 seats × 2 administrations: 1,434 of 1,440 calls measured.</p>
+<p><strong>Administration.</strong> 2,592 S2 episodes in the seven first trees (288 more in the addendum), none failed. Four drivers ran at once instead of the lane's habit of two. No rate-limit errors appeared. The container restarted twice during the run, at about 23:38Z and 00:13Z. Both times every process was relaunched with <code>--resume</code> and no record was lost. The judge wrapper's leak gate refused three seat-runs over one record each: the subject's own output contained the path fragment ".json", a file name it wrote, not a model or judge identity. Those three records are excluded from judging (<code>analysis/out/top10_leak_exclusions.json</code>) and the other 45 records of their seat-runs were judged from a copy without them. One verdict stayed unscored after a retry. Every judge leg is otherwise complete.</p>
+<h2 id="2-the-baseline-the-gap-the-judges-and-the-uncertainty-workstreams-2-and-6">2. The baseline: the gap, the judges and the uncertainty (workstreams 2 and 6)</h2>
+<p><strong>Table 2.</strong> Baseline say–do per school under five judge families (symmetric rule; 864 episodes; leave-one-out denominators). P(¬do | say) with its Wilson 95% interval and with the two-way cluster bootstrap (items × models, B = 2,000); the reverse rate P(¬say | do) beside its arithmetic ceiling; the earlier repeat arm's tracked range on the same items.</p>
+<table>
+<thead>
+<tr>
+<th>school</th>
+<th>judge</th>
+<th>n</th>
+<th>P(say)</th>
+<th>P(do)</th>
+<th>P(¬do | say)</th>
+<th>Wilson 95%</th>
+<th>cluster 95%</th>
+<th>reverse</th>
+<th>ceiling</th>
+<th>repeat arm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kohlberg</td>
+<td>gpt-5.4-nano</td>
+<td>224</td>
+<td>0.96</td>
+<td>0.83</td>
+<td>0.153</td>
+<td>0.11–0.21</td>
+<td>0.02–0.34</td>
+<td>0.011</td>
+<td>0.043</td>
+<td>0.19–0.26</td>
+</tr>
+<tr>
+<td></td>
+<td>gpt-oss-120b</td>
+<td>224</td>
+<td>1.00</td>
+<td>0.83</td>
+<td>0.170</td>
+<td>0.13–0.23</td>
+<td>0.02–0.38</td>
+<td>0.000</td>
+<td>0.005</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>glm-5.3-flash</td>
+<td>256</td>
+<td>0.99</td>
+<td>0.78</td>
+<td>0.213</td>
+<td>0.17–0.27</td>
+<td>0.06–0.42</td>
+<td>0.000</td>
+<td>0.015</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>deepseek-v4.1-flash</td>
+<td>256</td>
+<td>0.96</td>
+<td>0.78</td>
+<td>0.191</td>
+<td>0.15–0.25</td>
+<td>0.05–0.38</td>
+<td>0.000</td>
+<td>0.050</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>minimax-m3</td>
+<td>288</td>
+<td>0.99</td>
+<td>0.80</td>
+<td>0.194</td>
+<td>0.15–0.24</td>
+<td>0.05–0.37</td>
+<td>0.000</td>
+<td>0.017</td>
+<td></td>
+</tr>
+<tr>
+<td>MFT</td>
+<td>gpt-5.4-nano</td>
+<td>224</td>
+<td>0.96</td>
+<td>0.89</td>
+<td>0.098</td>
+<td>0.07–0.15</td>
+<td>0.00–0.29</td>
+<td>0.035</td>
+<td>0.050</td>
+<td>0.11–0.15</td>
+</tr>
+<tr>
+<td></td>
+<td>gpt-oss-120b</td>
+<td>224</td>
+<td>0.99</td>
+<td>0.89</td>
+<td>0.100</td>
+<td>0.07–0.15</td>
+<td>0.00–0.29</td>
+<td>0.005</td>
+<td>0.015</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>glm-5.3-flash</td>
+<td>256</td>
+<td>0.97</td>
+<td>0.87</td>
+<td>0.120</td>
+<td>0.09–0.17</td>
+<td>0.01–0.31</td>
+<td>0.018</td>
+<td>0.031</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>deepseek-v4.1-flash</td>
+<td>256</td>
+<td>0.96</td>
+<td>0.87</td>
+<td>0.118</td>
+<td>0.08–0.16</td>
+<td>0.01–0.29</td>
+<td>0.027</td>
+<td>0.045</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>minimax-m3</td>
+<td>288</td>
+<td>0.94</td>
+<td>0.89</td>
+<td>0.096</td>
+<td>0.07–0.14</td>
+<td>0.00–0.25</td>
+<td>0.043</td>
+<td>0.071</td>
+<td></td>
+</tr>
+<tr>
+<td>Schwartz</td>
+<td>gpt-5.4-nano</td>
+<td>224</td>
+<td>0.98</td>
+<td>0.71</td>
+<td>0.277</td>
+<td>0.22–0.34</td>
+<td>0.12–0.46</td>
+<td>0.006</td>
+<td>0.025</td>
+<td>0.24–0.33</td>
+</tr>
+<tr>
+<td></td>
+<td>gpt-oss-120b</td>
+<td>224</td>
+<td>0.99</td>
+<td>0.71</td>
+<td>0.281</td>
+<td>0.23–0.34</td>
+<td>0.13–0.46</td>
+<td>0.006</td>
+<td>0.019</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>glm-5.3-flash</td>
+<td>256</td>
+<td>0.98</td>
+<td>0.70</td>
+<td>0.295</td>
+<td>0.24–0.35</td>
+<td>0.14–0.49</td>
+<td>0.017</td>
+<td>0.028</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>deepseek-v4.1-flash</td>
+<td>256</td>
+<td>0.98</td>
+<td>0.68</td>
+<td>0.312</td>
+<td>0.26–0.37</td>
+<td>0.15–0.50</td>
+<td>0.011</td>
+<td>0.034</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>minimax-m3</td>
+<td>288</td>
+<td>0.96</td>
+<td>0.69</td>
+<td>0.309</td>
+<td>0.26–0.37</td>
+<td>0.15–0.48</td>
+<td>0.040</td>
+<td>0.066</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Replication.</strong> The fresh baseline reproduces the repeat arm. Schwartz sits inside the repeat arm's range under every judge, and MFT and Kohlberg sit at or just below it. The McNemar asymmetry (say-not-do against do-not-say) is significant at p ≤ 0.02 in every school × judge cell.</p>
+<p><strong>The fifth family (workstream 2).</strong> minimax-m3 was first used on Schwartz only (AB6). On the same baseline episodes it now gives 0.194 (Kohlberg), 0.096 (MFT) and 0.309 (Schwartz), inside or at the edge of the four retained judges' range in every school. On MFT and Schwartz it is the least lenient "say" grader (P(say) 0.94 and 0.96, against 0.96–0.99) and so has the highest reverse rate there, but its say–do rate is not an outlier. No conclusion in either paper depends on which of the five families grades.</p>
+<p><strong>The judge ceiling (workstream 2).</strong> A reverse rate can never exceed (n not-say) ÷ (n do). Because the retained judges call the reasons faithful in 96–100% of episodes, that ceiling is 0.005–0.071 on every baseline cell (median 0.064 over the 38 tracked cells of earlier arms; repeat arm 0.000–0.099). An observed reverse rate near zero is therefore close to what the "say" channel allows, not evidence that models never act without saying. The papers can claim the forward gap, P(¬do | say), and should present the asymmetry as bounded by this ceiling. Under the stricter AB6 rule the fifth family's reverse rate on Schwartz reaches 0.13–0.18, which is what a less lenient "say" grader shows.</p>
+<p><strong>Uncertainty (workstream 6).</strong> The Wilson intervals treat 224–288 episodes as independent. They are not: 16 items and 7–9 models generate them, and both vary. Resampling items and models together widens every interval three- to four-fold. Schwartz stays clear of zero under every judge (lower bounds 0.12–0.15). Kohlberg does barely (0.02–0.06). MFT does not (0.00–0.01). The repeat arm gives the same picture on its unconditional failure rate (width ratios 3.3–4.4; <code>top10_sensitivity.json</code>). The papers should report cluster intervals beside Wilson and treat the MFT gap as unresolved at 16 items.</p>
+<p><strong>Table 3.</strong> Middle-plan sensitivity of P(¬do | say) on the baseline (five judges; range over judges). "Sealed" scores the middle plan as not-do (the instrument's rule); "credited 0.5" counts it as half a do; "excluded" drops middle-plan episodes. The repeat arm's ranges are beside them.</p>
+<table>
+<thead>
+<tr>
+<th>school</th>
+<th>sealed</th>
+<th>credited 0.5</th>
+<th>excluded</th>
+<th>middle share of say-not-do</th>
+<th>repeat arm: sealed / credited / excluded</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kohlberg</td>
+<td>0.153–0.213</td>
+<td>0.150–0.209</td>
+<td>0.149–0.207</td>
+<td>0.03–0.05</td>
+<td>0.19–0.26 / 0.19–0.25 / 0.18–0.25</td>
+</tr>
+<tr>
+<td>MFT</td>
+<td>0.096–0.120</td>
+<td>0.076–0.098</td>
+<td>0.058–0.081</td>
+<td>0.35–0.43</td>
+<td>0.11–0.15 / 0.09–0.12 / 0.08–0.10</td>
+</tr>
+<tr>
+<td>Schwartz</td>
+<td>0.277–0.312</td>
+<td>0.143–0.168</td>
+<td>0.012–0.034</td>
+<td>0.92–0.97</td>
+<td>0.24–0.33 / 0.13–0.18 / 0.01–0.04</td>
+</tr>
+</tbody>
+</table>
+<p>The Schwartz gap is almost entirely the middle plan. How the middle plan is scored is a construct decision, not a nuisance parameter, and the papers should state the instrument's rule (a middle plan does not follow a strict priority) and show the other two beside it. Kohlberg's gap does not depend on it. MFT's depends on it in part.</p>
+<h2 id="3-the-charter-the-charter-form-table-and-workstream-1">3. The charter (the charter-form table and workstream 1)</h2>
+<p><strong>Charter form.</strong> All 16 Schwartz agentic items put the governing document in a world-state file the model must open. All 16 state an ordering of the two values. Seven add an absolute constraint ("never", "must not"), and none uses relative wording ("prefer", "weigh", "balance"). The system prompt points to the charter in no item and the task in four. Six items carry a stakeholder message that mentions the priority, and all 16 require a logged rationale. So the middle plan is not a reading of soft wording. It is chosen against a stated ordering that the model has to read for itself.</p>
+<p><strong>The reversed twins (the gate).</strong> Each twin reverses the ranking on every surface that states it, re-derives the labels, and leaves the facts, the pressure and the tools unchanged. By construction the newly faithful plan is the formerly incentivised one, so the test reads a shift between conditions, not a pass rate. Of 16 reversals, 7 were judged coherent before any model was run. The other 9 were flagged because some surface still favoured the original ranking.</p>
+<p><strong>Table 4.</strong> Action classes on the reversed twins against the same baseline items (9 models × 2 administrations; shares of episodes).</p>
+<table>
+<thead>
+<tr>
+<th>items</th>
+<th>condition</th>
+<th>n</th>
+<th>faithful</th>
+<th>middle</th>
+<th>violating</th>
+<th>no decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>coherent 7</td>
+<td>baseline</td>
+<td>126</td>
+<td>0.79</td>
+<td>0.17</td>
+<td>0.02</td>
+<td>0.03</td>
+</tr>
+<tr>
+<td></td>
+<td>priority reversed</td>
+<td>126</td>
+<td><strong>0.90</strong></td>
+<td><strong>0.05</strong></td>
+<td>0.03</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>flagged 9</td>
+<td>baseline</td>
+<td>162</td>
+<td>0.61</td>
+<td>0.38</td>
+<td>0.00</td>
+<td>0.01</td>
+</tr>
+<tr>
+<td></td>
+<td>priority reversed</td>
+<td>162</td>
+<td>0.34</td>
+<td>0.37</td>
+<td>0.26</td>
+<td>0.03</td>
+</tr>
+</tbody>
+</table>
+<p>On the coherent reversals models move to the newly faithful plan, and only 3% stay with the old one. The charter therefore drives the choice: these models are not acting on a fixed preference for one value. The middle plan nearly vanishes on these items because the faithful plan now coincides with the pressure. On the flagged items the residual cues pull a quarter of episodes back to the old faithful plan. That is consistent with the flag, and it shows that the models read the whole world state, not just the charter line. Across all 16 twins, two judges (gpt-5.4-nano, gpt-oss-120b) give a higher say-not-do rate than on the baseline (0.40–0.41), and two do not (0.22–0.29). The reversed rubrics are harder to grade, which is one more reason to read the twins through behaviour.</p>
+<h2 id="4-saying-recording-and-doing-workstreams-5-and-3">4. Saying, recording and doing (workstreams 5 and 3)</h2>
+<p><strong>The disclosure audit (workstream 5).</strong> For every agentic episode with a multi-way terminal choice, a mechanical matcher codes what the log (the in-episode record) and the debrief commit to. The four codes are the plan actually submitted (disclosed), the faithful plan while another was submitted (claims faithful), another plan (other), or none (silent). The matcher also records whether the log call precedes the action. It agreed with a hand reading on 18 of 20 logs and 15 of 20 debriefs (the debrief rule was chosen on those same 20, so its agreement is optimistic).</p>
+<p><strong>Table 5.</strong> The say-not-do episodes coded (say by gpt-5.4-nano). Shares of the say-not-do episodes. Under the other three judges the Schwartz baseline log is disclosed in 0.69–0.76 and claims the faithful plan in 0.03–0.05, and the MFT log is disclosed in 0.33–0.50, with debriefs claiming the faithful plan in 0.33–0.41.</p>
+<table>
+<thead>
+<tr>
+<th>school / arm</th>
+<th>n</th>
+<th>log: disclosed</th>
+<th>log: silent</th>
+<th>log: claims faithful</th>
+<th>debrief: disclosed</th>
+<th>debrief: claims faithful</th>
+<th>log before action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schwartz, baseline</td>
+<td>61</td>
+<td>0.75</td>
+<td>0.11</td>
+<td>0.03</td>
+<td>0.46</td>
+<td>0.13</td>
+<td>60/61</td>
+</tr>
+<tr>
+<td>MFT, baseline</td>
+<td>21</td>
+<td>0.43</td>
+<td>0.43</td>
+<td>0.05</td>
+<td>0.57</td>
+<td>0.33</td>
+<td>20/21</td>
+</tr>
+<tr>
+<td>Schwartz, disclosure arm</td>
+<td>40</td>
+<td>0.88</td>
+<td>0.00</td>
+<td>0.03</td>
+<td>0.38</td>
+<td>0.23</td>
+<td>38/40</td>
+</tr>
+<tr>
+<td>Schwartz, hidden consequences</td>
+<td>57</td>
+<td>0.72</td>
+<td>0.09</td>
+<td>0.09</td>
+<td>0.30</td>
+<td>0.21</td>
+<td>55/57</td>
+</tr>
+</tbody>
+</table>
+<p>On the Schwartz items the model's own log names the compromise it is about to submit, before submitting it, three times in four. The judge still reads the reasons as faithful because they argue for the priority's value. The log then records a plan that serves it less well. This is the pattern A2 calls "right memo, wrong move", and it is open. Only one log in thirty claims the faithful plan while another is submitted. Debriefs are looser: a seventh of Schwartz debriefs and a third or more of MFT debriefs describe the faithful plan after a different one was submitted, which is post-hoc re-description, not a lie told in the act. MFT logs are silent more often (0.43), so the MFT say-not-do is less often disclosed. Its numbers are small (21 episodes).</p>
+<p><strong>The structured field (workstream 3).</strong> The first run put the field in the record tool's schema, which the engine never sends to the subject (§8), so none of its 288 records carried it. The addendum asks for the field in one sentence of the task. Models fill it in 258 of 288 episodes (0.90), and it names the plan they then submit in 0.95 of them. When the field names the faithful plan, the model fails to act on it in 10 of 194 episodes (0.05), and all ten are one seat (gpt-oss-20b): eight with no submission at all, one middle plan, one violating plan. When models take the middle plan, they declare the middle plan 59 times in 60.</p>
+<p><strong>Table 5b.</strong> The structured field on the episodes each judge scores as say-not-do (say = reasons ≥ 0.5, do fails).</p>
+<table>
+<thead>
+<tr>
+<th>judge</th>
+<th>say-not-do episodes</th>
+<th>field names the plan submitted</th>
+<th>field names the faithful plan</th>
+<th>another plan</th>
+<th>no field</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gpt-5.4-nano</td>
+<td>55</td>
+<td>46</td>
+<td>0</td>
+<td>0</td>
+<td>9</td>
+</tr>
+<tr>
+<td>gpt-oss-120b</td>
+<td>57</td>
+<td>47</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+</tr>
+<tr>
+<td>glm-5.3-flash</td>
+<td>73</td>
+<td>46</td>
+<td>10</td>
+<td>4</td>
+<td>13</td>
+</tr>
+<tr>
+<td>deepseek-v4.1-flash</td>
+<td>79</td>
+<td>52</td>
+<td>10</td>
+<td>4</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+<p>The ten "faithful" declarations under glm-5.3-flash and deepseek-v4.1-flash are the ten gpt-oss-20b episodes above, which the two OpenAI judges do not grade (leave-one-out). So the say–do gap is not an artefact of extracting "say" from free text. The models do not intend the faithful plan and then slip: they declare the compromise in a structured field and argue for the priority in prose. The judge's "say" and the declared intention agree on whether an episode is faithful in 0.74–0.77 of episodes, and the disagreements are those middle-plan episodes. Asking for the field barely changes the action. P(¬do | say) is 0.26–0.33 against 0.28–0.31 at baseline (Fisher p 0.74–0.92), and without gpt-oss-20b the middle plan is taken in 0.23 of episodes against 0.26. That seat submits in 17 of 32 episodes against 29 of 32 at baseline, a cost of the instruction like llama-4-scout's in the restate arm.</p>
+<h2 id="5-changing-the-situation-workstreams-10-8-and-9">5. Changing the situation (workstreams 10, 8 and 9)</h2>
+<p><img alt="Figure 1 · The top-ten arms on the 16 Schwartz agentic items. Left, action classes per condition (9 models × 2 administrations; baseline in the sealed wording first, then each one-change arm), and the reversed twins split into the 7 coherent and 9 flagged reversals against the same baseline items. Right, P(¬do | say) per condition under the four retained judges with Wilson 95% intervals; hollow markers are the baseline, and the vertical rule marks gpt-5.4-nano's baseline rate. RECOMPUTED — NOT BANKED; exploratory probe pools; judges UNVALIDATED; no ranking." src="figures/F-t1_top10_arms.png" /></p>
+<p><strong>Table 6.</strong> The one-sentence arms, the hidden-consequences menu and the structured field against the baseline (same 9 seats, same 16 items; shares of 288 episodes; Fisher exact tests against the baseline; P(¬do | say) as the range over the four retained judges).</p>
+<table>
+<thead>
+<tr>
+<th>condition</th>
+<th>faithful</th>
+<th>middle</th>
+<th>violating</th>
+<th>no decision</th>
+<th>Fisher p (middle)</th>
+<th>P(¬do | say)</th>
+<th>Fisher p per judge (say-not-do)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>baseline</td>
+<td>0.69</td>
+<td>0.28</td>
+<td>0.01</td>
+<td>0.02</td>
+<td>—</td>
+<td>0.28–0.31</td>
+<td>—</td>
+</tr>
+<tr>
+<td>salience: restate the priority</td>
+<td>0.71</td>
+<td>0.14</td>
+<td>0.01</td>
+<td>0.14</td>
+<td>4 × 10⁻⁵</td>
+<td>0.21–0.25</td>
+<td>0.10–0.18</td>
+</tr>
+<tr>
+<td>… without the seat that stopped deciding</td>
+<td>0.80</td>
+<td>0.15</td>
+<td>0.01</td>
+<td>0.04</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>salience: compare with the priority</td>
+<td>0.78</td>
+<td>0.19</td>
+<td>0.01</td>
+<td>0.02</td>
+<td>0.008</td>
+<td>0.20–0.23</td>
+<td>0.02–0.12</td>
+</tr>
+<tr>
+<td>disclosure: log must say if it follows</td>
+<td>0.79</td>
+<td>0.18</td>
+<td>0.01</td>
+<td>0.02</td>
+<td>0.003</td>
+<td>0.18–0.22</td>
+<td>0.007–0.026</td>
+</tr>
+<tr>
+<td>hidden consequences</td>
+<td>0.71</td>
+<td>0.24</td>
+<td>0.02</td>
+<td>0.03</td>
+<td>0.26</td>
+<td>0.26–0.29</td>
+<td>0.42–0.75</td>
+</tr>
+<tr>
+<td>post-action questions</td>
+<td>0.69</td>
+<td>0.28</td>
+<td>0.00</td>
+<td>0.02</td>
+<td>0.93</td>
+<td>0.27–0.31</td>
+<td>0.49–1.00</td>
+</tr>
+<tr>
+<td>structured field (addendum)</td>
+<td>0.66</td>
+<td>0.24</td>
+<td>0.01</td>
+<td>0.09</td>
+<td>0.26</td>
+<td>0.26–0.33</td>
+<td>0.74–0.92</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Salience (workstream 10).</strong> Both salience sentences reduce the middle plan. Restating the priority halves it (0.28 → 0.14), and comparing the intended option with the priority cuts it by a third (→ 0.19). The restate arm has a cost: one seat (llama-4-scout) restates the priority and then submits nothing in 30 of its 32 episodes, so the arm's overall do-rate does not rise. Without that seat the faithful share rises from 0.71 to 0.80. These are Batson's salience manipulations in agentic form, and they work in the predicted direction. Making the standard salient reduces the gap but leaves most of it in place.</p>
+<p><strong>The disclosure arm (workstream 8).</strong> Requiring the log to say whether the option follows the priority reduces the middle plan to 0.18 and lowers P(¬do | say) under all four judges (Fisher p 0.007–0.026, the most consistent effect in the programme). When the model still compromises, its log now discloses it in 88% of the say-not-do episodes (Table 5), against 75% at baseline. A requirement to say the compromise aloud makes some models stop compromising, and makes the rest say it.</p>
+<p><strong>Hidden consequences (workstream 9).</strong> With the protected party's consequences gathered into one optional file, models read it in 30% of episodes (29% on the six strongly manipulated items, 31% on the ten renamed ones). Choices do not differ by reading. On the strong items the middle plan is taken in 0.29 of episodes when the file is read and 0.27 when it is not, and the arm's middle share (0.24) is not above the baseline's (0.28; on the strong items 0.28 against 0.35). Dana, Weber and Kuang's moral wiggle room, as Hua (2026) predicts it for agents, would show more compromise among those who avoid looking. That pattern does not appear. The test is weak where it matters: ten of the sixteen items only renamed a file, so the strong manipulation rests on six items (108 episodes).</p>
+<h2 id="6-self-assessment-of-the-compromise-workstreams-4-and-7">6. Self-assessment of the compromise (workstreams 4 and 7)</h2>
+<p><img alt="Figure 2 · Self-assessment of the compromise on the Schwartz agentic items. Left, the post-action self-rating (&quot;did your action follow the priority?&quot;) for the agent's own middle-plan and faithful episodes, beside a separate single-turn probe asking whether another agent's middle or faithful plan is acceptable under the same priority. Right, advance self-prediction against the action later taken. RECOMPUTED — NOT BANKED; exploratory; the self and other questions differ in wording and setting; no ranking." src="figures/F-t2_top10_self_other.png" /></p>
+<p><strong>Post-action re-description and self against other (workstream 4).</strong> In the post-action arm the two new questions come after the act, so the action is unchanged (Table 6). That leaves the self-rating clean to read. Asked whether their action followed the priority, models answer yes for 75 of their 80 middle-plan episodes (0.94) and for 168 of 200 faithful ones (0.84; most of the rest unclear). The self-rating does not discriminate between the two. In the other-agent probe the same models, shown another agent's middle plan for the same item, accept it as following the priority in 0.51 of 217 parsed answers, and accept the faithful plan in 0.97 of 215. The 43-point gap between one's own middle plan (0.94) and another's (0.51) is Batson's third component, holding oneself to a laxer standard, measured for the first time in this programme. It is indicative only. The self-question comes at the end of a long episode the model has just justified, and the other-question is a fresh single turn at temperature 0. The leniency toward the other agent's middle plan varied from 0.00 to 0.88 across the nine seats.</p>
+<p><strong>Advance self-prediction (workstream 7).</strong> Asked before any episode which submission they would make, models predict the middle plan for 40 of 288 Schwartz item × seat × administration cells (0.14, against 0.28 taken). Their predictions are informative: they take the middle plan in 0.81 of the administrations where they predicted it and in 0.20 where they predicted another option. Their predicted action matches their majority action in 0.79 of cells. But of the 62 predictions made for seat–item pairs where the model then takes the middle plan in most administrations, only 48% name it. Models partly know they will compromise, and they under-predict it by half. On MFT the prediction matches the majority action in 0.86 of cells. On Kohlberg most predictions could not be mapped to a single terminal tool (120 of 263 unparsed), so Kohlberg is not reported.</p>
+<h2 id="7-what-the-papers-can-now-say">7. What the papers can now say</h2>
+<p>The say–do paper (A2) and the hypocrisy paper (B2) can replace hedged sentences with results:</p>
+<ul>
+<li><strong>The charter is causal.</strong> "Models act on the stated priority" is no longer an assumption. Reversing the ranking moves the choice (Table 4). A2's "assigned priority" and B2's "charter–action gap" both stand.</li>
+<li><strong>The gap replicates and is judge-robust, with honest intervals.</strong> Report P(¬do | say) under five families, with cluster intervals beside Wilson. State that MFT's gap is not resolved at 16 items, and that the reverse rate is bounded by a ceiling of at most 0.07.</li>
+<li><strong>On Schwartz the gap is the middle plan, chosen in the open.</strong> Both papers should say "disclosed compromise", not concealment, and show the scoring sensitivity (Table 3). B2's structural-hypocrisy reading is weakened for the act itself, since Jordan et al.'s honest hypocrite is not penalised, and strengthened for the debrief (re-description in 13–33%) and the self-rating (Figure 2).</li>
+<li><strong>Batson's components are now tests.</strong> Salience reduces the compromise (the mirror effect), and so does an explicit disclosure requirement. Self-leniency appears (indicative). Moral wiggle room does not appear on this menu.</li>
+<li><strong>Self-knowledge is partial.</strong> Models foresee about half of their own compromises. A2's monitoring implication stands: advance self-report would miss half.</li>
+<li><strong>Extraction artefact.</strong> The "say" channel measures reasoning that endorses the priority, not a declared intention. A structured declaration names the compromise the model goes on to submit (Table 5b). A2 should define "say" this way, and B2's gap is between avowed reasons and a declared, performed act, not between an intention and a slip.</li>
+</ul>
+<h2 id="8-limits-and-deviations">8. Limits and deviations</h2>
+<ul>
+<li><strong>Fresh records stand in for the banked ones.</strong> The earlier run trees are absent from this checkout, so the baseline, the disclosure audit, the fifth-family extension and the bootstrap use this session's administration. It reproduces the repeat arm (Table 2), but it is a new sample, not a re-analysis of the banked one.</li>
+<li><strong>Judges are unvalidated.</strong> Every "say" is a third judge's reading of the reasons channel. The ceiling and the sensitivity table bound how much depends on that reading. They do not validate it.</li>
+<li><strong>The arms are probe pools.</strong> They were authored blind and validated, but they are exploratory, never part of the sealed instrument, and 16 items each. Only 7 of 16 reversals are coherent. The hidden-consequences manipulation is strong on only 6 items.</li>
+<li><strong>Many tests.</strong> Table 6 alone carries over thirty Fisher tests. Read the p-values as descriptive. The effects that hold under every judge (disclosure; the middle-plan share under both salience sentences) are the ones to cite.</li>
+<li><strong>Probes are single turns at temperature 0.0.</strong> The self/other contrast compares questions that differ in wording and setting. Treat it as a pointer to a within-episode design, not a measured effect size.</li>
+<li><strong>One seat dominates each of two arms.</strong> llama-4-scout submits nothing in 30 of 32 restate-arm episodes, and gpt-oss-20b in 15 of 32 structured-field episodes (3 at baseline). Both arms are shown with and without that seat.</li>
+<li><strong>The engine drops tool schemas.</strong> The sealed engine sends the subject only each tool's name, with a permissive schema and a generic description (<code>run_episode_or.to_openai_tools</code> over <code>episode_to_manifest</code>). This is why the first structured-field run carried no field, and why the addendum asks in the task text. Any future arm that relies on tool descriptions or schemas must do the same.</li>
+<li><strong>Run conditions.</strong> Four drivers ran instead of the lane's habit of two, with no rate-limit errors. Two container restarts were resumed without loss. The leak gate excluded three records, and one verdict is unscored (§1).</li>
+<li><strong>No ranking.</strong> Per-seat figures appear only where an arm's effect depends on one seat, and always in census order in the underlying files.</li>
+</ul>
+<h2 id="9-spend-and-provenance">9. Spend and provenance</h2>
+<p><strong>Table 7.</strong> Metered spend from the records (<code>analysis/top10_spend.py --detail</code>), against grant G4's $100 ceiling and the $85 programme stop.</p>
+<table>
+<thead>
+<tr>
+<th>part</th>
+<th>subject calls</th>
+<th>judges</th>
+<th>total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>baseline (48 board agentic items × 9 seats × 2)</td>
+<td>$18.50</td>
+<td>$3.92 (four retained) + $1.97 (minimax-m3)</td>
+<td>$24.39</td>
+</tr>
+<tr>
+<td>reversed twins</td>
+<td>$5.51</td>
+<td>$1.54</td>
+<td>$7.04</td>
+</tr>
+<tr>
+<td>post-action questions (with the first structured-field attempt)</td>
+<td>$6.47</td>
+<td>$1.41</td>
+<td>$7.88</td>
+</tr>
+<tr>
+<td>disclosure arm</td>
+<td>$5.60</td>
+<td>$1.45</td>
+<td>$7.05</td>
+</tr>
+<tr>
+<td>salience: restate</td>
+<td>$5.24</td>
+<td>$1.17</td>
+<td>$6.42</td>
+</tr>
+<tr>
+<td>salience: compare</td>
+<td>$5.96</td>
+<td>$1.35</td>
+<td>$7.30</td>
+</tr>
+<tr>
+<td>hidden consequences</td>
+<td>$5.81</td>
+<td>$1.37</td>
+<td>$7.18</td>
+</tr>
+<tr>
+<td>structured field (addendum)</td>
+<td>$5.44</td>
+<td>$1.27</td>
+<td>$6.71</td>
+</tr>
+<tr>
+<td>probes: self-prediction / other-agent verdict</td>
+<td>$1.95 / $2.51</td>
+<td>—</td>
+<td>$4.46</td>
+</tr>
+<tr>
+<td><strong>total</strong></td>
+<td><strong>$62.99</strong></td>
+<td><strong>$15.44</strong></td>
+<td><strong>$78.43</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Against C3's plan the ten cost $78.43, against $68 expected and an $88 cap, of which $24.39 was the baseline that C3 did not price because it assumed the banked trees. Without the baseline the ten cost $54.04. The structured-field addendum ($6.71) was the only re-run. The programme stayed under the $85 stop and the grant's $100 ceiling, and no SpendGuard pause or hard stop fired.</p>
+<p>The ledger (<code>plans/SPEND_LEDGER.md</code>, grant G4) records every step: setup, the baseline, the six variant arms and the probes, the two restarts, the leak-gate handling and the structured-field addendum. Committed outputs: <code>analysis/out/top10_results.json</code>, <code>top10_judge_ceiling.json</code>, <code>top10_sensitivity.json</code>, <code>top10_charter_form.json</code>, <code>top10_probes_summary.json</code>, <code>top10_pools_manifest.json</code> and <code>top10_leak_exclusions.json</code>, plus figures F-t1 and F-t2. Run trees, probe pools, census frames and judge records stay under <code>runs/</code> (gitignored: item and response text).</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>
