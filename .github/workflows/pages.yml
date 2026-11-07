@@ -1,0 +1,80 @@
+# Publishes the site to GitHub Pages on every push to main.
+#
+# Replaces GitHub's built-in "Deploy from a branch" mode, whose deploy step gives up after
+# 10 minutes with no retry. That limit is fixed in actions/deploy-pages too, so this workflow
+# retries the deploy instead: a slow deploy on GitHub's side no longer fails the run.
+#
+# Needs Settings -> Pages -> Build and deployment -> Source set to "GitHub Actions".
+# Until then the first step sees the old mode and skips the deploy, so nothing is published twice.
+name: Deploy site to Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time. A push made while a deploy is running waits for it instead of
+# cancelling it; if several pushes pile up, only the newest waits (it carries all of them).
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url || steps.retry1.outputs.page_url || steps.retry2.outputs.page_url }}
+    steps:
+      - name: Check the Pages source setting
+        id: mode
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          type=$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq .build_type 2>/dev/null || echo unknown)
+          echo "Pages build_type: $type"
+          echo "type=$type" >> "$GITHUB_OUTPUT"
+          if [ "$type" != "workflow" ]; then
+            echo "::notice::Pages source is '$type', not 'GitHub Actions'; skipping this deploy. Switch it in Settings -> Pages."
+          fi
+
+      - uses: actions/checkout@v5
+        if: steps.mode.outputs.type == 'workflow'
+
+      # The repository root is the site (.nojekyll, index.html, papers/, decks/, videos/ ...).
+      # .git and .github are left out of the artifact by the action.
+      - uses: actions/upload-pages-artifact@v5
+        if: steps.mode.outputs.type == 'workflow'
+        with:
+          path: .
+
+      - name: Deploy
+        id: deploy
+        if: steps.mode.outputs.type == 'workflow'
+        continue-on-error: true
+        uses: actions/deploy-pages@v5
+
+      - name: Wait before retrying
+        if: steps.mode.outputs.type == 'workflow' && steps.deploy.outcome == 'failure'
+        run: sleep 60
+
+      - name: Deploy (retry 1)
+        id: retry1
+        if: steps.mode.outputs.type == 'workflow' && steps.deploy.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/deploy-pages@v5
+
+      - name: Wait before the last retry
+        if: steps.mode.outputs.type == 'workflow' && steps.retry1.outcome == 'failure'
+        run: sleep 180
+
+      - name: Deploy (retry 2)
+        id: retry2
+        if: steps.mode.outputs.type == 'workflow' && steps.retry1.outcome == 'failure'
+        uses: actions/deploy-pages@v5
