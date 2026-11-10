@@ -6,7 +6,14 @@ Every judged number is from language-model judges no human expert has validated:
 no ranking. Only released items are quoted; no model is named or ranked. Regenerated from the private working
 repository by its `outputs/dashboard/build_site.py`.
 
-Last content update: 2026-11-10. Edition 23A3 of the findings paper was added ("Right Answers, Wrong Moves? Taking
+Last content update: 2026-11-11. The papers and reports corrected on 2026-11-10 for the errata found in the review of
+edition 23A were replaced in place: findings paper v25, methods paper v4, article v3, editions 23A2 and 23A3 (pages and
+PDFs), reports C4 and C5 (on their reading of the Hua 2026 registration), the moral-hypocrisy references page, and
+the methods paper's Figure 5 (metered spend about $217, not $188). The front page shows the new page and word counts.
+The methods talk deck and its two narrated videos are left as published, by the owner's ruling; they still give the
+earlier, lower spend figure.
+
+On 2026-11-10, edition 23A3 of the findings paper was added ("Right Answers, Wrong Moves? Taking
 Apart the Say–Do Gap in Language-Model Agents", `papers/findings_v23a3/`): a second, stand-alone rewrite of the
 superseded 23A, written in parallel with 23A2 so that the two can be compared. It was reviewed by AI sessions only; no
 human has reviewed it. The front page counts seven papers.
