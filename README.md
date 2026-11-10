@@ -6,10 +6,15 @@ Every judged number is from language-model judges no human expert has validated:
 no ranking. Only released items are quoted; no model is named or ranked. Regenerated from the private working
 repository by its `outputs/dashboard/build_site.py`.
 
-Last content update: 2026-11-10. Edition 23A2 of the findings paper was added ("A Compromise in Plain Sight",
+Last content update: 2026-11-10. Edition 23A3 of the findings paper was added ("Right Answers, Wrong Moves? Taking
+Apart the Say–Do Gap in Language-Model Agents", `papers/findings_v23a3/`): a second, stand-alone rewrite of the
+superseded 23A, written in parallel with 23A2 so that the two can be compared. It was reviewed by AI sessions only; no
+human has reviewed it. The front page counts seven papers.
+
+Earlier the same day, edition 23A2 of the findings paper was added ("A Compromise in Plain Sight",
 `papers/findings_v23a2/`): the revised full edition of the moral-hypocrisy lens, which replaces the superseded 23A and
 carries the follow-up experiments. It was reviewed by AI referee sessions only; no human has reviewed it. The front
-page counts six papers, and the notices on 23A and 23B point to it.
+page then counted six papers, and the notices on 23A and 23B point to it.
 
 Earlier the same day, the methods paper (v4) and the article (v3) were updated to match findings paper
 v25: both now carry the follow-up results (reports C4, C5 and G6), and their pages, PDFs and front-page rows were
