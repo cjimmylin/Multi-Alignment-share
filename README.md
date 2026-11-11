@@ -13,6 +13,11 @@ the methods paper's Figure 5 (metered spend about $217, not $188). The front pag
 The methods talk deck and its two narrated videos are left as published, by the owner's ruling; they still give the
 earlier, lower spend figure.
 
+Later on 2026-11-11, edition 23A3 was replaced in place again (page and PDF; 70 pages) after a third, targeted check
+by an independent AI review found twenty points, each re-verified before the text was changed. The most serious:
+the paper now states that the model which drafted most of the main agentic items is itself one of the models under
+test. The front page shows the new counts.
+
 On 2026-11-10, edition 23A3 of the findings paper was added ("Right Answers, Wrong Moves? Taking
 Apart the Say–Do Gap in Language-Model Agents", `papers/findings_v23a3/`): a second, stand-alone rewrite of the
 superseded 23A, written in parallel with 23A2 so that the two can be compared. It was reviewed by AI sessions only; no
