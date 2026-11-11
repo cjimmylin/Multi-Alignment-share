@@ -11,7 +11,7 @@ run under grant G8. With one sentence in each charter ruling out the compromise 
 to 2% of episodes; with the charter also in the system prompt, to 18% (not clearly different); and graded on the log
 alone, the say–do rate was 23–26% against 26–29%. The front page counts eleven reports.
 
-Earlier the same day: 2026-11-11. The papers and reports corrected on 2026-11-10 for the errata found in the review of
+Earlier the same day, the papers and reports corrected on 2026-11-10 for the errata found in the review of
 edition 23A were replaced in place: findings paper v25, methods paper v4, article v3, editions 23A2 and 23A3 (pages and
 PDFs), reports C4 and C5 (on their reading of the Hua 2026 registration), the moral-hypocrisy references page, and
 the methods paper's Figure 5 (metered spend about $217, not $188). The front page shows the new page and word counts.
