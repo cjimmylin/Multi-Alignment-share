@@ -11,6 +11,12 @@ run under grant G8. With one sentence in each charter ruling out the compromise 
 to 2% of episodes; with the charter also in the system prompt, to 18% (not clearly different); and graded on the log
 alone, the say–do rate was 23–26% against 26–29%. The front page counts eleven reports.
 
+Also on 2026-11-11, edition 23A3 was replaced in place (page, PDF and figures; 78 pages). It now reports the experiments of
+10–11 November (reports C6 and C7) and a coding of what the agents' decision logs say about the middle plan, done under
+rules fixed in advance by a single AI reader that no human has checked. An independent AI review of the new passages
+found no wrong number and 28 points of wording, which were corrected first. The front page shows the new counts.
+Edition 23A2 has not taken these results in.
+
 Earlier the same day, the papers and reports corrected on 2026-11-10 for the errata found in the review of
 edition 23A were replaced in place: findings paper v25, methods paper v4, article v3, editions 23A2 and 23A3 (pages and
 PDFs), reports C4 and C5 (on their reading of the Hua 2026 registration), the moral-hypocrisy references page, and
