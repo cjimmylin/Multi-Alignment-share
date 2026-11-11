@@ -18,6 +18,15 @@ by an independent AI review found twenty points, each re-verified before the tex
 the paper now states that the model which drafted most of the main agentic items is itself one of the models under
 test. The front page shows the new counts.
 
+Later again on 2026-11-11, the factorial twins were added (grant G7): the experiment that takes the pressure on
+the Schwartz items apart. New: report C6 (`reports/C6.html`, PDF) and findings paper v26 (`papers/findings/`, with a
+new section, two tables and a figure; `PAPER_v26.pdf` replaces `PAPER_v25.pdf`). Replaced in place: methods paper v4,
+article v3 and reports A2 and B2, which no longer list the twins as open. The three talks were refreshed to carry the
+follow-up results and re-narrated: the TED talk (19 slides, 16 min), the keynote (26 slides, 26 min) and the methods
+talk (102 slides; 56 min in the single-file edition, 50 min in the twelve-chapter edition), each as deck PDF, slide
+viewer and video page. The methods talk and both its narrations now give the corrected spend figure, so the last
+sentence of the paragraph above no longer holds.
+
 On 2026-11-10, edition 23A3 of the findings paper was added ("Right Answers, Wrong Moves? Taking
 Apart the Say–Do Gap in Language-Model Agents", `papers/findings_v23a3/`): a second, stand-alone rewrite of the
 superseded 23A, written in parallel with 23A2 so that the two can be compared. It was reviewed by AI sessions only; no

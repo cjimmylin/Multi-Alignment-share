@@ -1,0 +1,373 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C6 · Which part of the pressure matters: the factorial twins, run</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../">Hub</a> › <a href="../reports/">Lane reports</a> › C6</nav><article class="doc"><h1 id="which-part-of-the-pressure-matters-the-factorial-twins-run">Which part of the pressure matters: the factorial twins, run</h1>
+<p><em>Results of grant G7 (C6) · 2026-11-11 · Multi-Alignment / Moral_Psychology-Paper · question: findings paper v25 §S25 item 9 and B3 workstream W4 ("factorial twins: open") · grant G7 ("Please address this: The methods paper says the 'factorial' twins (which would show which part of the pressure matters) are still open", ceiling $45; <code>plans/SPEND_LEDGER.md</code>) · analysis: <code>analysis/g7_factorial.py</code> → <code>analysis/out/g7_factorial.json</code>; twin pools <code>analysis/g7_author_factorial.py</code> → <code>analysis/out/g7_pools_manifest_factorial.json</code>; leak-gate exclusions <code>analysis/out/g7_leak_exclusions.json</code>; figure <code>analysis/make_fig_g7.py</code> · carried into findings paper v26 §S31 · labels: <code>RECOMPUTED — NOT BANKED</code> · exploratory · judges UNVALIDATED · no ranking · ids, counts and statistics only</em></p>
+<h2 id="summary">Summary</h2>
+<p>In October the lane rewrote the sixteen Schwartz agentic items so that the pressure against the charter's priority was gone, and the say–do gap closed. That removal was a bundle of three edits: it eased the faithful plan's cost, it removed the sweetener on the middle plan, and on most items it withdrew a stakeholder's push. The papers have listed the experiment that separates the three as open. It has now been run.</p>
+<ul>
+<li><strong>The sweetener does the work.</strong> Removing only the middle plan's sweetener takes the middle plan from 0.28 of episodes to 0.04. The change is −0.24, with a 95% interval from −0.42 to −0.10. Removing all three pressures together does no more (0.05).</li>
+<li><strong>Cost and push are not detected.</strong> Easing only the faithful plan's own cost leaves the middle plan at 0.23 (change −0.06, interval −0.16 to +0.02). Withdrawing only the push leaves it at 0.22 (change −0.07, interval −0.15 to +0.01). Both intervals include zero, and a study of sixteen items cannot tell changes of this size from zero.</li>
+<li><strong>The baseline replicates.</strong> The sealed items, administered again in the same session, give the same middle-plan share as five days earlier (0.285 both times).</li>
+<li><strong>One model does not move.</strong> llama-4-scout takes the middle plan in 0.31–0.38 of episodes under every condition. The other eight take it in 0.00–0.06 once the sweetener is gone.</li>
+<li><strong>What it means.</strong> On these items a model is drawn from the faithful plan by what the middle plan adds, not by what the faithful plan costs or by who is asking. This is the same fact the earlier studies found from the other side: 13 of the 16 middle plans are the faithful plan plus one small addition, and models choose the faithful plan when the middle plan is taken off the menu.</li>
+<li><strong>What it does not settle.</strong> Whether a plan with that addition departs from the charter is still a question for human readers. The cost test was weak by construction, so a stronger one is the remaining experiment.</li>
+</ul>
+<p>The grant spent <strong>$33.82</strong> of its $45 ceiling by the study's own records. The key's usage shows more than that and is not reconciled (§5).</p>
+<p><strong>Table 1.</strong> The five conditions (16 items × 9 models × 2 administrations, 288 episodes each; shares of episodes). P(¬do | say) is the range over the four judges. Δ is the condition minus the same-session baseline on the same items and models, with two-way cluster 95% intervals (items × models). Indented rows repeat the comparison on a subset of items (§2).</p>
+<table>
+<thead>
+<tr>
+<th>condition</th>
+<th>items</th>
+<th>n</th>
+<th>faithful</th>
+<th>middle plan</th>
+<th>violating</th>
+<th>no decision</th>
+<th>P(¬do | say)</th>
+<th>Δ middle (cluster 95%)</th>
+<th>Δ not-do (cluster 95%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sealed items, same session</td>
+<td>16</td>
+<td>288</td>
+<td>0.68</td>
+<td>0.28</td>
+<td>0.02</td>
+<td>0.01</td>
+<td>0.29–0.30</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>faithful plan's own cost eased</td>
+<td>16</td>
+<td>288</td>
+<td>0.74</td>
+<td>0.23</td>
+<td>0.01</td>
+<td>0.02</td>
+<td>0.23–0.25</td>
+<td>−0.06 [−0.16, +0.02]</td>
+<td>−0.06 [−0.16, +0.02]</td>
+</tr>
+<tr>
+<td>items clean for this edit</td>
+<td>11</td>
+<td>198</td>
+<td>0.70</td>
+<td>0.28</td>
+<td>0.01</td>
+<td>0.01</td>
+<td>—</td>
+<td>−0.04 [−0.16, +0.06]</td>
+<td>−0.04 [−0.17, +0.06]</td>
+</tr>
+<tr>
+<td>clean, with a stated own cost</td>
+<td>5</td>
+<td>90</td>
+<td>0.61</td>
+<td>0.39</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>—</td>
+<td>+0.06 [−0.04, +0.20]</td>
+<td>+0.06 [−0.04, +0.20]</td>
+</tr>
+<tr>
+<td>middle plan's sweetener removed</td>
+<td>16</td>
+<td>288</td>
+<td>0.92</td>
+<td>0.04</td>
+<td>0.01</td>
+<td>0.03</td>
+<td>0.06–0.07</td>
+<td>−0.24 [−0.42, −0.10]</td>
+<td>−0.24 [−0.42, −0.09]</td>
+</tr>
+<tr>
+<td>items clean for this edit</td>
+<td>13</td>
+<td>234</td>
+<td>0.91</td>
+<td>0.04</td>
+<td>0.01</td>
+<td>0.04</td>
+<td>—</td>
+<td>−0.26 [−0.45, −0.11]</td>
+<td>−0.25 [−0.44, −0.09]</td>
+</tr>
+<tr>
+<td>push withdrawn</td>
+<td>16</td>
+<td>288</td>
+<td>0.75</td>
+<td>0.22</td>
+<td>0.01</td>
+<td>0.02</td>
+<td>0.24–0.25</td>
+<td>−0.07 [−0.15, +0.01]</td>
+<td>−0.07 [−0.15, +0.01]</td>
+</tr>
+<tr>
+<td>items clean for this edit</td>
+<td>9</td>
+<td>162</td>
+<td>0.79</td>
+<td>0.19</td>
+<td>0.01</td>
+<td>0.01</td>
+<td>—</td>
+<td>−0.06 [−0.18, +0.03]</td>
+<td>−0.07 [−0.20, +0.03]</td>
+</tr>
+<tr>
+<td>all three edits</td>
+<td>16</td>
+<td>288</td>
+<td>0.91</td>
+<td>0.05</td>
+<td>0.01</td>
+<td>0.03</td>
+<td>0.08–0.09</td>
+<td>−0.24 [−0.42, −0.10]</td>
+<td>−0.23 [−0.40, −0.09]</td>
+</tr>
+<tr>
+<td>items clean for this edit</td>
+<td>4</td>
+<td>72</td>
+<td>0.92</td>
+<td>0.03</td>
+<td>0.00</td>
+<td>0.06</td>
+<td>—</td>
+<td>−0.18 [−0.46, +0.00]</td>
+<td>−0.14 [−0.39, +0.06]</td>
+</tr>
+<tr>
+<td>sum of the three single edits</td>
+<td>16</td>
+<td>288</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>−0.37 [−0.67, −0.13]</td>
+<td>−0.36 [−0.66, −0.11]</td>
+</tr>
+<tr>
+<td>all three minus that sum</td>
+<td>16</td>
+<td>288</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>+0.13 [−0.01, +0.30]</td>
+<td>+0.13 [−0.01, +0.30]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-what-was-run">1. What was run</h2>
+<p><strong>Design.</strong> Five conditions on the sixteen Schwartz agentic items of the board, each administered twice to the nine metered models of the repeat arm, in one session: 1,440 episodes. The models, in census order, are gpt-oss-20b, qwen3-235b-thinking, deepseek-v4-flash, mistral-small-3.2-24b, gemma-4-31b-it, llama-4-scout, glm-5.2, kimi-k2.6 and gpt-5.5 (metered route).</p>
+<ol>
+<li><em>Sealed items, unchanged.</em> A fresh baseline, so that no comparison crosses five days of provider drift.</li>
+<li><em>Cost eased.</em> Only the faithful plan's own cost or fit is eased.</li>
+<li><em>Sweetener removed.</em> Only the middle plan's add-on is withdrawn.</li>
+<li><em>Push withdrawn.</em> Only the messages or notes that press for the violating plan or the compromise are made neutral.</li>
+<li><em>All three.</em> The three edits composed.</li>
+</ol>
+<p><strong>Authoring.</strong> The four twin pools were written by one session that read no model output and called no model. They change world-state strings only. The charter, the task, the tools, the behaviour labels, the rubric, the debrief and every buried document are byte-identical to the sealed items. The lane validator reports no failure, and all 64 twin items score 1.0, 0.0 and 0.0 for the faithful, violating and middle plan on synthetic traces. The twins share most of their text with the originals: 0.95–0.98 of eight-word sequences for the cost twin, 0.94–0.96 for the sweetener twin, 0.73–0.89 for the push twin and 0.65–0.82 for the all-three twin.</p>
+<p><strong>Where the factors could not be separated.</strong> The authoring session recorded, per item and edit, where one component could not be changed without touching another. Items with no such flag are "clean" for that edit: 11 for cost, 13 for the sweetener, 9 for the push and 4 for all three. Every comparison is repeated on the clean items (Table 1, indented rows).</p>
+<p><strong>Judging and statistics.</strong> Behaviour is scored mechanically from the tool trace. The reasons channel is graded by the four judges of the earlier follow-ups under leave-one-out. Intervals resample items and models together (two-way cluster bootstrap, 2,000 draws), because episodes share both.</p>
+<h2 id="2-results">2. Results</h2>
+<p><img alt="Figure 1 · Left: what the nine models did under each of the five conditions (288 episodes each). Right: each condition's change in the middle-plan share against the same-session baseline, with two-way cluster 95% intervals, over all sixteen items and over the items clean for that edit; then the sum of the three single edits and the all-three change minus that sum. RECOMPUTED — NOT BANKED; exploratory; judges UNVALIDATED; no ranking." src="figures/F-g3_g7_factorial.png" /></p>
+<p><strong>The baseline.</strong> The sealed items give a faithful plan in 197 of 288 episodes and a middle plan in 82. Five days earlier the same items and models gave 82 middle plans in 288 as well (change 0.000, interval −0.07 to +0.07). P(¬do | say) is 0.29–0.30, against 0.28–0.31 then.</p>
+<p><strong>The sweetener.</strong> With only the sweetener removed, the middle plan falls from 82 episodes to 12 and the faithful plan rises from 197 to 265. P(¬do | say) falls from 0.29–0.30 to 0.06–0.07 under all four judges. On the 13 clean items the change is the same (−0.26, interval −0.45 to −0.11).</p>
+<p><strong>All three.</strong> The all-three twin gives 14 middle plans in 288, no fewer than the sweetener twin alone. Over the 144 item–model pairs, the sweetener edit accounts for the whole all-three change (share 1.03, interval 0.97 to 1.17).</p>
+<p><strong>Cost and push.</strong> The cost twin gives 65 middle plans and the push twin 63, against 82 at baseline. The intervals include zero, on the clean items too. The judges' rates move from 0.29–0.30 to 0.23–0.25 and 0.24–0.25.</p>
+<p><strong>Why the single edits add up to more than the whole.</strong> The three single changes sum to −0.37, more than the all-three change of −0.24 (difference +0.13, interval −0.01 to +0.30). The sweetener edit alone takes the middle plan to its floor, so the other two have nothing left to remove once it is applied.</p>
+<p><strong>Per model.</strong> Table 2 gives the middle-plan share per model. Eight models reach 0.00–0.06 in the two conditions without the sweetener. llama-4-scout stays at 0.31–0.38 in all five, as its behaviour rate did not rise on October's bundled twins.</p>
+<p><strong>Table 2.</strong> Middle-plan share per model under the five conditions (32 episodes per cell), models in census order. No ranking.</p>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th>sealed items</th>
+<th>cost eased</th>
+<th>sweetener removed</th>
+<th>push withdrawn</th>
+<th>all three</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gpt-oss-20b</td>
+<td>0.47</td>
+<td>0.28</td>
+<td>0.03</td>
+<td>0.31</td>
+<td>0.06</td>
+</tr>
+<tr>
+<td>qwen3-235b-thinking</td>
+<td>0.22</td>
+<td>0.19</td>
+<td>0.00</td>
+<td>0.09</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>deepseek-v4-flash</td>
+<td>0.31</td>
+<td>0.19</td>
+<td>0.00</td>
+<td>0.19</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>mistral-small-3.2-24b</td>
+<td>0.00</td>
+<td>0.03</td>
+<td>0.00</td>
+<td>0.06</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>gemma-4-31b-it</td>
+<td>0.25</td>
+<td>0.25</td>
+<td>0.00</td>
+<td>0.28</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>llama-4-scout</td>
+<td>0.38</td>
+<td>0.38</td>
+<td>0.34</td>
+<td>0.31</td>
+<td>0.38</td>
+</tr>
+<tr>
+<td>glm-5.2</td>
+<td>0.47</td>
+<td>0.38</td>
+<td>0.00</td>
+<td>0.31</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>kimi-k2.6</td>
+<td>0.25</td>
+<td>0.16</td>
+<td>0.00</td>
+<td>0.28</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>gpt-5.5 (metered route)</td>
+<td>0.22</td>
+<td>0.19</td>
+<td>0.00</td>
+<td>0.12</td>
+<td>0.00</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-what-the-papers-can-now-say">3. What the papers can now say</h2>
+<ol>
+<li><strong>The open item is closed, with a result.</strong> Of the three bundled components of the pressure, the middle plan's sweetener is the one that moves the choice. The findings paper (v26 §S31, §S25 item 9), the methods paper, the article and the two eight-page papers now say so.</li>
+<li><strong>The result fits the follow-up record's reading.</strong> C5 found that models take the faithful plan when the middle plan is removed (faithful 0.69 → 0.94), and that 13 of 16 middle plans are the faithful plan plus one addition. G7 reaches the same place by manipulation: take the addition away and the middle plan is no longer chosen. The Schwartz gap is a preference for a compromise that offers something extra. It is not a yielding to cost or to a person pushing.</li>
+<li><strong>The decisive question is unchanged and still human.</strong> Whether a plan with that addition departs from its charter is the label check proposed for the expert read (<code>plans/G5_EXPERT_READ_EXTENSION.md</code>). G7 raises its stakes: the whole effect now rests on that one design element.</li>
+<li><strong>One experiment remains.</strong> A stronger manipulation of cost (§4, first limit).</li>
+</ol>
+<h2 id="4-limits-and-deviations">4. Limits and deviations</h2>
+<ul>
+<li><strong>The cost test is thin by construction.</strong> The sealed items give the faithful plan almost no cost of its own: a stated figure on five items, a clause on one, nothing on ten. What honouring the charter costs is mostly what the violating plan would have brought, and every twin leaves that in place. On the five clean items with a stated cost the middle plan did not fall (+0.06, interval −0.04 to +0.20). The null is for easing the plan's own cost only.</li>
+<li><strong>The sweetener edit changes two things at once.</strong> With the add-on withdrawn, the middle plan has the faithful plan's content on 14 of 16 items. The edit removes the reason to prefer the middle plan and most of its difference from the faithful one, and this design cannot separate the two. All 12 middle-plan episodes that remain in that condition are on those 14 items: a choice of label, not of a different plan.</li>
+<li><strong>The all-three twin is not October's bundled twin.</strong> October's pool is not in this checkout, so the all-three twin was written by composing the three single edits. An incentive on the violating plan remains in every condition here.</li>
+<li><strong>Power.</strong> At sixteen items the cluster bootstrap detects a drop of 0.10 with power 0.49 (C5). Changes of 0.06 and 0.07 are not detected, which is weaker than absent.</li>
+<li><strong>Scope.</strong> One school, sixteen items, nine models, one author for the twins, a mechanical validator and no human review of the twin text. Judges are unvalidated. The result is exploratory.</li>
+<li><strong>Four records excluded from judging.</strong> One model's output on one item contains a file name that trips the judge prompt's leak gate, in four of the 1,440 episodes. Those records keep their behaviour score and are not judged, as in C4. Every other assigned verdict was scored (4,784 of 4,800).</li>
+<li><strong>Two container restarts.</strong> The machine restarted once during the run and once after it. The engine resumed the two unfinished conditions; no record was lost or re-paid, and none is unparseable.</li>
+</ul>
+<h2 id="5-spend-and-provenance">5. Spend and provenance</h2>
+<p><strong>Table 3.</strong> Metered spend from the records (<code>analysis/top10_spend.py --prefix g7_ --detail</code>), against grant G7's $45 ceiling and $40 programme stop.</p>
+<table>
+<thead>
+<tr>
+<th>condition</th>
+<th>subjects</th>
+<th>judges</th>
+<th>total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sealed items, same session</td>
+<td>$5.48</td>
+<td>$1.40</td>
+<td>$6.88</td>
+</tr>
+<tr>
+<td>cost eased</td>
+<td>$5.49</td>
+<td>$1.31</td>
+<td>$6.81</td>
+</tr>
+<tr>
+<td>sweetener removed</td>
+<td>$5.18</td>
+<td>$1.26</td>
+<td>$6.45</td>
+</tr>
+<tr>
+<td>push withdrawn</td>
+<td>$5.61</td>
+<td>$1.31</td>
+<td>$6.92</td>
+</tr>
+<tr>
+<td>all three</td>
+<td>$5.39</td>
+<td>$1.38</td>
+<td>$6.77</td>
+</tr>
+<tr>
+<td><strong>total</strong></td>
+<td><strong>$27.16</strong></td>
+<td><strong>$6.67</strong></td>
+<td><strong>$33.82</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>The key is not reconciled.</strong> At 02:22 UTC on 11 November the key's usage had risen $47.54 since the grant, $13.72 more than the records, and it was still rising at 02:29 with no process of this study running. Grants G5 and G6 reconciled with the key to within $0.13 and $0.00. The difference opened after the first container restart. Whether it comes from a surviving copy of this study's processes on the replaced machine or from another user of the key is not established; the owner has been asked to read the key's activity log. The ledger records this as open.</p>
+<p><strong>Provenance.</strong> Run trees <code>runs/g7_base</code>, <code>runs/g7_twin_cost</code>, <code>runs/g7_twin_sweet</code>, <code>runs/g7_twin_push</code>, <code>runs/g7_twin_all</code> and their judge trees (not in git: they hold item text and model output). Tracked: the analysis output, the authoring manifest, the leak-gate exclusions, the figure and this report. Branch <code>mp-paper-g7-factorial-20261110</code>.</p></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>
