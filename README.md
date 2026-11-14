@@ -12,6 +12,9 @@ out in terms it fell from 74 episodes of 288 to 7; easing the faithful plan's ow
 push made no detectable difference, on weak tests; the charter in the system prompt made no clear difference; and
 graded from the log alone, the say–do rate barely moved. The front page shows the new counts.
 
+Also on 2026-11-14, edition 23A3 was replaced in place (page and PDF; 78 pages): it now describes the human-review packet
+built for the middle-plan label (built and not yet sent). No number changes.
+
 Also on 2026-11-14, edition 23A2 was replaced in place with revision 3 (page and PDF; 137 pages). It adds a coding of what
 the agents' logs say about the compromise (one AI reader under rules fixed in advance, no human check), the judges' labels
 criterion by criterion, who drafted the tasks, and the human-review packet as built and not yet sent. No number of
