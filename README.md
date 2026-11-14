@@ -6,7 +6,13 @@ Every judged number is from language-model judges no human expert has validated:
 no ranking. Only released items are quoted; no model is named or ranked. Regenerated from the private working
 repository by its `outputs/dashboard/build_site.py`.
 
-Last content update: 2026-11-11. Report C7 was added (`reports/C7.html` and its PDF): three checks on the say–do gap,
+Last content update: 2026-11-14. Edition 23A2 was replaced in place with its revision 2 (page, PDF and three figures;
+137 pages), which takes in the experiments of 10–11 November: with one sentence in each charter ruling the compromise
+out in terms it fell from 74 episodes of 288 to 7; easing the faithful plan's own cost or withdrawing the stakeholder's
+push made no detectable difference, on weak tests; the charter in the system prompt made no clear difference; and
+graded from the log alone, the say–do rate barely moved. The front page shows the new counts.
+
+Earlier, on 2026-11-11, report C7 was added (`reports/C7.html` and its PDF): three checks on the say–do gap,
 run under grant G8. With one sentence in each charter ruling out the compromise in terms, the middle plan fell from 26%
 to 2% of episodes; with the charter also in the system prompt, to 18% (not clearly different); and graded on the log
 alone, the say–do rate was 23–26% against 26–29%. The front page counts eleven reports.
