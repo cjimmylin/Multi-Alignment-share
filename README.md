@@ -12,6 +12,11 @@ out in terms it fell from 74 episodes of 288 to 7; easing the faithful plan's ow
 push made no detectable difference, on weak tests; the charter in the system prompt made no clear difference; and
 graded from the log alone, the say–do rate barely moved. The front page shows the new counts.
 
+Also on 2026-11-14, edition 23A2 was replaced in place with revision 3 (page and PDF; 137 pages). It adds a coding of what
+the agents' logs say about the compromise (one AI reader under rules fixed in advance, no human check), the judges' labels
+criterion by criterion, who drafted the tasks, and the human-review packet as built and not yet sent. No number of
+revision 2 changes. The front page shows the new word count.
+
 Earlier, on 2026-11-11, report C7 was added (`reports/C7.html` and its PDF): three checks on the say–do gap,
 run under grant G8. With one sentence in each charter ruling out the compromise in terms, the middle plan fell from 26%
 to 2% of episodes; with the charter also in the system prompt, to 18% (not clearly different); and graded on the log
