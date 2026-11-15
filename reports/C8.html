@@ -1,0 +1,382 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C8 · Three conditions on the frontier models, and the five-check minimum on 36 further tasks</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F5EF;--bg2:#ECE7DB;--card:#FCFBF7;--fg:#1B2A41;--body:#3E4653;--mute:#6B7280;--line:#D9D3C4;--acc:#2F7F6E}
+@media (prefers-color-scheme: dark){:root{--bg:#141B27;--bg2:#1B2A41;--card:#22304A;--fg:#F7F5EF;--body:#C9D3DF;--mute:#9FB0C3;--line:#2E3C55;--acc:#6FB8A6;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:'IBM Plex Sans',Arial,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.crumbs{font-size:.85rem;color:var(--mute);margin-bottom:18px}.crumbs a{color:var(--acc)}
+.doc h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 14px;text-wrap:balance}
+.doc h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.4rem;margin:34px 0 10px;border-top:1px solid var(--line);padding-top:18px}
+.doc h3{font-size:1.08rem;margin:24px 0 8px}.doc h4{font-size:1rem;margin:18px 0 6px}
+.doc p,.doc li{color:var(--body);max-width:78ch}.doc strong{color:var(--fg)}.doc a{color:var(--acc);word-break:break-word}
+.doc code{font-size:.88em;background:var(--bg2);padding:1px 5px;border-radius:4px}.doc pre{background:var(--bg2);padding:12px;border-radius:8px;overflow-x:auto}
+.doc blockquote{border-left:4px solid var(--line);margin:12px 0;padding:2px 14px;color:var(--body)}
+.doc table{border-collapse:collapse;width:100%;font-size:.9rem;display:block;overflow-x:auto}.doc th,.doc td{border-bottom:1px solid var(--line);padding:6px 10px 6px 0;text-align:left;vertical-align:top}.doc th{color:var(--mute);font-weight:500}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:12px;margin:16px 0}
+.cards a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg)}.cards a.card:hover{border-color:var(--acc)}
+.cards .t{font-weight:600;margin-bottom:4px}.cards .d{font-size:.9rem;color:var(--body)}
+footer{margin-top:40px;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+</style></head><body><div class="wrap"><nav class="crumbs"><a href="../">Hub</a> › <a href="../reports/">Lane reports</a> › C8</nav><article class="doc"><h1 id="three-conditions-on-the-frontier-models-and-the-five-check-minimum-on-36-further-tasks">Three conditions on the frontier models, and the five-check minimum on 36 further tasks</h1>
+<p><em>Results of grant G9 (C8) · 2026-11-15 · Multi-Alignment / Moral_Psychology-Paper · plan: steps 3 and 5 of the next steps in edition 23A2, revision 1 (§11) · grant G9 ("I approve of these two: The diagnostic conditions on the six frontier models (about $80). The five-check minimum on the 36 fresh tasks (about $70)."; <code>plans/SPEND_LEDGER.md</code>) · analysis: <code>analysis/g9_results.py</code> → <code>analysis/out/g9_results.json</code>; this report is filled from it by <code>analysis/build_c8.py</code> · pools: <code>analysis/g9_author_pools.py</code>, manifest <code>analysis/out/g9_pools_manifest.json</code> · <code>PROVISIONAL · RECOMPUTED — NOT BANKED · exploratory · judges UNVALIDATED · no ranking</code> · no task, charter, rubric or model-response text is quoted</em></p>
+<h2 id="summary">Summary</h2>
+<p>The grant ran on 14 November 2026 in two parts. <strong>(a)</strong> The six frontier models of the roster, on the sixteen value-priority (Schwartz) agentic tasks used throughout the follow-ups, two administrations each: a baseline run in the same session, the middle plan removed, the exclusion sentence of grant G8, and the charter's ranking reversed on seven tasks. <strong>(b)</strong> The nine models of the follow-ups on the 36 other Schwartz agentic tasks of the instrument (<code>sch-s2-017</code> to <code>052</code>), which were administered twice in one October round and never manipulated, with the five checks that edition 23A2 (§9.3, Table 10) proposes as a minimum for any reported say–do gap. By the run records the grant spent <strong>$132.02</strong> of its $170 cap.</p>
+<ul>
+<li><strong>The exclusion sentence works on the frontier models too.</strong> At baseline the six models chose the middle plan in 48 of 192 (25%) episodes, and all six chose it at least once. With one sentence in each charter ruling out the middle plan's addition in terms, they chose it in 0 of 192 (0%), a change of −25 points (−47 to −9). Faithful choices rose from 141 of 192 (73%) to 184 of 192 (96%).</li>
+<li><strong>So does removing the option, and so does the reversal.</strong> With the middle plan removed, faithful choices rose to 185 of 192 (96%), a change of +23 points (+8 to +41). With the ranking reversed on seven tasks, choices of the plan the charter first favoured fell from 65 of 84 (77%) to 2 of 84 (2%).</li>
+<li><strong>On the 36 further tasks the gap is smaller and less tied to one option.</strong> Of 648 episodes, agents chose the faithful plan in 495 of 648 (76%), the middle plan in 52 of 648 (8%) and the violating plan in 66 of 648 (10%); 55 of the violating choices are two models'. The say–do rate is 14–22% across four judges (intervals 5–40%), and the middle plan is 39–49% of it. With middle-plan episodes set aside the rate is still 9–14%, against 1–3% on the sixteen tasks (edition 23A2, §7.1).</li>
+<li><strong>The three manipulations act as on the sixteen tasks.</strong> Removing the middle plan changed faithful choices by +10 points (+2 to +18); the violating plan was chosen about as often in aggregate, in 64 of 648 (10%) episodes against 66 of 648 (10%), though per-model counts moved both ways. A coherent reversal could be written for 15 of the 36 tasks; on those, choices of the plan the charter first favoured fell from 199 of 270 (74%) to 27 of 270 (10%). In the declared-plan condition the field was filled in 578 of 648 (89%) episodes and named the plan then submitted in 553 of 578 (96%).</li>
+<li><strong>What this changes.</strong> The three conditions that carried the reading of edition 23A2 (the exclusion, the removal and the reversal) give the same result in the six frontier models, five of which are not among the nine (gpt-5.5 is in both sets), and three of which come from the vendor whose model drafted most of the tasks. On the further tasks the say–do gap is not mainly a question of one option's label: the middle plan is 39–49% of it, and the rest is choices of the violating plan and episodes that end with nothing submitted. Across all episodes, 55 of the 66 violating choices are two models'.</li>
+</ul>
+<h2 id="1-what-was-run">1. What was run</h2>
+<p><strong>(a) Frontier conditions.</strong> Six models in roster order: claude-opus-4-8, claude-sonnet-4-6, claude-haiku-4-5, gpt-5.5, gpt-5.4 and gpt-5.4-mini, through the same provider routes as in October; gpt-5.5 is also one of the nine models of the follow-ups. Sixteen tasks, two administrations, 192 episodes per condition. The baseline is byte-identical to the comparison run of grant G8, and the exclusion condition byte-identical to G8's exclusion pool, so the six frontier models saw exactly the texts the nine models saw. The middle plan was removed as in the follow-ups (its entry in the options file, its tool, its label and every mention; the other two re-lettered A and B). The reversal used the seven of the ten earlier reversals that need no edit to the task's facts. Its text was rebuilt after an independent check, which found the charter's own stated reasons argued for the old ordering on two tasks. This condition replaces the "say whether the plan follows the priority" sentence of revision 1's list, because the exclusion bears more directly on the paper's open question; the cost is the same.</p>
+<p><strong>(b) The five-check minimum on 36 further tasks.</strong> The nine models of the follow-ups, two administrations, 648 episodes at baseline. The five checks are: the clustered interval on the say–do rate; the rate under three scorings of the middle plan; the middle plan removed; the reversal, with a count of the tasks that cannot be reversed; and the declared-plan field. The first two are analyses of the baseline. The variants were written by separate agent sessions without reading any model output, and each was checked by an independent session before it ran. The middle plan was removed mechanically on the sixteen tasks whose options file uses one fixed form, and by authored edits on the other twenty; on eight of the sixteen the mechanical removal missed a mention of the middle plan, and an authored edit completed it. The completed removals were checked again.</p>
+<p><strong>The reversal on the further tasks.</strong> Authors judged a reversal coherent only where a reversed charter would remain one a real organisation could adopt: 15 of 36. On the other 21, the authors coded what following the reversed ranking would bring (a task can carry several codes): harm to a third party (9), a breach of safety (8), a breach of an outside requirement such as a law, licence or contract (7), harm to the vulnerable people the organisation serves (7) and harm to the organisation's core mission (7); on one no single plan is favoured to begin with. The independent check passed all fifteen on coherence and on the exact swap of the faithful and violating labels. It found that on five of the fifteen the fixed middle plan becomes, under the reversed charter, a stronger breach than the plan labelled violating, and on two more the middle plan's position is arguable. The reversal is therefore read on the plan the charter first favoured, which needs only the swapped labels, on all fifteen tasks. The middle plan is read only on the eight tasks where it stays between the other two. This arm was not judged: the five-check minimum reads the reversal on counts of actions.</p>
+<p><strong>Judging.</strong> The four retained judges (gpt-5.4-nano, gpt-oss-120b, glm-5.3-flash, deepseek-v4.1-flash), each grading the models not from its own vendor: on the frontier tasks the two OpenAI judges grade the three Anthropic models only. Judges' grades are never averaged. One judge, deepseek-v4.1-flash, returned no usable grade for 6 of the 576 declared-plan episodes it grades; they are left out of its rates.</p>
+<h2 id="2-the-frontier-models-tables-1-and-2">2. The frontier models (Tables 1 and 2)</h2>
+<p>At baseline the six models chose the faithful plan in 141 of 192 (73%) episodes and the middle plan in 48 of 192 (25%), on 10 of the sixteen tasks; 3 episodes ended with nothing submitted. The judges graded the reasoning faithful in 98–100% of episodes, so the say–do rate is again close to the share not following the charter: 27–35% across the four judges (intervals 11–59%). This is the pattern of October's frontier administrations (edition 23A2, Table 3b), now in a session of its own.</p>
+<p><strong>The exclusion sentence.</strong> The middle plan was chosen in 0 of 192 (0%) episodes, a change of −25 points (−47 to −9), and the faithful plan in 184 of 192 (96%). No model chose the middle plan; at baseline every one of the six had chosen it at least once. The episodes that did not end in the faithful plan are 7 with nothing submitted, all gpt-5.4-mini's, and 1 in which both remaining plans were submitted. Under the exclusion the say–do rate fell to 1–4%.</p>
+<p><strong>The middle plan removed.</strong> Faithful choices rose to 185 of 192 (96%), a change of +23 points (+8 to +41). No model moved to the violating plan alone. In 5 episodes, all claude-sonnet-4-6's, both remaining plans were submitted; 2 ended with nothing submitted.</p>
+<p><strong>The reversal.</strong> On the seven tasks, choices of the plan the charter first favoured fell from 65 of 84 (77%) to 2 of 84 (2%), all of the latter claude-sonnet-4-6's. The middle plan went from 17 episodes to 7, a change of −12 points (−40 to +7): on seven tasks the interval is too wide to read.</p>
+<p><strong>Reading.</strong> In these six models, as in the nine, the middle plan is chosen where the charter states a ranking and not where a sentence rules its addition out; it is not replaced by the violating plan when it is removed; and the charter's ranking moves the choice when it is reversed. Edition 23A2's diagnostic results on the nine models (§6) were not repeated here: the hidden file, the declared-plan field, the own-or-other verdicts and the forced comparison remain nine-model results.</p>
+<p><strong>Table 1.</strong> Episodes per model in each frontier condition, in roster order (of 32 per condition; the reversal, of 14). Judge-free. "Violating" includes episodes in which both remaining plans were submitted. Not a ranking.</p>
+<table>
+<thead>
+<tr>
+<th>model (roster order)</th>
+<th>baseline: faithful / middle / violating / none (of 32)</th>
+<th>middle plan removed (same order)</th>
+<th>exclusion sentence (same order)</th>
+<th>reversal: plan first favoured, before → after (seven tasks)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>claude-opus-4-8</td>
+<td>20 / 12 / 0 / 0</td>
+<td>32 / — / 0 / 0</td>
+<td>32 / 0 / 0 / 0</td>
+<td>10 → 0 of 14</td>
+</tr>
+<tr>
+<td>claude-sonnet-4-6</td>
+<td>16 / 16 / 0 / 0</td>
+<td>27 / — / 5 / 0</td>
+<td>31 / 0 / 1 / 0</td>
+<td>7 → 2 of 14</td>
+</tr>
+<tr>
+<td>claude-haiku-4-5</td>
+<td>26 / 6 / 0 / 0</td>
+<td>32 / — / 0 / 0</td>
+<td>32 / 0 / 0 / 0</td>
+<td>13 → 0 of 14</td>
+</tr>
+<tr>
+<td>gpt-5.5</td>
+<td>25 / 7 / 0 / 0</td>
+<td>32 / — / 0 / 0</td>
+<td>32 / 0 / 0 / 0</td>
+<td>11 → 0 of 14</td>
+</tr>
+<tr>
+<td>gpt-5.4</td>
+<td>26 / 6 / 0 / 0</td>
+<td>32 / — / 0 / 0</td>
+<td>32 / 0 / 0 / 0</td>
+<td>12 → 0 of 14</td>
+</tr>
+<tr>
+<td>gpt-5.4-mini</td>
+<td>28 / 1 / 0 / 3</td>
+<td>30 / — / 0 / 2</td>
+<td>25 / 0 / 0 / 7</td>
+<td>12 → 0 of 14</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table 2.</strong> The share graded faithful and the say–do rate per judge on the frontier tasks (LM-judged). The two OpenAI judges grade the three Anthropic models only. <code>PROVISIONAL · judges UNVALIDATED · no ranking</code>.</p>
+<table>
+<thead>
+<tr>
+<th>judge</th>
+<th>models graded</th>
+<th>graded faithful (baseline)</th>
+<th>say–do rate, baseline [95% interval, tasks and models resampled]</th>
+<th>middle plan removed</th>
+<th>exclusion sentence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gpt-5.4-nano</td>
+<td>3</td>
+<td>100%</td>
+<td>35% [14, 59]</td>
+<td>5%</td>
+<td>1%</td>
+</tr>
+<tr>
+<td>gpt-oss-120b</td>
+<td>3</td>
+<td>100%</td>
+<td>35% [14, 59]</td>
+<td>5%</td>
+<td>1%</td>
+</tr>
+<tr>
+<td>glm-5.3-flash</td>
+<td>6</td>
+<td>100%</td>
+<td>27% [11, 47]</td>
+<td>4%</td>
+<td>4%</td>
+</tr>
+<tr>
+<td>deepseek-v4.1-flash</td>
+<td>6</td>
+<td>98%</td>
+<td>27% [11, 47]</td>
+<td>4%</td>
+<td>4%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-the-five-checks-on-the-36-further-tasks-tables-3-and-4">3. The five checks on the 36 further tasks (Tables 3 and 4)</h2>
+<p><strong>The baseline.</strong> Of 648 episodes, agents chose the faithful plan in 495 of 648 (76%), the middle plan in 52 of 648 (8%), on 17 of the 36 tasks, the violating plan in 66 of 648 (10%) and nothing in 35 of 648 (5%). The violating choices are concentrated: 55 of them are two models', mistral-small-3.2-24b's 28 and llama-4-scout's 27. In grant G8's comparison run on the sixteen tasks (report C7), the middle plan was chosen in 74 of 288 (26%) episodes and the violating plan in 4 of 288 (1%).</p>
+<p><strong>Check 1: the clustered interval.</strong> The judges graded the reasoning faithful in 70–90% of episodes, much less uniformly than on the sixteen tasks (96–99% in grant G8's comparison run). The say–do rate is 14–22% across the four judges, with 95% intervals that together span 5–40% when tasks and models are resampled together. The rate is clear of zero; its size is known only roughly.</p>
+<p><strong>Check 2: three scorings of the middle plan.</strong> Scored as a departure, the rate is 14–22%; with the middle plan credited at one half, 11–17%; with middle-plan episodes set aside, 9–14%. The middle plan is 39–49% of the say–do episodes. Here, unlike on the sixteen tasks, a large part of the rate survives any scoring of that option. Because grading is less generous, the reverse pattern, a faithful action under reasoning not graded faithful, has a ceiling of 13–40% and was 7–24%; it exceeds the forward rate under two of the four judges.</p>
+<p><strong>Check 3: the middle plan removed.</strong> Faithful choices rose to 557 of 648 (86%), a change of +10 points (+2 to +18); the middle plan's share changed by −8 points (−15 to −2). The violating plan was chosen in 64 of 648 (10%) episodes against 66 of 648 (10%) at baseline, about as often in aggregate. Per model the counts moved both ways (Table 4), and counts cannot show where particular choices went.</p>
+<p><strong>Check 4: the reversal.</strong> On the 15 reversible tasks choices of the plan the charter first favoured fell from 199 of 270 (74%) to 27 of 270 (10%). Before the reversal, the plan that the reversed charter would favour was chosen in 23 of 270 (9%) episodes, so agents chose against the charter's ranking at about the same low rate whichever way it ran. Episodes with nothing submitted rose from 12 to 30. On the eight tasks whose middle plan stays intermediate, the middle plan went from 31 of 144 (22%) to 27 of 144 (19%), a change of −3 points (−15 to +10). That the reversal is coherent on only 15 of 36 tasks is itself the result this check asks to be reported: on most of these tasks, following the charter coincides with avoiding harm or a breach of an outside requirement.</p>
+<p><strong>Check 5: the declared-plan field.</strong> Agents were asked to name, in their call to the record tool, the tool they would submit with. They filled it in 578 of 648 (89%) episodes, and it named the plan then submitted in 553 of 578 (96%). It declared the faithful plan in 466 episodes, and 19 of those ended otherwise. Where the middle plan was submitted and the field filled, the field named it in 47 of 47. The middle plan was chosen in 51 of 648 (8%) episodes, a change of 0 points (−4 to +3) against the baseline. Reasoning graded faithful was followed by a different action in 16–23% of the episodes so graded in this condition.</p>
+<p><strong>Table 3.</strong> The say–do rate on the 36 further tasks per judge, under the three scorings of the middle plan, with the reverse rate (LM-judged). Each judge grades seven or eight of the nine models. <code>PROVISIONAL · judges UNVALIDATED · no ranking</code>.</p>
+<table>
+<thead>
+<tr>
+<th>judge</th>
+<th>models graded</th>
+<th>graded faithful</th>
+<th>say–do rate [95% interval, tasks and models resampled]</th>
+<th>middle plan credited at one half</th>
+<th>middle-plan episodes set aside</th>
+<th>middle plan's share of the say–do episodes</th>
+<th>reverse rate (faithful action, reasoning not graded faithful)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gpt-5.4-nano</td>
+<td>7</td>
+<td>71%</td>
+<td>19% [6, 35]</td>
+<td>14%</td>
+<td>11%</td>
+<td>49%</td>
+<td>24%</td>
+</tr>
+<tr>
+<td>gpt-oss-120b</td>
+<td>7</td>
+<td>90%</td>
+<td>22% [7, 40]</td>
+<td>17%</td>
+<td>14%</td>
+<td>42%</td>
+<td>7%</td>
+</tr>
+<tr>
+<td>glm-5.3-flash</td>
+<td>8</td>
+<td>77%</td>
+<td>16% [6, 29]</td>
+<td>13%</td>
+<td>10%</td>
+<td>39%</td>
+<td>13%</td>
+</tr>
+<tr>
+<td>deepseek-v4.1-flash</td>
+<td>8</td>
+<td>70%</td>
+<td>14% [5, 27]</td>
+<td>11%</td>
+<td>9%</td>
+<td>40%</td>
+<td>19%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table 4.</strong> Episodes per model on the 36 further tasks, in roster order (of 72 per condition; the reversal, of 30). Judge-free. Not a ranking.</p>
+<table>
+<thead>
+<tr>
+<th>model (roster order)</th>
+<th>baseline: faithful / middle / violating / none (of 72)</th>
+<th>middle plan removed (same order)</th>
+<th>reversal: plan first favoured, before → after (15 tasks)</th>
+<th>declared-plan field (same order)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gpt-oss-20b</td>
+<td>43 / 4 / 6 / 19</td>
+<td>48 / — / 2 / 22</td>
+<td>18 → 6 of 30</td>
+<td>36 / 1 / 3 / 32</td>
+</tr>
+<tr>
+<td>qwen3-235b-thinking</td>
+<td>60 / 6 / 2 / 4</td>
+<td>66 / — / 5 / 1</td>
+<td>24 → 2 of 30</td>
+<td>55 / 7 / 4 / 6</td>
+</tr>
+<tr>
+<td>deepseek-v4-flash</td>
+<td>65 / 5 / 1 / 1</td>
+<td>70 / — / 0 / 2</td>
+<td>25 → 4 of 30</td>
+<td>64 / 6 / 1 / 1</td>
+</tr>
+<tr>
+<td>mistral-small-3.2-24b</td>
+<td>39 / 5 / 28 / 0</td>
+<td>52 / — / 20 / 0</td>
+<td>16 → 5 of 30</td>
+<td>37 / 7 / 28 / 0</td>
+</tr>
+<tr>
+<td>gemma-4-31b-it</td>
+<td>62 / 8 / 2 / 0</td>
+<td>72 / — / 0 / 0</td>
+<td>24 → 2 of 30</td>
+<td>63 / 6 / 3 / 0</td>
+</tr>
+<tr>
+<td>llama-4-scout</td>
+<td>24 / 18 / 27 / 3</td>
+<td>35 / — / 37 / 0</td>
+<td>11 → 5 of 30</td>
+<td>23 / 16 / 25 / 8</td>
+</tr>
+<tr>
+<td>glm-5.2</td>
+<td>68 / 4 / 0 / 0</td>
+<td>71 / — / 0 / 1</td>
+<td>26 → 2 of 30</td>
+<td>68 / 4 / 0 / 0</td>
+</tr>
+<tr>
+<td>kimi-k2.6</td>
+<td>62 / 2 / 0 / 8</td>
+<td>71 / — / 0 / 1</td>
+<td>25 → 1 of 30</td>
+<td>62 / 4 / 0 / 6</td>
+</tr>
+<tr>
+<td>gpt-5.5</td>
+<td>72 / 0 / 0 / 0</td>
+<td>72 / — / 0 / 0</td>
+<td>30 → 0 of 30</td>
+<td>72 / 0 / 0 / 0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-what-this-changes-in-edition-23a2">4. What this changes in edition 23A2</h2>
+<ul>
+<li><strong>§5.2 and §10.</strong> The frontier models no longer only "show the same pattern": three of the conditions that carry the paper's reading give the same result in them. The limitation that the diagnostic tests cover nine models, mostly open-weight, narrows to the tests not repeated here.</li>
+<li><strong>§7.1.</strong> The exclusion result now comes from fourteen models: eight of the nine in the follow-ups, and all six frontier models, one of which (gpt-5.5) is also among the nine.</li>
+<li><strong>§9.3 and Table 10.</strong> The five-check minimum has been run on a second set of tasks. On the sixteen tasks it showed a rate that rests almost entirely on one option's label. On the 36 it shows a smaller rate of which the middle plan is 39–49%; the rest is choices of the violating plan and episodes with nothing submitted. A single rate would have hidden both differences.</li>
+<li><strong>§11.</strong> Steps 3 and 5 of revision 1's list are done.</li>
+</ul>
+<h2 id="5-limits">5. Limits</h2>
+<ul>
+<li>Sixteen and 36 tasks, six and nine models, two administrations. Clustered intervals are wide, and the per-model counts support no comparison between models; none is made.</li>
+<li>The variants were written and checked by AI agent sessions, not by people. No human has read any variant against its plans.</li>
+<li>The further tasks' reversal is coherent on 15 of 36, and the middle plan is intermediate under it on eight; the reversal shows the ranking moving choices on those tasks, not on the instrument as a whole.</li>
+<li>The judges are unvalidated. On the further tasks they grade less uniformly than on the sixteen, and their spread is wide.</li>
+<li>The frontier conditions and the five checks ran in one session, each against a baseline from the same session; nothing here is compared with October's frontier figures except in direction.</li>
+</ul>
+<h2 id="6-cost">6. Cost</h2>
+<p>By the run records (<code>analysis/top10_spend.py --prefix g9_</code>):</p>
+<table>
+<thead>
+<tr>
+<th>condition</th>
+<th>calls to the models under test</th>
+<th>judges</th>
+<th>total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>frontier: baseline</td>
+<td>$19.68</td>
+<td>$0.76</td>
+<td>$20.43</td>
+</tr>
+<tr>
+<td>frontier: middle plan removed</td>
+<td>$17.73</td>
+<td>$0.72</td>
+<td>$18.45</td>
+</tr>
+<tr>
+<td>frontier: exclusion sentence</td>
+<td>$19.33</td>
+<td>$0.80</td>
+<td>$20.13</td>
+</tr>
+<tr>
+<td>frontier: reversal (seven tasks)</td>
+<td>$8.84</td>
+<td>$0.41</td>
+<td>$9.25</td>
+</tr>
+<tr>
+<td>fresh tasks: baseline</td>
+<td>$15.82</td>
+<td>$4.01</td>
+<td>$19.83</td>
+</tr>
+<tr>
+<td>fresh tasks: middle plan removed</td>
+<td>$14.07</td>
+<td>$4.03</td>
+<td>$18.09</td>
+</tr>
+<tr>
+<td>fresh tasks: reversal (15 tasks; not judged)</td>
+<td>$7.13</td>
+<td>—</td>
+<td>$7.13</td>
+</tr>
+<tr>
+<td>fresh tasks: declared-plan field</td>
+<td>$14.59</td>
+<td>$4.11</td>
+<td>$18.70</td>
+</tr>
+<tr>
+<td><strong>frontier conditions</strong> (cap $90)</td>
+<td><strong>$65.58</strong></td>
+<td><strong>$2.68</strong></td>
+<td><strong>$68.26</strong></td>
+</tr>
+<tr>
+<td><strong>five-check minimum</strong> (cap $80)</td>
+<td><strong>$51.61</strong></td>
+<td><strong>$12.15</strong></td>
+<td><strong>$63.76</strong></td>
+</tr>
+<tr>
+<td><strong>grant G9</strong> (cap $170)</td>
+<td><strong>$117.19</strong></td>
+<td><strong>$14.83</strong></td>
+<td><strong>$132.02</strong></td>
+</tr>
+</tbody>
+</table></article>
+<footer>Background literature for the Multi-Alignment moral-psychology benchmark. Written by the project; papers are linked to their official sources and are not hosted here. When this background cites the benchmark's own results, they remain PROVISIONAL · judges UNVALIDATED · no ranking.</footer></div></body></html>

@@ -6,7 +6,13 @@ Every judged number is from language-model judges no human expert has validated:
 no ranking. Only released items are quoted; no model is named or ranked. Regenerated from the private working
 repository by its `outputs/dashboard/build_site.py`.
 
-Last content update: 2026-11-14. Edition 23A2 was replaced in place with its revision 2 (page, PDF and three figures;
+Last content update: 2026-11-15. Report C8 was added (`reports/C8.html` and its PDF): grant G9, three conditions on the six
+frontier models and the five-check minimum on 36 further value-priority tasks. On the frontier models, with the compromise
+ruled out in terms, it fell from 48 episodes of 192 to none; on the 36 further tasks the say–do rate is smaller (14–22%
+across four judges) and the compromise is only 39–49% of it. Edition 23A2 was replaced in place with revision 4, which
+takes these in (page and PDF; 141 pages). The front page shows the new counts and the C8 row.
+
+Earlier, on 2026-11-14, edition 23A2 was replaced in place with its revision 2 (page, PDF and three figures;
 137 pages), which takes in the experiments of 10–11 November: with one sentence in each charter ruling the compromise
 out in terms it fell from 74 episodes of 288 to 7; easing the faithful plan's own cost or withdrawing the stakeholder's
 push made no detectable difference, on weak tests; the charter in the system prompt made no clear difference; and
